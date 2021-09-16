@@ -66,7 +66,7 @@ header {
 #search-on > .searchBar > input {
   background-image: url(/images/magnifying-glass.svg);
   background-repeat: no-repeat;
-  background-position: 95% 50%;
+  background-position: 97% 50%;
   background-color: transparent;
   padding: 10px 60px 10px 20px;
   border: none;
@@ -108,7 +108,7 @@ header {
 .filter-by_input {
   background-image: url(/images/chevron-up.svg);
   background-repeat: no-repeat;
-  background-position: 95% 50%;
+  background-position: 97% 50%;
   background-color: transparent;
   padding: 10px 60px 10px 20px;
   border: none;
