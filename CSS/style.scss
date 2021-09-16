@@ -1,8 +1,103 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+
 * {
     a{
         text-decoration: none;
     }
     ul{
         list-style-type: none;
+    }
+}
+
+body{
+    font-size: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+/* header */
+
+header{
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column; 
+}
+
+#banner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    & h1{
+        color: $logo-color;
+        margin-top: 0;
+    }
+}
+
+
+#your-search{
+    width: 100%;
+}
+
+// form barre de recherche
+#search-on{
+    width: 100%;
+
+    > .searchBar{
+        width: 100%;
+        display: flex;
+        height: 60px;
+        border: 1px black solid;
+        background-color: $bg-color-primary;
+        > input {
+            @include input(url(/images/magnifying-glass.svg), 60px);
+            &::placeholder{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// form trier par:
+
+#filter-by{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.filter-by_input{
+    @include input(url(/images/chevron-up.svg),100%);
+    &::placeholder{
+        color: $text-filter-color;
+        font-weight: bold; 
+        font-size: 1rem;
+    }
+}
+
+#by_ingredients{
+   @include bloc-shape($ingredients-color);
+}
+
+#kitchen-appliance{
+    @include bloc-shape($appliance-color);
+}
+
+#kitchen-tool{
+    @include bloc-shape($tool-color);
+}
+
+.menu{
+    width: 100%;
+    cursor: pointer;
+    > :hover{
+        opacity: 0.8;
     }
 }

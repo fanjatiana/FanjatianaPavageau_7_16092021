@@ -10,24 +10,38 @@
        <header>
            <div id="banner">
                 <a href="index.html" title="retour page d'accueil">
-                    <img alt="logo du site les petits plats (toque de cuisinier)">
+                    <img alt="logo du site les petits plats (toque de cuisinier)" src="images/Vector.svg">
                     <h1>Les petits plats</h1>
                 </a>
            </div>
-           <div>
-               <nav id="search">
-                   <div class="searchBar">
-                       <input type="search" value="" placeholder="Rechercher un ingrédient, appareil,ustensiles ou recette">
-                       <button title="chercher sur le site"></button>
-                   </div>
-                   <div class=""></div>
-               </nav>
-               <section id="filter-by">
-                   <div id="ingrédients"></div>
-                   <div id="kitchen-appliance"></div>
-                   <div id="kitchen-tool"></div>
-               </section>
-           </div>  
+           <nav id="your-search">
+                <form id="search-on" method="post" action="">
+                    <div class="searchBar">
+                        <input type="search" value="" placeholder="Rechercher un ingrédient, appareil,ustensiles ou recette" aria-label="Rechercher un ingrédient, appareil,ustensiles ou recette">
+                    </div>
+                    <div class=""></div>  
+                </form>
+                <form id="filter-by">
+                    <section id="by_ingredients">
+                        <div class="menu">
+                            <input class="filter-by_input" type="search" value="" placeholder="Ingredients" aria-label="Rechercher un ingrédient">
+                        </div>
+                        <div class="sub_menu-ingredients"></div>
+                    </section>
+                    <section id="kitchen-appliance">
+                        <div class="menu">
+                            <input class="filter-by_input" type="search" value="" placeholder="Appareil" aria-label="Rechercher un appareil">
+                        </div>
+                        <div class="sub_kitchen-appliance"></div>
+                    </section>
+                    <section id="kitchen-tool">
+                        <div class="menu">
+                            <input class="filter-by_input" type="search" value="" placeholder="ustensiles" aria-label="Rechercher un ou des ustensiles">
+                        </div>
+                        <div class="sub_menu-kitchen-tool"></div>
+                    </section>
+                </form>
+            </nav>  
        </header>
        <main id="recipes-list"></main>
        <script src="JS/recipes.js"></script>
