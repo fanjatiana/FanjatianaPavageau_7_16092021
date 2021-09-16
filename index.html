@@ -15,28 +15,32 @@
                 </a>
            </div>
            <nav id="your-search">
-                <form id="search-on" method="post" action="">
+                <form id="search-on">
                     <div class="searchBar">
-                        <input type="search" value="" placeholder="Rechercher un ingrédient, appareil,ustensiles ou recette" aria-label="Rechercher un ingrédient, appareil,ustensiles ou recette">
+                        <label for="site-search"></label>
+                        <input id="site-search" value class="enter-your-search" type="search" value placeholder="Rechercher un ingrédient, appareil,ustensiles ou recette" aria-label="Rechercher un ingrédient, appareil,ustensiles ou recette">
                     </div>
                     <div class=""></div>  
                 </form>
                 <form id="filter-by">
                     <section id="by_ingredients">
                         <div class="menu">
-                            <input class="filter-by_input" type="search" value="" placeholder="Ingredients" aria-label="Rechercher un ingrédient">
+                            <label for="ingredients-search"></label>
+                            <input id="ingredients-search"class="filter-by_input" type="search" value placeholder="Ingredients" aria-label="Rechercher un ingrédient">
                         </div>
                         <div class="sub_menu"></div>
                     </section>
                     <section id="kitchen-appliance">
                         <div class="menu">
-                            <input class="filter-by_input" type="search" value="" placeholder="Appareil" aria-label="Rechercher un appareil">
+                            <label for="appliance-search"></label>
+                            <input id="appliance-search" class="filter-by_input" type="search" value placeholder="Appareil" aria-label="Rechercher un appareil">
                         </div>
                         <div class="sub_menu"></div>
                     </section>
                     <section id="kitchen-tool">
                         <div class="menu">
-                            <input class="filter-by_input" type="search" value="" placeholder="Ustensiles" aria-label="Rechercher un ou des ustensiles">
+                            <label for="tool-search"></label>
+                            <input id="tool-search" class="filter-by_input" type="search" value="" placeholder="Ustensiles" aria-label="Rechercher un ou des ustensiles">
                         </div>
                         <div class="sub_menu"></div>
                     </section>
