@@ -37,24 +37,22 @@ const searchBar = document.getElementById("site-search");
 console.log(searchBar);
 
 
+//construction des articles dans le dom
+
+
             
-
-
 
 // Fonction pour afficher la liste des menus
 
-
-
-  
-    
-    
     const searchByTitle = (event)=>{
         event.preventDefault();
-        document.getElementById("recipes-list").innerHTML = null;
+        document.getElementById("recipes-list").innerHTML = null; // initialisation des articles
         arrayTitle.filter((title) => {
+            //suppression des caractères spéciaux
+            const titlesWithDeletionOfCharacters = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             
-            if (searchBar.value.length >= 3 && title.toLowerCase().includes(searchBar.value.toLowerCase())){
-               
+            if (searchBar.value.length >= 3 && titlesWithDeletionOfCharacters.toLowerCase().includes(searchBar.value.toLowerCase())){
+                
                     return document.getElementById("recipes-list").innerHTML += `<article>
                     <div id="img_recipe">
                         <img>
