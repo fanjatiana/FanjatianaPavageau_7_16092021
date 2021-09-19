@@ -38,6 +38,26 @@ console.log(searchBar);
 
 
 //construction des articles dans le dom
+recipes.forEach(element => {
+    document.getElementById("recipes-list").innerHTML += `<article id="${element.id}"">
+                    <div id="img_recipe">
+                        <img>
+                    </div>
+                    <div id="recipe">
+                        <div class ="info_recipe">
+                            <h3>${element.name}</h3>
+                            <p>${element.time}</p>
+                        </div>
+                        <div class="instructions_recipe">
+                            <ul></ul>
+                            <p>${element.description}</p>
+                        </div>
+                    </div>
+                </article>`;
+                
+    
+});
+
 
 
             
