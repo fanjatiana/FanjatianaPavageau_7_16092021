@@ -3,7 +3,7 @@ import { recipes } from "./recipes.js";
 
 // tableau des titres
 const arrayTitle = recipes.map((element) => element.name );
-//console.log(arrayTitle);
+console.log(arrayTitle);
 
 // tableau des ingrédients
 const arrayIngredient = recipes.map((element) => element.ingredients);
@@ -33,5 +33,42 @@ arrayUstensils.forEach(element => {
 
 //console.log(ustensilsList)
 
+const searchBar = document.getElementById("site-search");
+console.log(searchBar);
 
+
+            
+
+
+
+// Fonction pour afficher la liste des menus
+
+
+
+    searchBar.addEventListener("keyup", (event)=>{
+        event.preventDefault();
+        arrayTitle.filter((title) => {
+            if (searchBar.value.length == 3 && title.toLowerCase().includes(searchBar.value.toLowerCase())){
+           
+                    return document.getElementById("recipes-list").innerHTML += `<article>
+                    <div id="img_recipe">
+                        <img>
+                    </div>
+                    <div id="recipe">
+                        <div class ="info_recipe">
+                            <h3>${title}</h3>
+                            <p></p>
+                        </div>
+                        <div class="instructions_recipe">
+                            <ul></ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </article>`;;
+                
+            }
+            return false;
+            
+        });
+        })
 
