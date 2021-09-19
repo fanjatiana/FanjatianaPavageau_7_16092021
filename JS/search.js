@@ -45,11 +45,16 @@ console.log(searchBar);
 
 
 
-    searchBar.addEventListener("keyup", (event)=>{
+  
+    
+    
+    const searchByTitle = (event)=>{
         event.preventDefault();
+        document.getElementById("recipes-list").innerHTML = null;
         arrayTitle.filter((title) => {
-            if (searchBar.value.length == 3 && title.toLowerCase().includes(searchBar.value.toLowerCase())){
-           
+            
+            if (searchBar.value.length >= 3 && title.toLowerCase().includes(searchBar.value.toLowerCase())){
+               
                     return document.getElementById("recipes-list").innerHTML += `<article>
                     <div id="img_recipe">
                         <img>
@@ -64,11 +69,14 @@ console.log(searchBar);
                             <p></p>
                         </div>
                     </div>
-                </article>`;;
+                </article>`;
                 
             }
-            return false;
             
         });
-        })
+        }
+        searchBar.addEventListener("input", searchByTitle);
+
+    
+
 
