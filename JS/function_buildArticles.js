@@ -1,4 +1,6 @@
 import { recipes } from "./data_recipes.js";
+import { ingredientsList } from "./let-and-const.js";
+
 
 //construction des articles dans le dom
 export const buildArticle = (element) => {
@@ -16,10 +18,12 @@ export const buildArticle = (element) => {
                             </div>
                             <div class="instructions_recipe">
                                 <ul id="list_ingredient">
-                                    
                                 </ul>
                                 <p>${element.description}</p>
                             </div>
                         </div>
                     </article>`;
-  };
+
+  
+    }
+                     

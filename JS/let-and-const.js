@@ -7,9 +7,10 @@ export const arrayTitle = recipes.map((element) => element.name );
 // tableau des ingrédients
 const arrayIngredient = recipes.map((element) => element.ingredients);
 
-export let ingredientsList = []
+export let ingredientsList = [];
 arrayIngredient.forEach((product) => {
-        ingredientsList.push(product[0].ingredient);
+        //ingredientsList.push(product[0].ingredient);
+         ingredientsList.push(product[0]);
 })
 //console.log(ingredientsList)
 

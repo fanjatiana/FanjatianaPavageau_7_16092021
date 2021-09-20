@@ -2,7 +2,6 @@ import { recipes } from "./data_recipes.js";
 import { arrayTitle, searchBar } from "./let-and-const.js";
 import {buildArticle} from "./function_buildArticles.js"
 
-console.log(searchBar);
 
 // Fonction pour afficher la liste des menus
 
