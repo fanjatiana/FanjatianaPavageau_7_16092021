@@ -9,8 +9,8 @@ const arrayIngredient = recipes.map((element) => element.ingredients);
 
 export let ingredientsList = [];
 arrayIngredient.forEach((product) => {
-        //ingredientsList.push(product[0].ingredient);
-         ingredientsList.push(product[0]);
+        ingredientsList.push(product[0].ingredient);
+        
 })
 //console.log(ingredientsList)
 

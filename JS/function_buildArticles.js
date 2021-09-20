@@ -1,13 +1,11 @@
 import { recipes } from "./data_recipes.js";
 import { ingredientsList } from "./let-and-const.js";
 
-
 //construction des articles dans le dom
 export const buildArticle = (element) => {
-
-    document.getElementById(
-      "recipes-list"
-    ).innerHTML += `<article id="${element.id}"">
+  document.getElementById(
+    "recipes-list"
+  ).innerHTML += `<article id="${element.id}"">
                         <div id="img_recipe">
                             <img>
                         </div>
@@ -23,7 +21,4 @@ export const buildArticle = (element) => {
                             </div>
                         </div>
                     </article>`;
-
-  
-    }
-                     
+};
