@@ -1,8 +1,8 @@
 import { recipes } from "./data_recipes.js";
 
 //construction des articles dans le dom
-export const buildArticle = () => {
-  recipes.forEach((element) => {
+export const buildArticle = (element) => {
+
     document.getElementById(
       "recipes-list"
     ).innerHTML += `<article id="${element.id}"">
@@ -22,5 +22,4 @@ export const buildArticle = () => {
                             </div>
                         </div>
                     </article>`;
-  });
-};
+  };

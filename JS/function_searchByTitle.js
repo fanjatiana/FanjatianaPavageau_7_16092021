@@ -1,4 +1,6 @@
+import { recipes } from "./data_recipes.js";
 import { arrayTitle, searchBar } from "./let-and-const.js";
+import {buildArticle} from "./function_buildArticles.js"
 
 console.log(searchBar);
 
@@ -7,34 +9,28 @@ console.log(searchBar);
 export const searchByTitle = (event) => {
   event.preventDefault();
   document.getElementById("recipes-list").innerHTML = null; // initialisation des articles
-  arrayTitle.filter((title) => {
+  recipes.forEach((element) => {
+   
+    arrayTitle.filter((title) => {
     
-    //suppression des caractères spéciaux
-    const titlesWithDeletionOfCharacters = title
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+      //suppression des caractères spéciaux
+      const titlesWithDeletionOfCharacters = title
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+  
+      if (
+        (searchBar.value.length >= 3 &&
+        titlesWithDeletionOfCharacters
+          .toLowerCase()
+          .includes(searchBar.value.toLowerCase()) &&
+        title === element.name)  
+      ) {
+        return buildArticle(element);
+      }
+    });
+ 
+  
+  })
 
-    if (
-      searchBar.value.length >= 3 &&
-      titlesWithDeletionOfCharacters
-        .toLowerCase()
-        .includes(searchBar.value.toLowerCase())
-    ) {
-      return (document.getElementById("recipes-list").innerHTML += `<article>
-                    <div id="img_recipe">
-                        <img>
-                    </div>
-                    <div id="recipe">
-                        <div class ="info_recipe">
-                            <h3>${title}</h3>
-                            <p></p>
-                        </div>
-                        <div class="instructions_recipe">
-                            <ul></ul>
-                            <p></p>
-                        </div>
-                    </div>
-                </article>`);
-    }
-  });
 };
+ 

@@ -5,7 +5,10 @@ import {searchByTitle} from "./function_searchByTitle.js"
 
 
 //creation des articles dans le DOM
-buildArticle();
+recipes.forEach((element) =>{
+    buildArticle(element);
+})
+
 
 // function filtre par mot clé
 searchBar.addEventListener("input", searchByTitle);
