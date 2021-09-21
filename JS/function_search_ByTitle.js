@@ -9,18 +9,15 @@ import { buildArticle } from "./function_buildArticles.js";
 
 // Fonction pour afficher la liste des menus
 
-export const searchByTitle = (event) => {
+export const search = (event) => {
   event.preventDefault();
-  document.getElementById("recipes-list").innerHTML = null; // initialisation des articles
+  document.getElementById("recipes-list").innerHTML = ""; // initialisation des articles
   recipes.forEach((element) => {
     arrayTitle.filter((title) => {
       //recherche avec les caractères spéciaux
       const withCharacters = title;
       //recherche sans les caractères spéciaux
-      const wordsWithDeletionOfCharacters = title
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
+      const wordsWithDeletionOfCharacters = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       if (
         searchBar.value.length >= 3 &&
         (wordsWithDeletionOfCharacters
@@ -37,9 +34,7 @@ export const searchByTitle = (event) => {
 
     arrayDescription.filter((words) => {
       const withCharacters = words;
-      const wordsWithDeletionOfAccents = words
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+      const wordsWithDeletionOfAccents = words.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       if (
         searchBar.value.length >= 3 &&
         (wordsWithDeletionOfAccents
