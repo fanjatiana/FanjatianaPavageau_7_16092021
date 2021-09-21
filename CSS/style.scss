@@ -1,14 +1,18 @@
 @import "variables.scss";
 @import "mixins.scss";
+@import "font.scss";
 
 
 * {
     a{
         text-decoration: none;
+        color: #000;
     }
     ul{
         list-style-type: none;
     }
+   
+
 }
 
 body{
@@ -43,7 +47,7 @@ header{
     width: 100%;
 }
 
-// form barre de recherche
+/* form barre de recherche */
 #search-on{
     width: 100%;
 
@@ -62,7 +66,7 @@ header{
     }
 }
 
-// form trier par:
+/* form trier par: */
 
 #filter-by{
     margin-top: 30px;
@@ -102,3 +106,95 @@ header{
     }
 }
 
+// articles recette */
+
+#recipes-list{
+    width: 90%;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+     
+}
+
+article {
+    width: 30%;
+    height: 364px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    > a {
+        height: 100%;
+        &:hover{
+            opacity: 0.8;
+        }
+       
+    }
+    
+}
+
+.content_article{
+    height: 100%;
+    > div:nth-child(1){
+        height: 40%;
+        background-color: $bg-color-no-img;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+
+    }
+    & div:nth-child(2){
+        background-color: $bg-color-primary;
+        height: 60%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+
+
+.info_recipe{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    > h3{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+    }
+    & p{
+        font-weight: bold;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        display: flex;
+        width: 30%;
+        align-items: center;
+        justify-content: end;
+        & img{
+            margin-right: 0.5em;
+        }
+        
+    }
+}
+
+.instructions_recipe{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    > ul{
+        width: 50%;
+
+    }
+    & p {
+        font-family: 'Roboto Slab';
+        width: 50%;
+        overflow-y: scroll;
+        //text-overflow: ellipsis;
+        
+        
+    }
+}

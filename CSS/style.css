@@ -1,5 +1,39 @@
+/* roboto-slab-regular - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-slab-v16-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/roboto-slab-v16-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-slab-v16-latin-regular.woff2") format("woff2"), url("../fonts/roboto-slab-v16-latin-regular.woff") format("woff"), url("../fonts/roboto-slab-v16-latin-regular.ttf") format("truetype"), url("../fonts/roboto-slab-v16-latin-regular.svg#RobotoSlab") format("svg");
+  /* Legacy iOS */
+}
+
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/lato-v20-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/lato-v20-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-v20-latin-700.woff2") format("woff2"), url("../fonts/lato-v20-latin-700.woff") format("woff"), url("../fonts/lato-v20-latin-700.ttf") format("truetype"), url("../fonts/lato-v20-latin-700.svg#Lato") format("svg");
+  /* Legacy iOS */
+}
+
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/lato-v20-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/lato-v20-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-v20-latin-regular.woff2") format("woff2"), url("../fonts/lato-v20-latin-regular.woff") format("woff"), url("../fonts/lato-v20-latin-regular.ttf") format("truetype"), url("../fonts/lato-v20-latin-regular.svg#Lato") format("svg");
+  /* Legacy iOS */
+}
+
 * a {
   text-decoration: none;
+  color: #000;
 }
 
 * ul {
@@ -49,6 +83,7 @@ header {
   width: 100%;
 }
 
+/* form barre de recherche */
 #search-on {
   width: 100%;
 }
@@ -91,6 +126,7 @@ header {
   font-size: 1rem;
 }
 
+/* form trier par: */
 #filter-by {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -187,5 +223,119 @@ header {
 
 .menu > :hover {
   opacity: 0.8;
+}
+
+#recipes-list {
+  width: 90%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+article {
+  width: 30%;
+  height: 364px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 100px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+article > a {
+  height: 100%;
+}
+
+article > a:hover {
+  opacity: 0.8;
+}
+
+.content_article {
+  height: 100%;
+}
+
+.content_article > div:nth-child(1) {
+  height: 40%;
+  background-color: #C7BEBE;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.content_article div:nth-child(2) {
+  background-color: #E7E7E7;
+  height: 60%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.info_recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+.info_recipe > h3 {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.info_recipe p {
+  font-weight: bold;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.info_recipe p img {
+  margin-right: 0.5em;
+}
+
+.instructions_recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+.instructions_recipe > ul {
+  width: 50%;
+}
+
+.instructions_recipe p {
+  font-family: 'Roboto Slab';
+  width: 50%;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=style.css.map */
