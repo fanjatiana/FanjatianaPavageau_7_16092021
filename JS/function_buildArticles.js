@@ -29,6 +29,7 @@ export const buildArticle = (array) => {
                 </div>
             </a>
         </article>`;
+
     })
  
 };

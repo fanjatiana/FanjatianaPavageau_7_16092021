@@ -11,13 +11,14 @@ import { buildArticle } from "./function_buildArticles.js";
 
 export const searchIn = (event) => {
   event.preventDefault();
- 
 
+  // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
+  // filtre sur les titres
   const resultFilterByName = recipes.filter((recipe) =>
     recipe.name
       .normalize("NFD")
@@ -25,6 +26,8 @@ export const searchIn = (event) => {
       .toLowerCase()
       .includes(valueInput)
   );
+
+  // filtre sur les descritptions
   const resultFilterByDescription = recipes.filter((recipe) =>
     recipe.description
       .normalize("NFD")
@@ -32,6 +35,8 @@ export const searchIn = (event) => {
       .toLowerCase()
       .includes(valueInput)
   );
+
+  // filtre sur les ingrédients
   const resultFilterByIngredients = recipes.filter((recipe) =>
     recipe.ingredients
       .map((list) =>
@@ -43,21 +48,23 @@ export const searchIn = (event) => {
       .includes(valueInput)
   );
 
+  // concaténation des tableaux
   const array = resultFilterByName.concat(
     resultFilterByDescription,
     resultFilterByIngredients
   );
 
-  const newArrayRecipes = Array.from(new Set(array));
+  const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
+  console.log(newArrayRecipes)
 
-if (valueInput.length < 3){
+  if (valueInput.length < 3) {
     buildArticle(recipes);
-}else if (!newArrayRecipes.length) {
-    document.getElementById(
+  } else if (!newArrayRecipes.length) {
+    console.log("Aucune recette ne correspond à votre critère... vous pouvezchercher tarte aux pommes,poisson, etc")
+    /*document.getElementById(
       "recipes-list"
     ).innerHTML += `<p>Aucune recette ne correspond à votre critère... vous pouvez 
-      chercher « tarte aux pommes », « poisson », etc.</p>`;
+      chercher « tarte aux pommes », « poisson », etc.</p>`;*/
   }
   buildArticle(newArrayRecipes);
-   
 };
