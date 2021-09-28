@@ -12,7 +12,7 @@ arrayIngredient.forEach((product) => {
         ingredientsList.push(product[0].ingredient);
         
 })
-//console.log(ingredientsList)
+console.log(ingredientsList)
 
 // tableau des descriptions
 export const arrayDescription = recipes.map((element) => element.description);
