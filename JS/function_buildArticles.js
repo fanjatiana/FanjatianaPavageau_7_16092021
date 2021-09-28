@@ -7,29 +7,41 @@ export const buildArticle = (array) => {
         "recipes-list"
       ).innerHTML = "";
     array.forEach((element) =>{
-        document.getElementById(
-            "recipes-list"
-          ).innerHTML += `<article id="${element.id}"">
-            <a href="index.html">
-                <div class="content_article">
-                    <div id="img_recipe">
-                        <img>
-                    </div>
-                    <div id="recipe">
-                        <div class ="info_recipe">
-                            <h3>${element.name}</h3>
-                            <p><img src="/images/clock.svg" alt="icone horloge">${element.time} min</p>
-                        </div>
-                        <div class="instructions_recipe">
-                            <ul id="list_ingredient">
-                            </ul>
-                            <p>${element.description}</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </article>`;
+      
+        if ( element.id){
+            let a = element.ingredients.map((list)=> list.ingredient);
+            let b = element.ingredients.map((list)=> list.quantity);
+            let c = element.ingredients.map((list)=> list.unit);
 
+           
+            document.getElementById(
+                "recipes-list"
+              ).innerHTML += `<article id="${element.id}"">
+                <a href="index.html">
+                    <div class="content_article">
+                        <div id="img_recipe">
+                            <img>
+                        </div>
+                        <div id="recipe">
+                            <div class ="info_recipe">
+                                <h3>${element.name}</h3>
+                                <p><img src="/images/clock.svg" alt="icone horloge">${element.time} min</p>
+                            </div>
+                            <div class="instructions_recipe">
+                                <ul id="list_ingredient">
+                                <li>${a}</li>
+                                <li>${b}</li>
+                                <li>${c}</li>
+                                </ul>
+                                <p>${element.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </article>`;
+
+        }
+ 
     })
  
 };
