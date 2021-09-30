@@ -4,7 +4,7 @@ import { buildArticle } from "./function_buildArticles.js";
 import { searchIn } from "./function_searchIn.js";
 import{displayBlockSearchBy} from "./function_displayBlockSearchBy.js";
 import {searchInIngredients} from "./function_searchInIngredients.js"
-
+import {addIngredientsList} from "./function_addIngredientsList.js"
 
 //creation des articles dans le DOM
 buildArticle(recipes);
@@ -19,5 +19,6 @@ searchBar.addEventListener("input", searchIn);
     input.addEventListener("keydown",displayBlockSearchBy);
 })*/
 
+addIngredientsList(recipes);
 
 searchBarByIngredients.addEventListener("input",searchInIngredients);
