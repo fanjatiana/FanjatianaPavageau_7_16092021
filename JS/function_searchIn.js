@@ -57,14 +57,21 @@ export const searchIn = (event) => {
   const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
   console.log(newArrayRecipes)
 
-  if (valueInput.length < 3) {
-    buildArticle(recipes);
-  } else if (!newArrayRecipes.length) {
-    console.log("Aucune recette ne correspond à votre critère... vous pouvezchercher tarte aux pommes,poisson, etc")
-    /*document.getElementById(
-      "recipes-list"
-    ).innerHTML += `<p>Aucune recette ne correspond à votre critère... vous pouvez 
-      chercher « tarte aux pommes », « poisson », etc.</p>`;*/
-  }
-  buildArticle(newArrayRecipes);
+ const messageError =() =>{
+   document.getElementById(
+    "recipes-list").innerHTML = "";
+    document.getElementById(
+      "recipes-list").innerHTML += `<p> aucune recette ne correspond à votre critère... vous pouvezchercher tarte aux pommes,poisson, etc</p>`
+
+ }
+ 
+  if (!newArrayRecipes.length) {
+    return messageError()
+
+  }else if (valueInput.length < 3) {
+   return  buildArticle(recipes);
+  }else {
+ return  buildArticle(newArrayRecipes);
 };
+
+}

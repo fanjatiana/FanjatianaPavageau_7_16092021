@@ -4,18 +4,20 @@ import { Article } from "./class_article.js";
 
 //construction des articles dans le dom
 export const buildArticle = (array) => {
+  console.log(array);
   document.getElementById("recipes-list").innerHTML = "";
   array.forEach((element) => {
-    /*if ( element.id){
-            let a = element.ingredients.map((list)=> list.ingredient);
-            let b = element.ingredients.map((list)=> list.quantity);
-            let c = element.ingredients.map((list)=> list.unit);*/
+    let a = element.ingredients.map((list) => list.ingredient);
+    console.log(a);
 
     const articles = new Article(
       element.id,
       element.name,
       element.time,
+      a,
       element.description
     );
   });
 };
+/*let b = element.ingredients.map((list)=> list.quantity);
+      let c = element.ingredients.map((list)=> list.unit);*/
