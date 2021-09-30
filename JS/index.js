@@ -19,6 +19,6 @@ searchBar.addEventListener("input", searchIn);
     input.addEventListener("keydown",displayBlockSearchBy);
 })*/
 
-addIngredientsList(recipes);
+//addIngredientsList(recipes);
 
 searchBarByIngredients.addEventListener("input",searchInIngredients);

@@ -8,6 +8,7 @@ import { AddIngredientsTags } from "./class_addIngredientsTags.js";
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addIngredientsList = (array) => {
+   
   const arrayIngredients = [];
   array.filter((recipe) => {
     recipe.ingredients.map((list) => {
@@ -15,13 +16,9 @@ export const addIngredientsList = (array) => {
     });
   });
   const newArrayIngredients = Array.from(new Set(arrayIngredients));
-
-
-  blockSubMenuIngredients.innerHTML += `<ul id="ingredients_tags"></ul>`;
+ blockSubMenuIngredients.innerHTML += `<ul id="ingredients_tags"></ul>`;
 
   newArrayIngredients.forEach((element) => {
-   new AddIngredientsTags(element);
+    const list = new AddIngredientsTags(element);
   });
 };
-
-

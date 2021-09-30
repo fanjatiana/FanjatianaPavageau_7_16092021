@@ -1,3 +1,5 @@
+import { blockSubMenuIngredients } from "./let-and-const.js";
+
 export class AddIngredientsTags {
     constructor(tag) {
       this.tag = tag;
