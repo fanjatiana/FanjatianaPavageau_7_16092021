@@ -4,11 +4,11 @@ import { Article } from "./class_article.js";
 
 //construction des articles dans le dom
 export const buildArticle = (array) => {
-  console.log(array);
+
   document.getElementById("recipes-list").innerHTML = "";
   array.forEach((element) => {
     let a = element.ingredients.map((list) => list.ingredient);
-    console.log(a);
+
 
     const articles = new Article(
       element.id,

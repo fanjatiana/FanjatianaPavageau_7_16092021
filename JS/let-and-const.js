@@ -34,3 +34,9 @@ arrayUstensils.forEach(element => {
 //console.log(ustensilsList)
 
 export const searchBar = document.getElementById("site-search");
+
+export const searchBarByTheme= document.querySelectorAll("#filter-by > section");
+
+export const searchBarByIngredients= document.getElementById("ingredients-search");
+
+export const blockSubMenuIngredients = document.querySelector("#by_ingredients > .sub_menu");

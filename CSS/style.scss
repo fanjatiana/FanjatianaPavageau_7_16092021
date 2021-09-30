@@ -19,6 +19,7 @@ body{
     font-size: 1rem;
     width: 100%;
     height: auto;
+
 }
 
 /* header */
@@ -78,28 +79,55 @@ header{
 }
 
 .filter-by_input{
-    @include input(url(/images/chevron-up.svg),100%);
+    @include input(url(/images/chevron-up.svg),60px);
     &::placeholder{
         color: $text-filter-color;
         font-weight: bold; 
         font-size: 1rem;
     }
+    &:focus{
+        border-radius: 5px;
+    }
 }
 
 #by_ingredients{
-   @include bloc-shape($ingredients-color);
+   @include bloc-shape($ingredients-color,none,column);
+   & .sub_menu{
+       background-color: $ingredients-color;
+      height: auto;
+   }
 }
 
 #kitchen-appliance{
-    @include bloc-shape($appliance-color);
+    @include bloc-shape($appliance-color,none,column);
+    & .sub_menu{
+        background-color: $appliance-color;
+    }
 }
 
 #kitchen-tool{
-    @include bloc-shape($tool-color);
+    @include bloc-shape($tool-color,none,column);
+    & .sub_menu{
+        background-color: $tool-color;
+    }
+}
+
+#ingredients_tags{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 300px;
+    width: auto;
+    overflow-x: scroll;
+    > li {
+        margin : 0.3em;
+        cursor: pointer;
+    }
 }
 
 .menu{
     width: 100%;
+    height: 100%;
     cursor: pointer;
     > :hover{
         opacity: 0.8;
@@ -187,6 +215,7 @@ article {
     margin: auto;
     > ul{
         width: 50%;
+        
 
     }
     & p {
@@ -198,3 +227,10 @@ article {
         
     }
 }
+
+.sub_menu{
+    display: none;
+    height: 300px;
+    width: auto;
+}
+
