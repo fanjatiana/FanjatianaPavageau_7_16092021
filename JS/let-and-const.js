@@ -12,7 +12,7 @@ arrayIngredient.forEach((product) => {
         ingredientsList.push(product[0].ingredient);
         
 })
-console.log(ingredientsList)
+
 
 // tableau des descriptions
 export const arrayDescription = recipes.map((element) => element.description);
@@ -40,3 +40,5 @@ export const searchBarByTheme= document.querySelectorAll("#filter-by > section")
 export const searchBarByIngredients= document.getElementById("ingredients-search");
 
 export const blockSubMenuIngredients = document.querySelector("#by_ingredients > .sub_menu");
+
+export const articles = document.getElementById("recipes-list");

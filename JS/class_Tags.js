@@ -1,10 +1,8 @@
-import { blockSubMenuIngredients } from "./let-and-const.js";
 
-export class AddIngredientsTags {
+export class Tags {
     constructor(tag) {
       this.tag = tag;
       this.element = this.buildTagsList(tag);
-      //blockSubMenuIngredients.appendChild(this.element);
     }
 
     // fonction pour afficher les tags

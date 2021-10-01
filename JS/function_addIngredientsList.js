@@ -1,10 +1,7 @@
-import { recipes } from "./data_recipes.js";
-import {
-  searchBarByIngredients,
-  blockSubMenuIngredients,
+import {blockSubMenuIngredients,
 } from "./let-and-const.js";
 
-import { AddIngredientsTags } from "./class_addIngredientsTags.js";
+import { Tags } from "./class_Tags.js";
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addIngredientsList = (array) => {
@@ -19,6 +16,6 @@ export const addIngredientsList = (array) => {
  blockSubMenuIngredients.innerHTML += `<ul id="ingredients_tags"></ul>`;
 
   newArrayIngredients.forEach((element) => {
-    const list = new AddIngredientsTags(element);
+    const list = new Tags(element);
   });
 };

@@ -9,16 +9,8 @@ import {addIngredientsList} from "./function_addIngredientsList.js"
 //creation des articles dans le DOM
 buildArticle(recipes);
 
-// function filtre par mot clé
+// fonction filtre par mot clé
 searchBar.addEventListener("input", searchIn);
 
-
-
-// evenement pour l'affichage des blocks de listes par theme
-/*searchBarByTheme.forEach((input)=>{
-    input.addEventListener("keydown",displayBlockSearchBy);
-})*/
-
-//addIngredientsList(recipes);
-
+// fonction filtre par ingrédients
 searchBarByIngredients.addEventListener("input",searchInIngredients);

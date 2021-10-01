@@ -1,11 +1,7 @@
 import { recipes } from "./data_recipes.js";
-import {
-  arrayTitle,
-  searchBar,
-  arrayDescription,
-  ingredientsList,
-} from "./let-and-const.js";
+import {searchBar} from "./let-and-const.js";
 import { buildArticle } from "./function_buildArticles.js";
+import { messageError } from "./function_messageError.js";
 
 // Fonction pour afficher la liste des menus
 
@@ -56,13 +52,6 @@ export const searchIn = (event) => {
 
   const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
 
-  // fonction d'affichage du message d'erreur
-  const messageError = () => {
-    document.getElementById("recipes-list").innerHTML = "";
-    document.getElementById(
-      "recipes-list"
-    ).innerHTML += `<p> aucune recette ne correspond à votre critère... vous pouvezchercher tarte aux pommes,poisson, etc</p>`;
-  };
 
   if (!newArrayRecipes.length) {
     return messageError();

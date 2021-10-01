@@ -1,6 +1,4 @@
-import { recipes } from "./data_recipes.js";
-import { ingredientsList } from "./let-and-const.js";
-import { Article } from "./class_article.js";
+import { Article } from "./class_Article.js";
 
 //construction des articles dans le dom
 export const buildArticle = (array) => {

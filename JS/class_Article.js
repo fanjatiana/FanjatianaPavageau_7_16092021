@@ -1,26 +1,22 @@
 export class Article {
-    constructor(id, name, time,description){
-        this.id= id;
-        this.name = name;
-        this.time = time;
-        //this.ingredients = ingredients;
-        this.description = description;
-        this.element = this.build(id, name, time, description);
-        //this.addIngredients(ingredients);
-        
+  constructor(id, name, time, description) {
+    this.id = id;
+    this.name = name;
+    this.time = time;
+    //this.ingredients = ingredients;
+    this.description = description;
+    this.element = this.build(id, name, time, description);
+    //this.addIngredients(ingredients);
+  }
 
-
-    }
-
-
-    build(id, name, time, description){
-        this.id= id;
-        this.name = name;
-        this.time = time;
-        this.description = description;
-        document.getElementById(
-            "recipes-list"
-          ).innerHTML += `<article id="${this.id}">
+  build(id, name, time, description) {
+    this.id = id;
+    this.name = name;
+    this.time = time;
+    this.description = description;
+    document.getElementById(
+      "recipes-list"
+    ).innerHTML += `<article id="${this.id}">
         <a href="index.html">
             <div class="content_article">
                 <div id="img_recipe">
@@ -40,9 +36,9 @@ export class Article {
             </div>
         </a>
     </article>`;
-    }
+  }
 
-   /* addIngredients(ingredients){
+  /* addIngredients(ingredients){
         this.ingredients = ingredients;
         const baliseUl = document.querySelectorAll(".list_ingredient");
 
