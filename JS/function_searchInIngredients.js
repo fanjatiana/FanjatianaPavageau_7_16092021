@@ -5,7 +5,8 @@ import { displayBlockSearchBy } from "./function_displayBlockSearchBy.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { messageError } from "./function_messageError.js";
 
-export const searchInIngredients = () => {
+export const searchInIngredients = (event) => {
+  event.preventDefault();
   searchBarByIngredients.addEventListener("keydown", displayBlockSearchBy);
 
   // valeur de l'input
@@ -13,7 +14,7 @@ export const searchInIngredients = () => {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
-  console.log(valueInput);
+
 
   // filtre sur les ingrédients
   const resultFilterByIngredients = recipes.filter((recipe) =>
@@ -36,7 +37,7 @@ export const searchInIngredients = () => {
   );
 
   const array = resultFilterByIngredients.concat(resultFilterByDescription);
-  console.log(array)
+
   
   const newArrayIngredients = Array.from(new Set(array));
 
@@ -53,4 +54,6 @@ export const searchInIngredients = () => {
      addIngredientsList(newArrayIngredients);
     buildArticle(newArrayIngredients);
   }
+
+
 };

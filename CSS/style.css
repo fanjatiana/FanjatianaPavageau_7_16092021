@@ -265,6 +265,42 @@ header {
   cursor: pointer;
 }
 
+#yoursTags {
+  margin-top: 1em;
+  height: 1.5em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#yoursTags > .tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10%;
+  height: 30px;
+  border: 1px #000 solid;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #3282F7;
+  margin-right: 0.3em;
+}
+
+#yoursTags > .tag img {
+  border: #fff 1px solid;
+  border-radius: 50%;
+  padding: 0.3em;
+  cursor: pointer;
+}
+
 .menu {
   width: 100%;
   height: 100%;
