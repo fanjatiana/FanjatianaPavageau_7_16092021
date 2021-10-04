@@ -1,12 +1,11 @@
-export const removeThisTag = (event) => {
-  event.preventDefault();
- 
-  const tags = document.querySelector(".tag");
- 
+export const removeThisTag = () => {
+  const tag = document.querySelectorAll(".tag");
 
-        
-        tags.style.display = "none";
-      
-    
-
-}
+  tag.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      element.style.display = "none";
+    });
+  });
+  console.log(tag);
+};

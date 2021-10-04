@@ -4,7 +4,8 @@ import { addIngredientsList } from "./function_addIngredientsList.js";
 import { displayBlockSearchBy } from "./function_displayBlockSearchBy.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { messageError } from "./function_messageError.js";
-
+import { selectTAgs } from "./function_selectTags.js";
+import { removeThisTag } from "./function_removeThisTag.js";
 export const searchInIngredients = (event) => {
   event.preventDefault();
   searchBarByIngredients.addEventListener("keydown", displayBlockSearchBy);
@@ -55,5 +56,10 @@ export const searchInIngredients = (event) => {
     buildArticle(newArrayIngredients);
   }
 
+  const allTagsIngredients = document.querySelectorAll("#ingredients_tags > li");
+allTagsIngredients.forEach((tags)=>{
+  document.getElementById("yoursTags").innerHTML ="";
+  tags.addEventListener("click", selectTAgs);
+})
 
 };

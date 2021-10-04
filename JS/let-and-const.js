@@ -45,3 +45,5 @@ export const blockSubMenuIngredients = document.querySelector(
 );
 
 export const articles = document.getElementById("recipes-list");
+export const allTagsIngredients = document.querySelectorAll("#ingredients_tags > li");
+export const allBtnCross = document.querySelectorAll(".btn_cross");
