@@ -1,7 +1,7 @@
 import { recipes } from "./data_recipes.js";
 import {searchBar} from "./let-and-const.js";
 import { buildArticle } from "./function_buildArticles.js";
-import { messageError } from "./function_messageError.js";
+import { RecipesNoFind } from "./function_messageError.js";
 
 // Fonction pour afficher la liste des menus
 
@@ -51,10 +51,10 @@ export const searchIn = (event) => {
   );
 
   const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
-
+ const a = document.getElementById("recipes-list")
 
   if (!newArrayRecipes.length) {
-    return messageError();
+    return RecipesNoFind();
   } else if (valueInput.length < 3) {
     return buildArticle(recipes);
   } else {
