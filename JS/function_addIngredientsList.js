@@ -3,6 +3,8 @@ import {
   searchBarByIngredients,
 } from "./let-and-const.js";
 
+import { selectTAgs } from "./function_selectTags.js";
+
 import { Tags } from "./class_Tags.js";
 
 import { recipes } from "./data_recipes.js";
@@ -13,5 +15,14 @@ export const addIngredientsList = (array) => {
 
   array.forEach((element) => {
     const list = new Tags(element);
+  });
+
+
+  const allTagsIngredients = document.querySelectorAll(
+    "#ingredients_tags > li"
+  );
+  allTagsIngredients.forEach((tags) => {
+    //document.getElementById("yoursTags").innerHTML = "";
+    tags.addEventListener("click", selectTAgs);
   });
 };
