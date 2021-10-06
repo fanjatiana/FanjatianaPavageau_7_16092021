@@ -3,7 +3,7 @@ import { recipes } from "./data_recipes.js";
 import { addIngredientsListOfRecipes } from "./function_addIngredientsListOfRecipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { tagNoFind } from "./function_messageError-tags.js";
-import { selectTAgs } from "./function_selectTags.js";
+//import { selectTAgs } from "./function_selectTags.js";
 export const searchInIngredientsRecipes = (event) => {
   event.preventDefault();
   //searchBar.addEventListener("keydown", displayBlockSearchBy);
@@ -50,11 +50,11 @@ export const searchInIngredientsRecipes = (event) => {
     buildArticle(newArrayIngredients);
   }
 
-  const allTagsIngredients = document.querySelectorAll(
+  /*const allTagsIngredients = document.querySelectorAll(
     "#ingredients_tags > li"
   );
   allTagsIngredients.forEach((tags) => {
     document.getElementById("yoursTags").innerHTML = "";
     tags.addEventListener("click", selectTAgs);
-  });
+  });*/
 };

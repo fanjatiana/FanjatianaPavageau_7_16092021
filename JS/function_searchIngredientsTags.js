@@ -7,7 +7,7 @@ import { addIngredientsList } from "./function_addIngredientsList.js";
 import { displayBlockSearchBy } from "./function_displayBlockSearchBy.js";
 import { buildArticle } from "./function_buildArticles.js";
 
-import { selectTAgs } from "./function_selectTags.js";
+//import { selectTAgs } from "./function_selectTags.js";
 import { removeThisTag } from "./function_removeThisTag.js";
 import { tagNoFind } from "./function_messageError-tags.js";
 export const searchIngredientsTags = (event) => {
@@ -52,12 +52,13 @@ export const searchIngredientsTags = (event) => {
   }
 
 
-  const allTagsIngredients = document.querySelectorAll(
+  /*const allTagsIngredients = document.querySelectorAll(
     "#ingredients_tags > li"
   );
   allTagsIngredients.forEach((tags) => {
    // document.getElementById("yoursTags").innerHTML = "";
     tags.addEventListener("click", selectTAgs);
-  });
+    
+  });*/
 
 };

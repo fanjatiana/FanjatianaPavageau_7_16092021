@@ -7,5 +7,5 @@ export const removeThisTag = () => {
       element.style.display = "none";
     });
   });
-  console.log(tag);
+
 };
