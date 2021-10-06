@@ -1,7 +1,7 @@
 import {
   blockSubMenuIngredients,
   searchBarByIngredients,
-} from "./let-and-const.js";
+} from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { addIngredientsList } from "./function_addIngredientsList.js";
 import { displayBlockSearchBy } from "./function_displayBlockSearchBy.js";
@@ -9,10 +9,12 @@ import { buildArticle } from "./function_buildArticles.js";
 
 import { selectTAgs } from "./function_selectTags.js";
 import { removeThisTag } from "./function_removeThisTag.js";
-import { tagNoFind } from "../function_messageError-tags.js";
+import { tagNoFind } from "./function_messageError-tags.js";
 export const searchIngredientsTags = (event) => {
   event.preventDefault();
-  searchBarByIngredients.addEventListener("keydown", displayBlockSearchBy);
+  searchBarByIngredients.addEventListener("keyup", displayBlockSearchBy());
+
+
 
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
@@ -35,6 +37,7 @@ export const searchIngredientsTags = (event) => {
       .toLowerCase()
       .includes(valueInput)
   );
+
 
   console.log(totalIngredients);
 

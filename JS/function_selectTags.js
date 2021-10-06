@@ -1,7 +1,7 @@
 import { removeThisTag } from "./function_removeThisTag.js";
 
-export const selectTAgs = (event) => {
-  event.preventDefault();
+export const selectTAgs = () => {
+
   const divYourTags = document.getElementById("yoursTags");
 
   divYourTags.innerHTML += `<div class="tag">
