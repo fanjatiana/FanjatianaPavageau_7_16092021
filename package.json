@@ -1,0 +1,19 @@
+{
+  "name": "fanjatianapavageau_7_16092021",
+  "version": "1.0.0",
+  "description": "Projet 7 :  Les petits plats (Développez un algorithme de recherche en JavaScript)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanjatiana/FanjatianaPavageau_7_16092021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fanjatiana/FanjatianaPavageau_7_16092021/issues"
+  },
+  "homepage": "https://github.com/fanjatiana/FanjatianaPavageau_7_16092021#readme"
+}

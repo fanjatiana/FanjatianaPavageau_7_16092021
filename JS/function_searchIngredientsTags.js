@@ -9,7 +9,7 @@ import { buildArticle } from "./function_buildArticles.js";
 
 //import { selectTAgs } from "./function_selectTags.js";
 import { removeThisTag } from "./function_removeThisTag.js";
-import { tagNoFind } from "./function_messageError-tags.js";
+import { tagNoFind } from "./function_messageError.js";
 export const searchIngredientsTags = (event) => {
   event.preventDefault();
   searchBarByIngredients.addEventListener("keyup", displayBlockSearchBy());

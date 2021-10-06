@@ -15,9 +15,9 @@ export class Article {
     this.time = time;
     this.description = description;
     const dom = document.createElement('article');
-    dom.classList.add('article');
-    const wrapper = document.getElementById('recipes-list')
-    wrapper.appendChild(dom)
+    dom.classList.add('recipe_card');
+    const main = document.getElementById('recipes-list')
+    main.appendChild(dom)
     
     dom.innerHTML += `
         <a href="index.html">
@@ -49,15 +49,9 @@ export class Article {
             const createTagLi = document.createElement('li');
             tagUl.appendChild(createTagLi);
             const spellingQuantity = ingredient.quantity || ingredient.quantite;
-            console.log(ingredient)
-
             if(spellingQuantity){
-            createTagLi.innerHTML=`${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit}`;
+            createTagLi.innerHTML=`${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ''}`;
             }
-            
-
         })
-
-   
     }
 }

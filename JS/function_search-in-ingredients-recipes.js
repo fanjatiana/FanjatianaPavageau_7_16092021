@@ -2,7 +2,7 @@ import { blockSubMenuIngredients, searchBar } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { addIngredientsListOfRecipes } from "./function_addIngredientsListOfRecipes.js";
 import { buildArticle } from "./function_buildArticles.js";
-import { tagNoFind } from "./function_messageError-tags.js";
+import { tagNoFind } from "./function_messageError.js";
 //import { selectTAgs } from "./function_selectTags.js";
 export const searchInIngredientsRecipes = (event) => {
   event.preventDefault();
