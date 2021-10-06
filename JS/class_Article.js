@@ -13,7 +13,6 @@ export class Article {
     this.id = id;
     this.name = name;
     this.time = time;
-    
     this.description = description;
     const dom = document.createElement('article');
     dom.classList.add('article');
@@ -46,10 +45,17 @@ export class Article {
   addIngredients(ingredientList){
         this.ingredient = ingredientList;
         this.ingredient.forEach(ingredient => {
-            const baliseUl = this.element.querySelector(".list_ingredient");
-            const createLi = document.createElement('li')
-            baliseUl.appendChild(createLi)
-            createLi.innerHTML=`<p>${ingredient.ingredient}</p>`
+            const tagUl = this.element.querySelector(".list_ingredient");
+            const createTagLi = document.createElement('li');
+            tagUl.appendChild(createTagLi);
+            const spellingQuantity = ingredient.quantity || ingredient.quantite;
+            console.log(ingredient)
+
+            if(spellingQuantity){
+            createTagLi.innerHTML=`<p>${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit}</p>`;
+            }
+            
+
         })
 
    
