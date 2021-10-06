@@ -294,11 +294,18 @@ header {
   margin-right: 0.3em;
 }
 
+#yoursTags > .tag > p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #yoursTags > .tag img {
   border: #fff 1px solid;
   border-radius: 50%;
   padding: 0.3em;
   cursor: pointer;
+  margin-left: 0.5em;
 }
 
 .menu {
@@ -378,14 +385,14 @@ article > a:hover {
 }
 
 .info_recipe > h3 {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
 }
 
 .info_recipe p {
   font-weight: bold;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   display: -webkit-box;
@@ -416,13 +423,19 @@ article > a:hover {
 }
 
 .instructions_recipe > ul {
-  width: 50%;
+  width: 60%;
+  padding: 12px 12px 12px 0.5em;
 }
 
 .instructions_recipe p {
-  font-family: 'Roboto Slab';
-  width: 50%;
-  overflow-y: scroll;
+  font-family: "Roboto Slab";
+  padding: 8px;
+  width: 40%;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sub_menu {

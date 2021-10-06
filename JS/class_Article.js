@@ -52,7 +52,7 @@ export class Article {
             console.log(ingredient)
 
             if(spellingQuantity){
-            createTagLi.innerHTML=`<p>${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit}</p>`;
+            createTagLi.innerHTML=`${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit}`;
             }
             
 
