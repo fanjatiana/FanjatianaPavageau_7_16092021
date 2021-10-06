@@ -50,11 +50,4 @@ export const searchInIngredientsRecipes = (event) => {
     buildArticle(newArrayIngredients);
   }
 
-  /*const allTagsIngredients = document.querySelectorAll(
-    "#ingredients_tags > li"
-  );
-  allTagsIngredients.forEach((tags) => {
-    document.getElementById("yoursTags").innerHTML = "";
-    tags.addEventListener("click", selectTAgs);
-  });*/
 };
