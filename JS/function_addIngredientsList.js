@@ -1,5 +1,5 @@
 import { blockSubMenuIngredients, allTagsIngredients } from "./const.js";
-
+import { buildArticle } from "./function_buildArticles.js";
 import { Tags } from "./class_Tags.js";
 
 import { recipes } from "./data_recipes.js";
@@ -29,6 +29,7 @@ export const addIngredientsList = (array) => {
       divYourTags.innerHTML += `<div class="tag">
               <p>${a}<img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg"></p>
           </div>`;
+          
 
       removeThisTag();
     });

@@ -1,11 +1,13 @@
 export class Ingredients {
     constructor(ingredient){
         this.ingredient = ingredient;
+        console.log(this.ingredient)
         this.addInfosIngredients(ingredient)
     }
 
     addInfosIngredients(ingredient){
         this.ingredient = ingredient;
+        
         const baliseUlIngredients = document.querySelectorAll(".list_ingredient");
         baliseUlIngredients.forEach((balise) => {
             const quantity = info.quantity || info.quantite;

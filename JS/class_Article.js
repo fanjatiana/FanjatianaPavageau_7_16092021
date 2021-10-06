@@ -1,22 +1,26 @@
 export class Article {
-  constructor(id, name, time, description) {
+  constructor(id, name, time, ingredient, description) {
+    this.element = this.build(id, name, time, description);
     this.id = id;
     this.name = name;
     this.time = time;
-    //this.ingredients = ingredients;
+    this.ingredient = ingredient;
     this.description = description;
-    this.element = this.build(id, name, time, description);
-    //this.addIngredients(ingredients);
+    this.addIngredients(ingredient);
   }
 
   build(id, name, time, description) {
     this.id = id;
     this.name = name;
     this.time = time;
+    
     this.description = description;
-    document.getElementById(
-      "recipes-list"
-    ).innerHTML += `<article id="${this.id}">
+    const dom = document.createElement('article');
+    dom.classList.add('article');
+    const wrapper = document.getElementById('recipes-list')
+    wrapper.appendChild(dom)
+    
+    dom.innerHTML += `
         <a href="index.html">
             <div class="content_article">
                 <div id="img_recipe">
@@ -35,17 +39,19 @@ export class Article {
                 </div>
             </div>
         </a>
-    </article>`;
+    `;
+    return dom
   }
 
-  /* addIngredients(ingredients){
-        this.ingredients = ingredients;
-        const baliseUl = document.querySelectorAll(".list_ingredient");
-
-        const createLi = baliseUl.forEach((balise)=>{balise.innerHTML+= `<li></li>`});
-        const baliseLi = document.querySelectorAll('li');
-        const addlist = baliseLi.forEach((li)=>{li.innerHTML+=`${ingredients}`});
+  addIngredients(ingredientList){
+        this.ingredient = ingredientList;
+        this.ingredient.forEach(ingredient => {
+            const baliseUl = this.element.querySelector(".list_ingredient");
+            const createLi = document.createElement('li')
+            baliseUl.appendChild(createLi)
+            createLi.innerHTML=`<p>${ingredient.ingredient}</p>`
+        })
 
    
-    }*/
+    }
 }
