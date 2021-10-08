@@ -1,6 +1,7 @@
 import {
   blockSubMenuIngredients,
   searchBarByIngredients,
+  searchBar,
 } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { addIngredientsList } from "./function_addIngredientsList.js";
@@ -10,14 +11,18 @@ import { buildArticle } from "./function_buildArticles.js";
 //import { selectTAgs } from "./function_selectTags.js";
 import { removeThisTag } from "./function_removeThisTag.js";
 import { tagNoFind } from "./function_messageError.js";
+import { searchInIngredientsRecipes } from "./function_search-in-ingredients-recipes.js";
 export const searchIngredientsTags = (event) => {
   event.preventDefault();
   searchBarByIngredients.addEventListener("keyup", displayBlockSearchBy());
 
-
-
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  let inputValueSearchBar = searchBar.value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
@@ -38,18 +43,16 @@ export const searchIngredientsTags = (event) => {
       .includes(valueInput)
   );
 
-
   console.log(totalIngredients);
 
   if (!totalIngredients.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
-    return addIngredientsList(newArray);
+    addIngredientsList(newArray);
+    searchInIngredientsRecipes(event);
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addIngredientsList(totalIngredients);
   }
-
-
 };

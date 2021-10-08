@@ -1,5 +1,6 @@
 import { blockSubMenuIngredients, searchBar } from "./const.js";
 import { recipes } from "./data_recipes.js";
+import { addIngredientsList } from "./function_addIngredientsList.js";
 import { addIngredientsListOfRecipes } from "./function_addIngredientsListOfRecipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { tagNoFind } from "./function_messageError.js";
@@ -49,5 +50,4 @@ export const searchInIngredientsRecipes = (event) => {
     addIngredientsListOfRecipes(newArrayIngredients);
     buildArticle(newArrayIngredients);
   }
-
 };

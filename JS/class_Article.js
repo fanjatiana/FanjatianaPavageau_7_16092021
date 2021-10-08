@@ -14,11 +14,11 @@ export class Article {
     this.name = name;
     this.time = time;
     this.description = description;
-    const dom = document.createElement('article');
-    dom.classList.add('recipe_card');
-    const main = document.getElementById('recipes-list')
-    main.appendChild(dom)
-    
+    const dom = document.createElement("article");
+    dom.classList.add("recipe_card");
+    const main = document.getElementById("recipes-list");
+    main.appendChild(dom);
+
     dom.innerHTML += `
         <a href="index.html">
             <div class="content_article">
@@ -39,19 +39,21 @@ export class Article {
             </div>
         </a>
     `;
-    return dom
+    return dom;
   }
 
-  addIngredients(ingredientList){
-        this.ingredient = ingredientList;
-        this.ingredient.forEach(ingredient => {
-            const tagUl = this.element.querySelector(".list_ingredient");
-            const createTagLi = document.createElement('li');
-            tagUl.appendChild(createTagLi);
-            const spellingQuantity = ingredient.quantity || ingredient.quantite;
-            if(spellingQuantity){
-            createTagLi.innerHTML=`${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ''}`;
-            }
-        })
-    }
+  addIngredients(ingredientList) {
+    this.ingredient = ingredientList;
+    this.ingredient.forEach((ingredient) => {
+      const tagUl = this.element.querySelector(".list_ingredient");
+      const createTagLi = document.createElement("li");
+      tagUl.appendChild(createTagLi);
+      const spellingQuantity = ingredient.quantity || ingredient.quantite;
+      if (spellingQuantity) {
+        createTagLi.innerHTML = `${
+          ingredient.ingredient
+        } : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ""}`;
+      }
+    });
+  }
 }
