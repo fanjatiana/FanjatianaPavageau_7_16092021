@@ -8,7 +8,8 @@ export class Article {
     this.description = description;
     this.addIngredients(ingredient);
   }
-
+  
+  // fonction de construction des articles dans le DOM
   build(id, name, time, description) {
     this.id = id;
     this.name = name;
@@ -41,18 +42,19 @@ export class Article {
     `;
     return dom;
   }
-
+  
+  // fonction pour ajouter les ingrédients dans les articles
   addIngredients(ingredientList) {
     this.ingredient = ingredientList;
     this.ingredient.forEach((ingredient) => {
       const tagUl = this.element.querySelector(".list_ingredient");
       const createTagLi = document.createElement("li");
       tagUl.appendChild(createTagLi);
-      const spellingQuantity = ingredient.quantity || ingredient.quantite;
+      const spellingQuantity = ingredient.quantity || ingredient.quantite; // gestion des fautes de frappe du mot quantity
       if (spellingQuantity) {
         createTagLi.innerHTML = `${
           ingredient.ingredient
-        } : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ""}`;
+        } : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ""}`; // gestion des situations où les unités sont "undefined"
       }
     });
   }

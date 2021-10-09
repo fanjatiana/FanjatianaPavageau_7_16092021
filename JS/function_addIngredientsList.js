@@ -4,6 +4,7 @@ import { removeThisTag } from "./function_removeThisTag.js";
 import { recipes } from "./data_recipes.js";
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addIngredientsList = (array) => {
+  // ajout des tags ingredients
   document.querySelector(
     ".sub_menu"
   ).innerHTML += `<ul id="ingredients_tags"></ul>`;
@@ -12,12 +13,14 @@ export const addIngredientsList = (array) => {
     const list = new Tags(element);
   });
 
+  // ajout des tags selectionnés au clic
   const allTagsIngredients = document.querySelectorAll(
     "#ingredients_tags > li"
   );
+  console.log(allTagsIngredients);
   allTagsIngredients.forEach((tags) => {
     tags.addEventListener("click", (e) => {
-      const thisTag = e.currentTarget.innerHTML;
+      const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
 
       console.log(thisTag);
 
@@ -28,16 +31,19 @@ export const addIngredientsList = (array) => {
           </div>`;
 
       const allDivTagDisplayed = document.querySelectorAll(".tag > p");
+      console.log(allDivTagDisplayed);
 
-      const recupName = [];
+      // tableau de recupération de la liste des tags selectionnés
+      const retrieveTags = [];
       allDivTagDisplayed.forEach((element) => {
         const tagName = element.textContent;
 
-        recupName.push(tagName);
+        retrieveTags.push(tagName);
       });
 
-      let arr = [];
-      recupName.forEach((tag) => {
+      // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
+      let arrayFilteredTag = [];
+      retrieveTags.forEach((tag) => {
         const resultFilterByDescription = recipes.filter((recipe) =>
           recipe.description.includes(tag)
         );
@@ -49,16 +55,15 @@ export const addIngredientsList = (array) => {
           recipe.ingredients.map((list) => list.ingredient).includes(tag)
         );
 
-        arr = resultFilterByDescription.concat(
+        arrayFilteredTag = resultFilterByDescription.concat(
           resultFilterByName,
           resultFilterByIngredients
         );
       });
-
-      console.log(arr);
-
-      buildArticle(arr);
-
+      console.log(arrayFilteredTag);
+      buildArticle(arrayFilteredTag);
+      
+      // fonction pour supprimer le tag selectionné
       removeThisTag();
     });
   });

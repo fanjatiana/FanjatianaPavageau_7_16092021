@@ -15,7 +15,6 @@ export const allTagsIngredients = document.querySelectorAll(
   "#ingredients_tags > li"
 );
 
-
 export const allBtnCross = document.querySelectorAll(".btn_cross");
 export const blockYoursTags = document.getElementById("yoursTags");
 // Const ARRAY
@@ -35,8 +34,8 @@ arrayUstensils.forEach((element) => {
   ustensilsList.push(...element);
 });
 
-  // valeur de l'input
-  export let valueInput = searchBar.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+// valeur de l'input
+export let valueInput = searchBar.value
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase();
