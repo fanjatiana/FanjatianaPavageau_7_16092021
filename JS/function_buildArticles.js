@@ -1,4 +1,4 @@
-import { Article } from "./class_Article.js";
+import { Article } from "./class/class_Article.js";
 
 //construction des articles dans le dom
 export const buildArticle = (array) => {

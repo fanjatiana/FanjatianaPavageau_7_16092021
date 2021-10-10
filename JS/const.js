@@ -17,6 +17,10 @@ export const allTagsIngredients = document.querySelectorAll(
 
 export const allBtnCross = document.querySelectorAll(".btn_cross");
 export const blockYoursTags = document.getElementById("yoursTags");
+
+export const searchBarByAppliances = document.getElementById("appliance-search");
+export const blockSubMenuAppliances = document.querySelector("#kitchen-appliance > .sub_menu")
+
 // Const ARRAY
 // tableau des titres
 export const arrayTitle = recipes.map((element) => element.name);

@@ -1,13 +1,14 @@
-import { blockSubMenuIngredients, searchBar } from "./const.js";
-import { recipes } from "./data_recipes.js";
-import { addIngredientsList } from "./function_addIngredientsList.js";
-import { addIngredientsListOfRecipes } from "./function_addIngredientsListOfRecipes.js";
-import { buildArticle } from "./function_buildArticles.js";
-import { tagNoFind } from "./function_messageError.js";
+import { blockSubMenuIngredients, searchBar } from "../const.js";
+import { recipes } from "../data_recipes.js"
+import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_addIngredientsListOfRecipes.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { displayBlockSearchBy } from "../function_displayBlockSearchBy.js";
+import { tagNoFind } from "../function_messageError.js";
+
 //import { selectTAgs } from "./function_selectTags.js";
 export const searchInIngredientsRecipes = (event) => {
   event.preventDefault();
-  //searchBar.addEventListener("keydown", displayBlockSearchBy);
+  searchBar.addEventListener("keydown", displayBlockSearchBy);
 
   // valeur de l'input
   let valueInput = searchBar.value

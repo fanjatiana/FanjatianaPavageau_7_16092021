@@ -1,6 +1,6 @@
-import { blockSubMenuIngredients } from "./const.js";
-import { Tags } from "./class_Tags.js";
-import { removeThisTag } from "./function_removeThisTag.js";
+import { blockSubMenuIngredients } from "../const.js";
+import { Tags } from "../class/class_Tags.js";
+import { removeThisTag } from "../function_removeThisTag.js";
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addIngredientsListOfRecipes = (array) => {

@@ -1,7 +1,7 @@
-import { recipes } from "./data_recipes.js";
-import {searchBar} from "./const.js";
-import { buildArticle } from "./function_buildArticles.js";
-import { RecipesNoFind } from "./function_messageError.js";
+import { recipes } from "../data_recipes.js";
+import {searchBar} from "../const.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { RecipesNoFind } from "../function_messageError.js";
 
 // Fonction pour afficher la liste des menus
 
