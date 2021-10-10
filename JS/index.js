@@ -65,9 +65,6 @@ searchBarByIngredients.addEventListener(
 );
 searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
- // fonctions pour selectionner et supprimer les tags ingrédients lorsqu'ils sont tous affichés
-selectThisTag();
-removeThisTag()
 
 
 
