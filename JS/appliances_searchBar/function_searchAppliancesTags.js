@@ -1,12 +1,12 @@
-import { blockSubMenuAppliances, searchBarByAppliances, valueInput } from "./const.js"
-import { recipes } from "./data_recipes.js";
-import { displayBlockSearchBy } from "./function_displayBlockSearchBy.js";
+import { blockSubMenuAppliances, searchBarByAppliances, valueInput } from "../const.js"
+import { recipes } from "../data_recipes.js";
+import {displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
 import {addAppliancesList} from "./function_addAppliancesList.js"
-import {tagNoFind} from "./function_messageError.js"
+import {tagNoFind} from "../function_messageError.js"
 
 export const searchAppliancesTags = (event) =>{
     event.preventDefault();
-    searchBarByAppliances.addEventListener("keyup", displayBlockSearchBy());
+    searchBarByAppliances.addEventListener("keyup", displayBlockSearchByAppliances());
 
 
   // valeur de l'input

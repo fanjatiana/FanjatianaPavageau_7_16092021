@@ -7,13 +7,14 @@ import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { searchIn } from "./main_searchBar/function_searchIn.js";
 //import {searchInIngredients} from "./function_searchInIngredients.js";
-//import { searchAppliancesTags } from "./function_ searchAppliancesTags.js";
+import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
 import { searchInIngredientsRecipes } from "./main_searchBar/function_search-in-ingredients-recipes.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_addIngredientsList.js";
-import { displayBlockSearchBy } from "./function_displayBlockSearchBy.js";
+import { displayBlockSearchByIngredients } from "./function_displayBlockSearchBy.js";
 import { selectThisTag } from "./function _selectThisTag.js";
 import { removeThisTag } from "./function_removeThisTag.js";
+import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 
 //creation des articles dans le DOM
 buildArticle(recipes);
@@ -27,13 +28,13 @@ searchBar.addEventListener("input", searchInIngredientsRecipes);
 // barre de recherche par ingrédients : affichage de la liste des ingrédients au click de la souris
 searchBarByIngredients.addEventListener("click", (event) => {
     event.preventDefault();
-    displayBlockSearchBy();
+    displayBlockSearchByIngredients();
 });
 
 // barre de recherche par ingrédients : affichage de la liste des ingrédients au clavier
 searchBarByIngredients.addEventListener("keyUp", (event) => {
     event.preventDefault();
-    displayBlockSearchBy();
+    displayBlockSearchByIngredients();
 });
 
 
@@ -84,13 +85,28 @@ searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
 
 searchBarByAppliances.addEventListener("click", (event) => {
-    event.preventDefault();
-    searchAppliancesTags;
+  
+    searchAppliancesTags(event);
 })
 
 
 searchBarByAppliances.addEventListener("input", (event) => {
-    event.preventDefault();
-    searchAppliancesTags;
+   
+    searchAppliancesTags(event);
+
+})
+
+
+
+document.getElementById("tool-search").addEventListener("click", (event) => {
+  
+  searchToolsTags(event);
+})
+
+
+
+document.getElementById("tool-search").addEventListener("input", (event) => {
+ 
+  searchToolsTags(event);
 
 })

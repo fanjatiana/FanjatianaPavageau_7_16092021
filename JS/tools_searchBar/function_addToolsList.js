@@ -1,9 +1,8 @@
-import { searchBarByAppliances } from "../const.js";
 import { Tags } from "../class/class_Tags.js";
-export const addAppliancesList = (array) =>{
+export const addToolsList = (array) =>{
     document.querySelector(
         ".sub_menu"
-      ).innerHTML += `<ul id="appliances_tags"></ul>`;
+      ).innerHTML += `<ul id="tools_tags"></ul>`;
     
       array.forEach((element) => {
         const list = new Tags(element);
