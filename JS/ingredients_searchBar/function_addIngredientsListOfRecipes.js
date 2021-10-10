@@ -1,6 +1,7 @@
 import { blockSubMenuIngredients } from "../const.js";
 import { Tags } from "../class/class_Tags.js";
 import { removeThisTag } from "../function_removeThisTag.js";
+import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addIngredientsListOfRecipes = (array) => {
@@ -29,7 +30,7 @@ export const addIngredientsListOfRecipes = (array) => {
       divYourTags.innerHTML += `<div class="tag">
               <p>${thisTag}<img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg"></p>
           </div>`;
-
+      showAllRecipesFiltered()
       removeThisTag();
     });
   });

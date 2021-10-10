@@ -34,8 +34,6 @@ export const showRecipesFilteredAgain = () => {
     retrieveTags.push(tagName);
   });
 
-  console.log(retrieveTags);
-
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
     const resultFilterByDescription = dataFiltered.filter((recipe) =>
@@ -55,11 +53,10 @@ export const showRecipesFilteredAgain = () => {
     );
   });
 
-  console.log(arrayFilteredTag);
-
   buildArticle(arrayFilteredTag);
+  removeThisTag();
 
-  if(!arrayFilteredTag.length){
-    RecipesNoFind()
+  if (!arrayFilteredTag.length) {
+    RecipesNoFind();
   }
 };

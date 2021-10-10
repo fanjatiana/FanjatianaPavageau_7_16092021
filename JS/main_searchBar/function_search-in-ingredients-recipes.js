@@ -4,6 +4,7 @@ import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_a
 import { buildArticle } from "../function_buildArticles.js";
 import { displayBlockSearchBy } from "../function_displayBlockSearchBy.js";
 import { tagNoFind } from "../function_messageError.js";
+import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
 
 //import { selectTAgs } from "./function_selectTags.js";
 export const searchInIngredientsRecipes = (event) => {
@@ -45,10 +46,12 @@ export const searchInIngredientsRecipes = (event) => {
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addIngredientsListOfRecipes(recipes);
+
     buildArticle(recipes);
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addIngredientsListOfRecipes(newArrayIngredients);
+  
     buildArticle(newArrayIngredients);
   }
 };

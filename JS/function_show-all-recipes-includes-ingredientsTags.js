@@ -34,12 +34,14 @@ export const showAllRecipesFiltered = () => {
       resultFilterByName,
       resultFilterByIngredients
     );
+
+
     if(tag.length === 1){
       buildArticle(arrayFilteredTag);
     } else if (tag.length > 1){
       showRecipesFilteredAgain()
-    } else {
-      buildArticle(recipes)
+    } else{
+      return buildArticle(recipes)
     }
 
   });
