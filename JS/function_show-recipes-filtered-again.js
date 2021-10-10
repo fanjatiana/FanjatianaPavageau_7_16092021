@@ -2,10 +2,28 @@ import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { RecipesNoFind } from "./function_messageError.js";
 import { removeThisTag } from "./function_removeThisTag.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again.js";
+recipes;
 
+export const showRecipesFilteredAgain = () => {
+  const listRecipes = document.querySelectorAll(".info_recipe > h3");
 
-export const showAllRecipesFiltered = () => {
+  const articles = [];
+
+  listRecipes.forEach((e) => {
+    const recipeTitle = e.innerHTML;
+    articles.push(recipeTitle);
+  });
+
+  const dataFiltered = [];
+
+  articles.forEach((title) => {
+    recipes.filter((a) => {
+      if (a.name === title) {
+        dataFiltered.push(a);
+      }
+    });
+  });
+
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 
   // tableau de recupération de la liste des tags selectionnés
@@ -16,17 +34,18 @@ export const showAllRecipesFiltered = () => {
     retrieveTags.push(tagName);
   });
 
-  // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
+  console.log(retrieveTags);
+
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
-    const resultFilterByDescription = recipes.filter((recipe) =>
+    const resultFilterByDescription = dataFiltered.filter((recipe) =>
       recipe.description.includes(tag)
     );
 
-    const resultFilterByName = recipes.filter((recipe) =>
+    const resultFilterByName = dataFiltered.filter((recipe) =>
       recipe.name.includes(tag)
     );
-    const resultFilterByIngredients = recipes.filter((recipe) =>
+    const resultFilterByIngredients = dataFiltered.filter((recipe) =>
       recipe.ingredients.map((list) => list.ingredient).includes(tag)
     );
 
@@ -34,16 +53,13 @@ export const showAllRecipesFiltered = () => {
       resultFilterByName,
       resultFilterByIngredients
     );
-    if(tag.length === 1){
-      buildArticle(arrayFilteredTag);
-    } else if (tag.length > 1){
-      showRecipesFilteredAgain()
-    } else {
-      buildArticle(recipes)
-    }
-
   });
 
-  removeThisTag();
+  console.log(arrayFilteredTag);
 
+  buildArticle(arrayFilteredTag);
+
+  if(!arrayFilteredTag.length){
+    RecipesNoFind()
+  }
 };
