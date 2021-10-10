@@ -8,6 +8,7 @@ import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again
 export const showAllRecipesFiltered = () => {
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 
+
   // tableau de recupération de la liste des tags selectionnés
   const retrieveTags = [];
   allDivTagDisplayed.forEach((element) => {
@@ -35,10 +36,13 @@ export const showAllRecipesFiltered = () => {
       resultFilterByIngredients
     );
 
+    const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+
 
     if(tag.length === 1){
-      buildArticle(arrayFilteredTag);
+      buildArticle(newArrayIFilteredTag);
     } else if (tag.length > 1){
+    
       showRecipesFilteredAgain()
     } else{
       return buildArticle(recipes)

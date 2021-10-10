@@ -5,6 +5,7 @@ import { removeThisTag } from "./function_removeThisTag.js";
 recipes;
 
 export const showRecipesFilteredAgain = () => {
+ 
   const listRecipes = document.querySelectorAll(".info_recipe > h3");
 
   const articles = [];
@@ -51,12 +52,15 @@ export const showRecipesFilteredAgain = () => {
       resultFilterByName,
       resultFilterByIngredients
     );
+
+    const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+    buildArticle(newArrayIFilteredTag);
+    removeThisTag();
+  
+    if (!newArrayIFilteredTag.length) {
+      RecipesNoFind();
+    }
   });
 
-  buildArticle(arrayFilteredTag);
-  removeThisTag();
-
-  if (!arrayFilteredTag.length) {
-    RecipesNoFind();
-  }
+ 
 };
