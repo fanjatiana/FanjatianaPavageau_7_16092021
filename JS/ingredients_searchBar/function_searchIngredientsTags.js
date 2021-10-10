@@ -8,6 +8,7 @@ import { displayBlockSearchBy } from "../function_displayBlockSearchBy.js";
 
 import { tagNoFind } from "../function_messageError.js";
 import { searchInIngredientsRecipes } from "../main_searchBar/function_search-in-ingredients-recipes.js";
+import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
 
 export const searchIngredientsTags = (event) => {
   event.preventDefault();
@@ -43,6 +44,7 @@ export const searchIngredientsTags = (event) => {
     blockSubMenuIngredients.innerHTML = "";
     addIngredientsList(newArray);
     searchInIngredientsRecipes(event);
+    showAllRecipesFiltered();
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addIngredientsList(totalIngredients);
