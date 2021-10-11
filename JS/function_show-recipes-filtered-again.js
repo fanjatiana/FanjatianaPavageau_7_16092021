@@ -2,6 +2,7 @@ import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { RecipesNoFind } from "./function_messageError.js";
 import { removeThisTag } from "./function_removeThisTag.js";
+import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
 recipes;
 
 export const showRecipesFilteredAgain = () => {
@@ -52,6 +53,7 @@ export const showRecipesFilteredAgain = () => {
       resultFilterByName,
       resultFilterByIngredients
     );
+
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
