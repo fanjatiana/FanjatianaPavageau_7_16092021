@@ -1,6 +1,7 @@
 import { recipes } from "./data_recipes.js";
 
 // Const DOM
+export const baliseUl = document.getElementById("ingredients_tags");
 export const searchBar = document.getElementById("site-search");
 export const searchBarByTheme = document.querySelectorAll(
   "#filter-by > section"
@@ -19,7 +20,7 @@ export const allBtnCross = document.querySelectorAll(".btn_cross");
 export const blockYoursTags = document.getElementById("yoursTags");
 
 export const searchBarByAppliances = document.getElementById("appliance-search");
-export const blockSubMenuAppliances = document.querySelector("#kitchen-appliance > .sub_menu")
+export const blockSubMenuAppliances = document.querySelector(".sub_menu__appliances")
 
 // Const ARRAY
 // tableau des titres

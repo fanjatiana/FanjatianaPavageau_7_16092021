@@ -4,8 +4,8 @@ import {displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.
 import {addAppliancesList} from "./function_addAppliancesList.js"
 import {tagNoFind} from "../function_messageError.js"
 
-export const searchAppliancesTags = (event) =>{
-    event.preventDefault();
+export const searchAppliancesTags = () =>{
+
     searchBarByAppliances.addEventListener("keyup", displayBlockSearchByAppliances());
 
 
@@ -31,7 +31,6 @@ export const searchAppliancesTags = (event) =>{
       .toLowerCase()
       .includes(valueInput)
   );
-
 
 
 

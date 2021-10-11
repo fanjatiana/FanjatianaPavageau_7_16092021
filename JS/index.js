@@ -85,14 +85,14 @@ searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
 
 searchBarByAppliances.addEventListener("click", (event) => {
-  
-    searchAppliancesTags(event);
+  event.preventDefault()
+    searchAppliancesTags();
 })
 
 
 searchBarByAppliances.addEventListener("input", (event) => {
-   
-    searchAppliancesTags(event);
+  event.preventDefault()
+    searchAppliancesTags();
 
 })
 

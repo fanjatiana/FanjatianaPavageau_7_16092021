@@ -1,12 +1,15 @@
+import { baliseUl } from "../const.js";
 
-export class Tags {
+
+export class TagsIngredients {
     constructor(tag) {
       this.tag = tag;
-      this.element = this.buildTagsList(tag);
+      this.element = this.build(tag);
+      Object.assign(this,tag)
     }
 
     // fonction pour afficher les tags
-    buildTagsList(tag) {
+    build(tag) {
       this.tag = tag;
       const baliseUl = document.getElementById("ingredients_tags");
       baliseUl.innerHTML += `<li>${tag}</li>`

@@ -7,6 +7,7 @@ export class Article {
     this.ingredient = ingredient;
     this.description = description;
     this.addIngredients(ingredient);
+    Object.assign(this,id, name, time, ingredient, description)
   }
   
   // fonction de construction des articles dans le DOM

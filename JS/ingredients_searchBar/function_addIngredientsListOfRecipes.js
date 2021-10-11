@@ -1,7 +1,8 @@
-import { blockSubMenuIngredients } from "../const.js";
-import { Tags } from "../class/class_Tags.js";
+import { baliseUl, blockSubMenuIngredients } from "../const.js";
+
 import { removeThisTag } from "../function_removeThisTag.js";
 import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
+
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addIngredientsListOfRecipes = (array) => {
@@ -15,7 +16,7 @@ export const addIngredientsListOfRecipes = (array) => {
   blockSubMenuIngredients.innerHTML += `<ul id="ingredients_tags"></ul>`;
 
   newArrayIngredients.forEach((element) => {
-    const list = new Tags(element);
+    const list = TagsFactory.buildTags(element);
   });
 
   const allTagsIngredients = document.querySelectorAll(
