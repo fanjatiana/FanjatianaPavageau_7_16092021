@@ -60,9 +60,11 @@ const totalIngredients = newArray.filter((element) =>
     .includes(valueInput)
 );
 
+const allIngredients = totalIngredients.sort();
+
 searchBarByIngredients.addEventListener(
   "click",
-  addIngredientsList(totalIngredients)
+  addIngredientsList(allIngredients)
 );
 searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
@@ -97,16 +99,3 @@ searchBarByAppliances.addEventListener("input", (event) => {
 })
 
 
-
-document.getElementById("tool-search").addEventListener("click", (event) => {
-  
-  searchToolsTags(event);
-})
-
-
-
-document.getElementById("tool-search").addEventListener("input", (event) => {
- 
-  searchToolsTags(event);
-
-})

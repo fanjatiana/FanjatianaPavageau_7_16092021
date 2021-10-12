@@ -1,5 +1,5 @@
+import { TagsFactory } from "../class/factory_tags.js";
 import { baliseUl, blockSubMenuIngredients } from "../const.js";
-
 import { removeThisTag } from "../function_removeThisTag.js";
 import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
 

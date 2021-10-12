@@ -22,9 +22,10 @@ export const searchAppliancesTags = () =>{
   recipes.filter((recipe) =>
     array.push(recipe.appliance))
 
-    const newArray = Array.from(new Set(array));
+    let newArray = Array.from(new Set(array));
+    newArray = newArray.sort();
 
-    const totalAppliances= newArray.filter((element) =>
+    let totalAppliances= newArray.filter((element) =>
     element
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
@@ -33,8 +34,9 @@ export const searchAppliancesTags = () =>{
   );
 
 
+  
 
-    if (!totalAppliances.length) {
+   if (!totalAppliances.length) {
         return tagNoFind();
       } else if (valueInput.length < 3) {
         blockSubMenuAppliances.innerHTML = "";
@@ -42,7 +44,7 @@ export const searchAppliancesTags = () =>{
         //searchInIngredientsRecipes(event);
       } else {
         blockSubMenuAppliances.innerHTML = "";
-        addAppliancesList(totalIngredients);
+        addAppliancesList(totalAppliances);
       }
 
 }
