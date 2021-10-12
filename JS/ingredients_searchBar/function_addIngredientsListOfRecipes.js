@@ -1,7 +1,5 @@
-import { TagsFactory } from "../class/factory_tags.js";
-import { baliseUl, blockSubMenuIngredients } from "../const.js";
-import { removeThisTag } from "../function_removeThisTag.js";
-import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
+import {blockSubMenuIngredients } from "../const.js";
+import { addTagsList } from "../function_addTagsList.js";
 
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
@@ -12,27 +10,10 @@ export const addIngredientsListOfRecipes = (array) => {
       arrayIngredients.push(list.ingredient);
     });
   });
+
+  const ulTag = `<ul id="tags__list"></ul>`;
   const newArrayIngredients = Array.from(new Set(arrayIngredients));
-  blockSubMenuIngredients.innerHTML += `<ul id="ingredients_tags"></ul>`;
+addTagsList(ulTag, blockSubMenuIngredients, newArrayIngredients)
+  
 
-  newArrayIngredients.forEach((element) => {
-    const list = TagsFactory.buildTags(element);
-  });
-
-  const allTagsIngredients = document.querySelectorAll(
-    "#ingredients_tags > li"
-  );
-  allTagsIngredients.forEach((tags) => {
-    tags.addEventListener("click", (e) => {
-      const thisTag = e.currentTarget.innerHTML;
-
-      const divYourTags = document.getElementById("yoursTags");
-
-      divYourTags.innerHTML += `<div class="tag">
-              <p>${thisTag}<img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg"></p>
-          </div>`;
-      showAllRecipesFiltered()
-      removeThisTag();
-    });
-  });
 };

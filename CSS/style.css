@@ -245,7 +245,7 @@ header {
   background-color: #ED6454;
 }
 
-#ingredients_tags {
+#tags__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,7 +260,7 @@ header {
   overflow-x: scroll;
 }
 
-#ingredients_tags > li {
+#tags__list > li {
   margin: 0.3em;
   cursor: pointer;
 }

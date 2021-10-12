@@ -1,8 +1,6 @@
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
-import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again.js";
-import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_addIngredientsListOfRecipes.js";
+
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = () => {

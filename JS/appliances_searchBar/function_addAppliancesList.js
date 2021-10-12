@@ -1,7 +1,7 @@
 import { searchBarByAppliances } from "../const.js";
-import { TagsAppliances } from "../class/class_TagsAppliances.js";
-import { TagsFactory } from "../class/factory_tags.js";
-import { TagsAppliancesFactory } from "../class/factory_recipes.js";
+import { TagsFactory } from "../class/factory_Tags.js";
+
+
 export const addAppliancesList = (array) =>{
 document.querySelector(
         ".sub_menu__appliances"
@@ -9,7 +9,7 @@ document.querySelector(
      
     
       array.forEach((element) => {
-        const list = TagsAppliancesFactory.buildTags(element);
+        const list = TagsFactory.buildTags(element);
        
       });
     

@@ -10,11 +10,13 @@ import { searchIn } from "./main_searchBar/function_searchIn.js";
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
 import { searchInIngredientsRecipes } from "./main_searchBar/function_search-in-ingredients-recipes.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
-import { addIngredientsList } from "./ingredients_searchBar/function_addIngredientsList.js";
+
 import { displayBlockSearchByIngredients } from "./function_displayBlockSearchBy.js";
 import { selectThisTag } from "./function _selectThisTag.js";
 import { removeThisTag } from "./function_removeThisTag.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
+import { addTagsList } from "./function_addTagsList.js";
+
 
 //creation des articles dans le DOM
 buildArticle(recipes);
@@ -38,34 +40,8 @@ searchBarByIngredients.addEventListener("keyUp", (event) => {
 });
 
 
-// barre de recherche par ingrédients : valeur de l'input
-let valueInput = searchBarByIngredients.value
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .toLowerCase();
 
-// barre de recherche par ingrédients : filtre sur les ingrédients
-const array = [];
-recipes.filter((recipe) =>
-  recipe.ingredients.map((list) => array.push(list.ingredient))
-);
-
-const newArray = Array.from(new Set(array));
-
-const totalIngredients = newArray.filter((element) =>
-  element
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .includes(valueInput)
-);
-
-const allIngredients = totalIngredients.sort();
-
-searchBarByIngredients.addEventListener(
-  "click",
-  addIngredientsList(allIngredients)
-);
+searchBarByIngredients.addEventListener("click", searchIngredientsTags);
 searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
 

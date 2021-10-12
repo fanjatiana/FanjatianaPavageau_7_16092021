@@ -1,5 +1,4 @@
-import { Article } from "./class/class_Article.js";
-import { RecipesFactory } from "./class/factory_recipes.js";
+import { RecipesFactory } from "./class/factory_Recipes.js";
 
 //construction des articles dans le dom
 export const buildArticle = (array) => {
@@ -10,10 +9,7 @@ export const buildArticle = (array) => {
       element.name,
       element.time,
       element.ingredients,
-      element.description);
-
-      
-  });
- 
+      element.description);   
+  }); 
 };
 

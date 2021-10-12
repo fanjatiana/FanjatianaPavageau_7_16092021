@@ -1,4 +1,7 @@
-export class TagsTools {
+import { baliseUl } from "../const.js";
+
+
+export class Tags {
     constructor(tag) {
       this.tag = tag;
       this.element = this.build(tag);
@@ -8,7 +11,7 @@ export class TagsTools {
     // fonction pour afficher les tags
     build(tag) {
       this.tag = tag;
-      const baliseUl = document.getElementById("tools_tags");
+      const baliseUl = document.getElementById("tags__list");
       baliseUl.innerHTML += `<li>${tag}</li>`
     }
   }
