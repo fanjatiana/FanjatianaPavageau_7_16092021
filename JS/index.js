@@ -6,16 +6,10 @@ import {
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { searchIn } from "./main_searchBar/function_searchIn.js";
-//import {searchInIngredients} from "./function_searchInIngredients.js";
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
 import { searchInIngredientsRecipes } from "./main_searchBar/function_search-in-ingredients-recipes.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
-
 import { displayBlockSearchByIngredients } from "./function_displayBlockSearchBy.js";
-import { selectThisTag } from "./function _selectThisTag.js";
-import { removeThisTag } from "./function_removeThisTag.js";
-import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
-import { addTagsList } from "./function_addTagsList.js";
 
 
 //creation des articles dans le DOM
@@ -64,13 +58,13 @@ searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
 searchBarByAppliances.addEventListener("click", (event) => {
   event.preventDefault()
-    searchAppliancesTags();
+    searchAppliancesTags(event);
 })
 
 
 searchBarByAppliances.addEventListener("input", (event) => {
   event.preventDefault()
-    searchAppliancesTags();
+    searchAppliancesTags(event);
 
 })
 

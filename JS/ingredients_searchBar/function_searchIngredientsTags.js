@@ -28,7 +28,7 @@ export const searchIngredientsTags = (event) => {
   );
 
   const newArray = Array.from(new Set(array));
-  const allIngredients = newArray.sort();
+  newArray.sort();
   const totalIngredients = newArray.filter((element) =>
     element
       .normalize("NFD")
@@ -45,7 +45,7 @@ export const searchIngredientsTags = (event) => {
     return tagNoFind();
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
-    addTagsList(ulTag, source,allIngredients);
+    addTagsList(ulTag, source,newArray);
 
     searchInIngredientsRecipes(event);
     showAllRecipesFiltered();

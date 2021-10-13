@@ -1,51 +1,57 @@
-import { blockSubMenuAppliances, searchBarByAppliances, valueInput } from "../const.js"
+import {
+  blockSubMenuAppliances,
+  searchBarByAppliances,
+  valueInput,
+} from "../const.js";
 import { recipes } from "../data_recipes.js";
-import {displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
-import {addAppliancesList} from "./function_addAppliancesList.js"
-import {tagNoFind} from "../function_messageError.js"
-
-export const searchAppliancesTags = () =>{
-
-    searchBarByAppliances.addEventListener("keyup", displayBlockSearchByAppliances());
-
+import { addTagsList } from "../function_addTagsList.js";
+import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
+//import {addAppliancesList} from "./function_addAppliancesList.js"
+import { applianceNoFind, tagNoFind } from "../function_messageError.js";
+import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
+import { searchInIngredientsRecipes } from "../main_searchBar/function_search-in-ingredients-recipes.js";
+import { searchInAppliancesRecipes } from "./function_searchInAppliancesOfRecipes.js";
+export const searchAppliancesTags = (event) => {
+  event.preventDefault();
+  searchBarByAppliances.addEventListener(
+    "keyup",
+    displayBlockSearchByAppliances()
+  );
 
   // valeur de l'input
-  let valueInput = searchBarByAppliances.value
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .toLowerCase();
+  let valueInputAppliance = searchBarByAppliances.value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 
-  console.log(valueInput);
+
 
   // filtre sur les ingrédients
-  const array = [];
-  recipes.filter((recipe) =>
-    array.push(recipe.appliance))
+  let arrayAppliances = [];
+ recipes.filter((recipe) => arrayAppliances.push(recipe.appliance));
 
-    let newArray = Array.from(new Set(array));
-    newArray = newArray.sort();
+  let newArrayAppliances = Array.from(new Set(arrayAppliances));
+  newArrayAppliances = newArrayAppliances.sort();
 
-    let totalAppliances= newArray.filter((element) =>
+  let totalAppliances = newArrayAppliances.filter((element) =>
     element
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInput)
+      .includes(valueInputAppliance)
   );
 
+  const ulTagAppliances = document.querySelector(".sub_menu__appliances");
 
-  
+  const addUlTagAppliances = `<ul id="tags__list"></ul>`;
 
-   if (!totalAppliances.length) {
-        return tagNoFind();
-      } else if (valueInput.length < 3) {
-        blockSubMenuAppliances.innerHTML = "";
-        addAppliancesList(newArray);
-        //searchInIngredientsRecipes(event);
-      } else {
-        blockSubMenuAppliances.innerHTML = "";
-        addAppliancesList(totalAppliances);
-      }
-
-}
-
+  if (!totalAppliances.length) {
+    return applianceNoFind();
+  } else if (valueInputAppliance.length < 3) {
+    blockSubMenuAppliances.innerHTML = "";
+    addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
+  } else {
+    blockSubMenuAppliances.innerHTML = "";
+    addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);
+  }
+};

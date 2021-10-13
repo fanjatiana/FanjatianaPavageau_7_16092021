@@ -14,3 +14,14 @@ export const tagNoFind = () => {
   blockSubMenuIngredients.innerHTML = "";
   blockSubMenuIngredients.innerHTML += `<p> aucun ingrédient ne correspond à votre critère... vous pouvez chercher sucre,beurre, etc</p>`;
 };
+
+export const applianceNoFind = () => {
+  document.querySelector(
+    ".sub_menu__appliances"
+  ).innerHTML = "";
+  document.querySelector(
+    ".sub_menu__appliances"
+  ).innerHTML += `<p> aucun appareil ne correspond à votre critère... vous pouvez chercher blender , poêle, etc</p>`;
+};
+
+
