@@ -35,7 +35,9 @@ searchBarByIngredients.addEventListener("keyUp", (event) => {
 
 
 
-searchBarByIngredients.addEventListener("click", searchIngredientsTags);
+searchBarByIngredients.addEventListener("click", (event) => {
+  searchIngredientsTags(event);
+})
 searchBarByIngredients.addEventListener("input", searchIngredientsTags);
 
 

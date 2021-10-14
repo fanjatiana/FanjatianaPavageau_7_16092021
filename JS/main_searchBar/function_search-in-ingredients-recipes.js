@@ -39,7 +39,6 @@ export const searchInIngredientsRecipes = (event) => {
   const array = resultFilterByIngredients.concat(resultFilterByDescription);
 
   const newArrayIngredients = Array.from(new Set(array));
-  const allLiTags = document.querySelectorAll("#tags__list > li");
   if (!newArrayIngredients.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {

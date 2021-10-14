@@ -33,6 +33,8 @@ export const searchAppliancesTags = (event) => {
   let newArrayAppliances = Array.from(new Set(arrayAppliances));
   newArrayAppliances = newArrayAppliances.sort();
 
+  console.log(newArrayAppliances)
+
   let totalAppliances = newArrayAppliances.filter((element) =>
     element
       .normalize("NFD")

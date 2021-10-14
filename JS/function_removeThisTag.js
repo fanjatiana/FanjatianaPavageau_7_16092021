@@ -9,10 +9,9 @@ export const removeThisTag = () => {
   // tableau des tags ajoutés
   const arrayTagsSelected = [];
   allDivTagDisplayed.forEach((element) => {
-    const tagName = element.textContent;
-
-    arrayTagsSelected.push(tagName);
+    arrayTagsSelected.push(element.textContent);
   });
+
   console.log(arrayTagsSelected);
 
   tag.forEach((element) => {
@@ -20,8 +19,8 @@ export const removeThisTag = () => {
       event.preventDefault();
       element.style.display = "none";
       arrayTagsSelected.pop();
-      console.log(arrayTagsSelected);
 
+      console.log(arrayTagsSelected);
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
         const resultFilterByDescription = recipes.filter((recipe) =>
@@ -39,12 +38,10 @@ export const removeThisTag = () => {
           resultFilterByName,
           resultFilterByIngredients
         );
-        console.log(arrayFilteredTag);
 
         const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
 
         buildArticle(newArrayIFilteredTag);
-      
       });
 
       if (arrayTagsSelected.length < 1) {
@@ -52,6 +49,5 @@ export const removeThisTag = () => {
         buildArticle(recipes);
       }
     });
-  
   });
 };

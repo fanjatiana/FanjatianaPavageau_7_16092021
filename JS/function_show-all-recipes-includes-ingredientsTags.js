@@ -34,21 +34,14 @@ export const showAllRecipesFiltered = () => {
       resultFilterByName,
       resultFilterByIngredients
     );
-
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
-
-
+    
     if(tag.length === 1){
       buildArticle(newArrayIFilteredTag);
-    } else if (tag.length > 1){
-    
+    } else if (tag.length > 1){ 
       showRecipesFilteredAgain()
     } else{
       return buildArticle(recipes)
     }
-
   });
-
-  removeThisTag();
-
 };
