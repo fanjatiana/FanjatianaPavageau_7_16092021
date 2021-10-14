@@ -1,29 +1,29 @@
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 
-
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = () => {
   const tag = document.querySelectorAll(".tag");
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 
-  const retrieveTags = [];
+  // tableau des tags ajoutés
+  const arrayTagsSelected = [];
   allDivTagDisplayed.forEach((element) => {
     const tagName = element.textContent;
 
-    retrieveTags.push(tagName);
+    arrayTagsSelected.push(tagName);
   });
-  console.log(retrieveTags);
+  console.log(arrayTagsSelected);
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
       event.preventDefault();
       element.style.display = "none";
-      retrieveTags.pop();
-      console.log(retrieveTags);
+      arrayTagsSelected.pop();
+      console.log(arrayTagsSelected);
 
       let arrayFilteredTag = [];
-      retrieveTags.forEach((tag) => {
+      arrayTagsSelected.forEach((tag) => {
         const resultFilterByDescription = recipes.filter((recipe) =>
           recipe.description.includes(tag)
         );
@@ -44,11 +44,14 @@ export const removeThisTag = () => {
         const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
 
         buildArticle(newArrayIFilteredTag);
+      
       });
 
-      if(retrieveTags.length ===0 ){
-        buildArticle(recipes)
+      if (arrayTagsSelected.length < 1) {
+        document.getElementById("yoursTags").innerHTML = "";
+        buildArticle(recipes);
       }
     });
+  
   });
 };
