@@ -12,7 +12,7 @@ export const removeThisTag = () => {
     arrayTagsSelected.push(element.textContent);
   });
 
-  console.log(arrayTagsSelected);
+
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {

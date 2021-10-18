@@ -1,22 +1,23 @@
 import {
   blockSubMenuAppliances,
   searchBarByAppliances,
-  valueInput,
 } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
-//import {addAppliancesList} from "./function_addAppliancesList.js"
-import { applianceNoFind, tagNoFind } from "../function_messageError.js";
-import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
-import { searchInIngredientsRecipes } from "../main_searchBar/function_search-in-ingredients-recipes.js";
-import { searchInAppliancesRecipes } from "./function_searchInAppliancesOfRecipes.js";
+import { applianceNoFind,} from "../function_messageError.js";
+
+
+
+
+
+
 export const searchAppliancesTags = (event) => {
   event.preventDefault();
-  searchBarByAppliances.addEventListener(
+ /* searchBarByAppliances.addEventListener(
     "keyup",
     displayBlockSearchByAppliances()
-  );
+  );*/
 
   // valeur de l'input
   let valueInputAppliance = searchBarByAppliances.value
