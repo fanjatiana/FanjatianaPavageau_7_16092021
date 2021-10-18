@@ -6,6 +6,7 @@ import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
 import { applianceNoFind,} from "../function_messageError.js";
+import { searchInAppliancesRecipes } from "../main_searchBar/function_search-in-appliances-recipes.js";
 
 
 
@@ -14,10 +15,7 @@ import { applianceNoFind,} from "../function_messageError.js";
 
 export const searchAppliancesTags = (event) => {
   event.preventDefault();
- /* searchBarByAppliances.addEventListener(
-    "keyup",
-    displayBlockSearchByAppliances()
-  );*/
+
 
   // valeur de l'input
   let valueInputAppliance = searchBarByAppliances.value
@@ -53,6 +51,7 @@ export const searchAppliancesTags = (event) => {
   } else if (valueInputAppliance.length < 3) {
     blockSubMenuAppliances.innerHTML = "";
     addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
+   searchInAppliancesRecipes()
   } else {
     blockSubMenuAppliances.innerHTML = "";
     addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);

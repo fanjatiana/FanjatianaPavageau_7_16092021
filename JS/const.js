@@ -16,7 +16,7 @@ export const allTagsIngredients = document.querySelectorAll(
   "#ingredients_tags > li"
 );
 export const blockSubMenuTools = document.querySelector(".sub_menu__tools")
-console.log(blockSubMenuTools)
+
 export const allBtnCross = document.querySelectorAll(".btn_cross");
 export const blockYoursTags = document.getElementById("yoursTags");
 

@@ -25,3 +25,13 @@ export const applianceNoFind = () => {
 };
 
 
+export const toolNoFind = () => {
+  document.querySelector(
+    ".sub_menu__tools"
+  ).innerHTML = "";
+  document.querySelector(
+    ".sub_menu__tools"
+  ).innerHTML += `<p> aucun ustensile ne correspond à votre critère... vous pouvez chercher couteau, verres, etc</p>`;
+};
+
+

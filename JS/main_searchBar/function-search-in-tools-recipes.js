@@ -1,4 +1,5 @@
 import {
+
     blockSubMenuTools,
     searchBar,
   
@@ -7,7 +8,7 @@ import {
 
   import { buildArticle } from "../function_buildArticles.js";
   
-  import { tagNoFind } from "../function_messageError.js";
+
 import { addToolsListOfRecipes } from "../tools_searchBar/function_addToolsListOfRecipes.js";
 
   
@@ -38,13 +39,14 @@ import { addToolsListOfRecipes } from "../tools_searchBar/function_addToolsListO
 
     // filtre sur les appareils
     const resultFilterByTools= recipes.filter((recipe) =>
-    recipe.ustensils.map(e=>e
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .includes(valueInput)
-  ));
+ recipe.ustensils.forEach((e)=>{
+   e.normalize("NFD")
+   .replace(/[\u0300-\u036f]/g, "")
+   .toLowerCase()
+   .includes(valueInput)
+ }))
 
+  console.log(resultFilterByTools)
 
    
   
@@ -58,7 +60,7 @@ import { addToolsListOfRecipes } from "../tools_searchBar/function_addToolsListO
   
   
     if (!newArray.length) {
-      return tagNoFind();
+      return toolNoFind();
     } else if (valueInput.length < 3) {
      blockSubMenuTools.innerHTML = "";
       addToolsListOfRecipes(recipes)

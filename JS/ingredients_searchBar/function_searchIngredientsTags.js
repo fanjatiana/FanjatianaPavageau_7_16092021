@@ -9,11 +9,8 @@ import { addTagsList } from "../function_addTagsList.js";
 
 export const searchIngredientsTags = (event) => {
   event.preventDefault();
-  const subMenuIngredients = document.querySelector(".sub_menu");
-  searchBarByIngredients.addEventListener(
-    "keyup",
-    displayBlockSearchByIngredients
-  );
+ 
+
 
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
@@ -47,7 +44,7 @@ export const searchIngredientsTags = (event) => {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(ulTag, source,newArray);
 
-    searchInIngredientsRecipes(event);
+    searchInIngredientsRecipes();
     showAllRecipesFiltered();
   } else {
     blockSubMenuIngredients.innerHTML = "";

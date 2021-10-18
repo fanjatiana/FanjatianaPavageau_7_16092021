@@ -1,29 +1,16 @@
 import { displayBlockSearchByTools } from "../function_displayBlockSearchBy.js";
-
-import {
-  
-
-  blockSubMenuAppliances,
-    blockSubMenuIngredients,
-    blockSubMenuTools,
-
-    searchBarByTools,
-  } from "../const.js";
-
-  import { addTagsList } from "../function_addTagsList.js";
-  
-  import { applianceNoFind,} from "../function_messageError.js";
+import {blockSubMenuTools,searchBarByTools,} from "../const.js";
+import { addTagsList } from "../function_addTagsList.js";
+import { applianceNoFind, toolNoFind,} from "../function_messageError.js";
 import { recipes } from "../data_recipes.js";
+import { searchInToolsRecipes } from "../main_searchBar/function-search-in-tools-recipes.js";
   
 
   
   
    export const searchToolsTags = (event) => {
     event.preventDefault();
-   searchBarByTools.addEventListener(
-      "keyup",
-      displayBlockSearchByTools()
-    );
+ 
   
     // valeur de l'input
     let valueInputTools = searchBarByTools.value
@@ -59,10 +46,11 @@ import { recipes } from "../data_recipes.js";
     const addUlTagTools = `<ul id="tags__list"></ul>`;
   console.log(totalTools)
     if (!totalTools.length) {
-      return applianceNoFind();
+      return toolNoFind();
     } else if (valueInputTools.length < 3) {
       blockSubMenuTools.innerHTML = "";
       addTagsList(addUlTagTools, ulTagTools, newArrayTools);
+      searchInToolsRecipes()
     } else {
       blockSubMenuTools.innerHTML = "";
       addTagsList(addUlTagTools, ulTagTools, totalTools);

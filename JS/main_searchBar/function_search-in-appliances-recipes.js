@@ -7,7 +7,7 @@ import {
 
   import { buildArticle } from "../function_buildArticles.js";
   
-  import { tagNoFind } from "../function_messageError.js";
+  import { applianceNoFind, tagNoFind } from "../function_messageError.js";
   import { addAppliancesListOfRecipes } from "../appliances_searchBar/function_addAppliancesListOfRecipes.js";
 
   export const searchInAppliancesRecipes = () => {
@@ -49,7 +49,7 @@ import {
   
   
     if (!newArray.length) {
-      return tagNoFind();
+      return applianceNoFind();
     } else if (valueInput.length < 3) {
      blockSubMenuIngredients.innerHTML = "";
       addAppliancesListOfRecipes(recipes)
