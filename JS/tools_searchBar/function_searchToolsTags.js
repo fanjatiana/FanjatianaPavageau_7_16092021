@@ -1,13 +1,15 @@
-import { displayBlockSearchByTools } from "../function_displayBlockSearchBy.js";
-import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, searchBarByTools } from "../const.js";
+
+import {
+  blockSubMenuAppliances,
+  blockSubMenuIngredients,
+  searchBarByTools,
+} from "../const.js";
 import { addTagsList } from "../function_addTagsList.js";
-import { applianceNoFind, toolNoFind } from "../function_messageError.js";
+import { toolNoFind } from "../function_messageError.js";
 import { recipes } from "../data_recipes.js";
 import { searchInToolsRecipes } from "../main_searchBar/function-search-tools-in-recipes.js";
 
 export const searchToolsTags = () => {
-
-
   // valeur de l'input
   let valueInputTools = searchBarByTools.value
     .normalize("NFD")
@@ -38,11 +40,10 @@ export const searchToolsTags = () => {
     return toolNoFind();
   } else if (valueInputTools.length < 3) {
     blockSubMenuAppliances.innerHTML = "";
-    blockSubMenuIngredients.innerHTML = ""
+    blockSubMenuIngredients.innerHTML = "";
     addTagsList(addUlTagTools, ulTagTools, newArrayTools);
     searchInToolsRecipes();
   } else {
-
     addTagsList(addUlTagTools, ulTagTools, totalTools);
   }
 };

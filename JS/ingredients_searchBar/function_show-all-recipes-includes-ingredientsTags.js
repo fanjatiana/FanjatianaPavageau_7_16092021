@@ -7,7 +7,6 @@ import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
 import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
 
-
 export const showAllRecipesFiltered = () => {
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 
@@ -39,21 +38,17 @@ export const showAllRecipesFiltered = () => {
     );
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
 
-   
     if (tag.length === 1) {
       buildArticle(newArrayIFilteredTag);
-        blockSubMenuIngredients.innerHTML = ""
-    addIngredientsListOfRecipes(newArrayIFilteredTag)
-
+      blockSubMenuIngredients.innerHTML = "";
+      addIngredientsListOfRecipes(newArrayIFilteredTag);
     } else if (tag.length > 1) {
       showRecipesFilteredAgain();
-      addIngredientsListOfRecipes(newArrayIFilteredTag)
+      addIngredientsListOfRecipes(newArrayIFilteredTag);
     } else {
-       buildArticle(recipes);
-       blockSubMenuIngredients.innerHTML=""
-       addIngredientsListOfRecipes(recipes)
+      buildArticle(recipes);
+      blockSubMenuIngredients.innerHTML = "";
+      addIngredientsListOfRecipes(recipes);
     }
- 
-    
   });
 };

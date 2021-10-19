@@ -7,12 +7,7 @@ import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ing
 import { addTagsList } from "../function_addTagsList.js";
 import { selectThisIngredientTag } from "./function _select-this-ingredient-tag.js";
 
-
 export const searchIngredientsTags = () => {
-
- 
-
-
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
     .normalize("NFD")
@@ -43,20 +38,15 @@ export const searchIngredientsTags = () => {
     return tagNoFind();
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
-    addTagsList(ulTag, source,newArray);
-    const allLiTags = document.querySelectorAll(
-      "#tags__list > li"
-    );
-    selectThisIngredientTag(allLiTags)
-
+    addTagsList(ulTag, source, newArray);
+    const allLiTags = document.querySelectorAll("#tags__list > li");
+    selectThisIngredientTag(allLiTags);
     searchInIngredientsRecipes();
     showAllRecipesFiltered();
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(ulTag, source, totalIngredients);
-    const allLiTags = document.querySelectorAll(
-      "#tags__list > li"
-    );
-    selectThisIngredientTag(allLiTags)
+    const allLiTags = document.querySelectorAll("#tags__list > li");
+    selectThisIngredientTag(allLiTags);
   }
 };

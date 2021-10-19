@@ -1,10 +1,11 @@
-import { blockSubMenuIngredients } from "../const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
+import { addAppliancesListOfRecipes } from "./function_add-recipes-appliances.js";
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
-export const removeThisTag = () => {
+export const removeThisApplianceTag = () => {
   const tag = document.querySelectorAll(".tag");
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 
@@ -23,31 +24,20 @@ export const removeThisTag = () => {
       console.log(arrayTagsSelected);
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
-        const resultFilterByDescription = recipes.filter((recipe) =>
-          recipe.description.includes(tag)
+       
+        const resultFilterByAppliances= recipes.filter((recipe) =>
+          recipe.appliance.includes(tag)
         );
 
-        const resultFilterByName = recipes.filter((recipe) =>
-          recipe.name.includes(tag)
-        );
-        const resultFilterByIngredients = recipes.filter((recipe) =>
-          recipe.ingredients.map((list) => list.ingredient).includes(tag)
-        );
-
-        arrayFilteredTag = resultFilterByDescription.concat(
-          resultFilterByName,
-          resultFilterByIngredients
-        );
-
-        arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
+        arrayFilteredTag = Array.from(new Set(resultFilterByAppliances));
       });
       buildArticle(arrayFilteredTag);
-      addIngredientsListOfRecipes(arrayFilteredTag);
+      addAppliancesListOfRecipes(arrayFilteredTag);
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
         buildArticle(recipes);
-        blockSubMenuIngredients.innerHTML = "";
-        addIngredientsListOfRecipes(recipes);
+        blockSubMenuAppliances.innerHTML = "";
+        addAppliancesListOfRecipes(recipes);
       }
     });
   });

@@ -1,10 +1,9 @@
 import { recipes } from "../data_recipes.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
-import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
-import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
+import { addAppliancesListOfRecipes } from "./function_add-recipes-appliances.js";
 
-export const showRecipesFilteredAgain = () => {
+export const showRecipesFilteredByApplianceTag = () => {
   const listRecipes = document.querySelectorAll(".info_recipe > h3");
 
   const articles = [];
@@ -43,18 +42,18 @@ export const showRecipesFilteredAgain = () => {
     const resultFilterByName = dataFiltered.filter((recipe) =>
       recipe.name.includes(tag)
     );
-    const resultFilterByIngredients = dataFiltered.filter((recipe) =>
-      recipe.ingredients.map((list) => list.ingredient).includes(tag)
+    const resultFilterByAppliances = dataFiltered.filter((recipe) =>
+      recipe.appliance.includes(tag)
     );
 
     arrayFilteredTag = resultFilterByDescription.concat(
       resultFilterByName,
-      resultFilterByIngredients
+      resultFilterByAppliances
     );
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
-    addIngredientsListOfRecipes(newArrayIFilteredTag);
+   addAppliancesListOfRecipes(newArrayIFilteredTag);
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();

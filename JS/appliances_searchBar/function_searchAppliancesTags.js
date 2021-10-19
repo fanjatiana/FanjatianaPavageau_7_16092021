@@ -1,21 +1,12 @@
-import {
-  blockSubMenuAppliances,
-  searchBarByAppliances,
-} from "../const.js";
+import { blockSubMenuAppliances, searchBarByAppliances } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
-import { applianceNoFind,} from "../function_messageError.js";
+import { applianceNoFind } from "../function_messageError.js";
 import { searchInAppliancesRecipes } from "../main_searchBar/function_search-appliances-in-recipes.js";
-
-
-
-
-
 
 export const searchAppliancesTags = (event) => {
   event.preventDefault();
-
 
   // valeur de l'input
   let valueInputAppliance = searchBarByAppliances.value
@@ -23,16 +14,14 @@ export const searchAppliancesTags = (event) => {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
-
-
   // filtre sur les ingrédients
   let arrayAppliances = [];
- recipes.filter((recipe) => arrayAppliances.push(recipe.appliance));
+  recipes.filter((recipe) => arrayAppliances.push(recipe.appliance));
 
   let newArrayAppliances = Array.from(new Set(arrayAppliances));
   newArrayAppliances = newArrayAppliances.sort();
 
-  console.log(newArrayAppliances)
+  console.log(newArrayAppliances);
 
   let totalAppliances = newArrayAppliances.filter((element) =>
     element
@@ -51,7 +40,7 @@ export const searchAppliancesTags = (event) => {
   } else if (valueInputAppliance.length < 3) {
     blockSubMenuAppliances.innerHTML = "";
     addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
-   searchInAppliancesRecipes()
+    searchInAppliancesRecipes();
   } else {
     blockSubMenuAppliances.innerHTML = "";
     addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);
