@@ -43,7 +43,7 @@ export const searchInIngredientsRecipes = () => {
   if (!newArray.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {
-   // blockSubMenuIngredients.innerHTML = "";
+   blockSubMenuIngredients.innerHTML = "";
     addIngredientsListOfRecipes(recipes);
     buildArticle(recipes);
   } else {

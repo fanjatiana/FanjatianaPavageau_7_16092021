@@ -42,8 +42,7 @@ export const searchToolsTags = () => {
     addTagsList(addUlTagTools, ulTagTools, newArrayTools);
     searchInToolsRecipes();
   } else {
-    blockSubMenuAppliances.innerHTML = "";
-    blockSubMenuIngredients.innerHTML = ""
+
     addTagsList(addUlTagTools, ulTagTools, totalTools);
   }
 };
