@@ -37,7 +37,7 @@ export const searchToolsTags = () => {
   if (!totalTools.length) {
     return toolNoFind();
   } else if (valueInputTools.length < 3) {
-    blockSubMenuTools.innerHTML = "";
+    //blockSubMenuTools.innerHTML = "";
     addTagsList(addUlTagTools, ulTagTools, newArrayTools);
     searchInToolsRecipes();
   } else {

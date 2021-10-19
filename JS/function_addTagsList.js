@@ -15,6 +15,5 @@ export const addTagsList = (ulTag, source, array) => {
     "#tags__list > li"
   );
   selectThisTag(allLiTags)
-  removeThisTag();
 }
  

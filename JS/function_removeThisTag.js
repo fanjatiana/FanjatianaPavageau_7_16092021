@@ -1,5 +1,7 @@
+import { blockSubMenuIngredients } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
+import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_addIngredientsListOfRecipes.js";
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = () => {
@@ -11,6 +13,8 @@ export const removeThisTag = () => {
   allDivTagDisplayed.forEach((element) => {
     arrayTagsSelected.push(element.textContent);
   });
+
+
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
@@ -37,14 +41,17 @@ export const removeThisTag = () => {
           resultFilterByIngredients
         );
 
-        const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+      arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
 
-        buildArticle(newArrayIFilteredTag);
+      
       });
-
+      buildArticle(arrayFilteredTag);
+      addIngredientsListOfRecipes(arrayFilteredTag)
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
         buildArticle(recipes);
+        blockSubMenuIngredients.innerHTML = ""
+        addIngredientsListOfRecipes(recipes)
       }
     });
   });

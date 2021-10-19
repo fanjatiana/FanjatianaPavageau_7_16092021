@@ -13,7 +13,8 @@ export const searchInIngredientsRecipes = () => {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
-  console.log(valueInput);
+
+
   // filtre sur les ingrédients
   const resultFilterByIngredients = recipes.filter((recipe) =>
     recipe.ingredients
@@ -42,7 +43,7 @@ export const searchInIngredientsRecipes = () => {
   if (!newArray.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {
-    blockSubMenuIngredients.innerHTML = "";
+   // blockSubMenuIngredients.innerHTML = "";
     addIngredientsListOfRecipes(recipes);
     buildArticle(recipes);
   } else {

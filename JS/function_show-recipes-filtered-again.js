@@ -2,6 +2,7 @@ import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { RecipesNoFind } from "./function_messageError.js";
 import { removeThisTag } from "./function_removeThisTag.js";
+import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_addIngredientsListOfRecipes.js";
 
 export const showRecipesFilteredAgain = () => {
   const listRecipes = document.querySelectorAll(".info_recipe > h3");
@@ -53,9 +54,12 @@ export const showRecipesFilteredAgain = () => {
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
+   addIngredientsListOfRecipes(newArrayIFilteredTag)
+
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();
     }
   });
+
 };

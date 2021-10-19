@@ -6,11 +6,8 @@ import { searchInIngredientsRecipes } from "../main_searchBar/function_search-in
 import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
 import { addTagsList } from "../function_addTagsList.js";
 
-
+// FILTRE DE RECHERCHE DE TAGS INGREDIENT DANS LE BLOC INGREDIENTS
 export const searchIngredientsTags = () => {
-
- 
-
 
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
