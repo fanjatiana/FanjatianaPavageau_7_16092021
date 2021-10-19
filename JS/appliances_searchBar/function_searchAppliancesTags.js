@@ -1,4 +1,4 @@
-import { blockSubMenuAppliances, searchBarByAppliances } from "../const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, searchBarByAppliances } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
@@ -32,10 +32,14 @@ export const searchAppliancesTags = () => {
   if (!totalAppliances.length) {
     return applianceNoFind();
   } else if (valueInputAppliance.length < 3) {
+    blockSubMenuIngredients.innerHTML= ""
+    blockSubMenuTools.innerHTML= ""
     addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
     searchInAppliancesRecipes();
   } else {
-    blockSubMenuAppliances.innerHTML = "";
+    blockSubMenuIngredients.innerHTML = "";
+    blockSubMenuTools.innerHTML= ""
+  
     addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);
   }
 };

@@ -1,4 +1,4 @@
-import { blockSubMenuIngredients, searchBarByIngredients } from "../const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, searchBarByIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { displayBlockSearchByIngredients } from "../function_displayBlockSearchBy.js";
 import { tagNoFind } from "../function_messageError.js";
@@ -38,12 +38,14 @@ export const searchIngredientsTags = () => {
   if (!totalIngredients.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {
-    blockSubMenuIngredients.innerHTML = "";
+    blockSubMenuTools.innerHTML = "";
+    blockSubMenuAppliances.innerHTML = ""
     addTagsList(ulTag, source,newArray);
     searchInIngredientsRecipes();
     showAllRecipesFiltered();
   } else {
-    blockSubMenuIngredients.innerHTML = "";
+    blockSubMenuTools.innerHTML = "";
+    blockSubMenuAppliances.innerHTML = ""
     addTagsList(ulTag, source, totalIngredients);
   }
 };

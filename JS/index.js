@@ -9,7 +9,7 @@ import { buildArticle } from "./function_buildArticles.js";
 import { searchIn } from "./main_searchBar/function_searchIn.js";
 import { searchInIngredientsRecipes } from "./main_searchBar/function_search-in-ingredients-recipes.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
-import { displayBlockSearchByAppliances, displayBlockSearchByIngredients, displayBlockSearchByTools } from "./function_displayBlockSearchBy.js";
+import { displayBlockSearchByAppliances, displayBlockSearchByIngredients, displayBlockSearchByTools, displayNoneSearchByAppliances, displayNoneSearchByIngredients, displayNoneSearchByTools } from "./function_displayBlockSearchBy.js";
 import { searchInAppliancesRecipes } from "./main_searchBar/function_search-in-appliances-recipes.js";
 
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
@@ -29,6 +29,8 @@ searchBar.addEventListener("input", searchIn);
 searchBarByIngredients.addEventListener("click", (event) => {
     event.preventDefault();
     displayBlockSearchByIngredients();
+    displayNoneSearchByAppliances();
+    displayNoneSearchByTools()
     searchIngredientsTags(event);
 });
 
@@ -36,6 +38,8 @@ searchBarByIngredients.addEventListener("click", (event) => {
 searchBarByIngredients.addEventListener("input", (event) => {
     event.preventDefault();
     displayBlockSearchByIngredients();
+    displayNoneSearchByAppliances();
+    displayNoneSearchByTools()
     searchIngredientsTags()
 });
 
@@ -47,12 +51,16 @@ searchBarByIngredients.addEventListener("input", (event) => {
 searchBarByAppliances.addEventListener("click", (event) => {
   event.preventDefault();
   displayBlockSearchByAppliances();
+  displayNoneSearchByTools()
+  displayNoneSearchByIngredients()
   searchAppliancesTags(event);
 });
 
 searchBarByAppliances.addEventListener("input", (event) => {
   event.preventDefault();
   displayBlockSearchByAppliances();
+  displayNoneSearchByTools()
+  displayNoneSearchByIngredients()
   searchAppliancesTags(event);
 });
 
@@ -65,12 +73,16 @@ searchBarByAppliances.addEventListener("input", (event) => {
 searchBarByTools.addEventListener("click", (event) => {
   event.preventDefault();
   displayBlockSearchByTools();
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances()
   searchToolsTags(event)
 });
 
 searchBarByTools.addEventListener("input", (event) => {
   event.preventDefault();
   displayBlockSearchByTools();
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances()
   searchToolsTags(event)
 });
 
