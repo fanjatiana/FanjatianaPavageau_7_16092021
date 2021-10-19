@@ -6,7 +6,7 @@ import {
 } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
-import { searchIn } from "./main_searchBar/function_searchIn.js";
+import { searchIn } from "./main_searchBar/function_search-in.js";
 import { searchInIngredientsRecipes } from "./main_searchBar/function_search-ingredients-in-recipes.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 import { displayBlockSearchByAppliances, displayBlockSearchByIngredients, displayBlockSearchByTools, displayNoneSearchByAppliances, displayNoneSearchByIngredients, displayNoneSearchByTools } from "./function_displayBlockSearchBy.js";

@@ -1,10 +1,10 @@
-import { blockSubMenuIngredients } from "./const.js";
-import { removeThisTag } from "./function_removeThisTag.js";
+import { blockSubMenuIngredients } from "../const.js";
+import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
 import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again.js";
-import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
+import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
-export const selectThisTag = (allLiTags) => {
+
+export const selectThisIngredientTag = (allLiTags) => {
   // ajout des tags selectionnés au clic
 
   allLiTags.forEach((tags) => {

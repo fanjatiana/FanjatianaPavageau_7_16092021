@@ -3,8 +3,9 @@ import { recipes } from "../data_recipes.js";
 import { displayBlockSearchByIngredients } from "../function_displayBlockSearchBy.js";
 import { tagNoFind } from "../function_messageError.js";
 import { searchInIngredientsRecipes } from "../main_searchBar/function_search-ingredients-in-recipes.js";
-import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
+import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
 import { addTagsList } from "../function_addTagsList.js";
+import { selectThisIngredientTag } from "./function _select-this-ingredient-tag.js";
 
 
 export const searchIngredientsTags = () => {
@@ -43,11 +44,19 @@ export const searchIngredientsTags = () => {
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(ulTag, source,newArray);
+    const allLiTags = document.querySelectorAll(
+      "#tags__list > li"
+    );
+    selectThisIngredientTag(allLiTags)
 
     searchInIngredientsRecipes();
     showAllRecipesFiltered();
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(ulTag, source, totalIngredients);
+    const allLiTags = document.querySelectorAll(
+      "#tags__list > li"
+    );
+    selectThisIngredientTag(allLiTags)
   }
 };

@@ -1,12 +1,12 @@
-import { blockSubMenuIngredients } from "./const.js";
-import { recipes } from "./data_recipes.js";
-import { addTagsList } from "./function_addTagsList.js";
-import { buildArticle } from "./function_buildArticles.js";
-import { RecipesNoFind, tagNoFind } from "./function_messageError.js";
-import { removeThisTag } from "./function_removeThisTag.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again.js";
-import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_add-recipes-ingredients.js";
-import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
+import { blockSubMenuIngredients } from "../const.js";
+import { recipes } from "../data_recipes.js";
+import { addTagsList } from "../function_addTagsList.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { RecipesNoFind, tagNoFind } from "../function_messageError.js";
+import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
+import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
+import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
+
 
 export const showAllRecipesFiltered = () => {
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
