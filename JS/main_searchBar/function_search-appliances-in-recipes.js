@@ -4,7 +4,7 @@ import { recipes } from "../data_recipes.js";
 import { buildArticle } from "../function_buildArticles.js";
 
 import { applianceNoFind, tagNoFind } from "../function_messageError.js";
-import { addAppliancesListOfRecipes } from "../appliances_searchBar/function_addAppliancesListOfRecipes.js";
+import{addAppliancesListOfRecipes} from "../appliances_searchBar/function_add-recipes-appliances.js"
 
 export const searchInAppliancesRecipes = () => {
   // valeur de l'input

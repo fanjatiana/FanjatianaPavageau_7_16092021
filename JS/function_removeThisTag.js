@@ -1,7 +1,7 @@
 import { blockSubMenuIngredients } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
-import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_addIngredientsListOfRecipes.js";
+import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_add-recipes-ingredients.js";
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = () => {

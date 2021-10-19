@@ -6,7 +6,7 @@ import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
 import { applianceNoFind,} from "../function_messageError.js";
-import { searchInAppliancesRecipes } from "../main_searchBar/function_search-in-appliances-recipes.js";
+import { searchInAppliancesRecipes } from "../main_searchBar/function_search-appliances-in-recipes.js";
 
 
 

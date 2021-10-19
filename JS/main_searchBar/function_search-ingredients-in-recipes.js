@@ -1,12 +1,10 @@
 import { blockSubMenuIngredients, searchBar } from "../const.js";
 import { recipes } from "../data_recipes.js";
-import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_addIngredientsListOfRecipes.js";
+import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
 import { buildArticle } from "../function_buildArticles.js";
-
 import { tagNoFind } from "../function_messageError.js";
-import { addAppliancesListOfRecipes } from "../appliances_searchBar/function_addAppliancesListOfRecipes.js";
-import { searchInAppliancesRecipes } from "./function_search-in-appliances-recipes.js";
-//import { selectTAgs } from "./function_selectTags.js";
+
+
 export const searchInIngredientsRecipes = () => {
   // valeur de l'input
   let valueInput = searchBar.value

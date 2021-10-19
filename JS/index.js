@@ -7,14 +7,14 @@ import {
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 import { searchIn } from "./main_searchBar/function_searchIn.js";
-import { searchInIngredientsRecipes } from "./main_searchBar/function_search-in-ingredients-recipes.js";
+import { searchInIngredientsRecipes } from "./main_searchBar/function_search-ingredients-in-recipes.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 import { displayBlockSearchByAppliances, displayBlockSearchByIngredients, displayBlockSearchByTools, displayNoneSearchByAppliances, displayNoneSearchByIngredients, displayNoneSearchByTools } from "./function_displayBlockSearchBy.js";
-import { searchInAppliancesRecipes } from "./main_searchBar/function_search-in-appliances-recipes.js";
+import { searchInAppliancesRecipes } from "./main_searchBar/function_search-appliances-in-recipes.js";
 
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
-import { searchInToolsRecipes } from "./main_searchBar/function-search-in-tools-recipes.js";
+import { searchInToolsRecipes } from "./main_searchBar/function-search-tools-in-recipes.js";
 
 //creation des articles dans le DOM
 buildArticle(recipes);

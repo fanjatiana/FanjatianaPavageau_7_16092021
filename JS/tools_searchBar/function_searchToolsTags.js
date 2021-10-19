@@ -3,7 +3,7 @@ import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, sea
 import { addTagsList } from "../function_addTagsList.js";
 import { applianceNoFind, toolNoFind } from "../function_messageError.js";
 import { recipes } from "../data_recipes.js";
-import { searchInToolsRecipes } from "../main_searchBar/function-search-in-tools-recipes.js";
+import { searchInToolsRecipes } from "../main_searchBar/function-search-tools-in-recipes.js";
 
 export const searchToolsTags = () => {
 

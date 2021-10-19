@@ -2,7 +2,7 @@ import { blockSubMenuIngredients, searchBarByIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { displayBlockSearchByIngredients } from "../function_displayBlockSearchBy.js";
 import { tagNoFind } from "../function_messageError.js";
-import { searchInIngredientsRecipes } from "../main_searchBar/function_search-in-ingredients-recipes.js";
+import { searchInIngredientsRecipes } from "../main_searchBar/function_search-ingredients-in-recipes.js";
 import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-ingredientsTags.js";
 import { addTagsList } from "../function_addTagsList.js";
 

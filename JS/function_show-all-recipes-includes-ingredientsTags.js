@@ -5,7 +5,7 @@ import { buildArticle } from "./function_buildArticles.js";
 import { RecipesNoFind, tagNoFind } from "./function_messageError.js";
 import { removeThisTag } from "./function_removeThisTag.js";
 import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again.js";
-import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_addIngredientsListOfRecipes.js";
+import { addIngredientsListOfRecipes } from "./ingredients_searchBar/function_add-recipes-ingredients.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 
 export const showAllRecipesFiltered = () => {

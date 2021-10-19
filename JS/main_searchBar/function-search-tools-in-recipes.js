@@ -4,7 +4,7 @@ import { recipes } from "../data_recipes.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { toolNoFind } from "../function_messageError.js";
 
-import { addToolsListOfRecipes } from "../tools_searchBar/function_addToolsListOfRecipes.js";
+import { addToolsListOfRecipes } from "../tools_searchBar/function_add-recipes-tools.js";
 
 export const searchInToolsRecipes = () => {
   // valeur de l'input
