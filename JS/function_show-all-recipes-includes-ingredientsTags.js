@@ -3,10 +3,8 @@ import { buildArticle } from "./function_buildArticles.js";
 import { removeThisTag } from "./function_removeThisTag.js";
 import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-again.js";
 
-
 export const showAllRecipesFiltered = () => {
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
 
   // tableau de recupération de la liste des tags selectionnés
   const retrieveTags = [];
@@ -35,13 +33,13 @@ export const showAllRecipesFiltered = () => {
       resultFilterByIngredients
     );
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
-    
-    if(tag.length === 1){
+
+    if (tag.length === 1) {
       buildArticle(newArrayIFilteredTag);
-    } else if (tag.length > 1){ 
-      showRecipesFilteredAgain()
-    } else{
-      return buildArticle(recipes)
+    } else if (tag.length > 1) {
+      showRecipesFilteredAgain();
+    } else {
+      return buildArticle(recipes);
     }
   });
 };

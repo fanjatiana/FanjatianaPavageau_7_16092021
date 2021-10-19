@@ -1,5 +1,5 @@
 import { recipes } from "../data_recipes.js";
-import {searchBar} from "../const.js";
+import { searchBar } from "../const.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
 
@@ -51,7 +51,7 @@ export const searchIn = (event) => {
   );
 
   const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
- const a = document.getElementById("recipes-list")
+
 
   if (!newArrayRecipes.length) {
     return RecipesNoFind();

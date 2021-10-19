@@ -10,7 +10,6 @@ export const addIngredientsListOfRecipes = (array) => {
       arrayIngredients.push(list.ingredient);
     });
   });
-  console.log(arrayIngredients)
   blockSubMenuIngredients.innerHTML = "";
   const ulTag = `<ul id="tags__list"></ul>`;
   const newArrayIngredients = Array.from(new Set(arrayIngredients));

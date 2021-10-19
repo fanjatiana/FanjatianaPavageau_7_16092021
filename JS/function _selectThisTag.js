@@ -8,7 +8,6 @@ export const selectThisTag = (allLiTags) => {
   allLiTags.forEach((tags) => {
     tags.addEventListener("click", (e) => {
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
-      console.log(thisTag)
 
       const divYourTags = document.getElementById("yoursTags");
 

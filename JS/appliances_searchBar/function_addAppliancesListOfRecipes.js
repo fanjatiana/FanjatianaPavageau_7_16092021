@@ -16,7 +16,6 @@ export const addAppliancesListOfRecipes = (array) => {
   const newArrayAppliances = Array.from(new Set(arrayAppliances));
   const ulTag = `<ul id="tags__list"></ul>`;
   blockSubMenuAppliances.innerHTML = "";
-  console.log(newArrayAppliances)
 addTagsList(ulTag, blockSubMenuAppliances, newArrayAppliances)
   
 

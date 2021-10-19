@@ -7,8 +7,8 @@ import { showAllRecipesFiltered } from "../function_show-all-recipes-includes-in
 import { addTagsList } from "../function_addTagsList.js";
 
 
-export const searchIngredientsTags = (event) => {
-  event.preventDefault();
+export const searchIngredientsTags = () => {
+
  
 
 
@@ -25,7 +25,7 @@ export const searchIngredientsTags = (event) => {
   );
 
   const newArray = Array.from(new Set(array));
-  newArray.sort();
+
   const totalIngredients = newArray.filter((element) =>
     element
       .normalize("NFD")
@@ -43,7 +43,6 @@ export const searchIngredientsTags = (event) => {
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(ulTag, source,newArray);
-
     searchInIngredientsRecipes();
     showAllRecipesFiltered();
   } else {

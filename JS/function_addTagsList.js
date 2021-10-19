@@ -7,6 +7,7 @@ import { removeThisTag } from "./function_removeThisTag.js";
 export const addTagsList = (ulTag, source, array) => {
   const addUlToDOM = ulTag;
   source.innerHTML += `${addUlToDOM}`;
+  array.sort();
   array.forEach((element) => {
     TagsFactory.buildTags(element)
   });

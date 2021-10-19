@@ -1,4 +1,4 @@
-// fonction d'affichage du message d'erreur des articles 
+// fonction d'affichage du message d'erreur des articles
 
 export const RecipesNoFind = () => {
   document.getElementById("recipes-list").innerHTML = "";
@@ -16,22 +16,15 @@ export const tagNoFind = () => {
 };
 
 export const applianceNoFind = () => {
-  document.querySelector(
-    ".sub_menu__appliances"
-  ).innerHTML = "";
+  document.querySelector(".sub_menu__appliances").innerHTML = "";
   document.querySelector(
     ".sub_menu__appliances"
   ).innerHTML += `<p> aucun appareil ne correspond à votre critère... vous pouvez chercher blender , poêle, etc</p>`;
 };
 
-
 export const toolNoFind = () => {
-  document.querySelector(
-    ".sub_menu__tools"
-  ).innerHTML = "";
+  document.querySelector(".sub_menu__tools").innerHTML = "";
   document.querySelector(
     ".sub_menu__tools"
   ).innerHTML += `<p> aucun ustensile ne correspond à votre critère... vous pouvez chercher couteau, verres, etc</p>`;
 };
-
-

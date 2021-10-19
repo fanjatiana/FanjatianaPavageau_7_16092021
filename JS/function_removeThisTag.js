@@ -12,8 +12,6 @@ export const removeThisTag = () => {
     arrayTagsSelected.push(element.textContent);
   });
 
-
-
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
       event.preventDefault();
