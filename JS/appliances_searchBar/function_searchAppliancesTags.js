@@ -1,4 +1,4 @@
-import { blockSubMenuAppliances, searchBarByAppliances } from "../const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, searchBarByAppliances } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
@@ -21,7 +21,7 @@ export const searchAppliancesTags = (event) => {
   let newArrayAppliances = Array.from(new Set(arrayAppliances));
   newArrayAppliances = newArrayAppliances.sort();
 
-  console.log(newArrayAppliances);
+
 
   let totalAppliances = newArrayAppliances.filter((element) =>
     element
@@ -39,10 +39,12 @@ export const searchAppliancesTags = (event) => {
     return applianceNoFind();
   } else if (valueInputAppliance.length < 3) {
     blockSubMenuAppliances.innerHTML = "";
+
     addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
     searchInAppliancesRecipes();
   } else {
     blockSubMenuAppliances.innerHTML = "";
+
     addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);
   }
 };

@@ -30,6 +30,7 @@ export const removeThisApplianceTag = () => {
         );
 
         arrayFilteredTag = Array.from(new Set(resultFilterByAppliances));
+      
       });
       buildArticle(arrayFilteredTag);
       addAppliancesListOfRecipes(arrayFilteredTag);

@@ -6,6 +6,7 @@ import { searchInIngredientsRecipes } from "../main_searchBar/function_search-in
 import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { selectThisIngredientTag } from "./function _select-this-ingredient-tag.js";
+import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
 
 export const searchIngredientsTags = () => {
   // valeur de l'input
@@ -48,5 +49,6 @@ export const searchIngredientsTags = () => {
     addTagsList(ulTag, source, totalIngredients);
     const allLiTags = document.querySelectorAll("#tags__list > li");
     selectThisIngredientTag(allLiTags);
+  
   }
 };

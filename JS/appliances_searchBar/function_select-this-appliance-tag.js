@@ -20,4 +20,5 @@ export const selectThisApplianceTag = (allLiTags) => {
       showRecipesFilteredByApplianceTag();
     });
   });
+
 };

@@ -1,3 +1,4 @@
+import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
 import { blockSubMenuIngredients } from "../const.js";
 import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
 import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
@@ -20,6 +21,7 @@ export const selectThisIngredientTag = (allLiTags) => {
      removeThisTag();
       showAllRecipesFiltered();
       showRecipesFilteredAgain();
+  
     });
   });
 };

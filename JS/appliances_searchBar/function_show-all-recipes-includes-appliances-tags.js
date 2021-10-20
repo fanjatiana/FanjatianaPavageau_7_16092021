@@ -14,7 +14,7 @@ export const showAllRecipesIncludesApplianceTag = () => {
 
     retrieveTags.push(tagName);
   });
-  console.log(retrieveTags);
+
  
   retrieveTags.forEach((tag) => {
     let resultFilterByAppliances = recipes.filter((recipe) =>
@@ -22,11 +22,11 @@ export const showAllRecipesIncludesApplianceTag = () => {
     );
 
     const array = Array.from(new Set(resultFilterByAppliances));
-    console.log(array);
+
 
     if (tag.length === 1) {
       buildArticle(array);
-      blockSubMenuAppliances.innerHTML = "";
+     blockSubMenuAppliances.innerHTML = "";
       addAppliancesListOfRecipes(array);
     } else if (tag.length > 1) {
       showRecipesFilteredByApplianceTag();

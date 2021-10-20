@@ -35,25 +35,25 @@ export const showRecipesFilteredByApplianceTag = () => {
 
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
-    const resultFilterByDescription = dataFiltered.filter((recipe) =>
+    /*const resultFilterByDescription = dataFiltered.filter((recipe) =>
       recipe.description.includes(tag)
     );
 
     const resultFilterByName = dataFiltered.filter((recipe) =>
       recipe.name.includes(tag)
-    );
+    );*/
     const resultFilterByAppliances = dataFiltered.filter((recipe) =>
       recipe.appliance.includes(tag)
     );
 
-    arrayFilteredTag = resultFilterByDescription.concat(
-      resultFilterByName,
-      resultFilterByAppliances
-    );
+    arrayFilteredTag =
+      /*resultFilterByDescription.concat(
+      resultFilterByName,*/
+      resultFilterByAppliances;
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
-   addAppliancesListOfRecipes(newArrayIFilteredTag);
+    addAppliancesListOfRecipes(newArrayIFilteredTag);
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();

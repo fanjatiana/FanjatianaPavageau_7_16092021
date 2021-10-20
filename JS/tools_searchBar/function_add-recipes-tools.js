@@ -10,7 +10,7 @@ export const addToolsListOfRecipes = (array) => {
 
   const newArrayTools = Array.from(new Set(arrayTools));
   const ulTag = `<ul id="tags__list"></ul>`;
-  //blockSubMenuTools.innerHTML = "";
-  console.log(newArrayTools);
+  blockSubMenuTools.innerHTML = "";
+
   addTagsList(ulTag, blockSubMenuTools, newArrayTools);
 };

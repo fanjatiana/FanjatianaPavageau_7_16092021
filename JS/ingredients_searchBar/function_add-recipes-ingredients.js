@@ -14,10 +14,12 @@ export const addIngredientsListOfRecipes = (array) => {
   blockSubMenuIngredients.innerHTML = "";
   const ulTag = `<ul id="tags__list"></ul>`;
   const newArrayIngredients = Array.from(new Set(arrayIngredients));
+
 addTagsList(ulTag, blockSubMenuIngredients, newArrayIngredients)
 const allLiTags = document.querySelectorAll(
   "#tags__list > li"
 );
+
 selectThisIngredientTag(allLiTags) 
 
 };

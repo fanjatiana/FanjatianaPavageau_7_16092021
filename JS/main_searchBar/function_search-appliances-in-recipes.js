@@ -1,12 +1,17 @@
-import { blockSubMenuIngredients, searchBar } from "../const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients, searchBar } from "../const.js";
 import { recipes } from "../data_recipes.js";
 
 import { buildArticle } from "../function_buildArticles.js";
 
 import { applianceNoFind, tagNoFind } from "../function_messageError.js";
 import{addAppliancesListOfRecipes} from "../appliances_searchBar/function_add-recipes-appliances.js"
+import { searchInIngredientsRecipes } from "./function_search-ingredients-in-recipes.js";
+import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
+import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
 
 export const searchInAppliancesRecipes = () => {
+
+  blockSubMenuAppliances.addEventListener("click", displayBlockSearchByAppliances)
   // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")
@@ -33,17 +38,21 @@ export const searchInAppliancesRecipes = () => {
 
   const array = resultFilterByDescription.concat(resultFilterByAppliances);
 
+
   const newArray = Array.from(new Set(array));
+ 
 
   if (!newArray.length) {
     return applianceNoFind();
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addAppliancesListOfRecipes(recipes);
+    //searchRecipesWithThisIngredient()
     buildArticle(recipes);
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addAppliancesListOfRecipes(newArray);
+    //searchRecipesWithThisIngredient()
     buildArticle(newArray);
   }
 };

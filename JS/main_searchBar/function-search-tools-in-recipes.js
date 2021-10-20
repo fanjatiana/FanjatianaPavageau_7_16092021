@@ -12,7 +12,7 @@ export const searchInToolsRecipes = () => {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
-  console.log(valueInput);
+
 
   // filtre sur les descritptions
   const resultFilterByDescription = recipes.filter((recipe) =>

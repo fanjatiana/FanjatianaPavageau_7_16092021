@@ -40,6 +40,7 @@ export const removeThisTag = () => {
         );
 
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
+
       });
       buildArticle(arrayFilteredTag);
       addIngredientsListOfRecipes(arrayFilteredTag);
