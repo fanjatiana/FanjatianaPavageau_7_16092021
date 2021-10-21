@@ -50,7 +50,7 @@ export const searchIngredientsTags = () => {
     const allLiTags = document.querySelectorAll("#tags__list > li");
     selectThisIngredientTag(allLiTags);
     searchInIngredientsRecipes();
-    showAllRecipesFiltered();
+    //showAllRecipesFiltered();
   } else {
     blockSubMenuTools.innerHTML = "";
     blockSubMenuIngredients.innerHTML = "";

@@ -3,6 +3,7 @@
 import { showAllRecipesIncludesToolsTags } from "./function_show-all-recipes-includes-tools-tags.js";
 import { showRecipesFilteredByToolsAgain } from "./function-show-recipes-filtered-by-tools-tags.js";
 import { removeThisToolsTag } from "./function_remove-this-tool-tag.js";
+import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
 export const selectThisToolsTag = (allLiTags) => {
   // ajout des tags selectionnés au clic
 
@@ -19,7 +20,7 @@ export const selectThisToolsTag = (allLiTags) => {
      removeThisToolsTag();
       showAllRecipesIncludesToolsTags();
       showRecipesFilteredByToolsAgain();
-  
+      searchRecipesWithThisIngredient()
     });
   });
  

@@ -1,3 +1,4 @@
+
 import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
 import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
 import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
@@ -19,6 +20,7 @@ export const selectThisIngredientTag = (allLiTags) => {
       removeThisTag(); // pour supprimer les tags (au click)
       showAllRecipesFiltered(); // pour afficher les recettes au click du premier tag
       showRecipesFilteredAgain(); // pour filtrer la liste des recettes liée au tag lors de l'ajout d'un second tag
+    
     });
   });
 };
