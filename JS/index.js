@@ -22,7 +22,6 @@ import { searchInAppliancesRecipes } from "./main_searchBar/function_search-appl
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 import { searchInToolsRecipes } from "./main_searchBar/function-search-tools-in-recipes.js";
-import { searchRecipesWithThisIngredient } from "./appliances_searchBar/function_search-after-ingredient-selected.js";
 
 //creation des articles dans le DOM
 buildArticle(recipes);
@@ -37,9 +36,6 @@ searchBarByIngredients.addEventListener("click", (event) => {
   displayNoneSearchByAppliances();
   displayNoneSearchByTools();
   searchIngredientsTags(event);
-
-
- 
 });
 
 // barre de recherche par ingrédients : affichage de la liste des ingrédients au clavier
@@ -89,9 +85,7 @@ searchBar.addEventListener("input", (event) => {
   searchInIngredientsRecipes();
   searchInAppliancesRecipes();
   searchInToolsRecipes();
-
 });
-
 
 searchBar.addEventListener("click", (event) => {
   event.preventDefault();

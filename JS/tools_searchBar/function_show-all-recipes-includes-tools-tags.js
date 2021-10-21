@@ -18,14 +18,14 @@ export const showAllRecipesIncludesToolsTags = () => {
   });
 
   // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
-  let arrayFilteredTag = [];
+
   retrieveTags.forEach((tag) => {
     const resultFilterByTools = recipes.filter((recipe) =>
       recipe.ustensils.includes(tag)
     );
-    arrayFilteredTag = resultFilterByTools;
+ 
 
-    const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+    const newArrayIFilteredTag = Array.from(new Set(resultFilterByTools));
 
     if (tag.length === 1) {
       blockSubMenuTools.innerHTML = "";
