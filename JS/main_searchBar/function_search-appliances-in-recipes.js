@@ -29,11 +29,11 @@ export const searchInAppliancesRecipes = () => {
 
   // filtre sur les appareils
   const resultFilterByAppliances = recipes.filter((recipe) =>
-    recipe.appliance
-      .normalize("NFD")
+    console.log(recipe.appliance)
+      /*.normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInput)
+      .includes(valueInput)*/
   );
 
   const array = resultFilterByDescription.concat(resultFilterByAppliances);
@@ -47,12 +47,10 @@ export const searchInAppliancesRecipes = () => {
   } else if (valueInput.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addAppliancesListOfRecipes(recipes);
-    //searchRecipesWithThisIngredient()
     buildArticle(recipes);
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addAppliancesListOfRecipes(newArray);
-    //searchRecipesWithThisIngredient()
     buildArticle(newArray);
   }
 };

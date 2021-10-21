@@ -1,10 +1,9 @@
 
-import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
-import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
-
-export const selectThisIngredientTag = (allLiTags) => {
+import { showAllRecipesIncludesToolsTags } from "./function_show-all-recipes-includes-tools-tags.js";
+import { showRecipesFilteredByToolsAgain } from "./function-show-recipes-filtered-by-tools-tags.js";
+import { removeThisToolsTag } from "./function_remove-this-tool-tag.js";
+export const selectThisToolsTag = (allLiTags) => {
   // ajout des tags selectionnés au clic
 
   allLiTags.forEach((tags) => {
@@ -17,9 +16,9 @@ export const selectThisIngredientTag = (allLiTags) => {
               <p>${thisTag}<img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg"></p>
           </div>`;
 
-     removeThisTag();
-      showAllRecipesFiltered();
-      showRecipesFilteredAgain();
+     removeThisToolsTag();
+      showAllRecipesIncludesToolsTags();
+      showRecipesFilteredByToolsAgain();
   
     });
   });
