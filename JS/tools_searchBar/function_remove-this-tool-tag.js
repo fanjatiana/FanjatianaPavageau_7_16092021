@@ -7,8 +7,6 @@ export const removeThisToolsTag = () => {
   const tag = document.querySelectorAll(".tag");
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 
-  console.log(allDivTagDisplayed);
-
   // tableau des tags ajoutés
   const arrayTagsSelected = [];
   allDivTagDisplayed.forEach((element) => {
@@ -23,20 +21,16 @@ export const removeThisToolsTag = () => {
       element.style.display = "none";
       arrayTagsSelected.pop();
 
-      console.log(arrayTagsSelected);
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
         const resultFilterByTools = recipes.filter((recipe) =>
           recipe.ustensils.includes(tag)
         );
-
-        console.log(resultFilterByTools);
-
         arrayFilteredTag = resultFilterByTools;
 
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
-        console.log(arrayFilteredTag);
       });
+      console.log(arrayTagsSelected)
       buildArticle(arrayFilteredTag);
       addToolsListOfRecipes(arrayFilteredTag);
       if (arrayTagsSelected.length < 1) {
@@ -44,6 +38,7 @@ export const removeThisToolsTag = () => {
         buildArticle(recipes);
         blockSubMenuTools.innerHTML = "";
         addToolsListOfRecipes(recipes);
+        console.log(arrayTagsSelected)
       }
     });
   });

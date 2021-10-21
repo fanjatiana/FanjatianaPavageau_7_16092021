@@ -1,11 +1,10 @@
-
 import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
 import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
 import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
 
+//fonction pour ajouter et afficher les tags au clic dans la div YoursTag
 export const selectThisIngredientTag = (allLiTags) => {
-  // ajout des tags selectionnés au clic
 
   allLiTags.forEach((tags) => {
     tags.addEventListener("click", (e) => {
@@ -17,10 +16,9 @@ export const selectThisIngredientTag = (allLiTags) => {
               <p>${thisTag}<img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg"></p>
           </div>`;
 
-     removeThisTag();
-      showAllRecipesFiltered();
-      showRecipesFilteredAgain();
-  
+      removeThisTag(); // pour supprimer les tags (au click)
+      showAllRecipesFiltered(); // pour afficher les recettes au click du premier tag
+      showRecipesFilteredAgain(); // pour filtrer la liste des recettes liée au tag lors de l'ajout d'un second tag
     });
   });
 };

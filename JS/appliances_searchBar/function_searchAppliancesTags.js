@@ -14,6 +14,7 @@ export const searchAppliancesTags = (event) => {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
+   
   // filtre sur les ingrédients
   let arrayAppliances = [];
   recipes.filter((recipe) => arrayAppliances.push(recipe.appliance));
@@ -22,14 +23,13 @@ export const searchAppliancesTags = (event) => {
   newArrayAppliances = newArrayAppliances.sort();
 
 
-
   let totalAppliances = newArrayAppliances.filter((element) =>
-    element
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .includes(valueInputAppliance)
-  );
+  element
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .includes(valueInputAppliance)
+);
 
   const ulTagAppliances = document.querySelector(".sub_menu__appliances");
 
@@ -38,11 +38,15 @@ export const searchAppliancesTags = (event) => {
   if (!totalAppliances.length) {
     return applianceNoFind();
   } else if (valueInputAppliance.length < 3) {
+    blockSubMenuTools.innerHTML = "";
+    blockSubMenuIngredients.innerHTML = "";
     blockSubMenuAppliances.innerHTML = "";
 
     addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
     searchInAppliancesRecipes();
   } else {
+    blockSubMenuTools.innerHTML = "";
+    blockSubMenuIngredients.innerHTML = "";
     blockSubMenuAppliances.innerHTML = "";
 
     addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);

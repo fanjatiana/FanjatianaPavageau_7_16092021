@@ -1,4 +1,4 @@
-import { blockSubMenuIngredients, searchBarByIngredients } from "../const.js";
+import { blockSubMenuIngredients, searchBarByIngredients, blockSubMenuTools, blockSubMenuAppliances } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { displayBlockSearchByIngredients } from "../function_displayBlockSearchBy.js";
 import { tagNoFind } from "../function_messageError.js";
@@ -23,6 +23,7 @@ export const searchIngredientsTags = () => {
 
   const newArray = Array.from(new Set(array));
   newArray.sort();
+
   const totalIngredients = newArray.filter((element) =>
     element
       .normalize("NFD")
@@ -38,14 +39,18 @@ export const searchIngredientsTags = () => {
   if (!totalIngredients.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {
+     blockSubMenuTools.innerHTML = "";
     blockSubMenuIngredients.innerHTML = "";
+    blockSubMenuAppliances.innerHTML = "";
     addTagsList(ulTag, source, newArray);
     const allLiTags = document.querySelectorAll("#tags__list > li");
     selectThisIngredientTag(allLiTags);
     searchInIngredientsRecipes();
     showAllRecipesFiltered();
   } else {
+    blockSubMenuTools.innerHTML = "";
     blockSubMenuIngredients.innerHTML = "";
+    blockSubMenuAppliances.innerHTML = "";
     addTagsList(ulTag, source, totalIngredients);
     const allLiTags = document.querySelectorAll("#tags__list > li");
     selectThisIngredientTag(allLiTags);
