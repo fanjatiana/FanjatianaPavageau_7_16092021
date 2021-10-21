@@ -3,10 +3,8 @@ import { recipes } from "../data_recipes.js";
 
 import { buildArticle } from "../function_buildArticles.js";
 
-import { applianceNoFind, tagNoFind } from "../function_messageError.js";
+import { applianceNoFind} from "../function_messageError.js";
 import{addAppliancesListOfRecipes} from "../appliances_searchBar/function_add-recipes-appliances.js"
-import { searchInIngredientsRecipes } from "./function_search-ingredients-in-recipes.js";
-import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
 
 export const searchInAppliancesRecipes = () => {
@@ -18,7 +16,7 @@ export const searchInAppliancesRecipes = () => {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
-  // filtre sur les descritptions
+ //filtre sur les descritptions
   const resultFilterByDescription = recipes.filter((recipe) =>
     recipe.description
       .normalize("NFD")
@@ -29,14 +27,14 @@ export const searchInAppliancesRecipes = () => {
 
   // filtre sur les appareils
   const resultFilterByAppliances = recipes.filter((recipe) =>
-    console.log(recipe.appliance)
-      /*.normalize("NFD")
+  recipe.appliance
+      .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInput)*/
+      .includes(valueInput)
   );
 
-  const array = resultFilterByDescription.concat(resultFilterByAppliances);
+  const array = resultFilterByDescription.concat( resultFilterByAppliances);
 
 
   const newArray = Array.from(new Set(array));

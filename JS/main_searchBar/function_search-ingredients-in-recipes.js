@@ -3,9 +3,7 @@ import { recipes } from "../data_recipes.js";
 import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { tagNoFind } from "../function_messageError.js";
-import { searchInAppliancesRecipes } from "./function_search-appliances-in-recipes.js";
-import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
-import { removeThisTag } from "../ingredients_searchBar/function_remove-this-ingredient-Tag.js";
+
 
 
 export const searchInIngredientsRecipes = () => {
