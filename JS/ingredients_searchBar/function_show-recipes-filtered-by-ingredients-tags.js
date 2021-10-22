@@ -56,7 +56,7 @@ export const showRecipesFilteredAgain = () => {
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
     addIngredientsListOfRecipes(newArrayIFilteredTag);
-    searchRecipesWithThisIngredient(newArrayIFilteredTag);
+    //searchRecipesWithThisIngredient(newArrayIFilteredTag);
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();
     }

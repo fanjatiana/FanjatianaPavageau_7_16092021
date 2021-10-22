@@ -20,7 +20,7 @@ export const selectThisToolsTag = (allLiTags) => {
      removeThisToolsTag();
       showAllRecipesIncludesToolsTags();
       showRecipesFilteredByToolsAgain();
-      searchRecipesWithThisIngredient()
+      //searchRecipesWithThisIngredient()
     });
   });
  
