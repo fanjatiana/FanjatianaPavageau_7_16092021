@@ -1,7 +1,9 @@
+import { searchBarByAppliances } from "../const.js";
+import { recipes } from "../data_recipes.js";
 
 
- const searchAppliancesTags = (event) => {
-  event.preventDefault();
+export const searchAppliancesTags = (array) => {
+
 
   // valeur de l'input
   let valueInputAppliance = searchBarByAppliances.value
@@ -11,7 +13,7 @@
 
   // filtre sur les ingrédients
   let arrayAppliances = [];
-  recipes.filter((recipe) => arrayAppliances.push(recipe.appliance));
+  array.filter((recipe) => arrayAppliances.push(recipe.appliance));
 
   let newArrayAppliances = Array.from(new Set(arrayAppliances));
   newArrayAppliances = newArrayAppliances.sort();
@@ -24,24 +26,5 @@
       .includes(valueInputAppliance)
   );
 
-  const ulTagAppliances = document.querySelector(".sub_menu__appliances");
-
-  const addUlTagAppliances = `<ul id="tags__list"></ul>`;
-
-  if (!totalAppliances.length) {
-    return applianceNoFind();
-  } else if (valueInputAppliance.length < 3) {
-    blockSubMenuTools.innerHTML = "";
-    blockSubMenuIngredients.innerHTML = "";
-    blockSubMenuAppliances.innerHTML = "";
-
-    addTagsList(addUlTagAppliances, ulTagAppliances, newArrayAppliances);
-    searchInAppliancesRecipes();
-  } else {
-    blockSubMenuTools.innerHTML = "";
-    blockSubMenuIngredients.innerHTML = "";
-    blockSubMenuAppliances.innerHTML = "";
-
-    addTagsList(addUlTagAppliances, ulTagAppliances, totalAppliances);
-  }
+  return totalAppliances;
 };

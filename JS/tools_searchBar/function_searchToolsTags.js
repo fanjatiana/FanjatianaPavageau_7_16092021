@@ -1,7 +1,7 @@
+import { searchBarByTools } from "../const.js";
 
+export const searchToolsTags = (array) => {
 
-const searchToolsTags = (event) => {
-  event.preventDefault();
   // valeur de l'input
   let valueInputTools = searchBarByTools.value
     .normalize("NFD")
@@ -9,7 +9,7 @@ const searchToolsTags = (event) => {
     .toLowerCase();
 
   let arrayTools = [];
-  recipes.filter((recipe) => {
+  array.filter((recipe) => {
     recipe.ustensils.map((e) => arrayTools.push(e));
   });
 
@@ -24,28 +24,6 @@ const searchToolsTags = (event) => {
       .includes(valueInputTools)
   );
 
-  const source = document.querySelector(".sub_menu__tools");
+return resultFilterByTools;
 
-  const addUlTagTools = `<ul id="tags__list"></ul>`;
-
-  if (!resultFilterByTools.length) {
-    return toolNoFind();
-  } else if (valueInputTools.length < 3) {
-    blockSubMenuTools.innerHTML = "";
-    blockSubMenuIngredients.innerHTML = "";
-    blockSubMenuAppliances.innerHTML = "";
-
-    addTagsList(addUlTagTools, source, newArrayTools);
-    const allLiTags = document.querySelectorAll("#tags__list > li");
-    selectThisToolsTag(allLiTags);
-    searchInToolsRecipes();
-  } else {
-    blockSubMenuTools.innerHTML = "";
-    blockSubMenuIngredients.innerHTML = "";
-    blockSubMenuAppliances.innerHTML = "";
-
-    addTagsList(addUlTagTools, source, resultFilterByTools);
-    const allLiTags = document.querySelectorAll("#tags__list > li");
-    selectThisToolsTag(allLiTags);
-  }
 };
