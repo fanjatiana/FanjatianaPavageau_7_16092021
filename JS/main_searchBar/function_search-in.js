@@ -3,10 +3,9 @@ import { searchBar } from "../const.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
 
-// Fonction pour afficher la liste des menus
+// Fonction pour afficher la liste des menus en fonction des titres, descriptions, ingrédients
 
- const searchIn = (event) => {
-  event.preventDefault();
+ export const searchIn = () => {
 
   // valeur de l'input
   let valueInput = searchBar.value
@@ -43,7 +42,6 @@ import { RecipesNoFind } from "../function_messageError.js";
       )
       .includes(valueInput)
   );
-
   // concaténation des tableaux
   const array = resultFilterByName.concat(
     resultFilterByDescription,
@@ -52,8 +50,7 @@ import { RecipesNoFind } from "../function_messageError.js";
 
   const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
 
-
-  if (!newArrayRecipes.length) {
+ if (!newArrayRecipes.length) {
     return RecipesNoFind();
   } else if (valueInput.length < 3) {
     return buildArticle(recipes);

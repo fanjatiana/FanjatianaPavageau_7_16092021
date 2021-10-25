@@ -6,6 +6,7 @@ import {
   searchBarByAppliances,
   searchBarByIngredients,
   searchBarByTools,
+  searchBar
 } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { addTagsList } from "./function_addTagsList.js";
@@ -15,10 +16,12 @@ import {
   displayBlockSearchByIngredients,
   displayBlockSearchByTools,
 } from "./function_displayBlockSearchBy.js";
+import { RecipesNoFind } from "./function_messageError.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
+import { searchIn } from "./main_searchBar/function_search-in.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 
-// au chargement de la page :
+                                                              // au chargement de la page :
 //ajout des articles
 buildArticle(recipes);
 
@@ -28,8 +31,6 @@ searchBarByIngredients.addEventListener("click", (event) => {
   displayBlockSearchByIngredients(event);
 });
 // ajout de la liste des ingredients
-//addIngredientsList(recipes);
-//blockSubMenuIngredients.innerHTML = "";
 const allIngredients = addIngredientsList(recipes);
 addTagsList(blockSubMenuIngredients, allIngredients);
 
@@ -51,3 +52,15 @@ searchBarByTools.addEventListener("click", (event) => {
 // ajout de la liste des ustensiles
 const allTools = addToolsList(recipes);
 addTagsList(blockSubMenuTools, allTools);
+
+
+
+
+                                                                // barre de recherche principale :
+
+
+// recherche dans le titre, description, ingrédient
+searchBar.addEventListener("input", searchIn);
+
+
+//affichage des tags ingrédients en fonction des recettes 
