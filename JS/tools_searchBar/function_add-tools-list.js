@@ -8,12 +8,7 @@ export const addToolsList = (array) => {
   array.filter((recipe) => {
     recipe.ustensils.map((e) => arrayTools.push(e));
   });
-
   const newArrayTools = Array.from(new Set(arrayTools));
 
-  blockSubMenuTools.innerHTML = "";
-
-  addTagsList(blockSubMenuTools, newArrayTools);
-
-
+  return newArrayTools;
 };

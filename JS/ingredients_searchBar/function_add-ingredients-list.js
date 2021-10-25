@@ -5,18 +5,14 @@ import { addTagsList } from "../function_addTagsList.js";
 
 
 export const addIngredientsList = (array) => {
-  const arrayIngredients = [];
+let arrayIngredients = [];
   array.filter((recipe) => {
     recipe.ingredients.map((list) => {
       arrayIngredients.push(list.ingredient);
     });
   });
   const newArrayIngredients = Array.from(new Set(arrayIngredients));
-  console.log(newArrayIngredients)
   
-  blockSubMenuIngredients.innerHTML = "";
+  return newArrayIngredients
   
-  
-addTagsList(blockSubMenuIngredients, newArrayIngredients)
-
 };

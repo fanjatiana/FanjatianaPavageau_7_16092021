@@ -4,17 +4,10 @@ import { addTagsList } from "../function_addTagsList.js";
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addAppliancesList = (array) => {
-  const arrayAppliances = [];
+  let arrayAppliances = [];
   array.filter((recipe) => {
     arrayAppliances.push(recipe.appliance);
   });
-  console.log(blockSubMenuAppliances)
   const newArrayAppliances = Array.from(new Set(arrayAppliances));
-
-  blockSubMenuAppliances.innerHTML = "";
-  addTagsList(blockSubMenuAppliances, newArrayAppliances);
-  /*const allLiTags = document.querySelectorAll(
-    "#tags__list > li"
-  );
- /selectThisApplianceTag(allLiTags)*/
+  return newArrayAppliances;
 };
