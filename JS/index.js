@@ -63,11 +63,20 @@ searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
   searchIn();
 
+  //affichage de la liste des ingrédients en fonction de la liste des recettes
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
   const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuIngredients.innerHTML = "";
   addTagsList(blockSubMenuIngredients, allNewIngredients);
 
+ //affichage de la liste des appareils en fonction de la liste des recettes
+ const allNewAppliances= addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+ blockSubMenuAppliances.innerHTML = "";
+ addTagsList(blockSubMenuAppliances, allNewAppliances);
+//affichage de la liste des ustensiles en fonction de la liste des recettes
+const allNewTools= addToolsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+  blockSubMenuTools.innerHTML = "";
+  addTagsList(blockSubMenuTools, allNewTools);
 });
 
 //affichage des tags ingrédients en fonction des recettes
