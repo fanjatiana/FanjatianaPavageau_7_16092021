@@ -1,12 +1,12 @@
 import { blockSubMenuIngredients, searchBar } from "../const.js";
 import { recipes } from "../data_recipes.js";
-import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
+import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { tagNoFind } from "../function_messageError.js";
 
 
 
-const searchInIngredientsRecipes = () => {
+export const searchInIngredientsRecipes = (array) => {
   // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")
@@ -15,7 +15,7 @@ const searchInIngredientsRecipes = () => {
 
 
   // filtre sur les ingrédients
-  const resultFilterByIngredients = recipes.filter((recipe) =>
+  const resultFilterByIngredients = array.filter((recipe) =>
     recipe.ingredients
       .map((list) =>
         list.ingredient
@@ -27,7 +27,7 @@ const searchInIngredientsRecipes = () => {
   );
 
   // filtre sur les descritptions
-  const resultFilterByDescription = recipes.filter((recipe) =>
+  const resultFilterByDescription = array.filter((recipe) =>
     recipe.description
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
@@ -35,11 +35,11 @@ const searchInIngredientsRecipes = () => {
       .includes(valueInput)
   );
 
-  const array = resultFilterByIngredients.concat(resultFilterByDescription);
+  const total = resultFilterByIngredients.concat(resultFilterByDescription);
 
-  const newArray = Array.from(new Set(array));
-
-  if (!newArray.length) {
+  const totalResult= Array.from(new Set(total));
+return totalResult;
+  /*if (!totalResult.length) {
     return tagNoFind();
   } else if (valueInput.length < 3) {
    blockSubMenuIngredients.innerHTML = "";
@@ -48,7 +48,7 @@ const searchInIngredientsRecipes = () => {
     buildArticle(recipes);
   } else {
     blockSubMenuIngredients.innerHTML = "";
-    addIngredientsListOfRecipes(newArray);
-    buildArticle(newArray);
-  }
+    addIngredientsListOfRecipes(totalResult);
+    buildArticle(totalResult);
+  }*/
 };

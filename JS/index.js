@@ -6,7 +6,7 @@ import {
   searchBarByAppliances,
   searchBarByIngredients,
   searchBarByTools,
-  searchBar
+  searchBar,
 } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { addTagsList } from "./function_addTagsList.js";
@@ -17,11 +17,13 @@ import {
   displayBlockSearchByTools,
 } from "./function_displayBlockSearchBy.js";
 import { RecipesNoFind } from "./function_messageError.js";
+import { returnNewRecipesList } from "./function_return-new-recipes-list.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
+import { searchInIngredientsRecipes } from "./main_searchBar/function_search-ingredients-in-recipes.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 
-                                                              // au chargement de la page :
+// au chargement de la page :
 //ajout des articles
 buildArticle(recipes);
 
@@ -53,14 +55,19 @@ searchBarByTools.addEventListener("click", (event) => {
 const allTools = addToolsList(recipes);
 addTagsList(blockSubMenuTools, allTools);
 
+// barre de recherche principale :
 
 
 
-                                                                // barre de recherche principale :
+searchBar.addEventListener("input", () => {
+  // recherche dans le titre, description, ingrédient
+  searchIn();
 
+  const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
+  const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+  blockSubMenuIngredients.innerHTML = "";
+  addTagsList(blockSubMenuIngredients, allNewIngredients);
 
-// recherche dans le titre, description, ingrédient
-searchBar.addEventListener("input", searchIn);
+});
 
-
-//affichage des tags ingrédients en fonction des recettes 
+//affichage des tags ingrédients en fonction des recettes
