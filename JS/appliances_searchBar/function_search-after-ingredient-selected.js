@@ -1,12 +1,5 @@
-import { blockSubMenuIngredients, searchBar } from "../const.js";
-import { recipes } from "../data_recipes.js";
-import { buildArticle } from "../function_buildArticles.js";
-import { blockSubMenuAppliances } from "../const.js";
-import { addAppliancesListOfRecipes } from "./function_add-recipes-appliances.js";
-import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
-import { addTagsList } from "../function_addTagsList.js";
-import { selectThisApplianceTag } from "./function_select-this-appliance-tag.js";
-export const searchRecipesWithThisIngredient = () => {
+
+ const searchRecipesWithThisIngredient = () => {
   blockSubMenuAppliances.innerHTML =""
   // liste des tags appareil
   const articleList = document.querySelectorAll(".info_recipe > h3");

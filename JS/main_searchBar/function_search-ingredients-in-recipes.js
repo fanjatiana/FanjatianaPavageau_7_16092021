@@ -6,7 +6,7 @@ import { tagNoFind } from "../function_messageError.js";
 
 
 
-export const searchInIngredientsRecipes = () => {
+const searchInIngredientsRecipes = () => {
   // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")

@@ -1,11 +1,8 @@
 
-import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
-import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
 
 //fonction pour ajouter et afficher les tags au clic dans la div YoursTag
-export const selectThisIngredientTag = (allLiTags) => {
+ const selectThisIngredientTag = (allLiTags) => {
 
   allLiTags.forEach((tags) => {
     tags.addEventListener("click", (e) => {

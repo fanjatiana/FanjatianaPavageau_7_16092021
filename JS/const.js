@@ -9,7 +9,7 @@ export const searchBarByTheme = document.querySelectorAll(
 export const searchBarByIngredients =
   document.getElementById("ingredients-search");
 export const blockSubMenuIngredients = document.querySelector(
-  "#by_ingredients > .sub_menu"
+  "#by_ingredients > .sub_menu__ingredients"
 );
 export const blockRecipesList = document.getElementById("recipes-list");
 export const allTagsIngredients = document.querySelectorAll(

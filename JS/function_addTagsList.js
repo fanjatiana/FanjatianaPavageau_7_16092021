@@ -9,7 +9,7 @@ export const addTagsList = (ulTag, source, array) => {
   source.innerHTML += `${addUlToDOM}`;
   array.sort();
   array.forEach((element) => {
-    TagsFactory.buildTags(element)
+    TagsFactory.buildTags(source,element)
   });
   /*const allLiTags = document.querySelectorAll(
     "#tags__list > li"

@@ -7,7 +7,7 @@ import { applianceNoFind} from "../function_messageError.js";
 import{addAppliancesListOfRecipes} from "../appliances_searchBar/function_add-recipes-appliances.js"
 import { displayBlockSearchByAppliances } from "../function_displayBlockSearchBy.js";
 
-export const searchInAppliancesRecipes = () => {
+const searchInAppliancesRecipes = () => {
 
   blockSubMenuAppliances.addEventListener("click", displayBlockSearchByAppliances)
   // valeur de l'input

@@ -1,15 +1,6 @@
-import {
-  blockSubMenuAppliances,
-  blockSubMenuIngredients,
-  blockSubMenuTools,
-  searchBarByAppliances,
-} from "../const.js";
-import { recipes } from "../data_recipes.js";
-import { addTagsList } from "../function_addTagsList.js";
-import { applianceNoFind } from "../function_messageError.js";
-import { searchInAppliancesRecipes } from "../main_searchBar/function_search-appliances-in-recipes.js";
 
-export const searchAppliancesTags = (event) => {
+
+ const searchAppliancesTags = (event) => {
   event.preventDefault();
 
   // valeur de l'input

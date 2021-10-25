@@ -1,10 +1,10 @@
 import {blockSubMenuIngredients } from "../const.js";
-import { selectThisIngredientTag } from "./function _select-this-ingredient-tag.js";
+
 import { addTagsList } from "../function_addTagsList.js";
 // AFFICHER LA LISTE DES INGREDIENTS [DES RECETTES] DANS LE BLOC INGREDIENT
 
 
-export const addIngredientsListOfRecipes = (array) => {
+export const addIngredientsList = (array) => {
   const arrayIngredients = [];
   array.filter((recipe) => {
     recipe.ingredients.map((list) => {
@@ -12,14 +12,16 @@ export const addIngredientsListOfRecipes = (array) => {
     });
   });
   blockSubMenuIngredients.innerHTML = "";
-  const ulTag = `<ul id="tags__list"></ul>`;
+  const ulTag = `<ul class="tags__list"></ul>`;
+  console.log(ulTag)
   const newArrayIngredients = Array.from(new Set(arrayIngredients));
+  console.log(newArrayIngredients)
 
 addTagsList(ulTag, blockSubMenuIngredients, newArrayIngredients)
 const allLiTags = document.querySelectorAll(
-  "#tags__list > li"
+  ".tags__list > li"
 );
 
-selectThisIngredientTag(allLiTags) 
+//selectThisIngredientTag(allLiTags) 
 
 };

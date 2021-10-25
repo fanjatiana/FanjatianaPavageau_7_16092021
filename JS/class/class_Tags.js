@@ -2,16 +2,18 @@ import { baliseUl } from "../const.js";
 
 
 export class Tags {
-    constructor(tag) {
+    constructor(source,tag) { 
+      this.source = source;
       this.tag = tag;
-      this.element = this.build(tag);
-      Object.assign(this,tag)
+      this.element = this.build(source,tag);
+      Object.assign(this,source,tag)
     }
 
     // fonction pour afficher les tags
-    build(tag) {
+    build(source,tag) {
+      const baliseUl = source.querySelector(".tags__list");
       this.tag = tag;
-      const baliseUl = document.getElementById("tags__list");
       baliseUl.innerHTML += `<li>${tag}</li>`
     }
-  }
+      
+    }      

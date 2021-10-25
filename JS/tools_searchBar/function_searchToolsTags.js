@@ -1,16 +1,6 @@
-import {
-  blockSubMenuAppliances,
-  blockSubMenuIngredients,
-  blockSubMenuTools,
-  searchBarByTools,
-} from "../const.js";
-import { addTagsList } from "../function_addTagsList.js";
-import { toolNoFind } from "../function_messageError.js";
-import { recipes } from "../data_recipes.js";
-import { searchInToolsRecipes } from "../main_searchBar/function-search-tools-in-recipes.js";
-import { selectThisToolsTag } from "./function_select-this-tools-tags.js";
 
-export const searchToolsTags = (event) => {
+
+const searchToolsTags = (event) => {
   event.preventDefault();
   // valeur de l'input
   let valueInputTools = searchBarByTools.value

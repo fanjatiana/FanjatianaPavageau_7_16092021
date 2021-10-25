@@ -1,11 +1,6 @@
-import { recipes } from "../data_recipes.js";
-import { buildArticle } from "../function_buildArticles.js";
-import { RecipesNoFind } from "../function_messageError.js";
-import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
-import { addIngredientsListOfRecipes } from "../ingredients_searchBar/function_add-recipes-ingredients.js";
-import { searchRecipesWithThisIngredient } from "../appliances_searchBar/function_search-after-ingredient-selected.js";
 
-export const showRecipesFilteredAgain = () => {
+
+const showRecipesFilteredAgain = () => {
   const listRecipes = document.querySelectorAll(".info_recipe > h3");
 
   const articles = [];

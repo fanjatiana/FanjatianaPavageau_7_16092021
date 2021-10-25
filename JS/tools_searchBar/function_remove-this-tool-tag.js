@@ -1,9 +1,6 @@
-import { blockSubMenuTools } from "../const.js";
-import { recipes } from "../data_recipes.js";
-import { buildArticle } from "../function_buildArticles.js";
-import { addToolsListOfRecipes } from "./function_add-recipes-tools.js";
 
-export const removeThisToolsTag = () => {
+
+const removeThisToolsTag = () => {
   const tag = document.querySelectorAll(".tag");
   const allDivTagDisplayed = document.querySelectorAll(".tag > p");
 

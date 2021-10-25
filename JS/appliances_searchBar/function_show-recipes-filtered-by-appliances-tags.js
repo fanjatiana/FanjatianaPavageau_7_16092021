@@ -1,9 +1,6 @@
-import { recipes } from "../data_recipes.js";
-import { buildArticle } from "../function_buildArticles.js";
-import { RecipesNoFind } from "../function_messageError.js";
-import { addAppliancesListOfRecipes } from "./function_add-recipes-appliances.js";
 
-export const showRecipesFilteredByApplianceTag = () => {
+
+ const showRecipesFilteredByApplianceTag = () => {
   const listRecipes = document.querySelectorAll(".info_recipe > h3");
 
   const articles = [];

@@ -5,7 +5,7 @@ import { RecipesNoFind } from "../function_messageError.js";
 
 // Fonction pour afficher la liste des menus
 
-export const searchIn = (event) => {
+ const searchIn = (event) => {
   event.preventDefault();
 
   // valeur de l'input

@@ -1,18 +1,7 @@
-import {
-  blockSubMenuIngredients,
-  searchBarByIngredients,
-  blockSubMenuTools,
-  blockSubMenuAppliances,
-} from "../const.js";
-import { recipes } from "../data_recipes.js";
-import { tagNoFind } from "../function_messageError.js";
-import { searchInIngredientsRecipes } from "../main_searchBar/function_search-ingredients-in-recipes.js";
-import { showAllRecipesFiltered } from "./function_show-all-recipes-includes-ingredientsTags.js";
-import { addTagsList } from "../function_addTagsList.js";
-import { selectThisIngredientTag } from "./function _select-this-ingredient-tag.js";
 
 
-export const searchIngredientsTags = () => {
+
+ const searchIngredientsTags = () => {
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
     .normalize("NFD")

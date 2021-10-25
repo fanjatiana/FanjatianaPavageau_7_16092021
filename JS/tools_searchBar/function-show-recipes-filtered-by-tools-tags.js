@@ -1,12 +1,7 @@
-import { recipes } from "../data_recipes.js";
-import { buildArticle } from "../function_buildArticles.js";
-import { RecipesNoFind } from "../function_messageError.js";
-import { addToolsListOfRecipes } from "./function_add-recipes-tools.js";
 
 
 
-
-export const  showRecipesFilteredByToolsAgain = () =>{
+ const  showRecipesFilteredByToolsAgain = () =>{
 
     const listRecipes = document.querySelectorAll(".info_recipe > h3");
 

@@ -1,8 +1,5 @@
-import { removeThisApplianceTag } from "./function_remove-this-appliance-tag.js";
-import { showAllRecipesIncludesApplianceTag } from "./function_show-all-recipes-includes-appliances-tags.js";
-import { showRecipesFilteredByApplianceTag } from "./function_show-recipes-filtered-by-appliances-tags.js";
 
-export const selectThisApplianceTag = (allLiTags) => {
+const selectThisApplianceTag = (allLiTags) => {
   // ajout des tags selectionnés au clic
 
   allLiTags.forEach((tags) => {

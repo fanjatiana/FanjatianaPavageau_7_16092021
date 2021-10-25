@@ -6,7 +6,7 @@ import { toolNoFind } from "../function_messageError.js";
 
 import { addToolsListOfRecipes } from "../tools_searchBar/function_add-recipes-tools.js";
 
-export const searchInToolsRecipes = () => {
+ const searchInToolsRecipes = () => {
   // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")

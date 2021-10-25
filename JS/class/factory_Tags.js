@@ -2,8 +2,8 @@ import { Tags} from "./class_Tags.js";
 
  
  export class TagsFactory {
-    static buildTags(tag){
+    static buildTags(tag,source){
       let objectTags = null;
-      objectTags = new Tags(tag)
+      objectTags = new Tags(tag,source)
     }
   }
