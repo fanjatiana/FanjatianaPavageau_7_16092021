@@ -11,17 +11,12 @@ export const addIngredientsList = (array) => {
       arrayIngredients.push(list.ingredient);
     });
   });
-  blockSubMenuIngredients.innerHTML = "";
-  const ulTag = `<ul class="tags__list"></ul>`;
-  console.log(ulTag)
   const newArrayIngredients = Array.from(new Set(arrayIngredients));
   console.log(newArrayIngredients)
-
-addTagsList(ulTag, blockSubMenuIngredients, newArrayIngredients)
-const allLiTags = document.querySelectorAll(
-  ".tags__list > li"
-);
-
-//selectThisIngredientTag(allLiTags) 
+  
+  blockSubMenuIngredients.innerHTML = "";
+  
+  
+addTagsList(blockSubMenuIngredients, newArrayIngredients)
 
 };

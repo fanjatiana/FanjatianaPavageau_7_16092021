@@ -10,9 +10,9 @@ export const addAppliancesList = (array) => {
   });
   console.log(blockSubMenuAppliances)
   const newArrayAppliances = Array.from(new Set(arrayAppliances));
-  const ulTag = `<ul class="tags__list"></ul>`;
+
   blockSubMenuAppliances.innerHTML = "";
-  addTagsList(ulTag, blockSubMenuAppliances, newArrayAppliances);
+  addTagsList(blockSubMenuAppliances, newArrayAppliances);
   /*const allLiTags = document.querySelectorAll(
     "#tags__list > li"
   );

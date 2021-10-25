@@ -10,13 +10,10 @@ export const addToolsList = (array) => {
   });
 
   const newArrayTools = Array.from(new Set(arrayTools));
-  const ulTag = `<ul class="tags__list"></ul>`;
+
   blockSubMenuTools.innerHTML = "";
 
-  addTagsList(ulTag, blockSubMenuTools, newArrayTools);
-  /*const allLiTags = document.querySelectorAll(
-    ".tags__list > li"
-  );*/
-  //selectThisToolsTag(allLiTags)
+  addTagsList(blockSubMenuTools, newArrayTools);
+
 
 };
