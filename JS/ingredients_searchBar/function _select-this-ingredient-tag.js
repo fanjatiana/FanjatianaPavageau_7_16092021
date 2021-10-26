@@ -1,23 +1,13 @@
 
-
-
 //fonction pour ajouter et afficher les tags au clic dans la div YoursTag
-export const selectThisTag = (allLiTags) => {
+export const selectThisTag = (element) => {
+  const thisTag = element.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
 
-  allLiTags.forEach((tags) => {
-    tags.addEventListener("click", (e) => {
-      const thisTag = e.currentTarget//.innerHTML; // cibler le tag selectionné dit element courant
+  const divYourTags = document.getElementById("yoursTags");
 
-      const divYourTags = document.getElementById("yoursTags");
-
-      divYourTags.innerHTML += `<div class="tag">
+  const addTagsToDom = (divYourTags.innerHTML += `<div class="tag">
               <p>${thisTag}<img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg"></p>
-          </div>`;
+          </div>`);
 
-      //removeThisTag(); // pour supprimer les tags (au click)
-      //showAllRecipesFiltered(); // pour afficher les recettes au click du premier tag
-      //showRecipesFilteredAgain(); // pour filtrer la liste des recettes liée au tag lors de l'ajout d'un second tag
-    
-    });
-  });
+  return addTagsToDom;
 };

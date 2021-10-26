@@ -1,6 +1,6 @@
 // fonction pour afficher le bloc contenant la liste des ingrédients
-export const displayBlockSearchByIngredients = (event) => {
-  event.preventDefault();
+export const displayBlockSearchByIngredients = () => {
+
   document.querySelector(".sub_menu__ingredients").style.display = "block";
 };
 

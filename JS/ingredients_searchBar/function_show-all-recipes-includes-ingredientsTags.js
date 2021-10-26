@@ -1,16 +1,11 @@
+import { blockSubMenuIngredients } from "../const.js";
+import { recipes } from "../data_recipes.js";
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { addIngredientsList } from "./function_add-ingredients-list.js";
+import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
-
- const showAllRecipesFiltered = () => {
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau de recupération de la liste des tags selectionnés
-  const retrieveTags = [];
-  allDivTagDisplayed.forEach((element) => {
-    const tagName = element.textContent;
-
-    retrieveTags.push(tagName);
-  });
-
+export const showAllRecipesByTag = (retrieveTags) => {
+ retrieveTags = getAllTagsSelected();
   // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
@@ -30,20 +25,21 @@
       resultFilterByIngredients
     );
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
-  
+    console.log(newArrayIFilteredTag)
+ 
 
     if (tag.length === 1) {
       blockSubMenuIngredients.innerHTML = "";
-      addIngredientsListOfRecipes(newArrayIFilteredTag);
+      addIngredientsList(newArrayIFilteredTag);
       
       return buildArticle(newArrayIFilteredTag);
     } else if (tag.length > 1) {
       blockSubMenuIngredients.innerHTML = "";
-      addIngredientsListOfRecipes(newArrayIFilteredTag);
-      return showRecipesFilteredAgain();
+      addIngredientsList(newArrayIFilteredTag);
+      //showRecipesFilteredAgain();
     } else {
       blockSubMenuIngredients.innerHTML = "";
-      addIngredientsListOfRecipes(recipes);
+      addIngredientsList(recipes);
       return buildArticle(recipes);
     }
 

@@ -1,15 +1,13 @@
-
+import { blockSubMenuIngredients } from "../const.js";
+import { recipes } from "../data_recipes.js";
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { addIngredientsList } from "./function_add-ingredients-list.js";
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
- const removeThisTag = () => {
+ export const removeThisTag = () => {
   const tag = document.querySelectorAll(".tag");
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau des tags ajoutés
-  const arrayTagsSelected = [];
-  allDivTagDisplayed.forEach((element) => {
-    arrayTagsSelected.push(element.textContent);
-  });
+const arrayTagsSelected = getAllTagsSelected();
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
@@ -40,12 +38,12 @@
 
       });
       buildArticle(arrayFilteredTag);
-      addIngredientsListOfRecipes(arrayFilteredTag);
+      addIngredientsList(arrayFilteredTag);
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
         buildArticle(recipes);
         blockSubMenuIngredients.innerHTML = "";
-        addIngredientsListOfRecipes(recipes);
+        addIngredientsList(recipes);
       }
     });
   });
