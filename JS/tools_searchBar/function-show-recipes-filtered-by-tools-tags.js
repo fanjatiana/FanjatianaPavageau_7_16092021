@@ -4,22 +4,18 @@ import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addToolsList } from "./function_add-tools-list.js";
 
-
-
-
- export const  showRecipesFilteredByToolsAgain = () =>{
-
+export const showRecipesFilteredByToolsAgain = () => {
   const retrieveTags = getAllTagsSelected();
   const dataFiltered = getRecipesList();
 
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
     const resultFilterByTools = dataFiltered.filter((recipe) =>
-        recipe.ustensils.includes(tag)
-      );
+      recipe.ustensils.includes(tag)
+    );
 
     arrayFilteredTag = resultFilterByTools;
-    
+
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
     addToolsList(newArrayIFilteredTag);
@@ -28,5 +24,4 @@ import { addToolsList } from "./function_add-tools-list.js";
       RecipesNoFind();
     }
   });
-
-}
+};

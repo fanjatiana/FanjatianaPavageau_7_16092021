@@ -1,6 +1,4 @@
-import { blockSubMenuAppliances } from "../const.js";
-import { addTagsList } from "../function_addTagsList.js";
-//import { selectThisApplianceTag } from "./function_select-this-appliance-tag.js";
+
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addAppliancesList = (array) => {

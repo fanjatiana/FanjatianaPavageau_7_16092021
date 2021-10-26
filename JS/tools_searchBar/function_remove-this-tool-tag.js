@@ -5,7 +5,6 @@ import { addTagsList } from "../function_addTagsList.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { addToolsList } from "./function_add-tools-list.js";
 
-
 export const removeThisToolsTag = () => {
   const tag = document.querySelectorAll(".tag");
   let arrayTagsSelected = getAllTagsSelected();

@@ -3,26 +3,30 @@ import { recipes } from "./data_recipes.js";
 // Const DOM
 export const baliseUl = document.getElementById("ingredients_tags");
 export const searchBar = document.getElementById("site-search");
-export const searchBarByTheme = document.querySelectorAll(
-  "#filter-by > section"
-);
-export const searchBarByIngredients =
-  document.getElementById("ingredients-search");
-export const blockSubMenuIngredients = document.querySelector(
-  "#by_ingredients > .sub_menu__ingredients"
-);
+export const searchBarByTheme = document.querySelectorAll("#filter-by > section");
+export const searchBarByIngredients = document.getElementById("ingredients-search");
+export const blockSubMenuIngredients = document.querySelector("#by_ingredients > .sub_menu__ingredients");
 export const blockRecipesList = document.getElementById("recipes-list");
-export const allTagsIngredients = document.querySelectorAll(
-  "#ingredients_tags > li"
-);
+export const allTagsIngredients = document.querySelectorAll("#ingredients_tags > li");
 export const blockSubMenuTools = document.querySelector(".sub_menu__tools")
-
 export const allBtnCross = document.querySelectorAll(".btn_cross");
 export const blockYoursTags = document.getElementById("yoursTags");
-
 export const searchBarByAppliances = document.getElementById("appliance-search");
 export const blockSubMenuAppliances = document.querySelector(".sub_menu__appliances")
 export const searchBarByTools = document.getElementById("tools-search");
+export const ingredientsTagsListDisplayed = document.querySelectorAll(
+  ".sub_menu__ingredients > .tags__list li"
+);
+export const appliancesTagsListDisplayed = document.querySelectorAll(
+  ".sub_menu__appliances > .tags__list li"
+);
+
+//tags ingrédients
+export const toolsTagsListDisplayed = document.querySelectorAll(
+  ".sub_menu__tools > .tags__list li"
+);
+
+
 // Const ARRAY
 // tableau des titres
 export const arrayTitle = recipes.map((element) => element.name);
@@ -40,8 +44,9 @@ arrayUstensils.forEach((element) => {
   ustensilsList.push(...element);
 });
 
-// valeur de l'input
-export let valueInput = searchBar.value
+// valeur de l'input barre principale
+export const valueInput = searchBar.value
   .normalize("NFD")
   .replace(/[\u0300-\u036f]/g, "")
   .toLowerCase();
+
