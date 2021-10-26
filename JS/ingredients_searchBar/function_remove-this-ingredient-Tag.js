@@ -35,7 +35,7 @@ const arrayTagsSelected = getAllTagsSelected();
         );
 
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
-
+        arrayFilteredTag.sort();
       });
       buildArticle(arrayFilteredTag);
       addIngredientsList(arrayFilteredTag);

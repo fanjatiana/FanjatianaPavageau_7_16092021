@@ -10,17 +10,19 @@ import {
   searchBar,
 } from "./const.js";
 import { recipes } from "./data_recipes.js";
-import { getAllTagsSelected } from "./functions_get-all-tags-selected.js";
+
 import { addTagsList } from "./function_addTagsList.js";
 import { buildArticle } from "./function_buildArticles.js";
 import {
   displayBlockSearchByAppliances,
   displayBlockSearchByIngredients,
   displayBlockSearchByTools,
+  displayNoneSearchByAppliances,
+  displayNoneSearchByIngredients,
+  displayNoneSearchByTools,
 } from "./function_displayBlockSearchBy.js";
 import {
   applianceNoFind,
-  RecipesNoFind,
   tagNoFind,
   toolNoFind,
 } from "./function_messageError.js";
@@ -31,61 +33,64 @@ import { removeThisTag } from "./ingredients_searchBar/function_remove-this-ingr
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 import { showAllRecipesByTag } from "./ingredients_searchBar/function_show-all-recipes-includes-ingredientsTags.js";
 import { showRecipesFilteredAgain } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
-//import { showRecipesFilteredAgain } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
 import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 
-// au chargement de la page :
-//ajout des articles
+                                                  // au chargement de la page :
+
+                                                  //ajout des articles
 buildArticle(recipes);
 //evenement au clic du bloc ingredients
-searchBarByIngredients.addEventListener("click", () => {
+searchBarByIngredients.addEventListener("focus", () => {
 
   displayBlockSearchByIngredients();
+  displayNoneSearchByAppliances();
+  displayNoneSearchByTools()
+  blockSubMenuIngredients.innerHTML =""
   // ajout de la liste des ingredients
-const allIngredients = addIngredientsList(recipes);
-addTagsList(blockSubMenuIngredients, allIngredients);
-//selection des tags
+  const allIngredients = addIngredientsList(recipes);
+  addTagsList(blockSubMenuIngredients, allIngredients);
+  //selection des tags
 
-//tags ingrédients
-let ingredientsTagsListDisplayed = document.querySelectorAll(".sub_menu__ingredients > .tags__list li");
-ingredientsTagsListDisplayed.forEach((tags) => {
-  tags.addEventListener("click", (e) => {
-    selectThisTag(e);
-    showAllRecipesByTag();
-    showRecipesFilteredAgain();
-    removeThisTag()
-  })
-
-
-})
-
-})
-
-
-
+  //tags ingrédients
+  let ingredientsTagsListDisplayed = document.querySelectorAll(
+    ".sub_menu__ingredients > .tags__list li"
+  );
+  ingredientsTagsListDisplayed.forEach((tags) => {
+    tags.addEventListener("click", (e) => {
+      selectThisTag(e);
+      showAllRecipesByTag();
+      showRecipesFilteredAgain();
+      removeThisTag();
+    });
+  });
+});
 
 //evenement au clic du bloc appareil
-searchBarByAppliances.addEventListener("click", (event) => {
-  event.preventDefault();
-  displayBlockSearchByAppliances(event);
-});
-// ajout de la liste des appareils
+searchBarByAppliances.addEventListener("focus", () => {
+  blockSubMenuAppliances.innerHTML = "";
+displayNoneSearchByIngredients();
+displayNoneSearchByTools();
+  displayBlockSearchByAppliances();
+  // ajout de la liste des appareils
 addAppliancesList(recipes);
 const allAppliances = addAppliancesList(recipes);
 addTagsList(blockSubMenuAppliances, allAppliances);
-
+});
 
 //evenement au clic du bloc ustensiles
-searchBarByTools.addEventListener("click", (event) => {
-  event.preventDefault();
-  displayBlockSearchByTools(event);
-});
-// ajout de la liste des ustensiles
+searchBarByTools.addEventListener("focus", () => {
+  blockSubMenuTools.innerHTML = ""
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
+  displayBlockSearchByTools();
+  // ajout de la liste des ustensiles
 const allTools = addToolsList(recipes);
 addTagsList(blockSubMenuTools, allTools);
+});
+
 
 // barre de recherche principale :
 
@@ -121,9 +126,11 @@ searchBar.addEventListener("input", () => {
 
   //selection des tags
 
-//tags ingrédients
-let ingredientsTagsListDisplayed = document.querySelectorAll(".sub_menu__ingredients > .tags__list li");
-selectThisTag(ingredientsTagsListDisplayed);
+  //tags ingrédients
+  let ingredientsTagsListDisplayed = document.querySelectorAll(
+    ".sub_menu__ingredients > .tags__list li"
+  );
+  selectThisTag(ingredientsTagsListDisplayed);
 });
 
 // recherche de tags ingrédients
@@ -142,11 +149,9 @@ searchBarByIngredients.addEventListener("input", () => {
   } else if (inputValue.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, allNewIngredients);
-
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, ingredients);
-
   }
 });
 
@@ -192,14 +197,3 @@ searchBarByTools.addEventListener("input", () => {
   }
 });
 
-
-
-
-
-
-
-/*selection des tags
-
-//tags ingrédients
-let ingredientsTagsListDisplayed = document.querySelectorAll(".sub_menu__ingredients > .tags__list li");
-selectThisTag(ingredientsTagsListDisplayed);*/

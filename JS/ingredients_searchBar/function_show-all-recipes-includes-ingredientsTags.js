@@ -2,7 +2,7 @@ import { blockSubMenuIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
-import { showRecipesFilteredAgain } from "./function_show-recipes-filtered-by-ingredients-tags.js";
+
 
 export const showAllRecipesByTag = (retrieveTags) => {
  retrieveTags = getAllTagsSelected();
@@ -31,12 +31,10 @@ export const showAllRecipesByTag = (retrieveTags) => {
     if (tag.length === 1) {
       blockSubMenuIngredients.innerHTML = "";
       addIngredientsList(newArrayIFilteredTag);
-      
       return buildArticle(newArrayIFilteredTag);
     } else if (tag.length > 1) {
       blockSubMenuIngredients.innerHTML = "";
       addIngredientsList(newArrayIFilteredTag);
-      //showRecipesFilteredAgain();
     } else {
       blockSubMenuIngredients.innerHTML = "";
       addIngredientsList(recipes);
