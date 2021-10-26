@@ -1,16 +1,12 @@
+import { blockSubMenuTools } from "../const.js";
+import { recipes } from "../data_recipes.js";
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { addToolsList } from "./function_add-tools-list.js";
+ 
 
-
- const showAllRecipesIncludesToolsTags = () => {
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau de recupération de la liste des tags selectionnés
-  const retrieveTags = [];
-  allDivTagDisplayed.forEach((element) => {
-    const tagName = element.textContent;
-
-    retrieveTags.push(tagName);
-  });
-
+export const showAllRecipesIncludesToolsTags = () => {
+  const retrieveTags = getAllTagsSelected();
   // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
 
   retrieveTags.forEach((tag) => {
@@ -18,21 +14,19 @@
       recipe.ustensils.includes(tag)
     );
  
-
-    const newArrayIFilteredTag = Array.from(new Set(resultFilterByTools));
+let newArrayIFilteredTag = resultFilterByTools;
+    newArrayIFilteredTag = Array.from(new Set(resultFilterByTools));
 
     if (tag.length === 1) {
       blockSubMenuTools.innerHTML = "";
-      addToolsListOfRecipes(newArrayIFilteredTag);
-      buildArticle(newArrayIFilteredTag);
+      addToolsList(newArrayIFilteredTag);
+    buildArticle(newArrayIFilteredTag);
     } else if (tag.length > 1) {
-      blockSubMenuTools.innerHTML = "";
-      addToolsListOfRecipes(newArrayIFilteredTag);
-      showRecipesFilteredByToolsAgain();
+      addToolsList(newArrayIFilteredTag);
     } else {
       blockSubMenuTools.innerHTML = "";
-      addToolsListOfRecipes(recipes);
-      buildArticle(recipes);
+      addToolsList(recipes);
+     buildArticle(recipes);
     }
   });
 };

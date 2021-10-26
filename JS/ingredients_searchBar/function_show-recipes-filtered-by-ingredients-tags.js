@@ -5,9 +5,7 @@ import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
 
-
 export const showRecipesFilteredAgain = () => {
- 
   const retrieveTags = getAllTagsSelected();
   const dataFiltered = getRecipesList();
 

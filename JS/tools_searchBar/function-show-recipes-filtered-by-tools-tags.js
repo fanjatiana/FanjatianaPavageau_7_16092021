@@ -1,36 +1,16 @@
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { getRecipesList } from "../function_display-recipes-filtered.js";
+import { RecipesNoFind } from "../function_messageError.js";
+import { addToolsList } from "./function_add-tools-list.js";
 
 
 
- const  showRecipesFilteredByToolsAgain = () =>{
 
-    const listRecipes = document.querySelectorAll(".info_recipe > h3");
+ export const  showRecipesFilteredByToolsAgain = () =>{
 
-  const articles = [];
-
-  listRecipes.forEach((e) => {
-    const recipeTitle = e.innerHTML;
-    articles.push(recipeTitle);
-  });
-
-  const dataFiltered = [];
-
-  articles.forEach((title) => {
-    recipes.filter((a) => {
-      if (a.name === title) {
-        dataFiltered.push(a);
-      }
-    });
-  });
-
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau de recupération de la liste des tags selectionnés
-  const retrieveTags = [];
-  allDivTagDisplayed.forEach((element) => {
-    const tagName = element.textContent;
-
-    retrieveTags.push(tagName);
-  });
+  const retrieveTags = getAllTagsSelected();
+  const dataFiltered = getRecipesList();
 
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
@@ -42,7 +22,7 @@
     
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
-    addToolsListOfRecipes(newArrayIFilteredTag);
+    addToolsList(newArrayIFilteredTag);
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();

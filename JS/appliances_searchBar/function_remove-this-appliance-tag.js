@@ -1,15 +1,12 @@
-
-
+import { blockSubMenuAppliances } from "../const.js";
+import { recipes } from "../data_recipes.js";
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { addAppliancesList } from "./function_add-appliances-list.js";
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
- const removeThisApplianceTag = () => {
+ export const removeThisApplianceTag = () => {
   const tag = document.querySelectorAll(".tag");
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau des tags ajoutés
-  const arrayTagsSelected = [];
-  allDivTagDisplayed.forEach((element) => {
-    arrayTagsSelected.push(element.textContent);
-  });
+  const arrayTagsSelected = getAllTagsSelected();
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
@@ -17,7 +14,7 @@
       element.style.display = "none";
       arrayTagsSelected.pop();
 
-      console.log(arrayTagsSelected);
+     
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
        
@@ -29,12 +26,11 @@
       
       });
       buildArticle(arrayFilteredTag);
-      addAppliancesListOfRecipes(arrayFilteredTag);
+      addAppliancesList(arrayFilteredTag);
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
         buildArticle(recipes);
-        blockSubMenuAppliances.innerHTML = "";
-        addAppliancesListOfRecipes(recipes);
+      addAppliancesList(recipes);
       }
     });
   });

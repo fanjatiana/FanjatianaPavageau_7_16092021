@@ -1,36 +1,14 @@
 
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { getRecipesList } from "../function_display-recipes-filtered.js";
+import { RecipesNoFind } from "../function_messageError.js";
+import { addAppliancesList } from "./function_add-appliances-list.js";
 
- const showRecipesFilteredByApplianceTag = () => {
-  const listRecipes = document.querySelectorAll(".info_recipe > h3");
+ export const showRecipesFilteredByApplianceTag = () => {
+  const retrieveTags = getAllTagsSelected();
+  const dataFiltered = getRecipesList();
 
-  const articles = [];
-
-  listRecipes.forEach((e) => {
-    const recipeTitle = e.innerHTML;
-    articles.push(recipeTitle);
-  });
-
-  const dataFiltered = [];
-
-  articles.forEach((title) => {
-    recipes.filter((a) => {
-      if (a.name === title) {
-        dataFiltered.push(a);
-      }
-    });
-  });
-console.log(dataFiltered)
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau de recupération de la liste des tags selectionnés
-  const retrieveTags = [];
-  allDivTagDisplayed.forEach((element) => {
-    const tagName = element.textContent;
-
-    retrieveTags.push(tagName);
-  });
-
-  let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
     /*const resultFilterByDescription = dataFiltered.filter((recipe) =>
       recipe.description.includes(tag)
@@ -43,14 +21,14 @@ console.log(dataFiltered)
       recipe.appliance.includes(tag)
     );
 
-    arrayFilteredTag =
+    let arrayFilteredTag =
       /*resultFilterByDescription.concat(
       resultFilterByName,*/
       resultFilterByAppliances;
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     buildArticle(newArrayIFilteredTag);
-    addAppliancesListOfRecipes(newArrayIFilteredTag);
+    addAppliancesList(newArrayIFilteredTag);
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();

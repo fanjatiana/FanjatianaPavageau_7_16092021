@@ -1,15 +1,13 @@
+import { blockSubMenuAppliances } from "../const.js";
+import { recipes } from "../data_recipes.js";
+import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
+import { addAppliancesList } from "./function_add-appliances-list.js";
 
 
-const showAllRecipesIncludesApplianceTag = () => {
-  const allDivTagDisplayed = document.querySelectorAll(".tag > p");
-
-  // tableau de recupération de la liste des tags selectionnés
-  const retrieveTags = [];
-  allDivTagDisplayed.forEach((element) => {
-    const tagName = element.textContent;
-
-    retrieveTags.push(tagName);
-  });
+export const showAllRecipesIncludesApplianceTag = () => {
+ const retrieveTags = getAllTagsSelected();
+  // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
 
  
   retrieveTags.forEach((tag) => {
@@ -23,14 +21,13 @@ const showAllRecipesIncludesApplianceTag = () => {
     if (tag.length === 1) {
       buildArticle(array);
      blockSubMenuAppliances.innerHTML = "";
-      addAppliancesListOfRecipes(array);
+     addAppliancesList(array);
     } else if (tag.length > 1) {
-      showRecipesFilteredByApplianceTag();
-      addAppliancesListOfRecipes(array);
+      addAppliancesList(array);
     } else {
       buildArticle(recipes);
       blockSubMenuAppliances.innerHTML = "";
-      addAppliancesListOfRecipes(recipes);
+      addAppliancesList(recipes);
     }
   });
 };
