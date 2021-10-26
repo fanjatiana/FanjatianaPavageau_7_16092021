@@ -24,6 +24,7 @@ import {
   toolNoFind,
 } from "./function_messageError.js";
 import { returnNewRecipesList } from "./function_return-new-recipes-list.js";
+import { selectThisTag } from "./ingredients_searchBar/function _select-this-ingredient-tag.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
@@ -34,7 +35,6 @@ import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 // au chargement de la page :
 //ajout des articles
 buildArticle(recipes);
-
 //evenement au clic du bloc ingredients
 searchBarByIngredients.addEventListener("click", (event) => {
   event.preventDefault();
@@ -43,6 +43,9 @@ searchBarByIngredients.addEventListener("click", (event) => {
 // ajout de la liste des ingredients
 const allIngredients = addIngredientsList(recipes);
 addTagsList(blockSubMenuIngredients, allIngredients);
+const allTagsInBlock = document.querySelectorAll(".sub-menu__ingredients");
+console.log(allTagsInBlock)
+
 
 //evenement au clic du bloc appareil
 searchBarByAppliances.addEventListener("click", (event) => {
@@ -68,16 +71,9 @@ addTagsList(blockSubMenuTools, allTools);
 searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
   searchIn();
-// rechercher un appareil
-searchInAppliances();
-//rechercher un ustensile
-
-
-
-
-
-
-
+  // rechercher un appareil
+  searchInAppliances();
+  //rechercher un ustensile
 
   //affichage de la liste des ingrédients en fonction de la liste des recettes
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
@@ -133,7 +129,7 @@ searchBarByAppliances.addEventListener("input", () => {
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
   const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   const appliances = searchAppliancesTags(recipes);
- 
+
   if (!appliances.length) {
     return applianceNoFind();
   } else if (inputValue.length < 3) {
@@ -152,9 +148,9 @@ searchBarByTools.addEventListener("input", () => {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
-  const allNewTools= addToolsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+  const allNewTools = addToolsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   const tools = searchToolsTags(recipes);
- 
+
   if (!tools.length) {
     return toolNoFind();
   } else if (inputValue.length < 3) {
@@ -165,4 +161,3 @@ searchBarByTools.addEventListener("input", () => {
     addTagsList(blockSubMenuTools, tools);
   }
 });
-
