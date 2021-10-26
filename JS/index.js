@@ -26,8 +26,8 @@ import {
 import { returnNewRecipesList } from "./function_return-new-recipes-list.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
+import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
-//import { searchInIngredientsRecipes } from "./main_searchBar/function_search-ingredients-in-recipes.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 
@@ -68,6 +68,16 @@ addTagsList(blockSubMenuTools, allTools);
 searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
   searchIn();
+// rechercher un appareil
+searchInAppliances();
+//rechercher un ustensile
+
+
+
+
+
+
+
 
   //affichage de la liste des ingrédients en fonction de la liste des recettes
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale

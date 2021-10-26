@@ -42,6 +42,7 @@ import { RecipesNoFind } from "../function_messageError.js";
       )
       .includes(valueInput)
   );
+  
   // concaténation des tableaux
   const array = resultFilterByName.concat(
     resultFilterByDescription,
