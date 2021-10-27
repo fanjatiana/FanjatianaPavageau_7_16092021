@@ -26,16 +26,18 @@ export const showAllRecipesByTag = () => {
     arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
 
     if (tag.length === 1) {
+      buildArticle(arrayFilteredTag);
       blockSubMenuIngredients.innerHTML = "";
       addIngredientsList(arrayFilteredTag);
-      return buildArticle(arrayFilteredTag);
+     
     } else if (tag.length > 1) {
-      blockSubMenuIngredients.innerHTML = "";
+      //blockSubMenuIngredients.innerHTML = "";
       addIngredientsList(arrayFilteredTag);
     } else {
+      buildArticle(recipes);
       blockSubMenuIngredients.innerHTML = "";
       addIngredientsList(recipes);
-      return buildArticle(recipes);
+
     }
   });
 };

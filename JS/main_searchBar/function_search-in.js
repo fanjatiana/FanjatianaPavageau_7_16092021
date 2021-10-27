@@ -2,6 +2,7 @@ import { recipes } from "../data_recipes.js";
 import { searchBar } from "../const.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
+import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
 
 // Fonction pour afficher la liste des menus en fonction des titres, descriptions, ingrédients
 
@@ -44,18 +45,20 @@ import { RecipesNoFind } from "../function_messageError.js";
   );
   
   // concaténation des tableaux
-  const array = resultFilterByName.concat(
+  let array = resultFilterByName.concat(
     resultFilterByDescription,
     resultFilterByIngredients
   );
 
-  const newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
+let newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
 
  if (!newArrayRecipes.length) {
     return RecipesNoFind();
   } else if (valueInput.length < 3) {
-    return buildArticle(recipes);
+   buildArticle(recipes);
+ 
   } else {
-    return buildArticle(newArrayRecipes);
+   buildArticle(newArrayRecipes);
+
   }
 };

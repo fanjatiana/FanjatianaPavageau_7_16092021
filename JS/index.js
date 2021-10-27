@@ -48,13 +48,11 @@ import { showAllRecipesIncludesToolsTags } from "./tools_searchBar/function_show
                                                   //ajout des articles
 buildArticle(recipes);
 //evenement au clic du bloc ingredients
-searchBarByIngredients.addEventListener("focus", () => {
-
+searchBarByIngredients.addEventListener("click", (event) => {
+  event.preventDefault();
   displayBlockSearchByIngredients();
-  displayNoneSearchByTools();
-  displayNoneSearchByAppliances
-
-  blockSubMenuIngredients.innerHTML =""
+})  
+  blockSubMenuIngredients.innerHTML ="" 
   // ajout de la liste des ingredients
   const allIngredients = addIngredientsList(recipes);
   addTagsList(blockSubMenuIngredients, allIngredients);
@@ -64,7 +62,7 @@ searchBarByIngredients.addEventListener("focus", () => {
   let ingredientsTagsListDisplayed = document.querySelectorAll(
     ".sub_menu__ingredients > .tags__list li"
   );
-  ingredientsTagsListDisplayed.forEach((tags) => {
+ ingredientsTagsListDisplayed.forEach((tags) => {
     tags.addEventListener("click", (e) => {
       e.preventDefault()
       selectThisTag(e);
@@ -73,18 +71,15 @@ searchBarByIngredients.addEventListener("focus", () => {
       removeThisTag();
     });
   });
-});
+
 
 //evenement au clic du bloc appareil
-searchBarByAppliances.addEventListener("focus", () => {
+searchBarByAppliances.addEventListener("click", () => {
   displayBlockSearchByAppliances();
-  displayNoneSearchByTools();
-  displayNoneSearchByIngredients();
 
-
-  blockSubMenuAppliances.innerHTML = "";
-  // ajout de la liste des appareils
-
+})
+blockSubMenuAppliances.innerHTML = "";
+// ajout de la liste des appareils
 const allAppliances = addAppliancesList(recipes);
 addTagsList(blockSubMenuAppliances, allAppliances);
 
@@ -92,7 +87,7 @@ addTagsList(blockSubMenuAppliances, allAppliances);
  let appliancesTagsListDisplayed = document.querySelectorAll(
   ".sub_menu__appliances > .tags__list li"
 );
-console.log(appliancesTagsListDisplayed)
+
 appliancesTagsListDisplayed.forEach((tags) => {
   tags.addEventListener("click", (e) => {
     e.preventDefault()
@@ -102,15 +97,13 @@ appliancesTagsListDisplayed.forEach((tags) => {
     removeThisApplianceTag()
   });
 });
-});
 
 //evenement au clic du bloc ustensiles
-searchBarByTools.addEventListener("focus", () => {
+searchBarByTools.addEventListener("click", () => {
 
 
   displayBlockSearchByTools();
-  displayNoneSearchByIngredients();
-  displayNoneSearchByAppliances();
+})
   blockSubMenuTools.innerHTML = ""
   // ajout de la liste des ustensiles
 const allTools = addToolsList(recipes);
@@ -130,30 +123,28 @@ toolsTagsListDisplayed.forEach((tags) => {
    removeThisToolsTag();
   });
 });
-});
 
 
-// barre de recherche principale :
-searchBar.addEventListener("focus", ()=>{
-  displayNoneSearchByAppliances();
-  displayNoneSearchByIngredients();
-  displayNoneSearchByTools();
-})
-searchBar.addEventListener("input", () => {
+
+
+searchBar.addEventListener("keyup", () => {
   // recherche dans le titre, description, ingrédient
   searchIn();
   // rechercher un appareil
   searchInAppliances();
   //rechercher un ustensile
+  const newArray = returnNewRecipesList();
+//affichage de la liste des ingrédients en fonction de la liste des recettes
+ // retourne la liste des recettes filtrée depuis la barre de recherche principale
+const allNewIngredients = addIngredientsList(newArray); 
+console.log(allNewIngredients); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+blockSubMenuIngredients.innerHTML = "";
+addTagsList(blockSubMenuIngredients, allNewIngredients);
+if (!allNewIngredients.length) {
+  tagNoFind();
+}
 
-  //affichage de la liste des ingrédients en fonction de la liste des recettes
-  const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
-  const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
-  blockSubMenuIngredients.innerHTML = "";
-  addTagsList(blockSubMenuIngredients, allNewIngredients);
-  if (!allNewIngredients.length) {
-    tagNoFind();
-  }
+  
   //affichage de la liste des appareils en fonction de la liste des recettes
   const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuAppliances.innerHTML = "";
@@ -181,7 +172,6 @@ searchBarByIngredients.addEventListener("input", () => {
   const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   const ingredients = searchIngredientsTags(recipes);
 
-  console.log(ingredients);
   if (!ingredients.length) {
     return tagNoFind();
   } else if (inputValue.length < 3) {
