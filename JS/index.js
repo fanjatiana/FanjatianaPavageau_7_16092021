@@ -66,9 +66,7 @@ searchBarByIngredients.addEventListener("click", (event) => {
     tags.addEventListener("click", (e) => {
       e.preventDefault()
       selectThisTag(e);
-      showAllRecipesByTag();
-      showRecipesFilteredAgain();
-      removeThisTag();
+      
     });
   });
 
@@ -92,9 +90,7 @@ appliancesTagsListDisplayed.forEach((tags) => {
   tags.addEventListener("click", (e) => {
     e.preventDefault()
     selectThisTag(e);
-   showAllRecipesIncludesApplianceTag();
-    showRecipesFilteredByApplianceTag()
-    removeThisApplianceTag()
+   
   });
 });
 
@@ -118,9 +114,7 @@ toolsTagsListDisplayed.forEach((tags) => {
   tags.addEventListener("click", (e) => {
     e.preventDefault()
     selectThisTag(e);
-   showAllRecipesIncludesToolsTags()
-    showRecipesFilteredByToolsAgain();
-   removeThisToolsTag();
+  
   });
 });
 
