@@ -5,9 +5,9 @@ import { buildArticle } from "../function_buildArticles.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
-export const removeThisTag = () => {
+export const removeThisTag = (arrayTagsSelected, array) => {
   const tag = document.querySelectorAll(".tag");
-  let arrayTagsSelected = getAllTagsSelected();
+ 
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
@@ -18,14 +18,14 @@ export const removeThisTag = () => {
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
         
-        const resultFilterByDescription = recipes.filter((recipe) =>
+        const resultFilterByDescription = array.filter((recipe) =>
           recipe.description.includes(tag)
         );
 
-        const resultFilterByName = recipes.filter((recipe) =>
+        const resultFilterByName = array.filter((recipe) =>
           recipe.name.includes(tag)
         );
-        const resultFilterByIngredients = recipes.filter((recipe) =>
+        const resultFilterByIngredients = array.filter((recipe) =>
           recipe.ingredients.map((list) => list.ingredient).includes(tag)
         );
 
@@ -38,11 +38,11 @@ export const removeThisTag = () => {
         arrayFilteredTag.sort();
       });
       buildArticle(arrayFilteredTag);
-      addIngredientsList(arrayFilteredTag);
+      //addIngredientsList(arrayFilteredTag);
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
         buildArticle(recipes);
-        addIngredientsList(recipes);
+        //addIngredientsList(recipes);
       }
     });
   });

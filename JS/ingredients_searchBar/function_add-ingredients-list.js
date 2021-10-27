@@ -1,4 +1,6 @@
+import {blockSubMenuIngredients } from "../const.js";
 
+import { addTagsList } from "../function_addTagsList.js";
 // AFFICHER LA LISTE DES INGREDIENTS [DES RECETTES] DANS LE BLOC INGREDIENT
 
 

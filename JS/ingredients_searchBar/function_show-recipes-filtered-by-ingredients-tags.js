@@ -1,13 +1,14 @@
+import { blockSubMenuIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { addTagsList } from "../function_addTagsList.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
 
-export const showRecipesFilteredAgain = () => {
-  const retrieveTags = getAllTagsSelected();
-  const dataFiltered = getRecipesList();
+export const showRecipesFiltered = (retrieveTags,dataFiltered) => {
+
 
   let arrayFilteredTag = [];
   retrieveTags.forEach((tag) => {
@@ -28,10 +29,12 @@ export const showRecipesFilteredAgain = () => {
     );
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
-    buildArticle(newArrayIFilteredTag);
-    addIngredientsList(newArrayIFilteredTag);
+  
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();
+    }else{
+      buildArticle(newArrayIFilteredTag);
+      //addIngredientsList(newArrayIFilteredTag)
     }
   });
 };

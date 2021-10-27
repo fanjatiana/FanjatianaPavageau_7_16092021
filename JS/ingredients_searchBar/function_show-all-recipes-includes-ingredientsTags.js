@@ -1,8 +1,9 @@
 import { blockSubMenuIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
+import { buildArticle } from "../function_buildArticles.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
-
+import { filterByIngredientsTags } from "./function_filter.js";
 export const showAllRecipesByTag = () => {
  const retrieveTags = getAllTagsSelected();
   // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
@@ -26,16 +27,11 @@ export const showAllRecipesByTag = () => {
     arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
 
     if (tag.length === 1) {
-      blockSubMenuIngredients.innerHTML = "";
-      addIngredientsList(arrayFilteredTag);
-      return buildArticle(arrayFilteredTag);
-    } else if (tag.length > 1) {
-      blockSubMenuIngredients.innerHTML = "";
-      addIngredientsList(arrayFilteredTag);
+      //blockSubMenuIngredients.innerHTML = "";
+      buildArticle(arrayFilteredTag);
+      //filterByIngredientsTags()
     } else {
-      blockSubMenuIngredients.innerHTML = "";
-      addIngredientsList(recipes);
-      return buildArticle(recipes);
+      buildArticle(recipes);
     }
   });
 };
