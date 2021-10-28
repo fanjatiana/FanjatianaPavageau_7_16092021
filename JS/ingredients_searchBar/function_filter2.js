@@ -1,3 +1,4 @@
+import { filterByAppliancesTags } from "../appliances_searchBar/function_filter-appliance.js";
 import { blockSubMenuIngredients } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
@@ -27,6 +28,7 @@ export const newFilterByIngredientsTags = (ingredientsTagsListDisplayed, allTags
           addTagsList(blockSubMenuIngredients, allNewIngredients);
           removeThisTag(allTags, recipes);
           filterByIngredientsTags()
+        
         });
     });
   }; 

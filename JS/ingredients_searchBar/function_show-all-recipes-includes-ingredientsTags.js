@@ -4,7 +4,7 @@ import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "./function_filter.js";
-export const showAllRecipesByTag = () => {
+ const showAllRecipesByTag = () => {
  const retrieveTags = getAllTagsSelected();
   // afficher la liste des articles qui ont dans le nom , la description, les ingredients,  le tag selectionné
 

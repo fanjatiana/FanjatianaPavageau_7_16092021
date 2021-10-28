@@ -1,4 +1,5 @@
 import { addAppliancesList } from "./appliances_searchBar/function_add-appliances-list.js";
+import { filterByAppliancesTags } from "./appliances_searchBar/function_filter-appliance.js";
 import { removeThisApplianceTag } from "./appliances_searchBar/function_remove-this-appliance-tag.js";
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
 import { showAllRecipesIncludesApplianceTag } from "./appliances_searchBar/function_show-all-recipes-includes-appliances-tags.js";
@@ -37,7 +38,6 @@ import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredi
 import { filterByIngredientsTags } from "./ingredients_searchBar/function_filter.js";
 import { removeThisTag } from "./ingredients_searchBar/function_remove-this-ingredient-Tag.js";
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
-import { showAllRecipesByTag } from "./ingredients_searchBar/function_show-all-recipes-includes-ingredientsTags.js";
 import { showRecipesFiltered } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
 import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
@@ -46,7 +46,6 @@ import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { removeThisToolsTag } from "./tools_searchBar/function_remove-this-tool-tag.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 import { showAllRecipesIncludesToolsTags } from "./tools_searchBar/function_show-all-recipes-includes-tools-tags.js";
-
 // AU CHARGEMENT DE LA PAGE:
 
 //ajout des articles
@@ -74,6 +73,8 @@ searchBarByAppliances.addEventListener("focus", () => {
 // ajout de la liste des appareils
 const allAppliances = addAppliancesList(recipes);
 addTagsList(blockSubMenuAppliances, allAppliances);
+filterByAppliancesTags();
+
 
 //evenement au clic du bloc ustensiles
 searchBarByTools.addEventListener("focus", () => {
@@ -98,19 +99,24 @@ searchBar.addEventListener("focus", () => {
 searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
   const array = searchIn();
-   // valeur de l'input
-   let valueInput = searchBar.value
-   .normalize("NFD")
-   .replace(/[\u0300-\u036f]/g, "")
-   .toLowerCase();
+  // valeur de l'input
+  let valueInput = searchBar.value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
   if (!array.length) {
     return RecipesNoFind();
   } else if (valueInput.length < 3) {
-   buildArticle(recipes);
+    blockSubMenuAppliances.innerHTML = "";
+    addAppliancesList(recipes);
+    buildArticle(recipes);
   } else {
-   buildArticle(array);
+    buildArticle(array);
+    blockSubMenuAppliances.innerHTML = "";
+    addAppliancesList(array);
   }
 
+  
   //affichage de la liste des ingrédients en fonction de la liste des recettes
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
   const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
@@ -125,6 +131,7 @@ searchBar.addEventListener("input", () => {
   const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuAppliances.innerHTML = "";
   addTagsList(blockSubMenuAppliances, allNewAppliances);
+  filterByAppliancesTags();
   if (!allNewAppliances.length) {
     applianceNoFind();
   }
@@ -179,9 +186,11 @@ searchBarByAppliances.addEventListener("input", () => {
   } else if (inputValue.length < 3) {
     blockSubMenuAppliances.innerHTML = "";
     addTagsList(blockSubMenuAppliances, allNewAppliances);
+    filterByAppliancesTags();
   } else {
     blockSubMenuAppliances.innerHTML = "";
     addTagsList(blockSubMenuAppliances, appliances);
+    filterByAppliancesTags();
   }
 });
 

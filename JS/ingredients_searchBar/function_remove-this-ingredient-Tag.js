@@ -11,7 +11,6 @@ import { searchIngredientsTags } from "./function_searchIngredientsTags.js";
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = (arrayTagsSelected, array) => {
   const tag = document.querySelectorAll(".tag");
- 
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
@@ -21,7 +20,6 @@ export const removeThisTag = (arrayTagsSelected, array) => {
 
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
-        
         const resultFilterByDescription = array.filter((recipe) =>
           recipe.description.includes(tag)
         );
@@ -47,19 +45,17 @@ export const removeThisTag = (arrayTagsSelected, array) => {
       blockSubMenuIngredients.innerHTML = "";
       addTagsList(blockSubMenuIngredients, allNewIngredients);
       filterByIngredientsTags();
-    
+
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
-        const array = searchIn()
+        const array = searchIn();
         buildArticle(array);
         const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
         const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuIngredients.innerHTML = "";
         addTagsList(blockSubMenuIngredients, allNewIngredients);
         filterByIngredientsTags();
-      
       }
-      
     });
   });
 };

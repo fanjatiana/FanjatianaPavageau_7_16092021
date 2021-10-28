@@ -29,17 +29,9 @@ export const searchInAppliances = () => {
   let arrayAppliances =  resultFilterByAppliances;
  let newArrayAppliances = Array.from(new Set(arrayAppliances));
  newArrayAppliances.sort()
+
+ return newArrayAppliances
  
 
-  if (!newArrayAppliances.length) {
-    return applianceNoFind();
-  } else if (valueInput.length < 3) {
-    blockSubMenuAppliances.innerHTML = "";
-    addAppliancesList(recipes);
-    buildArticle(recipes);
-  } else {
-    blockSubMenuAppliances.innerHTML = "";
-    addAppliancesList(newArrayAppliances);
-    buildArticle(newArrayAppliances);
-  }
+ 
 };
