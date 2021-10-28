@@ -4,12 +4,10 @@ import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addToolsList } from "./function_add-tools-list.js";
 
-export const showRecipesFilteredByToolsAgain = () => {
-  const retrieveTags = getAllTagsSelected();
-  const dataFiltered = getRecipesList();
+export const showRecipesFilteredByTools = (allTags,dataFiltered) => {
 
   let arrayFilteredTag = [];
-  retrieveTags.forEach((tag) => {
+  allTags.forEach((tag) => {
     const resultFilterByTools = dataFiltered.filter((recipe) =>
       recipe.ustensils.includes(tag)
     );

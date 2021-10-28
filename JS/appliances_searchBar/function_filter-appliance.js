@@ -1,4 +1,4 @@
-import { blockSubMenuAppliances, blockSubMenuIngredients } from "../const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, toolsTagsListDisplayed } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { addTagsList } from "../function_addTagsList.js";
@@ -8,35 +8,67 @@ import { selectThisTag } from "../ingredients_searchBar/function _select-this-in
 import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
 import { newFilterByIngredientsTags } from "../ingredients_searchBar/function_filter2.js";
 import { removeThisTag } from "../ingredients_searchBar/function_remove-this-ingredient-Tag.js";
+import { addToolsList } from "../tools_searchBar/function_add-tools-list.js";
+import { newFilterByToolsTags } from "../tools_searchBar/function_filter-tools2.js";
+import { removeThisToolsTag } from "../tools_searchBar/function_remove-this-tool-tag.js";
 import { addAppliancesList } from "./function_add-appliances-list.js";
 import { newFilterByAppliancesTags } from "./function_filter-appliances2.js";
 import { removeThisApplianceTag } from "./function_remove-this-appliance-tag.js";
 import { showRecipesFilteredByApplianceTag } from "./function_show-recipes-filtered-by-appliances-tags.js";
 
 export const filterByAppliancesTags = () => {
-    let appliancesTagsListDisplayed = document.querySelectorAll(
-        ".sub_menu__appliances > .tags__list li"
-      );
-      let ingredientsTagsListDisplayed = document.querySelectorAll(
-        ".sub_menu__ingredients > .tags__list li"
-      );
-      appliancesTagsListDisplayed.forEach((tags) => {
+  let appliancesTagsListDisplayed = document.querySelectorAll(
+    ".sub_menu__appliances > .tags__list li"
+  );
+  let ingredientsTagsListDisplayed = document.querySelectorAll(
+    ".sub_menu__ingredients > .tags__list li"
+  );
+  let toolsTagsListDisplayed = document.querySelectorAll(
+    ".sub_menu__tools > .tags__list li"
+  );
+  appliancesTagsListDisplayed.forEach((tags) => {
     tags.addEventListener("click", (e) => {
       selectThisTag(e);
       const allTags = getAllTagsSelected();
       const dataFiltered = getRecipesList();
       showRecipesFilteredByApplianceTag(allTags, dataFiltered);
-     const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
-     const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées 
-     const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+      const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
+      const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+      const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+      const allNewTools = addToolsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       blockSubMenuAppliances.innerHTML = "";
       addTagsList(blockSubMenuAppliances, allNewAppliances);
       blockSubMenuIngredients.innerHTML = "";
       addTagsList(blockSubMenuIngredients, allNewIngredients);
+      blockSubMenuTools.innerHTML = "";
+      addTagsList(blockSubMenuTools, allNewTools);
       removeThisTag(allTags, recipes);
       removeThisApplianceTag(allTags, recipes);
-      newFilterByAppliancesTags(appliancesTagsListDisplayed, allTags, dataFiltered,newArray,allNewAppliances,blockSubMenuAppliances)
-      newFilterByIngredientsTags(ingredientsTagsListDisplayed, allTags, dataFiltered,newArray,allNewIngredients,blockSubMenuIngredients);
+      removeThisToolsTag(allTags, recipes);
+      newFilterByAppliancesTags(
+        appliancesTagsListDisplayed,
+        allTags,
+        dataFiltered,
+        newArray,
+        allNewAppliances,
+        blockSubMenuAppliances
+      );
+      newFilterByIngredientsTags(
+        ingredientsTagsListDisplayed,
+        allTags,
+        dataFiltered,
+        newArray,
+        allNewIngredients,
+        blockSubMenuIngredients
+      );
+      newFilterByToolsTags(
+        toolsTagsListDisplayed,
+        allTags,
+        dataFiltered,
+        newArray,
+        allNewTools,
+        blockSubMenuTools
+      )
     });
   });
 };

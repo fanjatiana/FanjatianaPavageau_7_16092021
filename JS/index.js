@@ -41,11 +41,12 @@ import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIn
 import { showRecipesFiltered } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
 import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
-import { showRecipesFilteredByToolsAgain } from "./tools_searchBar/function-show-recipes-filtered-by-tools-tags.js";
+
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
+import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
 import { removeThisToolsTag } from "./tools_searchBar/function_remove-this-tool-tag.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
-import { showAllRecipesIncludesToolsTags } from "./tools_searchBar/function_show-all-recipes-includes-tools-tags.js";
+//import { showAllRecipesIncludesToolsTags } from "./tools_searchBar/function_show-all-recipes-includes-tools-tags.js";
 // AU CHARGEMENT DE LA PAGE:
 
 //ajout des articles
@@ -85,6 +86,7 @@ searchBarByTools.addEventListener("focus", () => {
 // ajout de la liste des ustensiles
 const allTools = addToolsList(recipes);
 addTagsList(blockSubMenuTools, allTools);
+filterByToolsTags()
 
 // BARRE DE RECHERCHE PRINCIPALE
 
@@ -140,6 +142,7 @@ searchBar.addEventListener("input", () => {
   const allNewTools = addToolsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuTools.innerHTML = "";
   addTagsList(blockSubMenuTools, allNewTools);
+  filterByToolsTags()
   if (!allNewTools.length) {
     toolNoFind();
   }
@@ -209,8 +212,10 @@ searchBarByTools.addEventListener("input", () => {
   } else if (inputValue.length < 3) {
     blockSubMenuTools.innerHTML = "";
     addTagsList(blockSubMenuTools, allNewTools);
+    filterByToolsTags()
   } else {
     blockSubMenuTools.innerHTML = "";
     addTagsList(blockSubMenuTools, tools);
+    filterByToolsTags()
   }
 });
