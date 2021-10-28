@@ -50,15 +50,8 @@ import { addIngredientsList } from "../ingredients_searchBar/function_add-ingred
     resultFilterByIngredients
   );
 
-let newArrayRecipes = Array.from(new Set(array)); // suppression des doublons
+let newArrayRecipes = Array.from(new Set(array)); // suppression des doublons;
+return newArrayRecipes
 
- if (!newArrayRecipes.length) {
-    return RecipesNoFind();
-  } else if (valueInput.length < 3) {
-   buildArticle(recipes);
  
-  } else {
-   buildArticle(newArrayRecipes);
-
-  }
 };

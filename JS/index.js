@@ -97,13 +97,26 @@ searchBar.addEventListener("focus", () => {
 // algo de recherche
 searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
-  searchIn();
+  const array = searchIn();
+   // valeur de l'input
+   let valueInput = searchBar.value
+   .normalize("NFD")
+   .replace(/[\u0300-\u036f]/g, "")
+   .toLowerCase();
+  if (!array.length) {
+    return RecipesNoFind();
+  } else if (valueInput.length < 3) {
+   buildArticle(recipes);
+  } else {
+   buildArticle(array);
+  }
 
   //affichage de la liste des ingrédients en fonction de la liste des recettes
   const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
   const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuIngredients.innerHTML = "";
   addTagsList(blockSubMenuIngredients, allNewIngredients);
+  filterByIngredientsTags();
   if (!allNewIngredients.length) {
     tagNoFind();
   }
@@ -143,9 +156,11 @@ searchBarByIngredients.addEventListener("input", () => {
   } else if (inputValue.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, allNewIngredients);
+    filterByIngredientsTags();
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, ingredients);
+    filterByIngredientsTags();
   }
 });
 
