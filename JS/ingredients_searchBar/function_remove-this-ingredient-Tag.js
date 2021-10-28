@@ -5,6 +5,8 @@ import { addTagsList } from "../function_addTagsList.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
+import { filterByIngredientsTags } from "./function_filter.js";
+
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = (arrayTagsSelected, array) => {
   const tag = document.querySelectorAll(".tag");
@@ -43,13 +45,15 @@ export const removeThisTag = (arrayTagsSelected, array) => {
       const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       blockSubMenuIngredients.innerHTML = "";
       addTagsList(blockSubMenuIngredients, allNewIngredients);
+      filterByIngredientsTags();
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
         buildArticle(recipes);
         const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
-        const allNewIngredients = addIngredientsList(recipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+        const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuIngredients.innerHTML = "";
         addTagsList(blockSubMenuIngredients, allNewIngredients);
+        filterByIngredientsTags();
       }
     });
   });

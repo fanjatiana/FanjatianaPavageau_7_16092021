@@ -8,7 +8,6 @@ import { selectThisTag } from "./function _select-this-ingredient-tag.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
 import { newFilterByIngredientsTags } from "./function_filter2.js";
 import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
-import { showAllRecipesByTag } from "./function_show-all-recipes-includes-ingredientsTags.js";
 import { showRecipesFiltered } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
 export const filterByIngredientsTags = () => {
@@ -27,7 +26,7 @@ export const filterByIngredientsTags = () => {
       blockSubMenuIngredients.innerHTML = "";
       addTagsList(blockSubMenuIngredients, allNewIngredients);
       removeThisTag(allTags, recipes);
-      newFilterByIngredientsTags();
+      newFilterByIngredientsTags(ingredientsTagsListDisplayed, allTags, dataFiltered,newArray,allNewIngredients,blockSubMenuIngredients);
     });
   });
 };
