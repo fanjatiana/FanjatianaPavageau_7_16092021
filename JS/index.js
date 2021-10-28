@@ -64,6 +64,7 @@ addTagsList(blockSubMenuIngredients, allIngredients);
 filterByIngredientsTags();
 
 
+
 //evenement au clic du bloc appareil
 searchBarByAppliances.addEventListener("focus", () => {
   displayBlockSearchByAppliances();

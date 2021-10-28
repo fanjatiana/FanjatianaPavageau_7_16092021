@@ -68,13 +68,13 @@ header {
   margin-top: 30px;
   margin-bottom: 30px;
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
 }
 
 .filter-by_input {
-  @include input(url(/images/chevron-up.svg), 60px);
+  @include input(url(/images/chevron-up.svg), 100%);
   &::placeholder {
     color: $text-filter-color;
     font-weight: bold;
@@ -107,7 +107,7 @@ header {
   }
 }
 
-#tags__list{
+.tags__list{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -143,7 +143,7 @@ header {
 
 .menu {
   width: 100%;
-  height: 100%;
+  height: 80px;
   cursor: pointer;
   > :hover {
     opacity: 0.8;

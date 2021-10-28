@@ -133,9 +133,6 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
@@ -149,7 +146,7 @@ header {
   padding: 10px 60px 10px 20px;
   border: none;
   width: 100%;
-  height: 60px;
+  height: 100%;
   font-size: 1rem;
 }
 
@@ -182,9 +179,10 @@ header {
 }
 
 #by_ingredients {
-  width: 30%;
+  width: 20%;
   height: 100%;
   border-radius: 5px;
+  margin-right: 1em;
   background-color: #3282F7;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,9 +202,10 @@ header {
 }
 
 #kitchen-appliance {
-  width: 30%;
+  width: 20%;
   height: 100%;
   border-radius: 5px;
+  margin-right: 1em;
   background-color: #68D9A4;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -225,9 +224,10 @@ header {
 }
 
 #kitchen-tool {
-  width: 30%;
+  width: 20%;
   height: 100%;
   border-radius: 5px;
+  margin-right: 1em;
   background-color: #ED6454;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -245,7 +245,7 @@ header {
   background-color: #ED6454;
 }
 
-#tags__list {
+.tags__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,7 +260,7 @@ header {
   overflow-x: scroll;
 }
 
-#tags__list > li {
+.tags__list > li {
   margin: 0.3em;
   cursor: pointer;
 }
@@ -310,7 +310,7 @@ header {
 
 .menu {
   width: 100%;
-  height: 100%;
+  height: 80px;
   cursor: pointer;
 }
 
