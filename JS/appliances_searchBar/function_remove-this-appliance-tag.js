@@ -36,8 +36,6 @@ export const removeThisApplianceTag = (arrayTagsSelected, array) => {
       filterByAppliancesTags();
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
-        const array =searchIn();
-        console.log(array)
         buildArticle(array);
         const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
         const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
