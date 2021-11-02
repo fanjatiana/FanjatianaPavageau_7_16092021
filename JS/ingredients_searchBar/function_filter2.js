@@ -26,7 +26,7 @@ export const newFilterByIngredientsTags = (ingredientsTagsListDisplayed, allTags
           allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
           blockSubMenuIngredients.innerHTML = "";
           addTagsList(blockSubMenuIngredients, allNewIngredients);
-          removeThisTag(allTags, recipes);
+          removeThisTag(allTags);
           filterByIngredientsTags()
         
         });

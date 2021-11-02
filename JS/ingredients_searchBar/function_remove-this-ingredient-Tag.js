@@ -9,7 +9,7 @@ import { addIngredientsList } from "./function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "./function_filter.js";
 import { searchIngredientsTags } from "./function_searchIngredientsTags.js";
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
-export const removeThisTag = (arrayTagsSelected, array) => {
+export const removeThisTag = (arrayTagsSelected) => {
   const tag = document.querySelectorAll(".tag");
 
   tag.forEach((element) => {
@@ -20,14 +20,14 @@ export const removeThisTag = (arrayTagsSelected, array) => {
 
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
-        const resultFilterByDescription = array.filter((recipe) =>
+        const resultFilterByDescription = recipes.filter((recipe) =>
           recipe.description.includes(tag)
         );
 
-        const resultFilterByName = array.filter((recipe) =>
+        const resultFilterByName = recipes.filter((recipe) =>
           recipe.name.includes(tag)
         );
-        const resultFilterByIngredients = array.filter((recipe) =>
+        const resultFilterByIngredients = recipes.filter((recipe) =>
           recipe.ingredients.map((list) => list.ingredient).includes(tag)
         );
 
@@ -48,9 +48,9 @@ export const removeThisTag = (arrayTagsSelected, array) => {
 
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
-        const array = searchIn();
-        buildArticle(array);
-        const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
+        buildArticle(recipes);
+        const newArray = returnNewRecipesList(); 
+        console.log(newArray)// retourne la liste des recettes filtrée depuis la barre de recherche principale
         const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuIngredients.innerHTML = "";
         addTagsList(blockSubMenuIngredients, allNewIngredients);

@@ -46,9 +46,9 @@ export const filterByIngredientsTags = () => {
       addTagsList(blockSubMenuAppliances, allNewAppliances);
       blockSubMenuTools.innerHTML = "";
         addTagsList(blockSubMenuTools, allNewTools);
-      removeThisTag(allTags, recipes);
-      removeThisApplianceTag(allTags, recipes);
-      removeThisToolsTag(allTags, recipes);
+      removeThisTag(allTags);
+      removeThisApplianceTag(allTags);
+      removeThisToolsTag(allTags);
       newFilterByIngredientsTags(
         ingredientsTagsListDisplayed,
         allTags,

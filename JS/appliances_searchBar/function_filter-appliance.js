@@ -42,9 +42,9 @@ export const filterByAppliancesTags = () => {
       addTagsList(blockSubMenuIngredients, allNewIngredients);
       blockSubMenuTools.innerHTML = "";
       addTagsList(blockSubMenuTools, allNewTools);
-      removeThisTag(allTags, recipes);
-      removeThisApplianceTag(allTags, recipes);
-      removeThisToolsTag(allTags, recipes);
+      removeThisTag(allTags);
+      removeThisApplianceTag(allTags);
+      removeThisToolsTag(allTags);
       newFilterByAppliancesTags(
         appliancesTagsListDisplayed,
         allTags,

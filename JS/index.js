@@ -29,6 +29,7 @@ import {
 } from "./function_displayBlockSearchBy.js";
 import {
   applianceNoFind,
+  RecipesNoFind,
   tagNoFind,
   toolNoFind,
 } from "./function_messageError.js";
@@ -41,7 +42,6 @@ import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIn
 import { showRecipesFiltered } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
 import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
-
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
 import { removeThisToolsTag } from "./tools_searchBar/function_remove-this-tool-tag.js";
@@ -109,13 +109,9 @@ searchBar.addEventListener("input", () => {
   if (!array.length) {
     return RecipesNoFind();
   } else if (valueInput.length < 3) {
-    blockSubMenuAppliances.innerHTML = "";
-    addAppliancesList(recipes);
     buildArticle(recipes);
   } else {
     buildArticle(array);
-    blockSubMenuAppliances.innerHTML = "";
-    addAppliancesList(array);
   }
 
   
@@ -125,6 +121,7 @@ searchBar.addEventListener("input", () => {
   blockSubMenuIngredients.innerHTML = "";
   addTagsList(blockSubMenuIngredients, allNewIngredients);
   filterByIngredientsTags();
+  buildArticle(array)
   if (!allNewIngredients.length) {
     tagNoFind();
   }

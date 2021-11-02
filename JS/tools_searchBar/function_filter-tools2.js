@@ -31,7 +31,7 @@ export const newFilterByToolsTags = (
         allNewTools = addToolsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuTools.innerHTML = "";
         addTagsList(blockSubMenuTools, allNewTools);
-        removeThisToolsTag(allTags, recipes);
+        removeThisToolsTag(allTags);
         filterByToolsTags();
       
       });

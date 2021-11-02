@@ -10,7 +10,7 @@ import { addAppliancesList } from "./function_add-appliances-list.js";
 import { filterByAppliancesTags } from "./function_filter-appliance.js";
 import { searchAppliancesTags } from "./function_searchAppliancesTags.js";
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
-export const removeThisApplianceTag = (arrayTagsSelected, array) => {
+export const removeThisApplianceTag = (arrayTagsSelected) => {
   const tag = document.querySelectorAll(".tag");
 
 
@@ -22,7 +22,7 @@ export const removeThisApplianceTag = (arrayTagsSelected, array) => {
 
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
-        const resultFilterByAppliances = array.filter((recipe) =>
+        const resultFilterByAppliances = recipes.filter((recipe) =>
           recipe.appliance.includes(tag)
         );
 
@@ -36,7 +36,7 @@ export const removeThisApplianceTag = (arrayTagsSelected, array) => {
       filterByAppliancesTags();
       if (arrayTagsSelected.length < 1) {
         document.getElementById("yoursTags").innerHTML = "";
-        buildArticle(array);
+        buildArticle(recipes);
         const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
         const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuAppliances.innerHTML = "";

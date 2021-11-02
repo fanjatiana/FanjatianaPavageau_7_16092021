@@ -33,7 +33,7 @@ export const newFilterByAppliancesTags = (
       allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       blockSubMenuAppliances.innerHTML = "";
       addTagsList(blockSubMenuAppliances, allNewAppliances);
-      removeThisApplianceTag(allTags, recipes);
+      removeThisApplianceTag(allTags);
       filterByAppliancesTags();
     
     });
