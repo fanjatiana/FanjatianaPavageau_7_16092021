@@ -6,13 +6,15 @@ import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { selectThisTag } from "../ingredients_searchBar/function _select-this-ingredient-tag.js";
 import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
-import { newFilterByIngredientsTags } from "../ingredients_searchBar/function_filter2.js";
+import { filterByIngredientsTags } from "../ingredients_searchBar/function_filter.js";
+//import { newFilterByIngredientsTags } from "../ingredients_searchBar/function_filter2.js";
 import { removeThisTag } from "../ingredients_searchBar/function_remove-this-ingredient-Tag.js";
 import { addToolsList } from "../tools_searchBar/function_add-tools-list.js";
-import { newFilterByToolsTags } from "../tools_searchBar/function_filter-tools2.js";
+import { filterByToolsTags } from "../tools_searchBar/function_filter-tools.js";
+//import { newFilterByToolsTags } from "../tools_searchBar/function_filter-tools2.js";
 import { removeThisToolsTag } from "../tools_searchBar/function_remove-this-tool-tag.js";
 import { addAppliancesList } from "./function_add-appliances-list.js";
-import { newFilterByAppliancesTags } from "./function_filter-appliances2.js";
+//import { newFilterByAppliancesTags } from "./function_filter-appliances2.js";
 import { removeThisApplianceTag } from "./function_remove-this-appliance-tag.js";
 import { showRecipesFilteredByApplianceTag } from "./function_show-recipes-filtered-by-appliances-tags.js";
 
@@ -45,7 +47,11 @@ export const filterByAppliancesTags = () => {
       removeThisTag(allTags);
       removeThisApplianceTag(allTags);
       removeThisToolsTag(allTags);
-      newFilterByAppliancesTags(
+
+      filterByAppliancesTags();
+      filterByToolsTags();
+      filterByIngredientsTags();
+      /*newFilterByAppliancesTags(
         appliancesTagsListDisplayed,
         allTags,
         dataFiltered,
@@ -68,7 +74,7 @@ export const filterByAppliancesTags = () => {
         newArray,
         allNewTools,
         blockSubMenuTools
-      )
+      )*/
     });
   });
 };

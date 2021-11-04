@@ -1,5 +1,6 @@
 import { addAppliancesList } from "../appliances_searchBar/function_add-appliances-list.js";
-import { newFilterByAppliancesTags } from "../appliances_searchBar/function_filter-appliances2.js";
+import { filterByAppliancesTags } from "../appliances_searchBar/function_filter-appliance.js";
+//import { newFilterByAppliancesTags } from "../appliances_searchBar/function_filter-appliances2.js";
 import { removeThisApplianceTag } from "../appliances_searchBar/function_remove-this-appliance-tag.js";
 import { showRecipesFilteredByApplianceTag } from "../appliances_searchBar/function_show-recipes-filtered-by-appliances-tags.js";
 import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools } from "../const.js";
@@ -9,11 +10,12 @@ import { addTagsList } from "../function_addTagsList.js";
 import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { addToolsList } from "../tools_searchBar/function_add-tools-list.js";
-import { newFilterByToolsTags } from "../tools_searchBar/function_filter-tools2.js";
+import { filterByToolsTags } from "../tools_searchBar/function_filter-tools.js";
+//import { newFilterByToolsTags } from "../tools_searchBar/function_filter-tools2.js";
 import { removeThisToolsTag } from "../tools_searchBar/function_remove-this-tool-tag.js";
 import { selectThisTag } from "./function _select-this-ingredient-tag.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
-import { newFilterByIngredientsTags } from "./function_filter2.js";
+//import { newFilterByIngredientsTags } from "./function_filter2.js";
 import { removeThisTag } from "./function_remove-this-ingredient-Tag.js";
 import { showRecipesFiltered } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 
@@ -49,7 +51,10 @@ export const filterByIngredientsTags = () => {
       removeThisTag(allTags);
       removeThisApplianceTag(allTags);
       removeThisToolsTag(allTags);
-      newFilterByIngredientsTags(
+      filterByIngredientsTags()
+      filterByAppliancesTags();
+      filterByToolsTags();
+     /* newFilterByIngredientsTags(
         ingredientsTagsListDisplayed,
         allTags,
         dataFiltered,
@@ -72,7 +77,7 @@ export const filterByIngredientsTags = () => {
         newArray,
         allNewTools,
         blockSubMenuTools
-      )
+      )*/
     });
   });
 };
