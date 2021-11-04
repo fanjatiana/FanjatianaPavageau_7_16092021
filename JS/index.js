@@ -2,7 +2,7 @@ import { addAppliancesList } from "./appliances_searchBar/function_add-appliance
 import { filterByAppliancesTags } from "./appliances_searchBar/function_filter-appliance.js";
 import { removeThisApplianceTag } from "./appliances_searchBar/function_remove-this-appliance-tag.js";
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
-import { showAllRecipesIncludesApplianceTag } from "./appliances_searchBar/function_show-all-recipes-includes-appliances-tags.js";
+//import { showAllRecipesIncludesApplianceTag } from "./appliances_searchBar/function_show-all-recipes-includes-appliances-tags.js";
 import { showRecipesFilteredByApplianceTag } from "./appliances_searchBar/function_show-recipes-filtered-by-appliances-tags.js";
 import {
   blockSubMenuAppliances,
@@ -101,8 +101,8 @@ searchBar.addEventListener("focus", () => {
 // algo de recherche
 searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
-  const array = /*searchIn();*/
-  searchInV2()
+  const array = searchIn();
+  //searchInV2()
   // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")

@@ -56,7 +56,6 @@ export const searchInV2 = () => {
         .replace(/[\u0300-\u036f]/g, "");
 
       const valid = comparison(valueInput, ingredientName);
-      console.log(valid);
       if (valid === true) {
         listOfRecipes.push(recipe);
       }

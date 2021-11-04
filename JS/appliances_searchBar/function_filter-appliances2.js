@@ -9,7 +9,7 @@ import { filterByIngredientsTags } from "../ingredients_searchBar/function_filte
 import { addAppliancesList } from "./function_add-appliances-list.js";
 import { filterByAppliancesTags } from "./function_filter-appliance.js";
 import { removeThisApplianceTag } from "./function_remove-this-appliance-tag.js";
-import { showAllRecipesIncludesApplianceTag } from "./function_show-all-recipes-includes-appliances-tags.js";
+//import { showAllRecipesIncludesApplianceTag } from "./function_show-all-recipes-includes-appliances-tags.js";
 import { showRecipesFilteredByApplianceTag } from "./function_show-recipes-filtered-by-appliances-tags.js";
 
 export const newFilterByAppliancesTags = (
