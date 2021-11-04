@@ -47,11 +47,13 @@ export const removeThisTag = (arrayTagsSelected,array) => {
       let newListOfTags = addIngredientsList(arrayFilteredTag);
       blockSubMenuIngredients.innerHTML ="";
       addTagsList(blockSubMenuIngredients, newListOfTags)
+      filterByIngredientsTags(arrayFilteredTag)
       if (arrayTagsSelected.length < 1) {
         buildArticle(array)
         let newListOfTags = addIngredientsList(array);
         blockSubMenuIngredients.innerHTML ="";
         addTagsList(blockSubMenuIngredients, newListOfTags);
+        filterByIngredientsTags(array)
       } 
     });
     

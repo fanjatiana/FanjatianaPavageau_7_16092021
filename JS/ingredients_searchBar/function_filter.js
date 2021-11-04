@@ -24,21 +24,25 @@ export const filterByIngredientsTags = (array) => {
   let ingredientsTagsListDisplayed = document.querySelectorAll(
     ".sub_menu__ingredients > .tags__list li"
   );
-  let appliancesTagsListDisplayed = document.querySelectorAll(
-    ".sub_menu__appliances > .tags__list li"
-  );
-  let toolsTagsListDisplayed = document.querySelectorAll(
-    ".sub_menu__tools > .tags__list li"
-  );
+
 
   ingredientsTagsListDisplayed.forEach((tags) => {
     tags.addEventListener("click", (e) => {
-      selectThisTag(e);
+     
+      const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
+      let listTag = []
+      listTag= [...listTag, thisTag]
+      console.log(listTag)
+      listTag = Array.from(new Set(listTag));
+      
+      selectThisTag(listTag);
+    
       //showAllRecipesByTag(); // retourne un array de recettes
       const allTags = getAllTagsSelected();
       const dataFiltered = getRecipesList(); // =recipes
-      showRecipesFiltered(allTags, dataFiltered);
+      showRecipesFiltered(listTag, dataFiltered);
       const newArray = returnNewRecipesList(); // = MainSearch
+      console.log(newArray)
 
       const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
@@ -48,16 +52,15 @@ export const filterByIngredientsTags = (array) => {
       blockSubMenuAppliances.innerHTML = "";
       addTagsList(blockSubMenuAppliances, allNewAppliances);
       blockSubMenuTools.innerHTML = "";
-        addTagsList(blockSubMenuTools, allNewTools);
+      addTagsList(blockSubMenuTools, allNewTools);
+      removeThisTag(listTag,array);
+      const a = returnNewRecipesList();
 
-      console.log(dataFiltered)
-        removeThisTag(allTags,array);
-      //removeThisApplianceTag(allTags);
-      //removeThisToolsTag(allTags);
-      filterByIngredientsTags(array)
-      filterByAppliancesTags();
-      filterByToolsTags();
+
+    })
+  })
+  //filterByIngredientsTags(array)
+      //filterByAppliancesTags();
+      //filterByToolsTags();
      
-    });
-  });
-};
+}
