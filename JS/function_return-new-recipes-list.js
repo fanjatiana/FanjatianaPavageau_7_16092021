@@ -11,7 +11,7 @@ export const returnNewRecipesList = () =>{
       const recipeTitle = e.innerHTML;
       articles.push(recipeTitle);
     });
-    console.log(articles)
+
     const dataFiltered = [];
   
     articles.forEach((title) => {

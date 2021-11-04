@@ -14,6 +14,7 @@ import {
   searchBar,
 } from "./const.js";
 import { recipes } from "./data_recipes.js";
+import { searchInV2 } from "./deuxieme_algorithme/function_searchIn_v2.js";
 import { getAllTagsSelected } from "./functions_get-all-tags-selected.js";
 
 import { addTagsList } from "./function_addTagsList.js";
@@ -100,7 +101,8 @@ searchBar.addEventListener("focus", () => {
 // algo de recherche
 searchBar.addEventListener("input", () => {
   // recherche dans le titre, description, ingrédient
-  const array = searchIn();
+  const array = /*searchIn();*/
+  searchInV2()
   // valeur de l'input
   let valueInput = searchBar.value
     .normalize("NFD")
