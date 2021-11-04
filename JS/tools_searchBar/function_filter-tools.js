@@ -37,46 +37,27 @@ export const filterByToolsTags = () => {
         const dataFiltered = getRecipesList();
        showRecipesFilteredByTools(allTags, dataFiltered);
         const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
+        
         const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         const allNewTools = addToolsList(newArray)
         const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+        
         blockSubMenuIngredients.innerHTML = "";
         addTagsList(blockSubMenuIngredients, allNewIngredients);
         blockSubMenuAppliances.innerHTML = "";
         addTagsList(blockSubMenuAppliances, allNewAppliances);
         blockSubMenuTools.innerHTML = "";
         addTagsList(blockSubMenuTools,allNewTools);
-        removeThisTag(allTags);
-        removeThisApplianceTag(allTags);
+        
+        
+       // removeThisTag(allTags);
+        //removeThisApplianceTag(allTags);
         removeThisToolsTag(allTags)
 
         filterByToolsTags();
         filterByAppliancesTags();
         filterByIngredientsTags();
-        /*newFilterByIngredientsTags(
-          ingredientsTagsListDisplayed,
-          allTags,
-          dataFiltered,
-          newArray,
-          allNewIngredients,
-          blockSubMenuIngredients
-        );
-        newFilterByAppliancesTags(
-          appliancesTagsListDisplayed,
-          allTags,
-          dataFiltered,
-          newArray,
-          allNewAppliances,
-          blockSubMenuAppliances
-        );
-        newFilterByToolsTags(
-          toolsTagsListDisplayed,
-          allTags,
-          dataFiltered,
-          newArray,
-          allNewTools,
-          blockSubMenuTools
-        )*/
+       
       });
     });
   };

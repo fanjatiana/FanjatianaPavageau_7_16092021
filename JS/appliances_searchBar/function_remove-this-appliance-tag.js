@@ -29,8 +29,9 @@ export const removeThisApplianceTag = (arrayTagsSelected) => {
         arrayFilteredTag = Array.from(new Set(resultFilterByAppliances));
       });
       buildArticle(arrayFilteredTag);
-      const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
-      const allNewIngredients = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+      //const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
+      //console.log(newArray)
+      const allNewIngredients = addAppliancesList(arrayFilteredTag); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       blockSubMenuAppliances.innerHTML = "";
       addTagsList(blockSubMenuAppliances, allNewIngredients);
       filterByAppliancesTags();
@@ -41,7 +42,7 @@ export const removeThisApplianceTag = (arrayTagsSelected) => {
         const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuAppliances.innerHTML = "";
         addTagsList(blockSubMenuAppliances, allNewAppliances);
-        filterByAppliancesTags();
+       filterByAppliancesTags();
         
       }
     });

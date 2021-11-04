@@ -36,5 +36,7 @@ export const showRecipesFiltered = (retrieveTags,dataFiltered) => {
       buildArticle(newArrayIFilteredTag);
       //addIngredientsList(newArrayIFilteredTag)
     }
+
+    
   });
 };

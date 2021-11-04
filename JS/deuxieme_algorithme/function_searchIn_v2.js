@@ -57,6 +57,7 @@ export const searchInV2 = () => {
 
       const valid = comparison(valueInput, ingredientName);
       if (valid === true) {
+        console.log(recipe)
         listOfRecipes.push(recipe);
       }
     }

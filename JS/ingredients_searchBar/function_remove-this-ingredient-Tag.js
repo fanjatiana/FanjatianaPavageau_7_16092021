@@ -8,15 +8,17 @@ import { searchIn } from "../main_searchBar/function_search-in.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "./function_filter.js";
 import { searchIngredientsTags } from "./function_searchIngredientsTags.js";
+import { showRecipesFiltered } from "./function_show-recipes-filtered-by-ingredients-tags.js";
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
-export const removeThisTag = (arrayTagsSelected) => {
+export const removeThisTag = (arrayTagsSelected,array) => {
   const tag = document.querySelectorAll(".tag");
 
   tag.forEach((element) => {
     element.addEventListener("click", (event) => {
       event.preventDefault();
       element.style.display = "none";
-      arrayTagsSelected.pop();
+      arrayTagsSelected.pop(); // suppression du tag du tableau
+    
 
       let arrayFilteredTag = [];
       arrayTagsSelected.forEach((tag) => {
@@ -39,23 +41,21 @@ export const removeThisTag = (arrayTagsSelected) => {
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
         arrayFilteredTag.sort();
       });
-      buildArticle(arrayFilteredTag);
-      const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
-      const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
-      blockSubMenuIngredients.innerHTML = "";
-      addTagsList(blockSubMenuIngredients, allNewIngredients);
-      filterByIngredientsTags();
-
+   
+    
+      buildArticle(arrayFilteredTag)
+      let newListOfTags = addIngredientsList(arrayFilteredTag);
+      blockSubMenuIngredients.innerHTML ="";
+      addTagsList(blockSubMenuIngredients, newListOfTags)
       if (arrayTagsSelected.length < 1) {
-        document.getElementById("yoursTags").innerHTML = "";
-        buildArticle(recipes);
-        const newArray = returnNewRecipesList(); 
-        console.log(newArray)// retourne la liste des recettes filtrée depuis la barre de recherche principale
-        const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
-        blockSubMenuIngredients.innerHTML = "";
-        addTagsList(blockSubMenuIngredients, allNewIngredients);
-        filterByIngredientsTags();
-      }
+        buildArticle(array)
+        let newListOfTags = addIngredientsList(array);
+        blockSubMenuIngredients.innerHTML ="";
+        addTagsList(blockSubMenuIngredients, newListOfTags);
+      } 
     });
+    
   });
 };
+
+

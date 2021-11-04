@@ -62,7 +62,7 @@ searchBarByIngredients.addEventListener("focus", () => {
 // ajout de la liste des ingredients
 const allIngredients = addIngredientsList(recipes);
 addTagsList(blockSubMenuIngredients, allIngredients);
-filterByIngredientsTags();
+filterByIngredientsTags(recipes);
 
 
 
@@ -122,7 +122,7 @@ searchBar.addEventListener("input", () => {
   const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuIngredients.innerHTML = "";
   addTagsList(blockSubMenuIngredients, allNewIngredients);
-  filterByIngredientsTags();
+  filterByIngredientsTags(newArray);
   buildArticle(array)
   if (!allNewIngredients.length) {
     tagNoFind();
@@ -165,11 +165,11 @@ searchBarByIngredients.addEventListener("input", () => {
   } else if (inputValue.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, allNewIngredients);
-    filterByIngredientsTags();
+    filterByIngredientsTags(newArray);
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, ingredients);
-    filterByIngredientsTags();
+    filterByIngredientsTags(recipes);
   }
 });
 

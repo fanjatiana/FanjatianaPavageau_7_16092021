@@ -7,21 +7,12 @@ import { RecipesNoFind } from "../function_messageError.js";
 
 
   allTags.forEach((tag) => {
-    /*const resultFilterByDescription = dataFiltered.filter((recipe) =>
-      recipe.description.includes(tag)
-    );
 
-    const resultFilterByName = dataFiltered.filter((recipe) =>
-      recipe.name.includes(tag)
-    );*/
     const resultFilterByAppliances = dataFiltered.filter((recipe) =>
       recipe.appliance.includes(tag)
     );
 
-    let arrayFilteredTag =
-      /*resultFilterByDescription.concat(
-      resultFilterByName,*/
-      resultFilterByAppliances;
+    let arrayFilteredTag =resultFilterByAppliances;
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
     
