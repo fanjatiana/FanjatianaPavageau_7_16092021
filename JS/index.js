@@ -62,7 +62,9 @@ searchBarByIngredients.addEventListener("focus", () => {
 // ajout de la liste des ingredients
 const allIngredients = addIngredientsList(recipes);
 addTagsList(blockSubMenuIngredients, allIngredients);
-filterByIngredientsTags(recipes);
+filterByIngredientsTags();
+
+    
 
 
 
@@ -122,7 +124,7 @@ searchBar.addEventListener("input", () => {
   const allNewIngredients = addIngredientsList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
   blockSubMenuIngredients.innerHTML = "";
   addTagsList(blockSubMenuIngredients, allNewIngredients);
-  filterByIngredientsTags(newArray);
+  filterByIngredientsTags();
   buildArticle(array)
   if (!allNewIngredients.length) {
     tagNoFind();

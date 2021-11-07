@@ -6,6 +6,6 @@ export const getAllTagsSelected = () => {
     const tagName = element.textContent;
     getTagsNameList.push(tagName);
   });
-  console.log(getTagsNameList);
+
   return getTagsNameList;
 };
