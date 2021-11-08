@@ -1,9 +1,8 @@
 import { addAppliancesList } from "./appliances_searchBar/function_add-appliances-list.js";
 import { filterByAppliancesTags } from "./appliances_searchBar/function_filter-appliance.js";
-import { removeThisApplianceTag } from "./appliances_searchBar/function_remove-this-appliance-tag.js";
+
 import { searchAppliancesTags } from "./appliances_searchBar/function_searchAppliancesTags.js";
-//import { showAllRecipesIncludesApplianceTag } from "./appliances_searchBar/function_show-all-recipes-includes-appliances-tags.js";
-import { showRecipesFilteredByApplianceTag } from "./appliances_searchBar/function_show-recipes-filtered-by-appliances-tags.js";
+
 import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
@@ -35,12 +34,12 @@ import {
   toolNoFind,
 } from "./function_messageError.js";
 import { returnNewRecipesList } from "./function_return-new-recipes-list.js";
-import { selectThisTag } from "./ingredients_searchBar/function _select-this-ingredient-tag.js";
+
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "./ingredients_searchBar/function_filter.js";
-import { removeThisTag } from "./ingredients_searchBar/function_remove-this-ingredient-Tag.js";
+
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
-import { showRecipesFiltered } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
+//import { showRecipesFiltered } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
 import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";

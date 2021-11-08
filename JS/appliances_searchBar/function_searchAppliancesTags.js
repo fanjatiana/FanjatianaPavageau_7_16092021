@@ -1,5 +1,4 @@
 import { searchBarByAppliances } from "../const.js";
-import { recipes } from "../data_recipes.js";
 
 export const searchAppliancesTags = (array) => {
   // valeur de l'input
