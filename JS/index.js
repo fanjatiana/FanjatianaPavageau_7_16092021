@@ -29,6 +29,7 @@ import {
   tagNoFind,
   toolNoFind,
 } from "./function_messageError.js";
+import { normalize } from "./function_normalize.js";
 import { returnNewRecipesList } from "./function_return-new-recipes-list.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "./ingredients_searchBar/function_filter.js";
@@ -95,13 +96,11 @@ searchBar.addEventListener("input", () => {
   const array = searchIn();
   //searchInV2()
   // valeur de l'input
-  let valueInput = searchBar.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  let inputValue = searchBar.value;
+  normalize(inputValue)
   if (!array.length) {
     return RecipesNoFind();
-  } else if (valueInput.length < 3) {
+  } else if (inputValue.length < 3) {
     buildArticle(recipes);
   } else {
     buildArticle(array);

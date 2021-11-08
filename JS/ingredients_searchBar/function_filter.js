@@ -12,6 +12,7 @@ import { addTagsList } from "../function_addTagsList.js";
 import { removeThisTag } from "../function_remove-this--Tag.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { showRecipesFiltered } from "../function_show-recipes-filtered-by-tags.js";
+import { searchIn } from "../main_searchBar/function_search-in.js";
 import { addToolsList } from "../tools_searchBar/function_add-tools-list.js";
 import { filterByToolsTags } from "../tools_searchBar/function_filter-tools.js";
 import { addIngredientsList } from "./function_add-ingredients-list.js";
@@ -40,10 +41,11 @@ export const filterByIngredientsTags = () => {
 
       // fonction d'affichage de la liste des recettes en liens avec le tag selectionné
       showRecipesFiltered(allTags, dataFiltered);
-
+      
       // nouveau tableau de recettes
       const newArrayRecipes = returnNewRecipesList(); // = MainSearch
 
+      
       // affichage des tags en liens avec les recettes
       const allNewIngredients = addIngredientsList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       const allNewAppliances = addAppliancesList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées

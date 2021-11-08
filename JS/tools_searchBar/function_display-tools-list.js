@@ -1,11 +1,10 @@
 import { searchBarByTools } from "../const.js";
+import { normalize } from "../function_normalize.js";
 
 export const displayToolsList = (array) => {
   // valeur de l'input
-  let valueInputTools = searchBarByTools.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  let inputValueTools = searchBarByTools.value;
+    normalize(inputValueTools)
 
   let arrayTools = [];
   array.filter((recipe) => {
@@ -20,7 +19,7 @@ export const displayToolsList = (array) => {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInputTools)
+      .includes(inputValueTools)
   );
 
   return resultFilterByTools;

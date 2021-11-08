@@ -1,13 +1,12 @@
 import { searchBar } from "../const.js";
 import { recipes } from "../data_recipes.js";
-import { comparison } from "./functions_algo-V2.js";
+import { normalize } from "../function_normalize.js";
+import { comparison } from "./functions_comparison-algo-V2.js";
 
 export const searchInV2 = () => {
   // valeur de l'input
-  let valueInput = searchBar.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  let inputValue = searchBar.value;
+    normalize(inputValue)
 
   // tableau des recettes filtrées
   let listOfRecipes = [];

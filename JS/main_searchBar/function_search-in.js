@@ -3,16 +3,15 @@ import { searchBar } from "../const.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
+import { normalize } from "../function_normalize.js";
 
 // Fonction pour afficher la liste des menus en fonction des titres, descriptions, ingrédients
 
  export const searchIn = () => {
 
   // valeur de l'input
-  let valueInput = searchBar.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  let inputValue = searchBar.value;
+    normalize(inputValue)
 
   // filtre sur les titres
   const resultFilterByName = recipes.filter((recipe) =>
@@ -20,7 +19,7 @@ import { addIngredientsList } from "../ingredients_searchBar/function_add-ingred
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInput)
+      .includes(inputValue)
   );
 
   // filtre sur les descritptions
@@ -29,7 +28,7 @@ import { addIngredientsList } from "../ingredients_searchBar/function_add-ingred
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInput)
+      .includes(inputValue)
   );
 
   // filtre sur les ingrédients
@@ -41,7 +40,7 @@ import { addIngredientsList } from "../ingredients_searchBar/function_add-ingred
           .replace(/[\u0300-\u036f]/g, "")
           .toLowerCase()
       )
-      .includes(valueInput)
+      .includes(inputValue)
   );
   
   // concaténation des tableaux

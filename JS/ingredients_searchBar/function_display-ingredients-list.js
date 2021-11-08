@@ -1,11 +1,10 @@
 import { searchBarByIngredients } from "../const.js";
+import { normalize } from "../function_normalize.js";
 
 export const displayIngredientsList = (array) => {
   // valeur de l'input
-  let valueInput = searchBarByIngredients.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  let inputValue = searchBarByIngredients.value;
+    normalize(inputValue)
 
   // filtre sur les ingrédients
   let ingredientsList = [];
@@ -21,7 +20,7 @@ export const displayIngredientsList = (array) => {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInput)
+      .includes(inputValue)
   );
   return totalIngredients;
 };

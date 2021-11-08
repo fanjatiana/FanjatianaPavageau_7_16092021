@@ -1,11 +1,10 @@
 import { searchBarByAppliances } from "../const.js";
+import { normalize } from "../function_normalize.js";
 
 export const displayAppliancesList = (array) => {
   // valeur de l'input
-  let valueInputAppliance = searchBarByAppliances.value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  let inputValueAppliance = searchBarByAppliances.value;
+  normalize(inputValueAppliance);
 
   // filtre sur les ingrédients
   let arrayAppliances = [];
@@ -19,7 +18,7 @@ export const displayAppliancesList = (array) => {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(valueInputAppliance)
+      .includes(inputValueAppliance)
   );
 
   return totalAppliances;
