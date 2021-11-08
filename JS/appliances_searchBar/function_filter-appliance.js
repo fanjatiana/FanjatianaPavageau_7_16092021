@@ -6,7 +6,6 @@ import {
 import { selectThisTag } from "../function _select-this-tag.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { addTagsList } from "../function_addTagsList.js";
-import { getRecipesList } from "../function_display-recipes-filtered.js";
 import { removeThisTag } from "../function_remove-this--Tag.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { showRecipesFiltered } from "../function_show-recipes-filtered-by-tags.js";
@@ -23,7 +22,7 @@ export const filterByAppliancesTags = () => {
 
   appliancesTagsListDisplayed.forEach((tags) => {
     tags.addEventListener("click", (e) => {
-      const dataFiltered = getRecipesList();
+      const dataFiltered = returnNewRecipesList();
 
       // ajout du tag sélectionné dans le dom
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant

@@ -8,7 +8,5 @@ export const  newArrayAfterdeleteThisTag = (arrayTags, thisTag) => {
       tagList.push(tag);
     }
   });
- 
-
   return tagList;
 };

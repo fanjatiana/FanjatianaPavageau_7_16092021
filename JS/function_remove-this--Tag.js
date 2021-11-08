@@ -1,13 +1,11 @@
-
-
-import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, searchBar } from "./const.js";
+import {
+  blockSubMenuAppliances,
+  blockSubMenuIngredients,
+  blockSubMenuTools,
+  searchBar,
+} from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
-
-
-
-
-
 
 import { addTagsList } from "./function_addTagsList.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
@@ -21,12 +19,8 @@ import { selectThisTag } from "./function _select-this-tag.js";
 import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 
-
-
-
-
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
-export const removeThisTag = (allTagsSelected,listRecipes) => {
+export const removeThisTag = (allTagsSelected, listRecipes) => {
   const buttonsTags = document.querySelectorAll(".tag > img");
   const divYoursTags = document.getElementById("yoursTags");
 
@@ -38,23 +32,21 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
     button.addEventListener("click", () => {
       // on recupère la valeur de tag correspondant au bouton
       let thisTag = button.previousElementSibling.innerHTML;
-
-   
-
       // on cré un nouvel array apres suppression du tag
-      let tagList = newArrayAfterdeleteThisTag(allTagsSelected, thisTag, recipes);
-      console.log(tagList);
+      let tagList = newArrayAfterdeleteThisTag(
+        allTagsSelected,
+        thisTag,
+        recipes
+      );
 
-      
+      // on vide la liste de tag dans le dom
+      divYoursTags.innerHTML = "";
 
-         // on vide la liste de tag dans le dom
-         divYoursTags.innerHTML = "";
-       
-         // on affiche la nouvelle liste de tag
-        selectThisTag(tagList);
+      // on affiche la nouvelle liste de tag
+      selectThisTag(tagList);
 
-      // filtre les recettes qui correspondent au nouvel array de tags 
-       listRecipes = [];
+      // filtre les recettes qui correspondent au nouvel array de tags
+      listRecipes = [];
       tagList.forEach((tag) => {
         const resultFilterByDescription = recipes.filter((recipe) =>
           recipe.description.includes(tag)
@@ -67,14 +59,11 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
           recipe.ingredients.map((list) => list.ingredient).includes(tag)
         );
         const resultFilterByAppliances = recipes.filter((recipe) =>
-        recipe.appliance.includes(tag)
-        
-      );
-      const resultFilterByTools = recipes.filter((recipe) =>
-      recipe.ustensils.includes(tag)
-    );
-
-        
+          recipe.appliance.includes(tag)
+        );
+        const resultFilterByTools = recipes.filter((recipe) =>
+          recipe.ustensils.includes(tag)
+        );
 
         let arrayFilteredTag = resultFilterByDescription.concat(
           resultFilterByName,
@@ -88,29 +77,27 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
         listRecipes = arrayFilteredTag;
       });
 
-    
-
       // on affiche la liste des recettes liée aux tags
       showRecipesFiltered(tagList, listRecipes);
 
       // fonction de suppression sur la nouvelle liste de tags
       removeThisTag(tagList, listRecipes);
-      
+
       const allNewIngredients = addIngredientsList(listRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       blockSubMenuIngredients.innerHTML = "";
       addTagsList(blockSubMenuIngredients, allNewIngredients);
 
-      const allNewAppliances =  addAppliancesList(listRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
-     blockSubMenuAppliances.innerHTML = "";
+      const allNewAppliances = addAppliancesList(listRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+      blockSubMenuAppliances.innerHTML = "";
       addTagsList(blockSubMenuAppliances, allNewAppliances);
 
       const allNewTools = addToolsList(listRecipes);
       blockSubMenuTools.innerHTML = "";
       addTagsList(blockSubMenuTools, allNewTools);
 
-      filterByToolsTags()
+      filterByToolsTags();
       filterByIngredientsTags();
-      filterByAppliancesTags()
+      filterByAppliancesTags();
 
       // console.log(allTagsSelected.length)
 
@@ -121,35 +108,35 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
         blockSubMenuIngredients.innerHTML = "";
         addTagsList(blockSubMenuIngredients, allIngredients);
 
-        const allNewAppliances =  addAppliancesList(mainsearch); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+        const allNewAppliances = addAppliancesList(mainsearch); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuAppliances.innerHTML = "";
-         addTagsList(blockSubMenuAppliances, allNewAppliances);
+        addTagsList(blockSubMenuAppliances, allNewAppliances);
 
-         const allNewTools = addToolsList(mainsearch);
-         blockSubMenuTools.innerHTML = "";
-         addTagsList(blockSubMenuTools, allNewTools);
-        
+        const allNewTools = addToolsList(mainsearch);
+        blockSubMenuTools.innerHTML = "";
+        addTagsList(blockSubMenuTools, allNewTools);
+
         buildArticle(mainsearch);
         filterByIngredientsTags();
-        filterByAppliancesTags()
-        filterByToolsTags()
+        filterByAppliancesTags();
+        filterByToolsTags();
       } else if (tagList.length === 0 && valueInput == "") {
         const allIngredients = addIngredientsList(recipes);
         blockSubMenuIngredients.innerHTML = "";
         addTagsList(blockSubMenuIngredients, allIngredients);
-        
-        const allNewAppliances =  addAppliancesList(recipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+
+        const allNewAppliances = addAppliancesList(recipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuAppliances.innerHTML = "";
         addTagsList(blockSubMenuAppliances, allNewAppliances);
 
         const allNewTools = addToolsList(recipes);
         blockSubMenuTools.innerHTML = "";
         addTagsList(blockSubMenuTools, allNewTools);
-        
+
         buildArticle(recipes);
         filterByIngredientsTags();
-        filterByAppliancesTags()
-        filterByToolsTags()
+        filterByAppliancesTags();
+        filterByToolsTags();
       }
     });
   });

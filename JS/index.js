@@ -18,7 +18,7 @@ import { getAllTagsSelected } from "./functions_get-all-tags-selected.js";
 
 import { addTagsList } from "./function_addTagsList.js";
 import { buildArticle } from "./function_buildArticles.js";
-import { getRecipesList } from "./function_display-recipes-filtered.js";
+//import { getRecipesList } from "./function_display-recipes-filtered.js";
 import {
   displayBlockSearchByAppliances,
   displayBlockSearchByIngredients,
