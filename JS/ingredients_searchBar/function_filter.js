@@ -33,18 +33,20 @@ export const filterByIngredientsTags = () => {
      
       // tableau des recettes (recipes ou mainsearch)
       const dataFiltered =getRecipesList();
-      console.log(dataFiltered) //
+    
 
       // ajout du tag sélectionné dans le dom
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
       let tags = [];
       tags.push(thisTag)
+
+      tags = Array.from(new Set(tags));
       
       selectThisTag(tags);
     
       // tableau des tags selectionnés
       const allTags = getAllTagsSelected();
-      console.log(allTags)
+
 
 
       // fonction d'affichage de la liste des recettes en liens avec le tag selectionné
