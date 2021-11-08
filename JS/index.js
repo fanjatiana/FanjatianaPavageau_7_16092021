@@ -40,7 +40,7 @@ import { filterByIngredientsTags } from "./ingredients_searchBar/function_filter
 
 import { searchIngredientsTags } from "./ingredients_searchBar/function_searchIngredientsTags.js";
 //import { showRecipesFiltered } from "./ingredients_searchBar/function_show-recipes-filtered-by-ingredients-tags.js";
-import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
+//import { searchInAppliances } from "./main_searchBar/function_search-appliances-in-recipes.js";
 import { searchIn } from "./main_searchBar/function_search-in.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
@@ -165,11 +165,11 @@ searchBarByIngredients.addEventListener("input", () => {
   } else if (inputValue.length < 3) {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, allNewIngredients);
-    filterByIngredientsTags(newArray);
+    filterByIngredientsTags();
   } else {
     blockSubMenuIngredients.innerHTML = "";
     addTagsList(blockSubMenuIngredients, ingredients);
-    filterByIngredientsTags(recipes);
+    filterByIngredientsTags();
   }
 });
 

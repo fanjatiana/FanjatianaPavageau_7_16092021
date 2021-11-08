@@ -74,8 +74,11 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
 
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
         arrayFilteredTag.sort();
-        listRecipes = arrayFilteredTag;
+        listRecipes=arrayFilteredTag;
+        console.log(listRecipes)
       });
+
+ 
 
       // on affiche la liste des recettes liée aux tags
       showRecipesFiltered(tagList, listRecipes);
@@ -95,9 +98,10 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
       blockSubMenuTools.innerHTML = "";
       addTagsList(blockSubMenuTools, allNewTools);
 
-      filterByToolsTags();
+   
       filterByIngredientsTags();
       filterByAppliancesTags();
+      filterByToolsTags();
 
       // console.log(allTagsSelected.length)
 

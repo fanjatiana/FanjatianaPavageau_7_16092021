@@ -2,16 +2,10 @@ import { buildArticle } from "./function_buildArticles.js";
 
 import { RecipesNoFind } from "./function_messageError.js";
 
-export const showRecipesFiltered = (retrieveTags, dataFiltered) => {
+export const showRecipesFiltered = (allTags, dataFiltered) => {
   let arrayFilteredTag = [];
-  retrieveTags.forEach((tag) => {
-    const resultFilterByDescription = dataFiltered.filter((recipe) =>
-      recipe.description.includes(tag)
-    );
+  allTags.forEach((tag) => {
 
-    const resultFilterByName = dataFiltered.filter((recipe) =>
-      recipe.name.includes(tag)
-    );
     const resultFilterByIngredients = dataFiltered.filter((recipe) =>
       recipe.ingredients.map((list) => list.ingredient).includes(tag)
     );
@@ -21,14 +15,13 @@ export const showRecipesFiltered = (retrieveTags, dataFiltered) => {
     const resultFilterByTools = dataFiltered.filter((recipe) =>
       recipe.ustensils.includes(tag)
     );
-
-    arrayFilteredTag = resultFilterByDescription.concat(
-      resultFilterByName,
-      resultFilterByIngredients,
+console.log(resultFilterByTools)
+    arrayFilteredTag =
+      resultFilterByIngredients.concat(
       resultFilterByAppliances,
       resultFilterByTools
     );
-
+console.log(arrayFilteredTag)
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
 
     if (!newArrayIFilteredTag.length) {
