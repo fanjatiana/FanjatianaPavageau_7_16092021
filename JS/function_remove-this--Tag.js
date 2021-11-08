@@ -1,6 +1,6 @@
 
 
-import { blockSubMenuAppliances, blockSubMenuIngredients, searchBar } from "./const.js";
+import { blockSubMenuAppliances, blockSubMenuIngredients, blockSubMenuTools, searchBar } from "./const.js";
 import { recipes } from "./data_recipes.js";
 import { buildArticle } from "./function_buildArticles.js";
 
@@ -18,6 +18,8 @@ import { newArrayAfterdeleteThisTag } from "./function_delete-this-tag.js";
 import { filterByIngredientsTags } from "./ingredients_searchBar/function_filter.js";
 import { showRecipesFiltered } from "./function_show-recipes-filtered-by-tags.js";
 import { selectThisTag } from "./function _select-this-tag.js";
+import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
+import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 
 
 
@@ -66,14 +68,19 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
         );
         const resultFilterByAppliances = recipes.filter((recipe) =>
         recipe.appliance.includes(tag)
+        
       );
+      const resultFilterByTools = recipes.filter((recipe) =>
+      recipe.ustensils.includes(tag)
+    );
 
         
 
         let arrayFilteredTag = resultFilterByDescription.concat(
           resultFilterByName,
           resultFilterByIngredients,
-          resultFilterByAppliances
+          resultFilterByAppliances,
+          resultFilterByTools
         );
 
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
@@ -97,7 +104,11 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
      blockSubMenuAppliances.innerHTML = "";
       addTagsList(blockSubMenuAppliances, allNewAppliances);
 
+      const allNewTools = addToolsList(listRecipes);
+      blockSubMenuTools.innerHTML = "";
+      addTagsList(blockSubMenuTools, allNewTools);
 
+      filterByToolsTags()
       filterByIngredientsTags();
       filterByAppliancesTags()
 
@@ -113,10 +124,15 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
         const allNewAppliances =  addAppliancesList(mainsearch); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuAppliances.innerHTML = "";
          addTagsList(blockSubMenuAppliances, allNewAppliances);
+
+         const allNewTools = addToolsList(mainsearch);
+         blockSubMenuTools.innerHTML = "";
+         addTagsList(blockSubMenuTools, allNewTools);
         
         buildArticle(mainsearch);
         filterByIngredientsTags();
         filterByAppliancesTags()
+        filterByToolsTags()
       } else if (tagList.length === 0 && valueInput == "") {
         const allIngredients = addIngredientsList(recipes);
         blockSubMenuIngredients.innerHTML = "";
@@ -125,10 +141,15 @@ export const removeThisTag = (allTagsSelected,listRecipes) => {
         const allNewAppliances =  addAppliancesList(recipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
         blockSubMenuAppliances.innerHTML = "";
         addTagsList(blockSubMenuAppliances, allNewAppliances);
+
+        const allNewTools = addToolsList(recipes);
+        blockSubMenuTools.innerHTML = "";
+        addTagsList(blockSubMenuTools, allNewTools);
         
         buildArticle(recipes);
         filterByIngredientsTags();
         filterByAppliancesTags()
+        filterByToolsTags()
       }
     });
   });

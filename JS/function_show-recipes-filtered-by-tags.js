@@ -18,11 +18,15 @@ export const showRecipesFiltered = (retrieveTags, dataFiltered) => {
     const resultFilterByAppliances = dataFiltered.filter((recipe) =>
       recipe.appliance.includes(tag)
     );
+    const resultFilterByTools = dataFiltered.filter((recipe) =>
+      recipe.ustensils.includes(tag)
+    );
 
     arrayFilteredTag = resultFilterByDescription.concat(
       resultFilterByName,
       resultFilterByIngredients,
-      resultFilterByAppliances
+      resultFilterByAppliances,
+      resultFilterByTools
     );
 
     const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));

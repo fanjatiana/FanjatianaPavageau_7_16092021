@@ -2,9 +2,7 @@ import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
   blockSubMenuTools,
-  toolsTagsListDisplayed,
 } from "../const.js";
-import { recipes } from "../data_recipes.js";
 import { selectThisTag } from "../function _select-this-tag.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { addTagsList } from "../function_addTagsList.js";
@@ -14,8 +12,6 @@ import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { showRecipesFiltered } from "../function_show-recipes-filtered-by-tags.js";
 import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "../ingredients_searchBar/function_filter.js";
-
-
 import { addToolsList } from "../tools_searchBar/function_add-tools-list.js";
 import { filterByToolsTags } from "../tools_searchBar/function_filter-tools.js";
 import { addAppliancesList } from "./function_add-appliances-list.js";

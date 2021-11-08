@@ -44,7 +44,6 @@ import { searchInAppliances } from "./main_searchBar/function_search-appliances-
 import { searchIn } from "./main_searchBar/function_search-in.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
-import { removeThisToolsTag } from "./tools_searchBar/function_remove-this-tool-tag.js";
 import { searchToolsTags } from "./tools_searchBar/function_searchToolsTags.js";
 //import { showAllRecipesIncludesToolsTags } from "./tools_searchBar/function_show-all-recipes-includes-tools-tags.js";
 // AU CHARGEMENT DE LA PAGE:
