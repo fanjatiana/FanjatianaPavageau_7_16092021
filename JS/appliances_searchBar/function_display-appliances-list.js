@@ -1,6 +1,6 @@
 import { searchBarByAppliances } from "../const.js";
 
-export const searchAppliancesTags = (array) => {
+export const displayAppliancesList = (array) => {
   // valeur de l'input
   let valueInputAppliance = searchBarByAppliances.value
     .normalize("NFD")

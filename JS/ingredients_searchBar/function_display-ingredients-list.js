@@ -1,6 +1,6 @@
 import { searchBarByIngredients } from "../const.js";
 
-export const searchIngredientsTags = (array) => {
+export const displayIngredientsList = (array) => {
   // valeur de l'input
   let valueInput = searchBarByIngredients.value
     .normalize("NFD")

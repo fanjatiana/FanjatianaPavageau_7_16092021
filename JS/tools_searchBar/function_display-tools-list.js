@@ -1,6 +1,6 @@
 import { searchBarByTools } from "../const.js";
 
-export const searchToolsTags = (array) => {
+export const displayToolsList = (array) => {
   // valeur de l'input
   let valueInputTools = searchBarByTools.value
     .normalize("NFD")
