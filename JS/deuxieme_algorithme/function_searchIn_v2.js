@@ -16,14 +16,14 @@ export const searchInV2 = () => {
     const recipe = recipes[index];
 
     let title = recipe.name
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-
-    let description = recipe.description
-      .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+
+    let description = recipe.description
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
       .split(" ");
 
     let ingredients = recipe.ingredients;
@@ -50,9 +50,9 @@ export const searchInV2 = () => {
     for (let index = 0; index < ingredients.length; index++) {
       let ingredientsList = ingredients[index];
       let ingredientName = ingredientsList.ingredient
-        .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
 
       const valid = comparison(valueInput, ingredientName);
       if (valid === true) {

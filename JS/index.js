@@ -106,6 +106,9 @@ searchBar.addEventListener("input", () => {
      return RecipesNoFind();
   }else if (inputValue !== ""){
     divYourTags.innerHTML="";
+   searchBarByIngredients.value = "";
+   searchBarByTools.value = "";
+   searchBarByAppliances.value = "";
   }  
   else if (inputValue.length < 3) {
     buildArticle(recipes);

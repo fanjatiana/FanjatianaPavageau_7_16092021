@@ -17,8 +17,8 @@ export const displayToolsList = (array) => {
   const resultFilterByTools = newArrayTools.filter((recipe) =>
     recipe
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
+      .replace(/[\u0300-\u036f]/g, "")
       .includes(inputValueTools)
   );
 

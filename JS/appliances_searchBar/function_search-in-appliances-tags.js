@@ -13,6 +13,10 @@ export const searchInAppliancesTags = () => {
   searchBarByAppliances.addEventListener("input", () => {
     let inputValueAppliance = searchBarByAppliances.value.toLowerCase();
     stringNormalize(inputValueAppliance);
+
+    console.log(inputValueAppliance)
+
+
     const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
     const allNewAppliances = addAppliancesList(newArray); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
     const appliances = displayAppliancesList(recipes);

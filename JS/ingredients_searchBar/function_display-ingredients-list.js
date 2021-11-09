@@ -18,8 +18,8 @@ export const displayIngredientsList = (array) => {
   const totalIngredients = arrayIngredients.filter((element) =>
     element
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
+      .replace(/[\u0300-\u036f]/g, "")
       .includes(inputValue)
   );
   return totalIngredients;

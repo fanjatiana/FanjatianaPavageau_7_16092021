@@ -11,7 +11,7 @@ import { stringNormalize} from "../function_normalize.js";
 
   // valeur de l'input
   let inputValue = searchBar.value.toLowerCase();
-  normalize(inputValue)
+  stringNormalize(inputValue)
     
     
 
@@ -20,9 +20,11 @@ import { stringNormalize} from "../function_normalize.js";
    recipe.name
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      //.toLowerCase()
+      .toLowerCase()
       .includes(inputValue)
   );
+
+  console.log(resultFilterByName)
 
   // filtre sur les descritptions
   const resultFilterByDescription = recipes.filter((recipe) =>
