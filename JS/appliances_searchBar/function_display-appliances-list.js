@@ -1,10 +1,10 @@
 import { searchBarByAppliances } from "../const.js";
-import { normalize } from "../function_normalize.js";
+import { stringNormalize } from "../function_normalize.js";
 
 export const displayAppliancesList = (array) => {
   // valeur de l'input
-  let inputValueAppliance = searchBarByAppliances.value;
-  normalize(inputValueAppliance);
+  let inputValueAppliance = searchBarByAppliances.value.toLowerCase();
+  stringNormalize(inputValueAppliance);
 
   // filtre sur les ingrédients
   let arrayAppliances = [];

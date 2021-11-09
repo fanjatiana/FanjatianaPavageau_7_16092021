@@ -48,6 +48,7 @@ export const filterByToolsTags = () => {
 
       const allNewIngredients = addIngredientsList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
       const allNewTools = addToolsList(newArrayRecipes);
+      console.log(allNewTools)
       const allNewAppliances = addAppliancesList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
 
       blockSubMenuIngredients.innerHTML = "";

@@ -15,14 +15,16 @@ export const showRecipesFiltered = (allTags, dataFiltered) => {
     const resultFilterByTools = dataFiltered.filter((recipe) =>
       recipe.ustensils.includes(tag)
     );
-console.log(resultFilterByTools)
+ 
+
     arrayFilteredTag =
       resultFilterByIngredients.concat(
       resultFilterByAppliances,
       resultFilterByTools
     );
-console.log(arrayFilteredTag)
-    const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+
+   let newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();

@@ -1,10 +1,10 @@
 import { searchBarByTools } from "../const.js";
-import { normalize } from "../function_normalize.js";
+import {stringNormalize} from "../function_normalize.js";
 
 export const displayToolsList = (array) => {
   // valeur de l'input
-  let inputValueTools = searchBarByTools.value;
-    normalize(inputValueTools)
+  let inputValueTools = searchBarByTools.value.toLowerCase();
+  stringNormalize(inputValueTools)
 
   let arrayTools = [];
   array.filter((recipe) => {

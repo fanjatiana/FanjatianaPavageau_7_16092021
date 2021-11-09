@@ -3,22 +3,24 @@ import { searchBar } from "../const.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
-import { normalize } from "../function_normalize.js";
+import { stringNormalize} from "../function_normalize.js";
 
 // Fonction pour afficher la liste des menus en fonction des titres, descriptions, ingrédients
 
  export const searchIn = () => {
 
   // valeur de l'input
-  let inputValue = searchBar.value;
-    normalize(inputValue)
+  let inputValue = searchBar.value.toLowerCase();
+  normalize(inputValue)
+    
+    
 
   // filtre sur les titres
   const resultFilterByName = recipes.filter((recipe) =>
-    recipe.name
+   recipe.name
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
+      //.toLowerCase()
       .includes(inputValue)
   );
 

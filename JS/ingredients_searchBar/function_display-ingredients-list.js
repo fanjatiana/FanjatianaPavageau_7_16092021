@@ -1,10 +1,10 @@
 import { searchBarByIngredients } from "../const.js";
-import { normalize } from "../function_normalize.js";
+import { stringNormalize } from "../function_normalize.js";
 
 export const displayIngredientsList = (array) => {
   // valeur de l'input
-  let inputValue = searchBarByIngredients.value;
-    normalize(inputValue)
+  let inputValue = searchBarByIngredients.value.toLowerCase();
+  stringNormalize(inputValue)
 
   // filtre sur les ingrédients
   let ingredientsList = [];

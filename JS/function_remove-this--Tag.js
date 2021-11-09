@@ -103,7 +103,7 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
       filterByAppliancesTags();
       filterByToolsTags();
 
-      // console.log(allTagsSelected.length)
+   
 
       if (tagList.length === 0 && valueInput !== "") {
         let mainsearch = searchIn();

@@ -29,7 +29,7 @@ import {
   tagNoFind,
   toolNoFind,
 } from "./function_messageError.js";
-import { normalize } from "./function_normalize.js";
+import { stringNormalize } from "./function_normalize.js";
 import { returnNewRecipesList } from "./function_return-new-recipes-list.js";
 import { addIngredientsList } from "./ingredients_searchBar/function_add-ingredients-list.js";
 import { filterByIngredientsTags } from "./ingredients_searchBar/function_filter.js";
@@ -97,10 +97,9 @@ searchBar.addEventListener("input", () => {
   const array = searchIn();
   //searchInV2()
   // valeur de l'input
-  let inputValue = searchBar.value;
-  normalize(inputValue)
+  let inputValue = searchBar.value.toLowerCase();
+  stringNormalize(inputValue)
   if (!array.length) {
-    
      toolNoFind();
      tagNoFind();
      applianceNoFind();

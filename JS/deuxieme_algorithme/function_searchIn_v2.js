@@ -1,12 +1,12 @@
 import { searchBar } from "../const.js";
 import { recipes } from "../data_recipes.js";
-import { normalize } from "../function_normalize.js";
+import { stringNormalize} from "../function_normalize.js";
 import { comparison } from "./functions_comparison-algo-V2.js";
 
 export const searchInV2 = () => {
   // valeur de l'input
-  let inputValue = searchBar.value;
-    normalize(inputValue)
+  let inputValue = searchBar.value.toLowerCase();
+    stringNormalize(inputValue)
 
   // tableau des recettes filtrées
   let listOfRecipes = [];
@@ -56,7 +56,6 @@ export const searchInV2 = () => {
 
       const valid = comparison(valueInput, ingredientName);
       if (valid === true) {
-        console.log(recipe)
         listOfRecipes.push(recipe);
       }
     }
