@@ -1,4 +1,5 @@
 import { searchBarByTools } from "../const.js";
+import { capitalizeFirstLetter } from "../function_capitalizer-first-letter.js";
 import {stringNormalize} from "../function_normalize.js";
 
 export const displayToolsList = (array) => {
@@ -11,7 +12,14 @@ export const displayToolsList = (array) => {
     recipe.ustensils.map((e) => arrayTools.push(e));
   });
 
-  let newArrayTools = Array.from(new Set(arrayTools));
+   let newArrayTools = []
+
+   arrayTools.forEach((word)=>{
+     let newWord = capitalizeFirstLetter(word);
+     newArrayTools.push(newWord)
+   })
+  
+  newArrayTools = Array.from(new Set(newArrayTools));
 
   // filtre sur les appareils
   const resultFilterByTools = newArrayTools.filter((recipe) =>

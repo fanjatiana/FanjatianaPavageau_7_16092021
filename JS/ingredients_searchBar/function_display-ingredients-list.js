@@ -1,5 +1,7 @@
 import { searchBarByIngredients } from "../const.js";
+import { capitalizeFirstLetter } from "../function_capitalizer-first-letter.js";
 import { stringNormalize } from "../function_normalize.js";
+
 
 export const displayIngredientsList = (array) => {
   // valeur de l'input
@@ -12,15 +14,28 @@ export const displayIngredientsList = (array) => {
     recipe.ingredients.map((list) => ingredientsList.push(list.ingredient))
   );
 
-  let arrayIngredients = Array.from(new Set(ingredientsList));
-  arrayIngredients.sort();
+  let newArrayIngredients = []
 
-  const totalIngredients = arrayIngredients.filter((element) =>
+  ingredientsList.forEach((word)=>{
+     let newWord = capitalizeFirstLetter(word);
+     newArrayIngredients.push(newWord)
+   })
+  
+   newArrayIngredients = Array.from(new Set(newArrayIngredients));
+
+
+
+  
+   newArrayIngredients.sort();
+
+  const totalIngredients = newArrayIngredients.filter((element) =>
     element
       .normalize("NFD")
-      .toLowerCase()
       .replace(/[\u0300-\u036f]/g, "")
-      .includes(inputValue)
-  );
+      .toLowerCase()
+      .includes(inputValue));
+    
+
+      console.log(totalIngredients)
   return totalIngredients;
 };

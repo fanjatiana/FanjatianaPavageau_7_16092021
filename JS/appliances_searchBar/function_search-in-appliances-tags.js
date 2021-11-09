@@ -14,7 +14,7 @@ export const searchInAppliancesTags = () => {
     let inputValueAppliance = searchBarByAppliances.value.toLowerCase();
     stringNormalize(inputValueAppliance);
 
-    console.log(inputValueAppliance)
+  
 
 
     const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale

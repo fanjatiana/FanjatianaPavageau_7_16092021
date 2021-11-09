@@ -46,7 +46,7 @@ export const filterByIngredientsTags = () => {
       searchBarByIngredients.value = "";
       // tableau des tags selectionnés
       let allTags = getAllTagsSelected();
-
+console.log(allTags)
       // fonction d'affichage de la liste des recettes en liens avec le tag selectionné
       showRecipesFiltered(allTags, dataFiltered);
 

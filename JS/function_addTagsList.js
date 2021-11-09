@@ -1,4 +1,5 @@
 import { TagsFactory } from "./class/factory_Tags.js";
+import { capitalizeFirstLetter } from "./function_capitalizer-first-letter.js";
 
 
 
@@ -10,6 +11,7 @@ export const addTagsList = (source, array) => {
   array.forEach((element) => {
     TagsFactory.buildTags(source,element)
   });
+
 
 }
  
