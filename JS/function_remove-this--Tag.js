@@ -56,13 +56,33 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
           recipe.name.includes(tag)
         );
         const resultFilterByIngredients = recipes.filter((recipe) =>
-          recipe.ingredients.map((list) => list.ingredient).includes(tag)
+        recipe.ingredients.map((list) =>
+        list.ingredient
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, ""))
+          .includes(
+            tag
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+          )
         );
         const resultFilterByAppliances = recipes.filter((recipe) =>
-          recipe.appliance.includes(tag)
-        );
+        recipe.appliance.toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(tag.toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")))
+        ;
         const resultFilterByTools = recipes.filter((recipe) =>
-          recipe.ustensils.includes(tag)
+        recipe.ustensils.map((list) =>
+        list.toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")).includes(tag.toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""))
         );
 
         let arrayFilteredTag = resultFilterByDescription.concat(

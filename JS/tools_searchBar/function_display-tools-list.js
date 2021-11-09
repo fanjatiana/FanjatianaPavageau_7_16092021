@@ -1,11 +1,11 @@
 import { searchBarByTools } from "../const.js";
 import { capitalizeFirstLetter } from "../function_capitalizer-first-letter.js";
-import {stringNormalize} from "../function_normalize.js";
+import {inputNormalize} from "../function_normalize.js";
 
 export const displayToolsList = (array) => {
   // valeur de l'input
   let inputValueTools = searchBarByTools.value.toLowerCase();
-  stringNormalize(inputValueTools)
+  inputNormalize(inputValueTools)
 
   let arrayTools = [];
   array.filter((recipe) => {

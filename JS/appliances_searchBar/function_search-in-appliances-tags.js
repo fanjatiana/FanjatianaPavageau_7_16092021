@@ -2,7 +2,7 @@ import { blockSubMenuAppliances, searchBarByAppliances } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { addTagsList } from "../function_addTagsList.js";
 import { applianceNoFind } from "../function_messageError.js";
-import {stringNormalize} from "../function_normalize.js";
+import {inputNormalize} from "../function_normalize.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { addAppliancesList } from "./function_add-appliances-list.js";
 import { displayAppliancesList } from "./function_display-appliances-list.js";
@@ -12,7 +12,7 @@ export const searchInAppliancesTags = () => {
   // recherche de tags appareil
   searchBarByAppliances.addEventListener("input", () => {
     let inputValueAppliance = searchBarByAppliances.value.toLowerCase();
-    stringNormalize(inputValueAppliance);
+    inputNormalize(inputValueAppliance);
 
   
 

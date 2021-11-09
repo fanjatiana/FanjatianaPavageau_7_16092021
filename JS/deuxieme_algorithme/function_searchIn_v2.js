@@ -1,12 +1,12 @@
 import { searchBar } from "../const.js";
 import { recipes } from "../data_recipes.js";
-import { stringNormalize} from "../function_normalize.js";
+import { inputNormalize} from "../function_normalize.js";
 import { comparison } from "./functions_comparison-algo-V2.js";
 
 export const searchInV2 = () => {
   // valeur de l'input
   let inputValue = searchBar.value.toLowerCase();
-    stringNormalize(inputValue)
+  inputNormalize(inputValue)
 
   // tableau des recettes filtrées
   let listOfRecipes = [];

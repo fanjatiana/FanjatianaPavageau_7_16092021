@@ -1,10 +1,12 @@
 import { searchBarByAppliances } from "../const.js";
 import { capitalizeFirstLetter } from "../function_capitalizer-first-letter.js";
-import { stringNormalize } from "../function_normalize.js";
+import { inputNormalize} from "../function_normalize.js";
+
+
 export const displayAppliancesList = (array) => {
   // valeur de l'input
   let inputValueAppliance = searchBarByAppliances.value.toLowerCase();
-  stringNormalize(inputValueAppliance);
+  inputNormalize(inputValueAppliance);
 
   // filtre sur les ingrédients
   let arrayAppliances = [];
@@ -35,6 +37,9 @@ export const displayAppliancesList = (array) => {
       .toLowerCase()
       .includes(inputValueAppliance)
   );
+
+
+  console.log(totalAppliances)
 
   return totalAppliances;
 };

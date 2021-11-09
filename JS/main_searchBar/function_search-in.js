@@ -3,7 +3,7 @@ import { searchBar } from "../const.js";
 import { buildArticle } from "../function_buildArticles.js";
 import { RecipesNoFind } from "../function_messageError.js";
 import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
-import { stringNormalize} from "../function_normalize.js";
+import { inputNormalize} from "../function_normalize.js";
 
 // Fonction pour afficher la liste des menus en fonction des titres, descriptions, ingrédients
 
@@ -11,7 +11,7 @@ import { stringNormalize} from "../function_normalize.js";
 
   // valeur de l'input
   let inputValue = searchBar.value.toLowerCase();
-  stringNormalize(inputValue)
+  inputNormalize(inputValue)
     
     
 
