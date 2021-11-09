@@ -95,7 +95,6 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
         arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
         arrayFilteredTag.sort();
         listRecipes=arrayFilteredTag;
-        console.log(listRecipes)
       });
 
  

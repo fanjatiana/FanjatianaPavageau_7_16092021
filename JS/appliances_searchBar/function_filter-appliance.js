@@ -35,7 +35,7 @@ export const filterByAppliancesTags = () => {
       tags = Array.from(new Set(tags));
 
       selectThisTag(tags);
-console.log(tags)
+
       // tableau des tags selectionnés
       const allTags = getAllTagsSelected();
       searchBarByAppliances.value = "";

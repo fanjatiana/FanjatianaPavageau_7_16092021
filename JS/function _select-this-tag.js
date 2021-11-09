@@ -3,6 +3,7 @@
 export const selectThisTag = (array) => {
  
   const divYourTags = document.getElementById("yoursTags");
+
  
   array.forEach((element) => {
     divYourTags.innerHTML += `<div class="tag">
