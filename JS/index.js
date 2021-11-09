@@ -92,6 +92,7 @@ searchBar.addEventListener("focus", () => {
 
 // algo de recherche
 searchBar.addEventListener("input", () => {
+  const divYourTags = document.getElementById("yoursTags");
   // recherche dans le titre, description, ingrédient
   const array = searchIn();
   //searchInV2()
@@ -99,11 +100,20 @@ searchBar.addEventListener("input", () => {
   let inputValue = searchBar.value;
   normalize(inputValue)
   if (!array.length) {
-    return RecipesNoFind();
-  } else if (inputValue.length < 3) {
+    
+     toolNoFind();
+     tagNoFind();
+     applianceNoFind();
+     return RecipesNoFind();
+  }else if (inputValue !== ""){
+    divYourTags.innerHTML="";
+  }  
+  else if (inputValue.length < 3) {
     buildArticle(recipes);
-  } else {
+  }
+  else {
     buildArticle(array);
+ 
   }
 
   //affichage de la liste des ingrédients en fonction de la liste des recettes

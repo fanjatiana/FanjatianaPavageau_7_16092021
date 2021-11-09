@@ -1,6 +1,7 @@
 
 //fonction pour ajouter et afficher les tags au clic dans la div YoursTag
 export const selectThisTag = (array) => {
+ 
   const divYourTags = document.getElementById("yoursTags");
  
   array.forEach((element) => {

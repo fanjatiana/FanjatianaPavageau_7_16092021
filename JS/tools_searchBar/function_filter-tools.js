@@ -4,11 +4,13 @@ import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
   blockSubMenuTools,
+  searchBarByTools,
 } from "../const.js";
 import { recipes } from "../data_recipes.js";
 import { selectThisTag } from "../function _select-this-tag.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { addTagsList } from "../function_addTagsList.js";
+import { applianceNoFind, tagNoFind, toolNoFind } from "../function_messageError.js";
 import { removeThisTag } from "../function_remove-this--Tag.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
 import { showRecipesFiltered } from "../function_show-recipes-filtered-by-tags.js";
@@ -37,7 +39,7 @@ export const filterByToolsTags = () => {
 
       // tableau des tags selectionnés
       const allTags = getAllTagsSelected();
-
+      searchBarByTools.value = "";
       // fonction d'affichage de la liste des recettes en liens avec le tag selectionné
       showRecipesFiltered(allTags, dataFiltered);
 
@@ -54,6 +56,13 @@ export const filterByToolsTags = () => {
       addTagsList(blockSubMenuAppliances, allNewAppliances);
       blockSubMenuTools.innerHTML = "";
       addTagsList(blockSubMenuTools, allNewTools);
+
+      if(!newArrayRecipes.length){
+        tagNoFind();
+        toolNoFind();
+        applianceNoFind()
+      }
+      
 
       filterByToolsTags();
       filterByAppliancesTags();

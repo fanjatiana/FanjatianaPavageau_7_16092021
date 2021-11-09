@@ -4,10 +4,12 @@ import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
   blockSubMenuTools,
+  searchBarByIngredients,
 } from "../const.js";
 import { selectThisTag } from "../function _select-this-tag.js";
 import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
 import { addTagsList } from "../function_addTagsList.js";
+import { applianceNoFind, tagNoFind, toolNoFind } from "../function_messageError.js";
 
 import { removeThisTag } from "../function_remove-this--Tag.js";
 import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
@@ -22,26 +24,36 @@ export const filterByIngredientsTags = () => {
     ".sub_menu__ingredients > .tags__list li"
   );
 
+  const divYourTags = document.getElementById("yoursTags");
+
   ingredientsTagsListDisplayed.forEach((tags) => {
+    
     tags.addEventListener("click", (e) => {
+   
       // tableau des recettes (recipes ou mainsearch)
       const dataFiltered = returnNewRecipesList();
 
       // ajout du tag sélectionné dans le dom
-      const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
+     let thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
+  
       let tags = [];
       tags.push(thisTag);
 
-      tags = Array.from(new Set(tags));
+    
 
       selectThisTag(tags);
-
+    
+    
+      searchBarByIngredients.value=""
       // tableau des tags selectionnés
-      const allTags = getAllTagsSelected();
+      let allTags = getAllTagsSelected();
+
+      
+  
 
       // fonction d'affichage de la liste des recettes en liens avec le tag selectionné
       showRecipesFiltered(allTags, dataFiltered);
-      
+     
       // nouveau tableau de recettes
       const newArrayRecipes = returnNewRecipesList(); // = MainSearch
 
@@ -57,6 +69,12 @@ export const filterByIngredientsTags = () => {
       addTagsList(blockSubMenuAppliances, allNewAppliances);
       blockSubMenuTools.innerHTML = "";
       addTagsList(blockSubMenuTools, allNewTools);
+   
+      if(!newArrayRecipes.length){
+        tagNoFind();
+        toolNoFind();
+        applianceNoFind()
+      }
 
       filterByIngredientsTags();
       filterByToolsTags();

@@ -1,6 +1,6 @@
 import { buildArticle } from "./function_buildArticles.js";
 
-import { RecipesNoFind } from "./function_messageError.js";
+import { applianceNoFind, RecipesNoFind, tagNoFind, toolNoFind } from "./function_messageError.js";
 
 export const showRecipesFiltered = (allTags, dataFiltered) => {
   let arrayFilteredTag = [];
@@ -26,6 +26,9 @@ console.log(arrayFilteredTag)
 
     if (!newArrayIFilteredTag.length) {
       RecipesNoFind();
+      tagNoFind();
+      toolNoFind();
+      applianceNoFind();
     } else {
       buildArticle(newArrayIFilteredTag);
     }
