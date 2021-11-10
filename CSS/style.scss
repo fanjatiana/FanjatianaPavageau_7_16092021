@@ -41,6 +41,7 @@ header {
 
 #your-search {
   width: 100%;
+ 
 }
 
 /* form barre de recherche */
@@ -71,6 +72,7 @@ header {
   //justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+ 
 }
 
 .filter-by_input {
@@ -87,7 +89,7 @@ header {
 
 #by_ingredients {
   @include bloc-shape($ingredients-color, none, column);
-  & .sub_menu {
+  & .ingredient {
     background-color: $ingredients-color;
     height: auto;
   }
@@ -95,14 +97,14 @@ header {
 
 #kitchen-appliance {
   @include bloc-shape($appliance-color, none, column);
-  & .sub_menu {
+  & .appliance{
     background-color: $appliance-color;
   }
 }
 
 #kitchen-tool {
   @include bloc-shape($tool-color, none, column);
-  & .sub_menu {
+  & .tool{
     background-color: $tool-color;
   }
 }
@@ -122,11 +124,14 @@ header {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 300px;
-  width: auto;
-  overflow-x: scroll;
+  height: 90%;
+  width: 100%;
+  margin:auto;
+  //overflow-x: scroll;
   > li {
     margin: 0.3em;
+    width: 15%;
+    margin-bottom:2px;
     cursor: pointer;
   }
 }
@@ -154,7 +159,7 @@ header {
 
 .menu {
   width: 100%;
-  height: 80px;
+  height: 100px;
   cursor: pointer;
   position: relative;
   > :hover {
@@ -252,6 +257,6 @@ article {
 
 .sub_menu {
   display: none;
-  height: 300px;
-  width: auto;
+  height: 100%;
+  width: 100%;
 }

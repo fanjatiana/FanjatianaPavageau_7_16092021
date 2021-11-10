@@ -174,7 +174,7 @@ header {
 
 #by_ingredients {
   width: 20%;
-  height: 100%;
+  height: 100px;
   border-radius: 5px;
   margin-right: 1em;
   background-color: #3282F7;
@@ -190,14 +190,14 @@ header {
           flex-direction: column;
 }
 
-#by_ingredients .sub_menu {
+#by_ingredients .ingredient {
   background-color: #3282F7;
   height: auto;
 }
 
 #kitchen-appliance {
   width: 20%;
-  height: 100%;
+  height: 100px;
   border-radius: 5px;
   margin-right: 1em;
   background-color: #68D9A4;
@@ -213,13 +213,13 @@ header {
           flex-direction: column;
 }
 
-#kitchen-appliance .sub_menu {
+#kitchen-appliance .appliance {
   background-color: #68D9A4;
 }
 
 #kitchen-tool {
   width: 20%;
-  height: 100%;
+  height: 100px;
   border-radius: 5px;
   margin-right: 1em;
   background-color: #ED6454;
@@ -235,7 +235,7 @@ header {
           flex-direction: column;
 }
 
-#kitchen-tool .sub_menu {
+#kitchen-tool .tool {
   background-color: #ED6454;
 }
 
@@ -262,13 +262,15 @@ header {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 300px;
-  width: auto;
-  overflow-x: scroll;
+  height: 90%;
+  width: 100%;
+  margin: auto;
 }
 
 .tags__list > li {
   margin: 0.3em;
+  width: 15%;
+  margin-bottom: 2px;
   cursor: pointer;
 }
 
@@ -317,7 +319,7 @@ header {
 
 .menu {
   width: 100%;
-  height: 80px;
+  height: 100px;
   cursor: pointer;
   position: relative;
 }
@@ -448,7 +450,7 @@ article > a:hover {
 
 .sub_menu {
   display: none;
-  height: 300px;
-  width: auto;
+  height: 100%;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
