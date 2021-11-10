@@ -30,7 +30,7 @@ export const searchInV2 = () => {
 
     /* on compare les lettres entrées dans l'input aux lettres des titres des recettes:
      si "true" => on push dans le tableau : listOfRecipes*/
-    const valid = comparison(valueInput, title);
+    const valid = comparison(inputValue, title);
     if (valid === true) {
       listOfRecipes.push(recipe);
     }
@@ -40,7 +40,7 @@ export const searchInV2 = () => {
     for (let index = 0; index < description.length; index++) {
       const word = description[index];
 
-      const result = comparison(valueInput, word);
+      const result = comparison(inputValue, word);
       if (result === true) {
         listOfRecipes.push(recipe);
       }
@@ -54,7 +54,7 @@ export const searchInV2 = () => {
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
 
-      const valid = comparison(valueInput, ingredientName);
+      const valid = comparison(inputValue, ingredientName);
       if (valid === true) {
         listOfRecipes.push(recipe);
       }

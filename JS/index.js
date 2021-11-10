@@ -38,20 +38,30 @@ import { searchIn } from "./main_searchBar/function_search-in.js";
 import { addToolsList } from "./tools_searchBar/function_add-tools-list.js";
 import { filterByToolsTags } from "./tools_searchBar/function_filter-tools.js";
 import { searchInToolsTags } from "./tools_searchBar/function_search-in-tools-tags.js";
-
-
+let blockIngredient = document.getElementById("by_ingredients");
+let blockAppliance = document.getElementById("kitchen-appliance");
+let blockTool = document.getElementById("kitchen-tool");
 // AU CHARGEMENT DE LA PAGE:
 
 //ajout des articles
 buildArticle(recipes);
 
 //evenement au clic du bloc ingredients
-searchBarByIngredients.addEventListener("focus", () => {
+searchBarByIngredients.addEventListener("mouseenter", () => {
   displayBlockSearchByIngredients();
 });
-searchBarByIngredients.addEventListener("focusout", ()=>{
+blockIngredient.addEventListener("mouseleave", ()=>{
   displayNoneSearchByIngredients();
 })
+
+//evenement au clavier du bloc ingredients
+searchBarByIngredients.addEventListener("keydown", () => {
+  displayBlockSearchByIngredients();
+});
+blockIngredient.addEventListener("focusout", ()=>{
+  displayNoneSearchByIngredients();
+})
+
 // ajout de la liste des ingredients
 const allIngredients = addIngredientsList(recipes);
 addTagsList(blockSubMenuIngredients, allIngredients);
@@ -60,49 +70,60 @@ filterByIngredientsTags();
 
 
 
-
-
 //evenement au clic du bloc appareil
-searchBarByAppliances.addEventListener("focus", () => {
+searchBarByAppliances.addEventListener("mouseenter", () => {
   displayBlockSearchByAppliances();
 });
-searchBarByAppliances.addEventListener("focusout", ()=>{
+blockAppliance.addEventListener("mouseleave", ()=>{
   displayNoneSearchByAppliances()
 })
+//evenement au clavier du bloc appareil
+searchBarByAppliances.addEventListener("keydown", () => {
+  displayBlockSearchByAppliances();
+});
+blockAppliance.addEventListener("focusout", ()=>{
+  displayNoneSearchByAppliances()
+})
+
 // ajout de la liste des appareils
 const allAppliances = addAppliancesList(recipes);
 addTagsList(blockSubMenuAppliances, allAppliances);
 searchInAppliancesTags();
 filterByAppliancesTags();
 
+
+
+
 //evenement au clic du bloc ustensiles
-searchBarByTools.addEventListener("focus", () => {
+searchBarByTools.addEventListener("mouseenter", () => {
   displayBlockSearchByTools();
 });
-searchBarByTools.addEventListener("focusout", ()=>{
+blockTool.addEventListener("mouseleave", ()=>{
   displayNoneSearchByTools();
 })
+//evenement au clavier du bloc ustensiles
+searchBarByTools.addEventListener("keydown", () => {
+  displayBlockSearchByTools();
+});
+blockTool.addEventListener("focusout", ()=>{
+  displayNoneSearchByTools();
+})
+
 // ajout de la liste des ustensiles
 const allTools = addToolsList(recipes);
 addTagsList(blockSubMenuTools, allTools);
 searchInToolsTags();
 filterByToolsTags();
 
+
+
 // BARRE DE RECHERCHE PRINCIPALE
-
-// fermeture des blocs lorsque le focus est porté sur la barre de recherche principale
-/*searchBar.addEventListener("focus", () => {
-  displayNoneSearchByAppliances();
- 
-  displayNoneSearchByTools();
-});*/
-
 // algo de recherche
 searchBar.addEventListener("input", () => {
   const divYourTags = document.getElementById("yoursTags");
   // recherche dans le titre, description, ingrédient
-  const array = searchIn();
-  //searchInV2()
+  const array = //searchIn();
+  searchInV2()
   // valeur de l'input
   let inputValue = searchBar.value.toLowerCase();
   inputNormalize(inputValue)
