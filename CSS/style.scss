@@ -99,6 +99,7 @@ header {
   @include bloc-shape($appliance-color, none, column);
   & .appliance{
     background-color: $appliance-color;
+    height: auto;
   }
 }
 
@@ -106,6 +107,7 @@ header {
   @include bloc-shape($tool-color, none, column);
   & .tool{
     background-color: $tool-color;
+    height: auto;
   }
 }
 
@@ -125,7 +127,7 @@ header {
   flex-direction: column;
   flex-wrap: wrap;
   height: 90%;
-  width: 100%;
+  width: 95%;
   margin:auto;
   //overflow-x: scroll;
   > li {

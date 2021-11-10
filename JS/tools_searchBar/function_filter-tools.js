@@ -24,9 +24,10 @@ export const filterByToolsTags = () => {
   );
 
 let blockTool = document.getElementById("kitchen-tool");
-blockTool.style.height="auto";
+
   toolsTagsListDisplayed.forEach((tags) => {
     tags.addEventListener("click", (e) => {
+      blockTool.style.height="auto";
       // tableau des recettes (recipes ou mainsearch)
       const dataFiltered = returnNewRecipesList();
 

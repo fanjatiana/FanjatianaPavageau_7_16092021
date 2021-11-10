@@ -31,8 +31,9 @@ export const filterByIngredientsTags = () => {
   const divYourTags = document.getElementById("yoursTags");
 
   ingredientsTagsListDisplayed.forEach((tags) => {
-    
+  
     tags.addEventListener("click", (e) => {
+     
       //divYourTags.innerHTML = ""
       // tableau des recettes (recipes ou mainsearch)
       const dataFiltered = returnNewRecipesList();
@@ -44,6 +45,7 @@ export const filterByIngredientsTags = () => {
       tags.push(thisTag);
 
       selectThisTag(tags);
+     
 
       searchBarByIngredients.value = "";
       // tableau des tags selectionnés
