@@ -15,7 +15,7 @@ export const displayBlockSearchByIngredients = () => {
   blockSubMenuIngredients.style.display = "block";
   blockIngredient.style.width="50%";
   blockIngredient.style.height="900px";
-  searchBarByIngredients.style.height = "80px"
+  searchBarByIngredients.style.height = "100px"
   chevronBlockIngredient.classList.add("rotate");
 
 };
@@ -32,7 +32,7 @@ export const displayBlockSearchByAppliances = () => {
   chevronBlockAppliance.classList.add("rotate");
   blockAppliance.style.width="20%";
   blockAppliance.style.height="500px";
-  searchBarByAppliances.style.height = "80px"
+  searchBarByAppliances.style.height = "100px"
 };
 export const displayNoneSearchByAppliances = () => {
   blockSubMenuAppliances.style.display = "none";
@@ -47,7 +47,7 @@ export const displayBlockSearchByTools = () => {
   chevronBlockTool.classList.add("rotate");
   blockTool.style.width="30%";
   blockTool.style.height="600px";
-  searchBarByTools.style.height = "80px"
+  searchBarByTools.style.height = "100px"
 };
 export const displayNoneSearchByTools = () => {
   blockSubMenuTools.style.display = "none";

@@ -11,6 +11,12 @@ import { filterByAppliancesTags } from "./function_filter-appliance.js";
 export const searchInAppliancesTags = () => {
   // recherche de tags appareil
   searchBarByAppliances.addEventListener("input", () => {
+    let blockAppliance = document.getElementById("kitchen-appliance");
+    blockAppliance.style.height="auto";
+
+
+
+
     let inputValueAppliance = searchBarByAppliances.value.toLowerCase();
     inputNormalize(inputValueAppliance);
 

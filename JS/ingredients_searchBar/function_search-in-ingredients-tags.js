@@ -13,6 +13,8 @@ import { filterByIngredientsTags } from "./function_filter.js";
 
 export const searchInIngredientsTags = () =>{
     searchBarByIngredients.addEventListener("input", () => {
+      let blockIngredient = document.getElementById("by_ingredients");
+      blockIngredient.style.height="auto";
         let valueInput = searchBarByIngredients.value.toLowerCase()
         inputNormalize(valueInput)
         const newArray = returnNewRecipesList(); // retourne la liste des recettes filtrée depuis la barre de recherche principale
