@@ -11,9 +11,9 @@
 }
 
 @mixin input($bg-image, $height){
-    background-image: $bg-image;
-    background-repeat: no-repeat;
-    background-position: 97% 50%;
+   // background-image: $bg-image;
+   // background-repeat: no-repeat;
+   // background-position: 97% 50%;
     background-color: transparent;
     padding: 10px 60px 10px 20px;
     border:none;

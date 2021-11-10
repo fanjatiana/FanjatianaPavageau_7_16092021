@@ -1,27 +1,45 @@
+import { blockSubMenuIngredients,blockSubMenuAppliances,blockSubMenuTools } from "./const.js";
+
 // fonction pour afficher le bloc contenant la liste des ingrédients
+
+
+let chevronBlockIngredient = document.querySelector(".chevron__block-ingredient");
+let chevronBlockAppliance = document.querySelector(".chevron__block-appliance");
+console.log(chevronBlockAppliance)
+let chevronBlockTool = document.querySelector(".chevron__block-tool");
+console.log(chevronBlockTool)
+
 export const displayBlockSearchByIngredients = () => {
-  
-  document.querySelector(".sub_menu__ingredients").style.display = "block";
+  blockSubMenuIngredients.style.display = "block";
+  chevronBlockIngredient.classList.add("rotate");
 };
+export const displayNoneSearchByIngredients = () => {
+  blockSubMenuIngredients.style.display = "none";
+  chevronBlockIngredient.classList.remove("rotate");
+};
+
 
 export const displayBlockSearchByAppliances = () => {
 
-  document.querySelector(".sub_menu__appliances").style.display = "block";
+  blockSubMenuAppliances.style.display = "block";
+  chevronBlockAppliance.classList.add("rotate");
+};
+export const displayNoneSearchByAppliances = () => {
+  blockSubMenuAppliances.style.display = "none";
+  chevronBlockAppliance.classList.remove("rotate");
 };
 
 export const displayBlockSearchByTools = () => {
 
-  document.querySelector(".sub_menu__tools").style.display = "block";
+  blockSubMenuTools.style.display = "block";
+  chevronBlockTool.classList.add("rotate");
 };
-
-export const displayNoneSearchByIngredients = () => {
-  document.querySelector(".sub_menu__ingredients").style.display = "none";
-};
-
-export const displayNoneSearchByAppliances = () => {
-  document.querySelector(".sub_menu__appliances").style.display = "none";
-};
-
 export const displayNoneSearchByTools = () => {
-  document.querySelector(".sub_menu__tools").style.display = "none";
+  blockSubMenuTools.style.display = "none";
+  chevronBlockTool.classList.remove("rotate");
 };
+
+
+
+
+

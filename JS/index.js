@@ -48,21 +48,27 @@ buildArticle(recipes);
 //evenement au clic du bloc ingredients
 searchBarByIngredients.addEventListener("focus", () => {
   displayBlockSearchByIngredients();
-  displayNoneSearchByTools();
-  displayNoneSearchByAppliances();
 });
+searchBarByIngredients.addEventListener("focusout", ()=>{
+  displayNoneSearchByIngredients();
+})
 // ajout de la liste des ingredients
 const allIngredients = addIngredientsList(recipes);
 addTagsList(blockSubMenuIngredients, allIngredients);
 searchInIngredientsTags();
 filterByIngredientsTags();
 
+
+
+
+
 //evenement au clic du bloc appareil
 searchBarByAppliances.addEventListener("focus", () => {
   displayBlockSearchByAppliances();
-  displayNoneSearchByTools();
-  displayNoneSearchByIngredients();
 });
+searchBarByAppliances.addEventListener("focusout", ()=>{
+  displayNoneSearchByAppliances()
+})
 // ajout de la liste des appareils
 const allAppliances = addAppliancesList(recipes);
 addTagsList(blockSubMenuAppliances, allAppliances);
@@ -72,9 +78,10 @@ filterByAppliancesTags();
 //evenement au clic du bloc ustensiles
 searchBarByTools.addEventListener("focus", () => {
   displayBlockSearchByTools();
-  displayNoneSearchByIngredients();
-  displayNoneSearchByAppliances();
 });
+searchBarByTools.addEventListener("focusout", ()=>{
+  displayNoneSearchByTools();
+})
 // ajout de la liste des ustensiles
 const allTools = addToolsList(recipes);
 addTagsList(blockSubMenuTools, allTools);
@@ -84,11 +91,11 @@ filterByToolsTags();
 // BARRE DE RECHERCHE PRINCIPALE
 
 // fermeture des blocs lorsque le focus est porté sur la barre de recherche principale
-searchBar.addEventListener("focus", () => {
+/*searchBar.addEventListener("focus", () => {
   displayNoneSearchByAppliances();
-  displayNoneSearchByIngredients();
+ 
   displayNoneSearchByTools();
-});
+});*/
 
 // algo de recherche
 searchBar.addEventListener("input", () => {

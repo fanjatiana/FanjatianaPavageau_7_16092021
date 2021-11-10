@@ -107,6 +107,17 @@ header {
   }
 }
 
+.chevron{
+  width: 30px;
+  height: 30px;
+  position:absolute;
+  right: 10%;
+  bottom:35%;
+}
+
+.rotate{
+  transform: rotate(180deg);
+}
 .tags__list{
   display: flex;
   flex-direction: column;
@@ -145,6 +156,7 @@ header {
   width: 100%;
   height: 80px;
   cursor: pointer;
+  position: relative;
   > :hover {
     opacity: 0.8;
   }
