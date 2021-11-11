@@ -1,9 +1,9 @@
 import { allAppliances, allIngredients, AllTools } from "./const.js";
+import { getAllTagsSelected } from "./functions_get-all-tags-selected.js";
 
 //fonction pour ajouter et afficher les tags au clic dans la div YoursTag
 export const selectThisTag = (array) => {
   const divYourTags = document.getElementById("yoursTags");
-
   const typeOfTag = (tag) => {
     const ingredients = allIngredients();
     const isIngred = ingredients.includes(tag);
@@ -25,6 +25,7 @@ export const selectThisTag = (array) => {
       return (color = "red");
     }
   };
+  
 
   array.forEach((element) => {
     const color = typeOfTag(element);
@@ -33,5 +34,21 @@ export const selectThisTag = (array) => {
               <p>${element}</p>
               <img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg">
           </div>`;
+
+          /*let allTagsSelected = getAllTagsSelected();
+   
+
+          allTagsSelected = Array.from(new Set(allTagsSelected));
+          console.log(allTagsSelected)*/
+  
+     
+       
+  
+  
   });
+
+  
+
+
+
 };

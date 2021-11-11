@@ -33,12 +33,14 @@ let blockTool = document.getElementById("kitchen-tool");
 
       // ajout du tag sélectionné dans le dom
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
-      let tags = [];
-      tags.push(thisTag);
+      let tagList = [];
+      let allTagsSelected = getAllTagsSelected();
+      allTagsSelected = Array.from(new Set(allTagsSelected));
+      !allTagsSelected.includes(thisTag)? tagList.push(thisTag) : tagList
 
-      tags = Array.from(new Set(tags));
+      tagList = Array.from(new Set(tagList));
 
-      selectThisTag(tags);
+      selectThisTag(tagList);
 
       // tableau des tags selectionnés
       const allTags = getAllTagsSelected();

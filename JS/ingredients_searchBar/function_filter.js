@@ -41,11 +41,14 @@ export const filterByIngredientsTags = () => {
       // ajout du tag sélectionné dans le dom
       let thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
 
-      let tags = [];
-      tags.push(thisTag);
-
-      selectThisTag(tags);
+      let tagList = [];
+      let allTagsSelected = getAllTagsSelected();
+      allTagsSelected = Array.from(new Set(allTagsSelected));
+      !allTagsSelected.includes(thisTag)? tagList.push(thisTag) : tagList
+      
+      selectThisTag(tagList);
      
+   
 
       searchBarByIngredients.value = "";
       // tableau des tags selectionnés

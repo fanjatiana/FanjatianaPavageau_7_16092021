@@ -63,7 +63,7 @@ export const allIngredients = () => {
   });
 
   arrayIngred = Array.from(new Set(arrayIngred));
-  console.log(arrayIngred)
+
   return arrayIngred;
 };
 
