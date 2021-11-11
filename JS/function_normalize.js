@@ -1,4 +1,4 @@
 export const inputNormalize = (inputValue) => {
-  inputValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return inputValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 };
 
