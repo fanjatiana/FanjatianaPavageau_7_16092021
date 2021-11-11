@@ -1,7 +1,4 @@
 import { TagsFactory } from "./class/factory_Tags.js";
-import { capitalizeFirstLetter } from "./function_capitalizer-first-letter.js";
-
-
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addTagsList = (source, array) => {

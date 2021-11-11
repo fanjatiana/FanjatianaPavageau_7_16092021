@@ -7,13 +7,8 @@ export const selectThisTag = (array) => {
   const typeOfTag = (tag) => {
     const ingredients = allIngredients();
     const isIngred = ingredients.includes(tag);
-
     const appliances = allAppliances();
     const isAppliance = appliances.includes(tag);
-
-    /*const tools = AllTools();
-    console.log(tools)
-    const isTool = tools.includes(tag)*/
 
     let color = "";
 
@@ -25,7 +20,6 @@ export const selectThisTag = (array) => {
       return (color = "red");
     }
   };
-  
 
   array.forEach((element) => {
     const color = typeOfTag(element);
@@ -34,21 +28,5 @@ export const selectThisTag = (array) => {
               <p>${element}</p>
               <img class="btn_cross" alt="croix pour supprimer le tag" src="./images/cross.svg">
           </div>`;
-
-          /*let allTagsSelected = getAllTagsSelected();
-   
-
-          allTagsSelected = Array.from(new Set(allTagsSelected));
-          console.log(allTagsSelected)*/
-  
-     
-       
-  
-  
   });
-
-  
-
-
-
 };

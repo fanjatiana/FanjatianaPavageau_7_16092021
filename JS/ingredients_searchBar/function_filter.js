@@ -40,10 +40,13 @@ export const filterByIngredientsTags = () => {
 
       // ajout du tag sélectionné dans le dom
       let thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
+      console.log(thisTag)
 
       let tagList = [];
       let allTagsSelected = getAllTagsSelected();
+      
       allTagsSelected = Array.from(new Set(allTagsSelected));
+      console.log(!allTagsSelected.includes(thisTag))
       !allTagsSelected.includes(thisTag)? tagList.push(thisTag) : tagList
       
       selectThisTag(tagList);

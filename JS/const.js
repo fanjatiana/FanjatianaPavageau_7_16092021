@@ -1,4 +1,5 @@
 import { recipes } from "./data_recipes.js";
+import { capitalizeFirstLetter } from "./function_capitalizer-first-letter.js";
 import { inputNormalize } from "./function_normalize.js";
 
 // Const DOM
@@ -58,7 +59,9 @@ export const allIngredients = () => {
   let arrayIngred = [];
   recipes.map((recipe) => {
     recipe.ingredients.map((list) => {
-      arrayIngred.push(inputNormalize(list.ingredient) );
+       let newList = inputNormalize(list.ingredient).toLowerCase();
+       newList = capitalizeFirstLetter(newList);
+      arrayIngred.push(newList);
     });
   });
 
@@ -70,7 +73,9 @@ export const allIngredients = () => {
 export const allAppliances = () => {
   let arrayAppliance = [];
   recipes.map((recipe) => {
-    arrayAppliance.push(recipe.appliance);
+    let newList = inputNormalize(recipe.appliance).toLowerCase();
+    newList = capitalizeFirstLetter(newList)
+    arrayAppliance.push(newList);
   });
 
   arrayAppliance = Array.from(new Set(arrayAppliance));
