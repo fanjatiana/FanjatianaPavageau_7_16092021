@@ -44,6 +44,36 @@ arrayUstensils.forEach((element) => {
   ustensilsList.push(...element);
 });
 
+
+export const allIngredients = () =>{
+  let arrayIngred = []
+  recipes.map((recipe)=>{
+    recipe.ingredients.map((list)=>{
+     arrayIngred.push(list.ingredient)
+    })
+  
+  })
+
+  arrayIngred = Array.from(new Set(arrayIngred));
+  return arrayIngred
+}
+
+export const allAppliances = () =>{
+  let arrayAppliance = []
+  recipes.map((recipe)=>{
+    arrayAppliance.push(recipe.appliance)
+  
+  })
+
+  arrayAppliance = Array.from(new Set(arrayAppliance));
+  return arrayAppliance
+}
+
+
+
+
+
+
 // valeur de l'input barre principale
 export const valueInput = searchBar.value
   .normalize("NFD")

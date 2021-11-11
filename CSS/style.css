@@ -301,7 +301,6 @@ header {
   border: 1px #000 solid;
   border-radius: 5px;
   color: #fff;
-  background-color: #3282F7;
   margin-right: 0.3em;
 }
 
@@ -454,5 +453,19 @@ article > a:hover {
   display: none;
   height: 100%;
   width: 100%;
+}
+
+.blue {
+  background-color: #3282F7;
+  color: #fff;
+}
+
+.green {
+  background-color: #68D9A4;
+  color: #fff;
+}
+
+.red {
+  background-color: #ED6454;
 }
 /*# sourceMappingURL=style.css.map */

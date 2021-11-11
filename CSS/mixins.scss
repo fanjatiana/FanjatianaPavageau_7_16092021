@@ -23,7 +23,7 @@
     font-size: 1rem;
 }
 
-@mixin tag-property($bg-color){
+@mixin tag-property(){
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -32,6 +32,6 @@
     border : 1px #000 solid;
     border-radius: 5px;
     color: #fff;
-    background-color: $bg-color;
+   // background-color: $bg-color;
     margin-right: 0.3em;
 }

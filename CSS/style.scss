@@ -145,7 +145,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   > .tag {
-    @include tag-property($ingredients-color);
+    @include tag-property();
     > p {
       display: flex;
     }
@@ -261,4 +261,18 @@ article {
   display: none;
   height: 100%;
   width: 100%;
+}
+
+.blue{
+  background-color: $ingredients-color;
+  color:#fff
+}
+
+.green{
+  background-color: $appliance-color ;
+  color:#fff
+};
+
+.red{
+  background-color: $tool-color;
 }
