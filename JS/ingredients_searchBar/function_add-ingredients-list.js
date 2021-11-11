@@ -1,24 +1,23 @@
-import { capitalizeFirstLetter } from "../function_capitalizer-first-letter.js";
+import { capitalizeFirstLetter } from '../function_capitalizer-first-letter.js';
 
 // AFFICHER LA LISTE DES INGREDIENTS [DES RECETTES] DANS LE BLOC INGREDIENT
 
 export const addIngredientsList = (array) => {
-  let arrayIngredients = [];
+  const arrayIngredients = [];
   array.filter((recipe) => {
-    recipe.ingredients.map((list) => {
-      arrayIngredients.push(
-        list.ingredient
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-      );
-    });
+    recipe.ingredients.map((list) => arrayIngredients.push(
+      list.ingredient
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, ''),
+    ));
+    return arrayIngredients;
   });
 
   let newArrayIngredients = [];
 
   arrayIngredients.forEach((word) => {
-    let newWord = capitalizeFirstLetter(word);
+    const newWord = capitalizeFirstLetter(word);
     newArrayIngredients.push(newWord);
   });
 

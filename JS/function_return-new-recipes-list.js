@@ -1,27 +1,25 @@
-import { recipes } from "./data_recipes.js";
+import { recipes } from './data_recipes.js';
 
+export const returnNewRecipesList = () => {
+  const listTitleOfRecipes = document.querySelectorAll('.info_recipe > h3');
 
+  const titleList = [];
 
+  listTitleOfRecipes.forEach((title) => {
+    const recipeTitle = title.innerHTML;
+    titleList.push(recipeTitle);
+  });
 
-export const returnNewRecipesList = () =>{
-    const listRecipes = document.querySelectorAll(".info_recipe > h3");
-    const articles = [];
-  
-    listRecipes.forEach((e) => {
-      const recipeTitle = e.innerHTML;
-      articles.push(recipeTitle);
+  const recipeFiltered = [];
+
+  titleList.forEach((title) => {
+    recipes.filter((recipe) => {
+      if (recipe.name === title) {
+        recipeFiltered.push(recipe);
+      }
+      return recipe;
     });
+  });
 
-    const dataFiltered = [];
-  
-    articles.forEach((title) => {
-      recipes.filter((a) => {
-        if (a.name === title) {
-          dataFiltered.push(a);
-        }
-      });
-    });
-  
-    return dataFiltered;
-}
-
+  return recipeFiltered;
+};

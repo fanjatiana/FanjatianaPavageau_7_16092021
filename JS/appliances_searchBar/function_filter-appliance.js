@@ -3,28 +3,27 @@ import {
   blockSubMenuIngredients,
   blockSubMenuTools,
   searchBarByAppliances,
-} from "../const.js";
-import { selectThisTag } from "../function _select-this-tag.js";
-import { getAllTagsSelected } from "../functions_get-all-tags-selected.js";
-import { addTagsList } from "../function_addTagsList.js";
-import { applianceNoFind, tagNoFind, toolNoFind } from "../function_messageError.js";
-import { removeThisTag } from "../function_remove-this--Tag.js";
-import { returnNewRecipesList } from "../function_return-new-recipes-list.js";
-import { showRecipesFiltered } from "../function_show-recipes-filtered-by-tags.js";
-import { addIngredientsList } from "../ingredients_searchBar/function_add-ingredients-list.js";
-import { filterByIngredientsTags } from "../ingredients_searchBar/function_filter.js";
-import { addToolsList } from "../tools_searchBar/function_add-tools-list.js";
-import { filterByToolsTags } from "../tools_searchBar/function_filter-tools.js";
-import { addAppliancesList } from "./function_add-appliances-list.js";
-import { searchInAppliancesTags } from "./function_search-in-appliances-tags.js";
+} from '../const.js';
+import { selectThisTag } from '../function _select-this-tag.js';
+import { getAllTagsSelected } from '../functions_get-all-tags-selected.js';
+import { addTagsList } from '../function_addTagsList.js';
+import { applianceNoFind, tagNoFind, toolNoFind } from '../function_messageError.js';
+import { removeThisTag } from '../function_remove-this--Tag.js';
+import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
+import { showRecipesFiltered } from '../function_show-recipes-filtered-by-tags.js';
+import { addIngredientsList } from '../ingredients_searchBar/function_add-ingredients-list.js';
+import { filterByIngredientsTags } from '../ingredients_searchBar/function_filter.js';
+import { addToolsList } from '../tools_searchBar/function_add-tools-list.js';
+import { filterByToolsTags } from '../tools_searchBar/function_filter-tools.js';
+import { addAppliancesList } from './function_add-appliances-list.js';
 
 export const filterByAppliancesTags = () => {
-  let appliancesTagsListDisplayed = document.querySelectorAll(
-    ".sub_menu__appliances > .tags__list li"
+  const appliancesTagsListDisplayed = document.querySelectorAll(
+    '.sub_menu__appliances > .tags__list li',
   );
 
   appliancesTagsListDisplayed.forEach((tags) => {
-    tags.addEventListener("click", (e) => {
+    tags.addEventListener('click', (e) => {
       const dataFiltered = returnNewRecipesList();
 
       // ajout du tag sélectionné dans le dom
@@ -32,7 +31,10 @@ export const filterByAppliancesTags = () => {
       let tagList = [];
       let allTagsSelected = getAllTagsSelected();
       allTagsSelected = Array.from(new Set(allTagsSelected));
-      !allTagsSelected.includes(thisTag)? tagList.push(thisTag) : tagList
+
+      if (!allTagsSelected.includes(thisTag)) {
+        tagList.push(thisTag);
+      }
 
       tagList = Array.from(new Set(tagList));
 
@@ -40,37 +42,36 @@ export const filterByAppliancesTags = () => {
 
       // tableau des tags selectionnés
       const allTags = getAllTagsSelected();
-      searchBarByAppliances.value = "";
+      searchBarByAppliances.value = '';
       showRecipesFiltered(allTags, dataFiltered);
 
       // nouveau tableau de recettes
       const newArrayRecipes = returnNewRecipesList(); // = MainSearch
 
-      const allNewIngredients = addIngredientsList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
-      const allNewAppliances = addAppliancesList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
-      const allNewTools = addToolsList(newArrayRecipes); // tableau de la liste des ingrédients en fonction de la liste des recettes affichées
+      const allNewIngredients = addIngredientsList(newArrayRecipes);
+      const allNewAppliances = addAppliancesList(newArrayRecipes);
+      const allNewTools = addToolsList(newArrayRecipes);
 
       // mise à jour des tags dans les blocs
-      blockSubMenuAppliances.innerHTML = "";
+      blockSubMenuAppliances.innerHTML = '';
       addTagsList(blockSubMenuAppliances, allNewAppliances);
-      blockSubMenuIngredients.innerHTML = "";
+      blockSubMenuIngredients.innerHTML = '';
       addTagsList(blockSubMenuIngredients, allNewIngredients);
-      blockSubMenuTools.innerHTML = "";
+      blockSubMenuTools.innerHTML = '';
       addTagsList(blockSubMenuTools, allNewTools);
 
-      if(!newArrayRecipes.length){
+      if (!newArrayRecipes.length) {
         tagNoFind();
         toolNoFind();
-        applianceNoFind()
+        applianceNoFind();
       }
-      
 
       filterByAppliancesTags();
       filterByToolsTags();
       filterByIngredientsTags();
 
-      let arrayTagsSelected = getAllTagsSelected();
-      //fonction de suppression des tags
+      const arrayTagsSelected = getAllTagsSelected();
+      // fonction de suppression des tags
       removeThisTag(arrayTagsSelected, newArrayRecipes);
     });
   });

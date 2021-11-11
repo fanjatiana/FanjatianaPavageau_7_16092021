@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/fanjatiana/FanjatianaPavageau_7_16092021/issues"
   },
-  "homepage": "https://github.com/fanjatiana/FanjatianaPavageau_7_16092021#readme"
+  "homepage": "https://github.com/fanjatiana/FanjatianaPavageau_7_16092021#readme",
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "prettier": "^2.4.1"
+  }
 }

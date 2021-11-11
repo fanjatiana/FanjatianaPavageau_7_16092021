@@ -7,18 +7,18 @@ export class Article {
     this.ingredient = ingredient;
     this.description = description;
     this.addIngredients(ingredient);
-    Object.assign(this,id, name, time, ingredient, description)
+    Object.assign(this, id, name, time, ingredient, description);
   }
-  
+
   // fonction de construction des articles dans le DOM
   build(id, name, time, description) {
     this.id = id;
     this.name = name;
     this.time = time;
     this.description = description;
-    const dom = document.createElement("article");
-    dom.classList.add("recipe_card");
-    const main = document.getElementById("recipes-list");
+    const dom = document.createElement('article');
+    dom.classList.add('recipe_card');
+    const main = document.getElementById('recipes-list');
     main.appendChild(dom);
 
     dom.innerHTML += `
@@ -43,19 +43,20 @@ export class Article {
     `;
     return dom;
   }
-  
+
   // fonction pour ajouter les ingrédients dans les articles
   addIngredients(ingredientList) {
     this.ingredient = ingredientList;
     this.ingredient.forEach((ingredient) => {
-      const tagUl = this.element.querySelector(".list_ingredient");
-      const createTagLi = document.createElement("li");
+      const tagUl = this.element.querySelector('.list_ingredient');
+      const createTagLi = document.createElement('li');
       tagUl.appendChild(createTagLi);
-      const spellingQuantity = ingredient.quantity || ingredient.quantite; // gestion des fautes de frappe du mot quantity
+      // gestion des fautes de frappe du mot quantity
+      const spellingQuantity = ingredient.quantity || ingredient.quantite;
       if (spellingQuantity) {
         createTagLi.innerHTML = `${
           ingredient.ingredient
-        } : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ""}`; // gestion des situations où les unités sont "undefined"
+        } : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ''}`; // gestion des situations où les unités sont "undefined"
       }
     });
   }

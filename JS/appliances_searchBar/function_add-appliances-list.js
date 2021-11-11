@@ -1,21 +1,22 @@
-import { capitalizeFirstLetter } from "../function_capitalizer-first-letter.js";
+import { capitalizeFirstLetter } from '../function_capitalizer-first-letter.js';
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addAppliancesList = (array) => {
-  let arrayAppliances = [];
+  const arrayAppliances = [];
   array.filter((recipe) => {
     arrayAppliances.push(
       recipe.appliance
         .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, ''),
     );
+    return arrayAppliances;
   });
 
   let newArrayAppliances = [];
 
   arrayAppliances.forEach((word) => {
-    let newWord = capitalizeFirstLetter(word);
+    const newWord = capitalizeFirstLetter(word);
     newArrayAppliances.push(newWord);
   });
 
