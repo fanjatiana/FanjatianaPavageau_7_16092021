@@ -1,6 +1,6 @@
 import { recipes } from './data_recipes.js';
 import { capitalizeFirstLetter } from './function_capitalizer-first-letter.js';
-import { inputNormalize } from './function_normalize.js';
+import { wordNormalize } from './function_normalize.js';
 
 // Const DOM
 export const baliseUl = document.getElementById('ingredients_tags');
@@ -57,7 +57,7 @@ export const allIngredients = () => {
   let arrayIngred = [];
   recipes.map((recipe) => {
     recipe.ingredients.map((list) => {
-      let newList = inputNormalize(list.ingredient).toLowerCase();
+      let newList = wordNormalize(list.ingredient);
       newList = capitalizeFirstLetter(newList);
       arrayIngred.push(newList);
       return newList;
@@ -73,7 +73,7 @@ export const allIngredients = () => {
 export const allAppliances = () => {
   let applianceList = [];
   recipes.map((recipe) => {
-    let newList = inputNormalize(recipe.appliance).toLowerCase();
+    let newList = wordNormalize(recipe.appliance);
     newList = capitalizeFirstLetter(newList);
     applianceList.push(newList);
     return applianceList;
@@ -82,9 +82,3 @@ export const allAppliances = () => {
   applianceList = Array.from(new Set(applianceList));
   return applianceList;
 };
-
-// valeur de l'input barre principale
-export const valueInput = searchBar.value
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '')
-  .toLowerCase();

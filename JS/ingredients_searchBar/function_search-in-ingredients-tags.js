@@ -2,7 +2,7 @@ import { searchBarByIngredients, blockSubMenuIngredients } from '../const.js';
 import { recipes } from '../data_recipes.js';
 import { addTagsList } from '../function_addTagsList.js';
 import { tagNoFind } from '../function_messageError.js';
-import { inputNormalize } from '../function_normalize.js';
+import { wordNormalize } from '../function_normalize.js';
 import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
 import { addIngredientsList } from './function_add-ingredients-list.js';
 import { displayIngredientsList } from './function_display-ingredients-list.js';
@@ -14,8 +14,8 @@ export const searchInIngredientsTags = () => {
   searchBarByIngredients.addEventListener('input', () => {
     const blockIngredient = document.getElementById('by_ingredients');
     blockIngredient.style.height = 'auto';
-    const valueInput = searchBarByIngredients.value.toLowerCase();
-    inputNormalize(valueInput);
+    const valueInput = searchBarByIngredients.value;
+    wordNormalize(valueInput);
     const newArray = returnNewRecipesList();
     const allNewIngredients = addIngredientsList(newArray);
     const ingredients = displayIngredientsList(recipes);

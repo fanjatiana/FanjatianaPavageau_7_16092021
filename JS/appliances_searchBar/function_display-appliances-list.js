@@ -1,20 +1,15 @@
 import { searchBarByAppliances } from '../const.js';
 import { capitalizeFirstLetter } from '../function_capitalizer-first-letter.js';
-import { inputNormalize } from '../function_normalize.js';
+import { wordNormalize } from '../function_normalize.js';
 
 export const displayAppliancesList = (array) => {
   // valeur de l'input
-  const inputValueAppliance = searchBarByAppliances.value.toLowerCase();
-  inputNormalize(inputValueAppliance);
+  const inputValueAppliance = searchBarByAppliances.value;
+  wordNormalize(inputValueAppliance);
 
   // filtre sur les ingrédients
   const arrayAppliances = [];
-  array.filter((recipe) => arrayAppliances.push(
-    recipe.appliance
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, ''),
-  ));
+  array.filter((recipe) => arrayAppliances.push(wordNormalize(recipe.appliance)));
 
   let newArrayAppliances = [];
 
@@ -27,11 +22,7 @@ export const displayAppliancesList = (array) => {
 
   newArrayAppliances = newArrayAppliances.sort();
 
-  const totalAppliances = newArrayAppliances.filter((element) => element
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .includes(inputValueAppliance));
+  const totalAppliances = newArrayAppliances.filter((element) => wordNormalize(element).includes(inputValueAppliance));
 
   return totalAppliances;
 };

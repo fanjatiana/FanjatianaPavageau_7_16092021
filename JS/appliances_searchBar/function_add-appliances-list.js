@@ -1,14 +1,12 @@
 import { capitalizeFirstLetter } from '../function_capitalizer-first-letter.js';
+import { wordNormalize } from '../function_normalize.js';
 
 // afficher les tags des ingredients dans le bloc de recherche par ingrédients:
 export const addAppliancesList = (array) => {
   const arrayAppliances = [];
   array.filter((recipe) => {
     arrayAppliances.push(
-      recipe.appliance
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, ''),
+      wordNormalize(recipe.appliance),
     );
     return arrayAppliances;
   });

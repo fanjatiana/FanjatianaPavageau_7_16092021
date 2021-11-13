@@ -2,7 +2,7 @@ import { blockSubMenuAppliances, searchBarByAppliances } from '../const.js';
 import { recipes } from '../data_recipes.js';
 import { addTagsList } from '../function_addTagsList.js';
 import { applianceNoFind } from '../function_messageError.js';
-import { inputNormalize } from '../function_normalize.js';
+import { wordNormalize } from '../function_normalize.js';
 import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
 import { addAppliancesList } from './function_add-appliances-list.js';
 import { displayAppliancesList } from './function_display-appliances-list.js';
@@ -14,8 +14,8 @@ export const searchInAppliancesTags = () => {
     const blockAppliance = document.getElementById('kitchen-appliance');
     blockAppliance.style.height = 'auto';
 
-    const inputValueAppliance = searchBarByAppliances.value.toLowerCase();
-    inputNormalize(inputValueAppliance);
+    const inputValueAppliance = searchBarByAppliances.value;
+    wordNormalize(inputValueAppliance);
 
     const newArray = returnNewRecipesList();
     const allNewAppliances = addAppliancesList(newArray);

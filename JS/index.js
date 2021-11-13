@@ -28,7 +28,7 @@ import {
   tagNoFind,
   toolNoFind,
 } from './function_messageError.js';
-import { inputNormalize } from './function_normalize.js';
+import { wordNormalize } from './function_normalize.js';
 import { returnNewRecipesList } from './function_return-new-recipes-list.js';
 import { addIngredientsList } from './ingredients_searchBar/function_add-ingredients-list.js';
 import { filterByIngredientsTags } from './ingredients_searchBar/function_filter.js';
@@ -112,14 +112,15 @@ filterByToolsTags();
 
 // BARRE DE RECHERCHE PRINCIPALE
 // algo de recherche
+// eslint-disable-next-line consistent-return
 searchBar.addEventListener('input', () => {
   const divYourTags = document.getElementById('yoursTags');
   // recherche dans le titre, description, ingrédient
   const array = searchIn();
   // searchInV2();
   // valeur de l'input
-  const inputValue = searchBar.value.toLowerCase();
-  inputNormalize(inputValue);
+  const inputValue = searchBar.value;
+  wordNormalize(inputValue);
   if (!array.length) {
     toolNoFind();
     tagNoFind();
@@ -130,10 +131,10 @@ searchBar.addEventListener('input', () => {
     searchBarByIngredients.value = '';
     searchBarByTools.value = '';
     searchBarByAppliances.value = '';
-  } else if (inputValue.length < 3) {
-    buildArticle(recipes);
-  } else {
+  } else if (inputValue.length > 2) {
     buildArticle(array);
+  } else {
+    buildArticle(recipes);
   }
 
   // affichage de la liste des ingrédients en fonction de la liste des recettes

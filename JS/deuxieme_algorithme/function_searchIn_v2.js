@@ -1,12 +1,12 @@
 import { searchBar } from '../const.js';
 import { recipes } from '../data_recipes.js';
-import { inputNormalize } from '../function_normalize.js';
+import { wordNormalize } from '../function_normalize.js';
 import { comparison } from './functions_comparison-algo-V2.js';
 
 export const searchInV2 = () => {
   // valeur de l'input
-  const inputValue = searchBar.value.toLowerCase();
-  inputNormalize(inputValue);
+  const inputValue = searchBar.value;
+  wordNormalize(inputValue);
 
   // tableau des recettes filtrées
   const listOfRecipes = [];
@@ -15,16 +15,9 @@ export const searchInV2 = () => {
   for (let index = 0; index < recipes.length; index + 1) {
     const recipe = recipes[index];
 
-    const title = recipe.name
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase();
+    const title = wordNormalize(recipe.name);
 
-    const description = recipe.description
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .split(' ');
+    const description = wordNormalize(recipe.description).split(' ');
 
     const { ingredients } = recipe;
 
@@ -50,10 +43,7 @@ export const searchInV2 = () => {
      si "true" => on push dans le tableau : listOfRecipes */
     for (let j = 0; j < ingredients.length; j + 1) {
       const ingredientsList = ingredients[index];
-      const ingredientName = ingredientsList.ingredient
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase();
+      const ingredientName = wordNormalize(ingredientsList.ingredient);
 
       const compare = comparison(inputValue, ingredientName);
       if (compare === true) {

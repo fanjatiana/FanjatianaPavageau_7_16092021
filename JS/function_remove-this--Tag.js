@@ -21,6 +21,7 @@ import { showRecipesFiltered } from './function_show-recipes-filtered-by-tags.js
 import { selectThisTag } from './function _select-this-tag.js';
 import { filterByToolsTags } from './tools_searchBar/function_filter-tools.js';
 import { addToolsList } from './tools_searchBar/function_add-tools-list.js';
+import { wordNormalize } from './function_normalize.js';
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = (allTagsSelected, listRecipes) => {
@@ -54,38 +55,13 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
         const resultFilterByDescription = recipes.filter((recipe) => recipe.description.includes(tag));
 
         const resultFilterByName = recipes.filter((recipe) => recipe.name.includes(tag));
+
         const resultFilterByIngredients = recipes.filter((recipe) => recipe.ingredients
-          .map((list) => list.ingredient
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, ''))
-          .includes(
-            tag
-              .toLowerCase()
-              .normalize('NFD')
-              .replace(/[\u0300-\u036f]/g, ''),
-          ));
-        const resultFilterByAppliances = recipes.filter((recipe) => recipe.appliance
-          .toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .includes(
-            tag
-              .toLowerCase()
-              .normalize('NFD')
-              .replace(/[\u0300-\u036f]/g, ''),
-          ));
-        const resultFilterByTools = recipes.filter((recipe) => recipe.ustensils
-          .map((list) => list
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, ''))
-          .includes(
-            tag
-              .toLowerCase()
-              .normalize('NFD')
-              .replace(/[\u0300-\u036f]/g, ''),
-          ));
+          .map((list) => wordNormalize(list.ingredient)).includes(wordNormalize(tag)));
+
+        const resultFilterByAppliances = recipes.filter((recipe) => wordNormalize(recipe.appliance).includes(wordNormalize(tag)));
+
+        const resultFilterByTools = recipes.filter((recipe) => recipe.ustensils.map((list) => wordNormalize(list)).includes( wordNormalize(tag)));
 
         let arrayFilteredTag = resultFilterByDescription.concat(
           resultFilterByName,
