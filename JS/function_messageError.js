@@ -1,7 +1,8 @@
-// fonction d'affichage du message d'erreur des articles
-
 import { blockSubMenuIngredients } from './const.js';
 
+// fonctions d'affichage des messages d'erreur
+
+// recettes non trouvées
 export const RecipesNoFind = () => {
   document.getElementById('recipes-list').innerHTML = '';
   document.getElementById(
@@ -9,12 +10,13 @@ export const RecipesNoFind = () => {
   ).innerHTML += '<p> aucune recette ne correspond à votre critère... vous pouvezchercher tarte aux pommes,poisson, etc</p>';
 };
 
-// fonction d'affichage du message d'erreur des tags ingrédient
+// tag ingrédient non trouvé
 export const tagNoFind = () => {
   blockSubMenuIngredients.innerHTML = '';
   blockSubMenuIngredients.innerHTML += '<p> aucun ingrédient ne correspond à votre critère... vous pouvez chercher sucre,beurre, etc</p>';
 };
 
+// tag appareil non trouvé
 export const applianceNoFind = () => {
   document.querySelector('.sub_menu__appliances').innerHTML = '';
   document.querySelector(
@@ -22,6 +24,7 @@ export const applianceNoFind = () => {
   ).innerHTML += '<p> aucun appareil ne correspond à votre critère... vous pouvez chercher blender , poêle, etc</p>';
 };
 
+// tag ustensile non trouvé
 export const toolNoFind = () => {
   document.querySelector('.sub_menu__tools').innerHTML = '';
   document.querySelector(

@@ -1,5 +1,6 @@
-import { addAppliancesList } from '../appliances_searchBar/function_add-appliances-list.js';
+//import { addAppliancesList } from '../appliances_searchBar/function_add-appliances-list.js';
 import { filterByAppliancesTags } from '../appliances_searchBar/function_filter-appliance.js';
+import { allAppliances, allIngredients, allTools } from '../array.js';
 import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
@@ -18,9 +19,7 @@ import {
 import { removeThisTag } from '../function_remove-this--Tag.js';
 import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
 import { showRecipesFiltered } from '../function_show-recipes-filtered-by-tags.js';
-import { addToolsList } from '../tools_searchBar/function_add-tools-list.js';
 import { filterByToolsTags } from '../tools_searchBar/function_filter-tools.js';
-import { addIngredientsList } from './function_add-ingredients-list.js';
 
 export const filterByIngredientsTags = () => {
   const ingredientsTagsListDisplayed = document.querySelectorAll(
@@ -57,9 +56,9 @@ export const filterByIngredientsTags = () => {
       const newArrayRecipes = returnNewRecipesList(); // = MainSearch
 
       // affichage des tags en liens avec les recettes
-      const allNewIngredients = addIngredientsList(newArrayRecipes);
-      const allNewAppliances = addAppliancesList(newArrayRecipes);
-      const allNewTools = addToolsList(newArrayRecipes);
+      const allNewIngredients = allIngredients(newArrayRecipes);
+      const allNewAppliances = allAppliances(newArrayRecipes);
+      const allNewTools = allTools(newArrayRecipes);
 
       blockSubMenuIngredients.innerHTML = '';
       addTagsList(blockSubMenuIngredients, allNewIngredients);

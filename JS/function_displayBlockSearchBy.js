@@ -5,22 +5,18 @@ import {
   searchBarByIngredients,
   searchBarByAppliances,
   searchBarByTools,
+  blockIngredient,
+  blockAppliance,
+  blockTool,
+  chevronBlockAppliance,
+  chevronBlockIngredient,
+  chevronBlockTool,
 } from './const.js';
 
-// fonction pour afficher le bloc contenant la liste des ingrédients
+/* fonctions pour afficher et cacher les blocs de recherche (display none <=> display block)
+et gestion de style CSS */
 
-const blockIngredient = document.getElementById('by_ingredients');
-const blockAppliance = document.getElementById('kitchen-appliance');
-const blockTool = document.getElementById('kitchen-tool');
-const chevronBlockIngredient = document.querySelector(
-  '.chevron__block-ingredient',
-);
-const chevronBlockAppliance = document.querySelector(
-  '.chevron__block-appliance',
-);
-
-const chevronBlockTool = document.querySelector('.chevron__block-tool');
-
+// bloc de recherche par : ingredients
 export const displayBlockSearchByIngredients = () => {
   blockSubMenuIngredients.style.display = 'block';
   blockIngredient.style.width = '50%';
@@ -35,6 +31,7 @@ export const displayNoneSearchByIngredients = () => {
   chevronBlockIngredient.classList.remove('rotate');
 };
 
+// bloc de recherche par : appareils
 export const displayBlockSearchByAppliances = () => {
   blockSubMenuAppliances.style.display = 'block';
   chevronBlockAppliance.classList.add('rotate');
@@ -49,6 +46,7 @@ export const displayNoneSearchByAppliances = () => {
   chevronBlockAppliance.classList.remove('rotate');
 };
 
+// bloc de recherche par : ustensiles
 export const displayBlockSearchByTools = () => {
   blockSubMenuTools.style.display = 'block';
   chevronBlockTool.classList.add('rotate');

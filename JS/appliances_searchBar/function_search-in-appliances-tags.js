@@ -1,11 +1,10 @@
+import { allAppliances } from '../array.js';
 import { blockSubMenuAppliances, searchBarByAppliances } from '../const.js';
 import { recipes } from '../data_recipes.js';
 import { addTagsList } from '../function_addTagsList.js';
 import { applianceNoFind } from '../function_messageError.js';
 import { wordNormalize } from '../function_normalize.js';
 import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
-import { addAppliancesList } from './function_add-appliances-list.js';
-import { displayAppliancesList } from './function_display-appliances-list.js';
 import { filterByAppliancesTags } from './function_filter-appliance.js';
 
 export const searchInAppliancesTags = () => {
@@ -18,10 +17,12 @@ export const searchInAppliancesTags = () => {
     wordNormalize(inputValueAppliance);
 
     const newArray = returnNewRecipesList();
-    const allNewAppliances = addAppliancesList(newArray);
-    const appliances = displayAppliancesList(recipes);
+    const allNewAppliances = allAppliances(newArray);
+    const appliancesListFromRecipes = allAppliances(recipes);
 
-    if (!appliances.length) {
+    const totalAppliances = appliancesListFromRecipes.filter((element) => wordNormalize(element).includes(inputValueAppliance));
+
+    if (!totalAppliances.length) {
       return applianceNoFind();
     } if (inputValueAppliance.length < 3) {
       blockSubMenuAppliances.innerHTML = '';
@@ -29,10 +30,10 @@ export const searchInAppliancesTags = () => {
       filterByAppliancesTags();
     } else {
       blockSubMenuAppliances.innerHTML = '';
-      addTagsList(blockSubMenuAppliances, appliances);
+      addTagsList(blockSubMenuAppliances, totalAppliances);
       filterByAppliancesTags();
       return false;
     }
-    return appliances;
+    return totalAppliances;
   });
 };

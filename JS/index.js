@@ -1,6 +1,7 @@
-import { addAppliancesList } from './appliances_searchBar/function_add-appliances-list.js';
+
 import { filterByAppliancesTags } from './appliances_searchBar/function_filter-appliance.js';
 import { searchInAppliancesTags } from './appliances_searchBar/function_search-in-appliances-tags.js';
+import { allAppliances, allIngredients, allTools } from './array.js';
 import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
@@ -30,11 +31,11 @@ import {
 } from './function_messageError.js';
 import { wordNormalize } from './function_normalize.js';
 import { returnNewRecipesList } from './function_return-new-recipes-list.js';
-import { addIngredientsList } from './ingredients_searchBar/function_add-ingredients-list.js';
+
 import { filterByIngredientsTags } from './ingredients_searchBar/function_filter.js';
 import { searchInIngredientsTags } from './ingredients_searchBar/function_search-in-ingredients-tags.js';
 import { searchIn } from './main_searchBar/function_search-in.js';
-import { addToolsList } from './tools_searchBar/function_add-tools-list.js';
+
 import { filterByToolsTags } from './tools_searchBar/function_filter-tools.js';
 import { searchInToolsTags } from './tools_searchBar/function_search-in-tools-tags.js';
 
@@ -63,8 +64,8 @@ blockIngredient.addEventListener('focusout', () => {
 });
 
 // ajout de la liste des ingredients
-const allIngredients = addIngredientsList(recipes);
-addTagsList(blockSubMenuIngredients, allIngredients);
+const ingredientsList = allIngredients(recipes);
+addTagsList(blockSubMenuIngredients, ingredientsList);
 searchInIngredientsTags();
 filterByIngredientsTags();
 
@@ -84,8 +85,8 @@ blockAppliance.addEventListener('focusout', () => {
 });
 
 // ajout de la liste des appareils
-const allAppliances = addAppliancesList(recipes);
-addTagsList(blockSubMenuAppliances, allAppliances);
+const appliancesList = allAppliances(recipes);
+addTagsList(blockSubMenuAppliances, appliancesList);
 searchInAppliancesTags();
 filterByAppliancesTags();
 
@@ -105,8 +106,8 @@ blockTool.addEventListener('focusout', () => {
 });
 
 // ajout de la liste des ustensiles
-const allTools = addToolsList(recipes);
-addTagsList(blockSubMenuTools, allTools);
+const toolsList = allTools(recipes);
+addTagsList(blockSubMenuTools, toolsList);
 searchInToolsTags();
 filterByToolsTags();
 
@@ -139,7 +140,7 @@ searchBar.addEventListener('input', () => {
 
   // affichage de la liste des ingrédients en fonction de la liste des recettes
   const newArray = returnNewRecipesList();
-  const allNewIngredients = addIngredientsList(newArray);
+  const allNewIngredients = allIngredients(newArray);
   blockSubMenuIngredients.innerHTML = '';
   addTagsList(blockSubMenuIngredients, allNewIngredients);
   searchInIngredientsTags();
@@ -150,7 +151,7 @@ searchBar.addEventListener('input', () => {
   }
 
   // affichage de la liste des appareils en fonction de la liste des recettes
-  const allNewAppliances = addAppliancesList(newArray);
+  const allNewAppliances = allAppliances(newArray);
   blockSubMenuAppliances.innerHTML = '';
   addTagsList(blockSubMenuAppliances, allNewAppliances);
   searchInAppliancesTags();
@@ -160,7 +161,7 @@ searchBar.addEventListener('input', () => {
   }
 
   // affichage de la liste des ustensiles en fonction de la liste des recettes
-  const allNewTools = addToolsList(newArray);
+  const allNewTools = allTools(newArray);
   blockSubMenuTools.innerHTML = '';
   addTagsList(blockSubMenuTools, allNewTools);
   searchInToolsTags();

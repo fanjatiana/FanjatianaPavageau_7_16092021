@@ -1,11 +1,10 @@
+import { allTools } from '../array.js';
 import { searchBarByTools, blockSubMenuTools } from '../const.js';
 import { recipes } from '../data_recipes.js';
 import { addTagsList } from '../function_addTagsList.js';
 import { toolNoFind } from '../function_messageError.js';
 import { wordNormalize } from '../function_normalize.js';
 import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
-import { addToolsList } from './function_add-tools-list.js';
-import { displayToolsList } from './function_display-tools-list.js';
 import { filterByToolsTags } from './function_filter-tools.js';
 
 // recherche de tags ustensiles
@@ -15,10 +14,11 @@ export const searchInToolsTags = () => {
     const valueInputTool = searchBarByTools.value;
     wordNormalize(valueInputTool);
     const newArray = returnNewRecipesList();
-    const allNewTools = addToolsList(newArray);
-    const tools = displayToolsList(recipes);
+    const allNewTools = allTools(newArray);
+    const toolsListFromRecipes = allTools(recipes);
 
-    if (!tools.length) {
+    const resultFilterByTools = toolsListFromRecipes.filter((recipe) => wordNormalize(recipe).includes(valueInputTool));
+    if (!resultFilterByTools.length) {
       return toolNoFind();
     } if (valueInputTool.length < 3) {
       blockSubMenuTools.innerHTML = '';
@@ -26,7 +26,7 @@ export const searchInToolsTags = () => {
       filterByToolsTags();
     } else {
       blockSubMenuTools.innerHTML = '';
-      addTagsList(blockSubMenuTools, tools);
+      addTagsList(blockSubMenuTools, resultFilterByTools);
       filterByToolsTags();
     }
 

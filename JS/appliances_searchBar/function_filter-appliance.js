@@ -1,3 +1,4 @@
+import { allAppliances, allIngredients, allTools } from '../array.js';
 import {
   blockSubMenuAppliances,
   blockSubMenuIngredients,
@@ -11,11 +12,8 @@ import { applianceNoFind, tagNoFind, toolNoFind } from '../function_messageError
 import { removeThisTag } from '../function_remove-this--Tag.js';
 import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
 import { showRecipesFiltered } from '../function_show-recipes-filtered-by-tags.js';
-import { addIngredientsList } from '../ingredients_searchBar/function_add-ingredients-list.js';
 import { filterByIngredientsTags } from '../ingredients_searchBar/function_filter.js';
-import { addToolsList } from '../tools_searchBar/function_add-tools-list.js';
 import { filterByToolsTags } from '../tools_searchBar/function_filter-tools.js';
-import { addAppliancesList } from './function_add-appliances-list.js';
 
 export const filterByAppliancesTags = () => {
   const appliancesTagsListDisplayed = document.querySelectorAll(
@@ -48,9 +46,9 @@ export const filterByAppliancesTags = () => {
       // nouveau tableau de recettes
       const newArrayRecipes = returnNewRecipesList(); // = MainSearch
 
-      const allNewIngredients = addIngredientsList(newArrayRecipes);
-      const allNewAppliances = addAppliancesList(newArrayRecipes);
-      const allNewTools = addToolsList(newArrayRecipes);
+      const allNewIngredients = allIngredients(newArrayRecipes);
+      const allNewAppliances = allAppliances(newArrayRecipes);
+      const allNewTools = allTools(newArrayRecipes);
 
       // mise à jour des tags dans les blocs
       blockSubMenuAppliances.innerHTML = '';

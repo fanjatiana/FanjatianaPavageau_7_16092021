@@ -1,7 +1,3 @@
-import { recipes } from './data_recipes.js';
-import { capitalizeFirstLetter } from './function_capitalizer-first-letter.js';
-import { wordNormalize } from './function_normalize.js';
-
 // Const DOM
 export const baliseUl = document.getElementById('ingredients_tags');
 export const searchBar = document.getElementById('site-search');
@@ -36,8 +32,20 @@ export const toolsTagsListDisplayed = document.querySelectorAll(
   '.sub_menu__tools > .tags__list li',
 );
 
+export const blockIngredient = document.getElementById('by_ingredients');
+export const blockAppliance = document.getElementById('kitchen-appliance');
+export const blockTool = document.getElementById('kitchen-tool');
+export const chevronBlockIngredient = document.querySelector(
+  '.chevron__block-ingredient',
+);
+export const chevronBlockAppliance = document.querySelector(
+  '.chevron__block-appliance',
+);
+
+export const chevronBlockTool = document.querySelector('.chevron__block-tool');
+
 // Const ARRAY
-// tableau des titres
+/* tableau des titres
 export const arrayTitle = recipes.map((element) => element.name);
 
 // tableau des descriptions
@@ -52,33 +60,4 @@ export const ustensilsList = [];
 arrayUstensils.forEach((element) => {
   ustensilsList.push(...element);
 });
-
-export const allIngredients = () => {
-  let arrayIngred = [];
-  recipes.map((recipe) => {
-    recipe.ingredients.map((list) => {
-      let newList = wordNormalize(list.ingredient);
-      newList = capitalizeFirstLetter(newList);
-      arrayIngred.push(newList);
-      return newList;
-    });
-    return arrayIngred;
-  });
-
-  arrayIngred = Array.from(new Set(arrayIngred));
-
-  return arrayIngred;
-};
-
-export const allAppliances = () => {
-  let applianceList = [];
-  recipes.map((recipe) => {
-    let newList = wordNormalize(recipe.appliance);
-    newList = capitalizeFirstLetter(newList);
-    applianceList.push(newList);
-    return applianceList;
-  });
-
-  applianceList = Array.from(new Set(applianceList));
-  return applianceList;
-};
+*/

@@ -12,16 +12,17 @@ import { buildArticle } from './function_buildArticles.js';
 
 import { addTagsList } from './function_addTagsList.js';
 import { searchIn } from './main_searchBar/function_search-in.js';
-import { addAppliancesList } from './appliances_searchBar/function_add-appliances-list.js';
+
 import { filterByAppliancesTags } from './appliances_searchBar/function_filter-appliance.js';
-import { addIngredientsList } from './ingredients_searchBar/function_add-ingredients-list.js';
+
 import { newArrayAfterdeleteThisTag } from './function_delete-this-tag.js';
 import { filterByIngredientsTags } from './ingredients_searchBar/function_filter.js';
 import { showRecipesFiltered } from './function_show-recipes-filtered-by-tags.js';
 import { selectThisTag } from './function _select-this-tag.js';
 import { filterByToolsTags } from './tools_searchBar/function_filter-tools.js';
-import { addToolsList } from './tools_searchBar/function_add-tools-list.js';
+
 import { wordNormalize } from './function_normalize.js';
+import { allAppliances, allIngredients, allTools } from './array.js';
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = (allTagsSelected, listRecipes) => {
@@ -81,15 +82,15 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
       // fonction de suppression sur la nouvelle liste de tags
       removeThisTag(tagList, listRecipes);
 
-      const allNewIngredients = addIngredientsList(listRecipes);
+      const allNewIngredients = allIngredients(listRecipes);
       blockSubMenuIngredients.innerHTML = '';
       addTagsList(blockSubMenuIngredients, allNewIngredients);
 
-      const allNewAppliances = addAppliancesList(listRecipes);
+      const allNewAppliances = allAppliances(listRecipes);
       blockSubMenuAppliances.innerHTML = '';
       addTagsList(blockSubMenuAppliances, allNewAppliances);
 
-      const allNewTools = addToolsList(listRecipes);
+      const allNewTools = allTools(listRecipes);
       blockSubMenuTools.innerHTML = '';
       addTagsList(blockSubMenuTools, allNewTools);
 
@@ -100,15 +101,15 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
       if (tagList.length === 0 && valueInput !== '') {
         const mainsearch = searchIn();
 
-        const allIngredientsWithMainSearch = addIngredientsList(mainsearch);
+        const allIngredientsWithMainSearch = allIngredients(mainsearch);
         blockSubMenuIngredients.innerHTML = '';
         addTagsList(blockSubMenuIngredients, allIngredientsWithMainSearch);
 
-        const allNewAppliancesWithMainSearch = addAppliancesList(mainsearch);
+        const allNewAppliancesWithMainSearch = allAppliances(mainsearch);
         blockSubMenuAppliances.innerHTML = '';
         addTagsList(blockSubMenuAppliances, allNewAppliancesWithMainSearch);
 
-        const allNewToolsWithMainSearch = addToolsList(mainsearch);
+        const allNewToolsWithMainSearch = allTools(mainsearch);
         blockSubMenuTools.innerHTML = '';
         addTagsList(blockSubMenuTools, allNewToolsWithMainSearch);
 
@@ -117,15 +118,15 @@ export const removeThisTag = (allTagsSelected, listRecipes) => {
         filterByAppliancesTags();
         filterByToolsTags();
       } else if (tagList.length === 0 && valueInput === '') {
-        const allIngredientWithRecipes = addIngredientsList(recipes);
+        const allIngredientWithRecipes = allIngredients(recipes);
         blockSubMenuIngredients.innerHTML = '';
         addTagsList(blockSubMenuIngredients, allIngredientWithRecipes);
 
-        const allNewAppliancesWithRecipes = addAppliancesList(recipes);
+        const allNewAppliancesWithRecipes = allAppliances(recipes);
         blockSubMenuAppliances.innerHTML = '';
         addTagsList(blockSubMenuAppliances, allNewAppliancesWithRecipes);
 
-        const allNewToolsWithRecipes = addToolsList(recipes);
+        const allNewToolsWithRecipes = allTools(recipes);
         blockSubMenuTools.innerHTML = '';
         addTagsList(blockSubMenuTools, allNewToolsWithRecipes);
 

@@ -1,3 +1,4 @@
+// fonction qui renvoie un nouveau tableau de tags restant , après suppression du tag choisi
 export const newArrayAfterdeleteThisTag = (arrayTags, thisTag) => {
   const tagList = [];
 

@@ -1,6 +1,6 @@
 import { RecipesFactory } from './class/factory_Recipes.js';
 
-// construction des articles dans le dom
+// fonction de construction de la liste des articles(recettes) dans le dom
 export const buildArticle = (array) => {
   document.getElementById('recipes-list').innerHTML = '';
   array.forEach((element) => {
