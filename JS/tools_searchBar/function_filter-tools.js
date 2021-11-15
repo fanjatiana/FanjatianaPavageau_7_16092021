@@ -16,43 +16,60 @@ import { showRecipesFiltered } from '../function_show-recipes-filtered-by-tags.j
 import { filterByIngredientsTags } from '../ingredients_searchBar/function_filter.js';
 
 export const filterByToolsTags = () => {
+  // on récupère la liste des tags appareil affichée dans le bloc ustensile
   const toolsTagsListDisplayed = document.querySelectorAll(
     '.sub_menu__tools > .tags__list li',
   );
-
   const blockTool = document.getElementById('kitchen-tool');
 
+  // on applique un évènement au clic sur chaques tags
   toolsTagsListDisplayed.forEach((tags) => {
     tags.addEventListener('click', (e) => {
       blockTool.style.height = 'auto';
-      // tableau des recettes (recipes ou mainsearch)
-      const dataFiltered = returnNewRecipesList();
 
-      // ajout du tag sélectionné dans le dom
+      // on récupère la valeur du tag selectionné
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
-      let tagList = [];
+
+      /* on récupère dans le dom la liste de tag affichée
+     : pour le moment la liste est vide */
       let allTagsSelected = getAllTagsSelected();
       allTagsSelected = Array.from(new Set(allTagsSelected));
+
+      /* et on vérifie : si la liste (allTagsSelected) ne contient pas le tag selectionné si "true"
+      alors on ajoute le tag dans l'array tagList */
+      let tagList = [];
       if (!allTagsSelected.includes(thisTag)) {
         tagList.push(thisTag);
       }
+      // on supprime les doublons de l'array TagList
       tagList = Array.from(new Set(tagList));
 
+      /* on utilise la fonction selectThisTag pour afficher les tags de l'array tagList dans le dom
+      (ici l'array ne contient que le tag sélectionné) */
       selectThisTag(tagList);
 
-      // tableau des tags selectionnés
-      const allTags = getAllTagsSelected();
+      /* suppression du champ de recherche du bloc par ustensile:
+       lorsqu'un tag est selectionné */
       searchBarByTools.value = '';
-      // fonction d'affichage de la liste des recettes en liens avec le tag selectionné
+      // on récupère de nouveau dans le dom la liste des tags selectionnés (ici 1 tag)
+      const allTags = getAllTagsSelected();
+
+      // on récupère la liste des recettes présente dans le dom
+      const dataFiltered = returnNewRecipesList();
+
+      // on affiche la liste des recettes en fonction de la liste de tag présente dans le dom
       showRecipesFiltered(allTags, dataFiltered);
 
-      // nouveau tableau de recettes
+      // on retourne donc un nouveau tableau de recettes filtré par tag
       const newArrayRecipes = returnNewRecipesList(); // = MainSearch
 
+      /* on recherche la liste de tags qui correspond
+      au nouveau tableau de recette (newArrayRecipes) */
       const allNewIngredients = allIngredients(newArrayRecipes);
       const allNewTools = allTools(newArrayRecipes);
-
       const allNewAppliances = allAppliances(newArrayRecipes);
+
+      // on vide les blocs de recherche et on  affiche la nouvelle liste de tags
       blockSubMenuIngredients.innerHTML = '';
       addTagsList(blockSubMenuIngredients, allNewIngredients);
       blockSubMenuAppliances.innerHTML = '';
@@ -60,19 +77,23 @@ export const filterByToolsTags = () => {
       blockSubMenuTools.innerHTML = '';
       addTagsList(blockSubMenuTools, allNewTools);
 
+      // si aucune recette ne correspond : message d'erreur
       if (!newArrayRecipes.length) {
         tagNoFind();
         toolNoFind();
         applianceNoFind();
       }
 
+      // on applique un filtre sur les tags suivants
       filterByToolsTags();
+      // on applique un filtre aussi sur les tags des autres blocs pour pouvoir affiner la recherche
       filterByAppliancesTags();
       filterByIngredientsTags();
 
-      const arrayTagsSelected = getAllTagsSelected();
+      const arrayTags = getAllTagsSelected();
 
-      removeThisTag(arrayTagsSelected, newArrayRecipes);
+      // fonction de suppression des tags
+      removeThisTag(arrayTags, newArrayRecipes);
     });
   });
 };

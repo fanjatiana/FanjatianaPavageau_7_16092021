@@ -1,6 +1,7 @@
 import { capitalizeFirstLetter } from './function_capitalizer-first-letter.js';
 import { wordNormalize } from './function_normalize.js';
 
+// liste des ingrédients
 export const allIngredients = (array) => {
   let arrayIngred = [];
   array.map((recipe) => {
@@ -19,6 +20,7 @@ export const allIngredients = (array) => {
   return arrayIngred;
 };
 
+// liste des appareils
 export const allAppliances = (array) => {
   let applianceList = [];
   array.map((recipe) => {
@@ -33,6 +35,7 @@ export const allAppliances = (array) => {
   return applianceList;
 };
 
+// liste des ustensiles
 export const allTools = (array) => {
   let toolsList = [];
   array.map((recipe) => {

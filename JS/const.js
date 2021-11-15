@@ -1,63 +1,44 @@
-// Const DOM
-export const baliseUl = document.getElementById('ingredients_tags');
+// input : barre de recherche princopale
 export const searchBar = document.getElementById('site-search');
-export const searchBarByTheme = document.querySelectorAll(
-  '#filter-by > section',
-);
+
+// bloc intégral de recherche (div) : ingrédients
+export const blockIngredient = document.getElementById('by_ingredients');
+// input : barre de recherche par ingrédients
 export const searchBarByIngredients = document.getElementById('ingredients-search');
+// bloc sous menu contenant la liste des ingrédients
 export const blockSubMenuIngredients = document.querySelector(
   '#by_ingredients > .sub_menu__ingredients',
 );
-export const blockRecipesList = document.getElementById('recipes-list');
-export const allTagsIngredients = document.querySelectorAll(
-  '#ingredients_tags > li',
-);
-export const blockSubMenuTools = document.querySelector('.sub_menu__tools');
-export const allBtnCross = document.querySelectorAll('.btn_cross');
-export const blockYoursTags = document.getElementById('yoursTags');
-export const searchBarByAppliances = document.getElementById('appliance-search');
-export const blockSubMenuAppliances = document.querySelector(
-  '.sub_menu__appliances',
-);
-export const searchBarByTools = document.getElementById('tools-search');
-export const ingredientsTagsListDisplayed = document.querySelectorAll(
-  '.sub_menu__ingredients > .tags__list li',
-);
-export const appliancesTagsListDisplayed = document.querySelectorAll(
-  '.sub_menu__appliances > .tags__list li',
-);
-
-// tags ingrédients
-export const toolsTagsListDisplayed = document.querySelectorAll(
-  '.sub_menu__tools > .tags__list li',
-);
-
-export const blockIngredient = document.getElementById('by_ingredients');
-export const blockAppliance = document.getElementById('kitchen-appliance');
-export const blockTool = document.getElementById('kitchen-tool');
+// chevron du bloc : ingrédients
 export const chevronBlockIngredient = document.querySelector(
   '.chevron__block-ingredient',
 );
+
+// input : barre de recherche par appareils
+export const searchBarByAppliances = document.getElementById('appliance-search');
+// bloc sous menu contenant la liste des appareils
+export const blockSubMenuAppliances = document.querySelector(
+  '.sub_menu__appliances',
+);
+// bloc de recherche (div) : appareils
+export const blockAppliance = document.getElementById('kitchen-appliance');
+// chevron du bloc : appareil
 export const chevronBlockAppliance = document.querySelector(
   '.chevron__block-appliance',
 );
 
+// input : barre de recherche par ustensiles
+export const searchBarByTools = document.getElementById('tools-search');
+// bloc sous menu contenant la liste des ustensiles
+export const blockSubMenuTools = document.querySelector('.sub_menu__tools');
+// bloc de recherche (div) : ustensiles
+export const blockTool = document.getElementById('kitchen-tool');
+// chevron du bloc : ustensiles
 export const chevronBlockTool = document.querySelector('.chevron__block-tool');
 
-// Const ARRAY
-/* tableau des titres
-export const arrayTitle = recipes.map((element) => element.name);
-
-// tableau des descriptions
-export const arrayDescription = recipes.map((element) => element.description);
-
-// tableau des appareils
-export const arrayAppliance = recipes.map((element) => element.appliance);
-
-// tableau des ustensiles
-const arrayUstensils = recipes.map((element) => element.ustensils);
-export const ustensilsList = [];
-arrayUstensils.forEach((element) => {
-  ustensilsList.push(...element);
-});
-*/
+// div : YoursTags (là où sont affichés les tags dans le dom après selection)
+export const blockYoursTags = document.getElementById('yoursTags');
+// main
+export const blockRecipesList = document.getElementById('recipes-list');
+// liste de boutons de fermeture
+export const allBtnCross = document.querySelectorAll('.btn_cross');
