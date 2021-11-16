@@ -1,4 +1,3 @@
-
 import { filterByAppliancesTags } from './appliances_searchBar/function_filter-appliance.js';
 import { searchInAppliancesTags } from './appliances_searchBar/function_search-in-appliances-tags.js';
 import { allAppliances, allIngredients, allTools } from './array.js';
@@ -47,19 +46,17 @@ const blockTool = document.getElementById('kitchen-tool');
 buildArticle(recipes);
 
 // evenement au clic du bloc ingredients
-searchBarByIngredients.addEventListener('mouseenter', () => {
+searchBarByIngredients.addEventListener('click', () => {
   displayBlockSearchByIngredients();
-});
-blockIngredient.addEventListener('mouseleave', () => {
-  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
+  displayNoneSearchByTools();
 });
 
 // evenement au clavier du bloc ingredients
 searchBarByIngredients.addEventListener('keydown', () => {
   displayBlockSearchByIngredients();
-});
-blockIngredient.addEventListener('focusout', () => {
-  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
+  displayNoneSearchByTools();
 });
 
 // ajout de la liste des ingredients
@@ -69,18 +66,17 @@ searchInIngredientsTags();
 filterByIngredientsTags();
 
 // evenement au clic du bloc appareil
-searchBarByAppliances.addEventListener('mouseenter', () => {
+searchBarByAppliances.addEventListener('click', () => {
   displayBlockSearchByAppliances();
+  displayNoneSearchByIngredients();
+  displayNoneSearchByTools();
 });
-blockAppliance.addEventListener('mouseleave', () => {
-  displayNoneSearchByAppliances();
-});
+
 // evenement au clavier du bloc appareil
 searchBarByAppliances.addEventListener('keydown', () => {
   displayBlockSearchByAppliances();
-});
-blockAppliance.addEventListener('focusout', () => {
-  displayNoneSearchByAppliances();
+  displayNoneSearchByIngredients();
+  displayNoneSearchByTools();
 });
 
 // ajout de la liste des appareils
@@ -90,18 +86,17 @@ searchInAppliancesTags();
 filterByAppliancesTags();
 
 // evenement au clic du bloc ustensiles
-searchBarByTools.addEventListener('mouseenter', () => {
+searchBarByTools.addEventListener('click', () => {
   displayBlockSearchByTools();
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
 });
-blockTool.addEventListener('mouseleave', () => {
-  displayNoneSearchByTools();
-});
+
 // evenement au clavier du bloc ustensiles
 searchBarByTools.addEventListener('keydown', () => {
   displayBlockSearchByTools();
-});
-blockTool.addEventListener('focusout', () => {
-  displayNoneSearchByTools();
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
 });
 
 // ajout de la liste des ustensiles
@@ -111,9 +106,13 @@ searchInToolsTags();
 filterByToolsTags();
 
 // BARRE DE RECHERCHE PRINCIPALE
+
 // algo de recherche
 // eslint-disable-next-line consistent-return
 searchBar.addEventListener('input', () => {
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
+  displayNoneSearchByTools();
   const divYourTags = document.getElementById('yoursTags');
   // recherche dans le titre, description, ingrédient
   const array = searchIn();
