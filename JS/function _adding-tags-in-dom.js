@@ -2,10 +2,11 @@ import { allAppliances, allIngredients } from './array.js';
 import { recipes } from './data_recipes.js';
 
 // fonction pour afficher les tags dans le DOM (dans la div YoursTag)
-export const selectThisTag = (array) => {
+export const addingTagsInTheDom = (array) => {
   let color = '';
+  
   const divYourTags = document.getElementById('yoursTags');
-
+divYourTags.innerHTML = ""
   // on vérifie le type de tag (si le tag est un ingrédient,appareil...)
   const typeOfTag = (tag) => {
     const ingredients = allIngredients(recipes);

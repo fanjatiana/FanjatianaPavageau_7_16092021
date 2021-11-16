@@ -6,16 +6,32 @@ import {
   blockSubMenuTools,
   searchBarByTools,
 } from '../const.js';
-import { selectThisTag } from '../function _select-this-tag.js';
+import { recipes } from '../data_recipes.js';
+import { addingTagsInTheDom } from '../function _adding-tags-in-dom.js';
 import { getAllTagsSelected } from '../functions_get-all-tags-selected.js';
 import { addTagsList } from '../function_addTagsList.js';
 import { applianceNoFind, tagNoFind, toolNoFind } from '../function_messageError.js';
 import { removeThisTag } from '../function_remove-this--Tag.js';
-import { returnNewRecipesList } from '../function_return-new-recipes-list.js';
 import { showRecipesFiltered } from '../function_show-recipes-filtered-by-tags.js';
 import { filterByIngredientsTags } from '../ingredients_searchBar/function_filter.js';
+import { searchIn } from '../main_searchBar/function_search-in.js';
 
 export const filterByToolsTags = () => {
+  // liste de recettes depuis la valeur entrée de l'input
+  const arrayMainSearch = searchIn();
+  // liste re recettes depuis recipes
+  let arrayFilterByTag = recipes;
+
+  /* on verifie :
+    si la valeur de l'input n'est pas vide  si "true" la variable arrayFilterByTag
+    contient la liste des recettes filtrées depuis la barre de recherche principale,
+    sinon arrayFilterByTag contient recipes */
+  if (arrayMainSearch.length) {
+    arrayFilterByTag = arrayMainSearch;
+  } else {
+    arrayFilterByTag = recipes;
+  }
+
   // on récupère la liste des tags appareil affichée dans le bloc ustensile
   const toolsTagsListDisplayed = document.querySelectorAll(
     '.sub_menu__tools > .tags__list li',
@@ -36,38 +52,27 @@ export const filterByToolsTags = () => {
       allTagsSelected = Array.from(new Set(allTagsSelected));
 
       /* et on vérifie : si la liste (allTagsSelected) ne contient pas le tag selectionné si "true"
-      alors on ajoute le tag dans l'array tagList */
-      let tagList = [];
+      alors on ajoute le tag dans l'array allTagsSelected */
       if (!allTagsSelected.includes(thisTag)) {
-        tagList.push(thisTag);
+        allTagsSelected.push(thisTag);
       }
-      // on supprime les doublons de l'array TagList
-      tagList = Array.from(new Set(tagList));
 
-      /* on utilise la fonction selectThisTag pour afficher les tags de l'array tagList dans le dom
-      (ici l'array ne contient que le tag sélectionné) */
-      selectThisTag(tagList);
+      /* on utilise la fonction  addingTagsInTheDom
+      pour afficher les tags de l'array allTagsSelected dans le dom */
+      addingTagsInTheDom(allTagsSelected);
 
       /* suppression du champ de recherche du bloc par ustensile:
        lorsqu'un tag est selectionné */
       searchBarByTools.value = '';
-      // on récupère de nouveau dans le dom la liste des tags selectionnés (ici 1 tag)
-      const allTags = getAllTagsSelected();
-
-      // on récupère la liste des recettes présente dans le dom
-      const dataFiltered = returnNewRecipesList();
 
       // on affiche la liste des recettes en fonction de la liste de tag présente dans le dom
-      showRecipesFiltered(allTags, dataFiltered);
-
-      // on retourne donc un nouveau tableau de recettes filtré par tag
-      const newArrayRecipes = returnNewRecipesList(); // = MainSearch
+      const recipesFiltered = showRecipesFiltered(allTagsSelected, arrayFilterByTag);
 
       /* on recherche la liste de tags qui correspond
-      au nouveau tableau de recette (newArrayRecipes) */
-      const allNewIngredients = allIngredients(newArrayRecipes);
-      const allNewTools = allTools(newArrayRecipes);
-      const allNewAppliances = allAppliances(newArrayRecipes);
+      au  tableau de recettes filtrées (recipesFiltered) */
+      const allNewIngredients = allIngredients(recipesFiltered);
+      const allNewTools = allTools(recipesFiltered);
+      const allNewAppliances = allAppliances(recipesFiltered);
 
       // on vide les blocs de recherche et on  affiche la nouvelle liste de tags
       blockSubMenuIngredients.innerHTML = '';
@@ -78,7 +83,7 @@ export const filterByToolsTags = () => {
       addTagsList(blockSubMenuTools, allNewTools);
 
       // si aucune recette ne correspond : message d'erreur
-      if (!newArrayRecipes.length) {
+      if (!recipesFiltered.length) {
         tagNoFind();
         toolNoFind();
         applianceNoFind();
@@ -90,10 +95,8 @@ export const filterByToolsTags = () => {
       filterByAppliancesTags();
       filterByIngredientsTags();
 
-      const arrayTags = getAllTagsSelected();
-
       // fonction de suppression des tags
-      removeThisTag(arrayTags, newArrayRecipes);
+      removeThisTag(allTagsSelected);
     });
   });
 };

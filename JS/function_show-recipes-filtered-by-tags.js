@@ -9,29 +9,33 @@ import {
 import { wordNormalize } from './function_normalize.js';
 
 export const showRecipesFiltered = (allTags, dataFiltered) => {
-  let arrayFilteredTag = [];
+  let arrayFilteredTag = dataFiltered;
   allTags.forEach((tag) => {
-    const resultFilterByIngredients = dataFiltered.filter((recipe) => recipe.ingredients.map((list) => wordNormalize(list.ingredient)).includes(wordNormalize(tag)));
+    const resultFilterByIngredients = arrayFilteredTag.filter((recipe) => recipe.ingredients.map((list) => wordNormalize(list.ingredient)).includes(wordNormalize(tag)));
 
-    const resultFilterByAppliances = dataFiltered.filter((recipe) => wordNormalize(recipe.appliance)
-      .includes(wordNormalize(tag)));
+    const resultFilterByAppliances = arrayFilteredTag.filter((recipe) => wordNormalize(recipe.appliance).includes(wordNormalize(tag)));
 
-    const resultFilterByTools = dataFiltered.filter((recipe) => recipe.ustensils.map((list) => wordNormalize(list)).includes(wordNormalize(tag)));
+    const resultFilterByTools = arrayFilteredTag.filter((recipe) => recipe.ustensils.map((list) => wordNormalize(list)).includes(wordNormalize(tag)));
 
     arrayFilteredTag = resultFilterByIngredients.concat(
       resultFilterByAppliances,
       resultFilterByTools,
     );
 
-    const newArrayIFilteredTag = Array.from(new Set(arrayFilteredTag));
+    arrayFilteredTag = Array.from(new Set(arrayFilteredTag));
 
-    if (!newArrayIFilteredTag.length) {
+    if (!arrayFilteredTag.length) {
       RecipesNoFind();
       tagNoFind();
       toolNoFind();
       applianceNoFind();
     } else {
-      buildArticle(newArrayIFilteredTag);
+      buildArticle(arrayFilteredTag);
+      
+     
+      
     }
+  
   });
+  return arrayFilteredTag;
 };

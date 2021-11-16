@@ -30,7 +30,6 @@ import {
   toolNoFind,
 } from './function_messageError.js';
 import { wordNormalize } from './function_normalize.js';
-import { returnNewRecipesList } from './function_return-new-recipes-list.js';
 
 import { filterByIngredientsTags } from './ingredients_searchBar/function_filter.js';
 import { searchInIngredientsTags } from './ingredients_searchBar/function_search-in-ingredients-tags.js';
@@ -139,8 +138,7 @@ searchBar.addEventListener('input', () => {
   }
 
   // affichage de la liste des ingrédients en fonction de la liste des recettes
-  const newArray = returnNewRecipesList();
-  const allNewIngredients = allIngredients(newArray);
+  const allNewIngredients = allIngredients(array);
   blockSubMenuIngredients.innerHTML = '';
   addTagsList(blockSubMenuIngredients, allNewIngredients);
   searchInIngredientsTags();
@@ -151,7 +149,7 @@ searchBar.addEventListener('input', () => {
   }
 
   // affichage de la liste des appareils en fonction de la liste des recettes
-  const allNewAppliances = allAppliances(newArray);
+  const allNewAppliances = allAppliances(array);
   blockSubMenuAppliances.innerHTML = '';
   addTagsList(blockSubMenuAppliances, allNewAppliances);
   searchInAppliancesTags();
@@ -161,7 +159,7 @@ searchBar.addEventListener('input', () => {
   }
 
   // affichage de la liste des ustensiles en fonction de la liste des recettes
-  const allNewTools = allTools(newArray);
+  const allNewTools = allTools(array);
   blockSubMenuTools.innerHTML = '';
   addTagsList(blockSubMenuTools, allNewTools);
   searchInToolsTags();
