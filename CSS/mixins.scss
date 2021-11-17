@@ -1,12 +1,14 @@
-@mixin bloc-shape($bg-color, $position, $direction){
+@mixin bloc-shape($position, $direction){
     width: 20%;
     height: 100%;
     border-radius: 5px;
     margin-right: 1em;
-    background-color: $bg-color;
     display: flex;
     justify-content: $position;
     flex-direction: $direction;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+   
  
 
 }
@@ -21,6 +23,7 @@
     width: 100%;
     height: $height;
     font-size: 1rem;
+ 
 }
 
 @mixin tag-property(){

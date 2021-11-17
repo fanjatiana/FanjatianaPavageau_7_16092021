@@ -11,8 +11,6 @@ export const searchInAppliancesTags = () => {
   /* évènement clavier : déclanchement de la recherche
   lorsqu'on appuie sur n'importe quelle touche */
   searchBarByAppliances.addEventListener('keydown', () => {
-    const blockAppliance = document.getElementById('kitchen-appliance');
-    blockAppliance.style.height = 'auto';
 
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */

@@ -9,6 +9,9 @@ import {
   searchBarByIngredients,
   searchBarByTools,
   searchBar,
+  chevronBlockIngredient,
+  chevronBlockTool,
+  chevronBlockAppliance,
 } from './const.js';
 import { recipes } from './data_recipes.js';
 // import { searchInV2 } from './deuxieme_algorithme/function_searchIn_v2.js';
@@ -52,6 +55,15 @@ searchBarByIngredients.addEventListener('click', () => {
   displayNoneSearchByTools();
 });
 
+chevronBlockIngredient.addEventListener('click', () => {
+  if (chevronBlockIngredient.classList.contains('rotate')) {
+    displayNoneSearchByIngredients();
+  } else {
+    displayBlockSearchByIngredients();
+    displayNoneSearchByTools();
+    displayNoneSearchByAppliances();
+  }
+});
 // evenement au clavier du bloc ingredients
 searchBarByIngredients.addEventListener('keydown', () => {
   displayBlockSearchByIngredients();
@@ -71,7 +83,15 @@ searchBarByAppliances.addEventListener('click', () => {
   displayNoneSearchByIngredients();
   displayNoneSearchByTools();
 });
-
+chevronBlockAppliance.addEventListener('click', () => {
+  if (chevronBlockAppliance.classList.contains('rotate')) {
+    displayNoneSearchByAppliances();
+  } else {
+    displayBlockSearchByAppliances();
+    displayNoneSearchByIngredients();
+    displayNoneSearchByTools();
+  }
+});
 // evenement au clavier du bloc appareil
 searchBarByAppliances.addEventListener('keydown', () => {
   displayBlockSearchByAppliances();
@@ -91,6 +111,15 @@ searchBarByTools.addEventListener('click', () => {
   displayNoneSearchByIngredients();
   displayNoneSearchByAppliances();
 });
+chevronBlockTool.addEventListener('click', () => {
+  if (chevronBlockTool.classList.contains('rotate')) {
+    displayNoneSearchByTools();
+  } else {
+    displayBlockSearchByTools();
+    displayNoneSearchByIngredients();
+    displayNoneSearchByAppliances();
+  }
+});
 
 // evenement au clavier du bloc ustensiles
 searchBarByTools.addEventListener('keydown', () => {
@@ -106,7 +135,11 @@ searchInToolsTags();
 filterByToolsTags();
 
 // BARRE DE RECHERCHE PRINCIPALE
-
+searchBar.addEventListener('click', () => {
+  displayNoneSearchByIngredients();
+  displayNoneSearchByAppliances();
+  displayNoneSearchByTools();
+});
 // algo de recherche
 // eslint-disable-next-line consistent-return
 searchBar.addEventListener('input', () => {

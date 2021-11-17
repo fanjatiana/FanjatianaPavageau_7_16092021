@@ -16,6 +16,7 @@ body {
   font-size: 1rem;
   width: 100%;
   height: auto;
+  position: relative;
 }
 
 /* header */
@@ -41,7 +42,6 @@ header {
 
 #your-search {
   width: 100%;
- 
 }
 
 /* form barre de recherche */
@@ -72,11 +72,12 @@ header {
   //justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
- 
+  position: absolute;
 }
 
 .filter-by_input {
   @include input(url(/images/chevron-up.svg), 100%);
+
   &::placeholder {
     color: $text-filter-color;
     font-weight: bold;
@@ -87,53 +88,111 @@ header {
   }
 }
 
+.max-height-ingredientsList {
+  height: 800px;
+}
+.max-height-appliancesList {
+  height: 400px;
+}
+.max-height-toolsList {
+  height: 600px;
+}
+.min-height {
+  height: auto;
+}
+
 #by_ingredients {
-  @include bloc-shape($ingredients-color, none, column);
-  & .ingredient {
+  @include bloc-shape(none, column);
+  background-color: $ingredients-color;
+  & .ingredients {
     background-color: $ingredients-color;
-    height: auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    & input{
+      color: #fff;
+      font-weight: bold;
+    }
+  } 
+  & .sub_menu__ingredients {
+    background-color: $ingredients-color;
+    padding: 0.8em 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    width: 100%;
   }
 }
 
 #kitchen-appliance {
-  @include bloc-shape($appliance-color, none, column);
-  & .appliance{
+  @include bloc-shape(none, column);
+  background-color: $appliance-color;
+  & .appliances {
     background-color: $appliance-color;
-    height: auto;
+    border-radius: 5px;
+    & input{
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  & .sub_menu__appliances {
+    background-color: $appliance-color;
+    padding: 0.8em 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    width: 100%;
   }
 }
 
 #kitchen-tool {
-  @include bloc-shape($tool-color, none, column);
-  & .tool{
+  @include bloc-shape(none, column);
+  background-color: $tool-color;
+  & .tools {
     background-color: $tool-color;
-    height: auto;
+    border-radius: 5px;
+    & input{
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  & .sub_menu__tools {
+    background-color: $tool-color;
+    padding: 0.8em 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    width: 100%;
   }
 }
 
-.chevron{
+.chevron {
   width: 30px;
   height: 30px;
-  position:absolute;
+  position: absolute;
   right: 10%;
-  bottom:35%;
+  bottom: 35%;
 }
 
-.rotate{
+.rotate {
   transform: rotate(180deg);
 }
-.tags__list{
+.tags__list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 90%;
+  //height: 100%;
   width: 95%;
-  margin:auto;
+  margin: auto;
+  padding-left: 0;
   //overflow-x: scroll;
   > li {
     margin: 0.3em;
+    color: #fff;
     width: 15%;
-    margin-bottom:2px;
+    margin-bottom: 2px;
     cursor: pointer;
   }
 }
@@ -173,7 +232,7 @@ header {
 
 #recipes-list {
   width: 90%;
-  margin: auto;
+  margin: 200px auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -181,7 +240,7 @@ header {
 
 article {
   width: 30%;
-  height: 364px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
@@ -189,8 +248,13 @@ article {
   border-radius: 5px;
   > a {
     height: 100%;
+    transition: transform 0.4s;
+    scale: 0.8;
     &:hover {
       opacity: 0.8;
+      -ms-transform: scale(1.1); /* IE 9 */
+      -webkit-transform: scale(1.1); /* Safari 3-8 */
+      transform: scale(1.1);
     }
   }
 }
@@ -250,29 +314,25 @@ article {
     padding: 8px;
     width: 40%;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 }
 
-.sub_menu {
-  display: none;
-  height: 100%;
-  width: 100%;
-}
 
-.blue{
+
+.blue {
   background-color: $ingredients-color;
-  color:#fff
+  color: #fff;
 }
 
-.green{
-  background-color: $appliance-color ;
-  color:#fff
-};
+.green {
+  background-color: $appliance-color;
+  color: #fff;
+}
 
-.red{
+.red {
   background-color: $tool-color;
 }

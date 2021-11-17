@@ -12,9 +12,6 @@ export const searchInIngredientsTags = () => {
   /* évènement clavier : déclanchement de la recherche
   lorsqu'on appuie sur n'importe quelle touche */
   searchBarByIngredients.addEventListener('input', () => {
-    const blockIngredient = document.getElementById('by_ingredients');
-    blockIngredient.style.height = 'auto';
-
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
     const valueInput = searchBarByIngredients.value;

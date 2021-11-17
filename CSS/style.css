@@ -44,6 +44,7 @@ body {
   font-size: 1rem;
   width: 100%;
   height: auto;
+  position: relative;
 }
 
 /* header */
@@ -133,6 +134,7 @@ header {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
+  position: absolute;
 }
 
 .filter-by_input {
@@ -172,12 +174,27 @@ header {
   border-radius: 5px;
 }
 
+.max-height-ingredientsList {
+  height: 800px;
+}
+
+.max-height-appliancesList {
+  height: 400px;
+}
+
+.max-height-toolsList {
+  height: 600px;
+}
+
+.min-height {
+  height: auto;
+}
+
 #by_ingredients {
   width: 20%;
   height: 100%;
   border-radius: 5px;
   margin-right: 1em;
-  background-color: #3282F7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,11 +205,31 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #3282F7;
 }
 
-#by_ingredients .ingredient {
+#by_ingredients .ingredients {
   background-color: #3282F7;
-  height: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#by_ingredients .ingredients input {
+  color: #fff;
+  font-weight: bold;
+}
+
+#by_ingredients .sub_menu__ingredients {
+  background-color: #3282F7;
+  padding: 0.8em 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+  width: 100%;
 }
 
 #kitchen-appliance {
@@ -200,7 +237,6 @@ header {
   height: 100%;
   border-radius: 5px;
   margin-right: 1em;
-  background-color: #68D9A4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,11 +247,28 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #68D9A4;
 }
 
-#kitchen-appliance .appliance {
+#kitchen-appliance .appliances {
   background-color: #68D9A4;
-  height: auto;
+  border-radius: 5px;
+}
+
+#kitchen-appliance .appliances input {
+  color: #fff;
+  font-weight: bold;
+}
+
+#kitchen-appliance .sub_menu__appliances {
+  background-color: #68D9A4;
+  padding: 0.8em 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+  width: 100%;
 }
 
 #kitchen-tool {
@@ -223,7 +276,6 @@ header {
   height: 100%;
   border-radius: 5px;
   margin-right: 1em;
-  background-color: #ED6454;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -234,11 +286,28 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #ED6454;
 }
 
-#kitchen-tool .tool {
+#kitchen-tool .tools {
   background-color: #ED6454;
-  height: auto;
+  border-radius: 5px;
+}
+
+#kitchen-tool .tools input {
+  color: #fff;
+  font-weight: bold;
+}
+
+#kitchen-tool .sub_menu__tools {
+  background-color: #ED6454;
+  padding: 0.8em 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+  width: 100%;
 }
 
 .chevron {
@@ -264,13 +333,14 @@ header {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 90%;
   width: 95%;
   margin: auto;
+  padding-left: 0;
 }
 
 .tags__list > li {
   margin: 0.3em;
+  color: #fff;
   width: 15%;
   margin-bottom: 2px;
   cursor: pointer;
@@ -331,7 +401,7 @@ header {
 
 #recipes-list {
   width: 90%;
-  margin: auto;
+  margin: 200px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -344,7 +414,7 @@ header {
 
 article {
   width: 30%;
-  height: 364px;
+  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,10 +430,19 @@ article {
 
 article > a {
   height: 100%;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  scale: 0.8;
 }
 
 article > a:hover {
   opacity: 0.8;
+  /* IE 9 */
+  -webkit-transform: scale(1.1);
+  /* Safari 3-8 */
+  transform: scale(1.1);
 }
 
 .content_article {
@@ -443,16 +522,10 @@ article > a:hover {
   padding: 8px;
   width: 40%;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.sub_menu {
-  display: none;
-  height: 100%;
-  width: 100%;
 }
 
 .blue {
