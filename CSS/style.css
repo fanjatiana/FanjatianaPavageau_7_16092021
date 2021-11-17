@@ -430,19 +430,6 @@ article {
 
 article > a {
   height: 100%;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
-  scale: 0.8;
-}
-
-article > a:hover {
-  opacity: 0.8;
-  /* IE 9 */
-  -webkit-transform: scale(1.1);
-  /* Safari 3-8 */
-  transform: scale(1.1);
 }
 
 .content_article {
