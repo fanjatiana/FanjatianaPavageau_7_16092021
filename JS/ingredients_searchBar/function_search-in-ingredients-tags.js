@@ -11,7 +11,7 @@ import { filterByIngredientsTags } from './function_filter.js';
 export const searchInIngredientsTags = () => {
   /* évènement clavier : déclanchement de la recherche
   lorsqu'on appuie sur n'importe quelle touche */
-  searchBarByIngredients.addEventListener('input', () => {
+  searchBarByIngredients.addEventListener('keyup', () => {
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
     const valueInput = searchBarByIngredients.value;
@@ -34,15 +34,15 @@ export const searchInIngredientsTags = () => {
     -sinon: on affiche la liste de tags correspondant à la valeur rentrée dans l'input */
     if (!totalIngredients.length) {
       return tagNoFind();
-    } if (valueInput.length < 2) {
-      blockSubMenuIngredients.innerHTML = '';
-      addTagsList(blockSubMenuIngredients, allNewIngredients);
-      filterByIngredientsTags();
-    } else {
+    } if (valueInput.length > 2) {
       blockSubMenuIngredients.innerHTML = '';
       addTagsList(blockSubMenuIngredients, totalIngredients);
       filterByIngredientsTags();
+    } else {
+      blockSubMenuIngredients.innerHTML = '';
+      addTagsList(blockSubMenuIngredients, allNewIngredients);
+      filterByIngredientsTags();
     }
-    return allNewIngredients;// on retourne un nouveau tableau d'ingredients
+    return totalIngredients;// on retourne un nouveau tableau d'ingredients
   });
 };

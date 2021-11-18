@@ -11,7 +11,7 @@ import { filterByToolsTags } from './function_filter-tools.js';
 export const searchInToolsTags = () => {
   /* évènement clavier : déclanchement de la recherche
   lorsqu'on appuie sur n'importe quelle touche */
-  searchBarByTools.addEventListener('input', () => {
+  searchBarByTools.addEventListener('keyup', () => {
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
     const valueInputTool = searchBarByTools.value;
@@ -34,16 +34,16 @@ export const searchInToolsTags = () => {
     -sinon: on affiche la liste de tags correspondant à la valeur rentrée dans l'input */
     if (!resultFilterByTools.length) {
       return toolNoFind();
-    } if (valueInputTool.length < 2) {
-      blockSubMenuTools.innerHTML = '';
-      addTagsList(blockSubMenuTools, allNewTools);
-      filterByToolsTags();
-    } else {
+    } if (valueInputTool.length > 2) {
       blockSubMenuTools.innerHTML = '';
       addTagsList(blockSubMenuTools, resultFilterByTools);
       filterByToolsTags();
+    } else {
+      blockSubMenuTools.innerHTML = '';
+      addTagsList(blockSubMenuTools, allNewTools);
+      filterByToolsTags();
     }
 
-    return allNewTools;
+    return resultFilterByTools;
   });
 };

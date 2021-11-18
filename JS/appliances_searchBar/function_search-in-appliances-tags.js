@@ -10,7 +10,7 @@ import { filterByAppliancesTags } from './function_filter-appliance.js';
 export const searchInAppliancesTags = () => {
   /* évènement clavier : déclanchement de la recherche
   lorsqu'on appuie sur n'importe quelle touche */
-  searchBarByAppliances.addEventListener('keydown', () => {
+  searchBarByAppliances.addEventListener('keyup', () => {
 
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
@@ -33,15 +33,15 @@ export const searchInAppliancesTags = () => {
     -si la valeur entrée est inférieure à 2: on affiche la liste de tags correspondant aux recettes.
     -sinon: on affiche la liste de tags correspondant à la valeur rentrée dans l'input */
     if (!totalAppliances.length) {
-      applianceNoFind();
+      return applianceNoFind();
     }
-    if (inputValueAppliance.length < 2) {
+    if (inputValueAppliance.length > 2) {
       blockSubMenuAppliances.innerHTML = '';
-      addTagsList(blockSubMenuAppliances, allNewAppliances);
+      addTagsList(blockSubMenuAppliances, totalAppliances);
       filterByAppliancesTags();
     } else {
       blockSubMenuAppliances.innerHTML = '';
-      addTagsList(blockSubMenuAppliances, totalAppliances);
+      addTagsList(blockSubMenuAppliances, allNewAppliances);
       filterByAppliancesTags();
     }
     return totalAppliances; // on retourne un nouveau tableau d'appareils

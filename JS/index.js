@@ -147,10 +147,16 @@ searchBar.addEventListener('input', () => {
   displayNoneSearchByAppliances();
   displayNoneSearchByTools();
   const divYourTags = document.getElementById('yoursTags');
+
+  divYourTags.innerHTML = '';
+  searchBarByIngredients.value = '';
+  searchBarByTools.value = '';
+  searchBarByAppliances.value = '';
   // recherche dans le titre, description, ingrédient
   const array = searchIn();
   // searchInV2();
   // valeur de l'input
+  console.log(array);
   const inputValue = searchBar.value;
   wordNormalize(inputValue);
   if (!array.length) {
@@ -158,12 +164,7 @@ searchBar.addEventListener('input', () => {
     tagNoFind();
     applianceNoFind();
     return RecipesNoFind();
-  } if (inputValue !== '') {
-    divYourTags.innerHTML = '';
-    searchBarByIngredients.value = '';
-    searchBarByTools.value = '';
-    searchBarByAppliances.value = '';
-  } else if (inputValue.length > 2) {
+  } if (inputValue.length > 2) {
     buildArticle(array);
   } else {
     buildArticle(recipes);
@@ -175,7 +176,6 @@ searchBar.addEventListener('input', () => {
   addTagsList(blockSubMenuIngredients, allNewIngredients);
   searchInIngredientsTags();
   filterByIngredientsTags();
-  buildArticle(array);
   if (!allNewIngredients.length) {
     tagNoFind();
   }
@@ -200,3 +200,5 @@ searchBar.addEventListener('input', () => {
     toolNoFind();
   }
 });
+
+
