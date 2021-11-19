@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
     position: initial;
-    margin-top: 50px;
+    margin-top: 80px;
     & div {
       margin-bottom: 30px;
       width: 50%;
@@ -35,7 +35,7 @@
 
   #by_ingredients {
     > .ingredients {
-      width: 100%;
+      min-width: 100%;
     }
     & .sub_menu__ingredients {
       > .tags__list {
@@ -119,6 +119,7 @@
     > .tag {
       width: 20%;
       height: 45px;
+      margin: 0 5px 5px 0;
     }
   }
 }
@@ -138,7 +139,7 @@
 
   .instructions_recipe {
     & p {
-      -webkit-line-clamp: 6;
+      height: 88%;
     }
   }
   #search-on {
@@ -174,15 +175,22 @@
       width: 90%;
     }
   }
+
+  .instructions_recipe {
+    height: auto;
+    & p {
+      height: 84%;
+    }
+  }  
 }
 
-@media screen and (max-width: 579px){
+/*@media screen and (max-width: 579px){
     .instructions_recipe {
         & p {
-          -webkit-line-clamp: 7;
+          -webkit-line-clamp: 8;
         }
-}
-}
+    }
+}*/
 
 
 
@@ -206,11 +214,11 @@
   }
  
 
-  .instructions_recipe {
+  /*.instructions_recipe {
     & p {
       -webkit-line-clamp: 8;
     }
-  }
+  }*/
 
   #yoursTags {
     > .tag{
@@ -218,10 +226,10 @@
     }
   }
 }
-@media screen and (max-width: 300px) {
+/*@media screen and (max-width: 300px) {
     .instructions_recipe {
         & p {
           -webkit-line-clamp: 10;
         }
       }
-}
+}*/

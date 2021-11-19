@@ -1,5 +1,5 @@
 @mixin bloc-shape($position, $direction){
-    width: 15%;
+    //width: 15%;
     height: 100%;
     border-radius: 5px;
     margin-right: 1em;
@@ -31,7 +31,7 @@
     justify-content: space-around;
     align-items: center;
     width: 10% ;
-    height: 30px;
+    height: 40px;
     //border : 1px #000 solid;
     border-radius: 5px;
     color: #fff;
