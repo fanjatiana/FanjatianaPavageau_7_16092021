@@ -59,6 +59,7 @@ searchBarByIngredients.addEventListener('click', () => {
 
 
 chevronBlockIngredient.addEventListener('click', () => {
+  
   if (chevronBlockIngredient.classList.contains('rotate')) {
     displayNoneSearchByIngredients();
   } else {

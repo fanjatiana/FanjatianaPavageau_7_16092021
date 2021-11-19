@@ -14,8 +14,7 @@ export const searchInIngredientsTags = () => {
   searchBarByIngredients.addEventListener('keyup', () => {
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
-    const valueInput = searchBarByIngredients.value;
-    wordNormalize(valueInput);
+    const valueInput = wordNormalize(searchBarByIngredients.value);
 
     // on récupère la liste de recette affichée dans le dom
     const newArray = returnNewRecipesList();

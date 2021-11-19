@@ -1,7 +1,7 @@
 import { searchBar } from '../const.js';
 import { recipes } from '../data_recipes.js';
 import { wordNormalize } from '../function_normalize.js';
-import {comparison} from'../deuxieme_algorithme/functions_comparison-algo-V2.js';
+import { comparison } from './functions_comparison-algo-V2.js';
 
 export const searchInV2 = () => {
   // valeur de l'input

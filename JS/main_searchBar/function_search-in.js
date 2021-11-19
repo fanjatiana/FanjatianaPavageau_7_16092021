@@ -6,8 +6,7 @@ import { wordNormalize } from '../function_normalize.js';
 
 export const searchIn = () => {
   // valeur de l'input
-  const inputValue = searchBar.value;
-  wordNormalize(inputValue);
+  const inputValue = wordNormalize(searchBar.value);
 
   // filtre sur les titres
   const resultFilterByName = recipes.filter((recipe) => wordNormalize(recipe.name).includes(inputValue));

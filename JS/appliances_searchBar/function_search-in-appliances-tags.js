@@ -14,8 +14,7 @@ export const searchInAppliancesTags = () => {
 
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
-    const inputValueAppliance = searchBarByAppliances.value;
-    wordNormalize(inputValueAppliance);
+    const inputValueAppliance = wordNormalize(searchBarByAppliances.value);
 
     // on récupère la liste de recette affichée dans le dom
     const newArray = returnNewRecipesList();

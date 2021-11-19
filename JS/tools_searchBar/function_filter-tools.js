@@ -36,12 +36,10 @@ export const filterByToolsTags = () => {
   const toolsTagsListDisplayed = document.querySelectorAll(
     '.sub_menu__tools > .tags__list li',
   );
-  const blockTool = document.getElementById('kitchen-tool');
 
   // on applique un évènement au clic sur chaques tags
   toolsTagsListDisplayed.forEach((tags) => {
     tags.addEventListener('click', (e) => {
-      blockTool.style.height = 'auto';
 
       // on récupère la valeur du tag selectionné
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant

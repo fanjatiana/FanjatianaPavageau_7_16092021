@@ -17,6 +17,7 @@ import { showRecipesFiltered } from './function_show-recipes-filtered-by-tags.js
 import { addingTagsInTheDom } from './function _adding-tags-in-dom.js';
 import { filterByToolsTags } from './tools_searchBar/function_filter-tools.js';
 import { allAppliances, allIngredients, allTools } from './array.js';
+import { displayNoneSearchByAppliances, displayNoneSearchByIngredients, displayNoneSearchByTools } from './function_displayBlockSearchBy.js';
 
 // fonction pour supprimer le tag en cours lors du clique de la croix de fermeture
 export const removeThisTag = (allTagsSelected) => {
@@ -73,6 +74,9 @@ export const removeThisTag = (allTagsSelected) => {
         filterByIngredientsTags();
         filterByAppliancesTags();
         filterByToolsTags();
+        displayNoneSearchByAppliances();
+        displayNoneSearchByIngredients();
+        displayNoneSearchByTools();
       }
     });
   });
