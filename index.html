@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/mediaqueries.css">
     <title>Les petits plats : site de recette de cuisine</title>
 </head>
 <body>
@@ -15,15 +16,16 @@
                 </a>
            </div>
            <nav id="your-search">
-                <form id="search-on">
+                <div id="search-on">
                     <div class="searchBar">
                         <label for="site-search"></label>
-                        <input id="site-search" value class="enter-your-search" type="search" value placeholder="Rechercher un ingrédient, appareil,ustensiles ou recette" aria-label="Rechercher un ingrédient, appareil,ustensiles ou recette">
+                        <input id="site-search" value class="enter-your-search" type="search" value placeholder="Rechercher un ingrédient, un titre ou une recette" aria-label="Rechercher un ingrédient, appareil,ustensiles ou recette">
+                        <img class="magnifying-glass" src="images/magnifying-glass.svg" alt="icone d'une loupe"/>
                     </div>
                     <div id="yoursTags"></div>  
-                </form>
-                <form id="filter-by">
-                    <section id="by_ingredients">
+                </div>
+                <div id="filter-by">
+                    <div id="by_ingredients">
                         <div class="menu ingredients">
                             <label for="ingredients-search"></label>
                             <input id="ingredients-search"class="filter-by_input" type="search" value placeholder="Ingredients" aria-label="Rechercher un ingrédient">
@@ -31,24 +33,24 @@
                         </div>
                         <div class="sub_menu sub_menu__ingredients">
                         </div>
-                    </section>
-                    <section id="kitchen-appliance">
+                    </div>
+                    <div id="kitchen-appliance">
                         <div class="menu appliances">
                             <label for="appliance-search"></label>
-                            <input id="appliance-search" class="filter-by_input" type="search" value placeholder="Appareil" aria-label="Rechercher un appareil">
+                            <input id="appliance-search" class="filter-by_input" type="search" value placeholder="Appareils" aria-label="Rechercher un appareil">
                             <img class="chevron chevron__block-appliance" src="images/chevron.svg" alt="chevron pointant vers le bas"/>
                         </div>
                         <div class="sub_menu sub_menu__appliances"></div>
-                    </section>
-                    <section id="kitchen-tool">
+                    </div>
+                    <div id="kitchen-tool">
                         <div class="menu tools">
                             <label for="tools-search"></label>
                             <input id="tools-search" class="filter-by_input" type="search" value="" placeholder="Ustensiles" aria-label="Rechercher un ou des ustensiles">
                             <img class="chevron chevron__block-tool" src="images/chevron.svg" alt="chevron pointant vers le bas"/>
                         </div>
                         <div class="sub_menu sub_menu__tools"></div>
-                    </section>
-                </form>
+                    </div>
+                </div>
             </nav>  
        </header>
 
