@@ -1,7 +1,7 @@
-export const hiddenClick = (hidden, icon) => {
+export const hiddenClick = (searchblock, icon) => {
   const outsideClickL = (event) => {
-    if (!hidden.contains(event.target && icon.className.includes('rotate'))) {
-      hidden.style.display = 'none';
+    if (!searchblock.contains(event.target && icon.className.includes('rotate'))) {
+      searchblock.style.display = 'none';
       icon.classList.remove('rotate');
     }
   };

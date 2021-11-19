@@ -54,9 +54,13 @@ export class Article {
       // gestion des fautes de frappe du mot quantity
       const spellingQuantity = ingredient.quantity || ingredient.quantite;
       if (spellingQuantity) {
-        createTagLi.innerHTML = `${
-          ingredient.ingredient
-        } : ${spellingQuantity} ${ingredient.unit ? ingredient.unit : ''}`; // gestion des situations où les unités sont "undefined"
+        /* // gestion des situations où les unités sont "undefined":
+         ajout de l'ingrédient dans le dom : et de la quantité
+          si ingredient.unit a une valeur , ajout de l'unité
+          sinon on ne met rien */
+        createTagLi.innerHTML = `${ingredient.ingredient} : ${spellingQuantity} ${ingredient.unit ? ingredient.unit.replace('grammes', 'g').replace('cuillère à soupe', 'c. à s.').replace('cuillères à soupe', 'c. à s.').replace('cuillères à café', 'c. à c.') : ''}`;
+      } else {
+        createTagLi.innerHTML = `${ingredient.ingredient}`;
       }
     });
   }

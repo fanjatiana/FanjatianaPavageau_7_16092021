@@ -49,17 +49,25 @@ const blockTool = document.getElementById('kitchen-tool');
 // ajout des articles
 buildArticle(recipes);
 
+// évènement clavier : fermeture des blocs de recherche au clavier
+const onKeyUp = (e) => {
+  if (e.key === 'Escape') {
+    displayNoneSearchByTools();
+    displayNoneSearchByIngredients();
+    displayNoneSearchByAppliances();
+  }
+};
+document.addEventListener('keydown', onKeyUp);
+
 // evenement au clic du bloc ingredients
 searchBarByIngredients.addEventListener('click', () => {
   displayBlockSearchByIngredients();
   displayNoneSearchByAppliances();
   displayNoneSearchByTools();
 });
-//hiddenClick(blockSubMenuIngredients, chevronBlockIngredient);
-
+// hiddenClick(blockSubMenuIngredients, chevronBlockIngredient);
 
 chevronBlockIngredient.addEventListener('click', () => {
-  
   if (chevronBlockIngredient.classList.contains('rotate')) {
     displayNoneSearchByIngredients();
   } else {
@@ -68,6 +76,7 @@ chevronBlockIngredient.addEventListener('click', () => {
     displayNoneSearchByAppliances();
   }
 });
+
 // evenement au clavier du bloc ingredients
 searchBarByIngredients.addEventListener('keydown', () => {
   displayBlockSearchByIngredients();
@@ -142,10 +151,12 @@ filterByToolsTags();
 
 // algo de recherche
 // eslint-disable-next-line consistent-return
-searchBar.addEventListener('keyup', () => {
+searchBar.addEventListener('focus', () => {
   displayNoneSearchByIngredients();
   displayNoneSearchByAppliances();
   displayNoneSearchByTools();
+});
+searchBar.addEventListener('keyup', () => {
   const divYourTags = document.getElementById('yoursTags');
 
   // searchInV2();
@@ -158,7 +169,7 @@ searchBar.addEventListener('keyup', () => {
 
   if (inputValue.length > 2) {
     // recherche dans le titre, description, ingrédient
-    //const arrayMainSearch = searchInV2();
+    // const arrayMainSearch = searchInV2();
     const arrayMainSearch = searchIn();
     if (!arrayMainSearch.length) {
       toolNoFind();
