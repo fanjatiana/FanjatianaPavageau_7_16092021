@@ -214,6 +214,7 @@
   }
   .instructions_recipe p {
     height: 84%;
+    padding: 5px;
   }
 }
 

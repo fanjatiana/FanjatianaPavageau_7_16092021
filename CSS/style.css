@@ -113,18 +113,22 @@ header {
 
 #search-on > .searchBar > input::-webkit-input-placeholder {
   font-size: 1rem;
+  font-family: 'lato-regular';
 }
 
 #search-on > .searchBar > input:-ms-input-placeholder {
   font-size: 1rem;
+  font-family: 'lato-regular';
 }
 
 #search-on > .searchBar > input::-ms-input-placeholder {
   font-size: 1rem;
+  font-family: 'lato-regular';
 }
 
 #search-on > .searchBar > input::placeholder {
   font-size: 1rem;
+  font-family: 'lato-regular';
 }
 
 /* loupe de la barre de recherche principale */
@@ -158,29 +162,33 @@ header {
 .filter-by_input::-webkit-input-placeholder {
   color: #FFF;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-right: 5px;
+  font-family: 'lato-700';
 }
 
 .filter-by_input:-ms-input-placeholder {
   color: #FFF;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-right: 5px;
+  font-family: 'lato-700';
 }
 
 .filter-by_input::-ms-input-placeholder {
   color: #FFF;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-right: 5px;
+  font-family: 'lato-700';
 }
 
 .filter-by_input::placeholder {
   color: #FFF;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-right: 5px;
+  font-family: 'lato-700';
 }
 
 .filter-by_input:focus {
@@ -363,6 +371,7 @@ header {
   margin-bottom: 2px;
   cursor: pointer;
   line-height: 1.2;
+  font-family: 'lato-regular';
 }
 
 /* div d'affichage des tags sélèctionnés */
@@ -495,7 +504,7 @@ article > a {
 }
 
 .info_recipe > h3 {
-  font-family: "Lato";
+  font-family: 'lato-regular';
   font-style: normal;
   font-weight: 400;
   margin-bottom: 0;
@@ -504,7 +513,7 @@ article > a {
 
 .info_recipe p {
   font-weight: bold;
-  font-family: "Lato";
+  font-family: 'lato-700';
   font-style: normal;
   font-weight: 700;
   display: -webkit-box;
@@ -544,8 +553,15 @@ article > a {
   padding-left: 0;
 }
 
+.instructions_recipe > ul > li {
+  font-family: 'lato-700';
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
 .instructions_recipe p {
-  font-family: "Roboto Slab";
+  font-family: 'roboto-slab-regular';
+  font-size: 0.95rem;
   padding: 2px;
   width: 45%;
   height: 95%;
