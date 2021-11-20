@@ -58,6 +58,7 @@ header {
     border-radius: 5px;
     > input {
       @include input(url(/images/magnifying-glass.svg), 60px);
+      font-family: 'lato-regular';
       &::placeholder {
         font-size: 1rem;
         font-family: 'lato-regular';
@@ -331,6 +332,8 @@ article {
     font-weight: 400;
     margin-bottom: 0;
     margin-top: 10px;
+    font-size: 18px;
+    line-height: 21.6px;
   }
   & p {
     font-weight: bold;
@@ -343,6 +346,7 @@ article {
     justify-content: end;
     margin-bottom: 0;
     margin-top: 0;
+    font-size: 18px;
     & img {
       margin-right: 0.5em;
       margin-top: 0;
@@ -363,20 +367,23 @@ article {
     > li{
       font-family:'lato-700';
       font-weight: bold;
-      font-size: 0.95rem;
+      font-size: 12px;
+      line-height: 14.04px;
+    
     }
   }
   & p {
     font-family:'roboto-slab-regular';
-    font-size: 0.95rem;
+    font-size: 12px;
     padding: 2px;
     width: 45%;
     height: 95%;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 9;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 12px;
   }
 }
 
