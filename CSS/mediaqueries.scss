@@ -1,3 +1,4 @@
+/* tablette */
 @media screen and (max-width: 1023px) {
   header {
     width: 100%;
@@ -5,21 +6,30 @@
   }
 
   #your-search {
-    width: 90%;
-    margin: auto;
+    width: 100%;
+  }
+
+  #search-on {
+    > .searchBar {
+      width: 90%;
+      margin: auto;
+    }
   }
   #filter-by {
     flex-direction: column;
     align-items: center;
     position: initial;
     margin-top: 80px;
+    width: 100%;
     & div {
       margin-bottom: 30px;
+      margin-right: 0;
       width: 50%;
       flex-direction: column;
       & input {
         text-align: center;
         height: 50px;
+        padding-left: 20px;
       }
       & .chevron {
         margin: auto;
@@ -156,6 +166,7 @@
   }
 }
 
+/* mobile */
 @media screen and (max-width: 600px) {
   .tag {
     width: 20%;
@@ -170,9 +181,10 @@
   }
 
   #filter-by {
-    margin-top: 80px;
+    margin-top: 30px;
     > div {
       width: 90%;
+      margin: 30px auto 0;
     }
   }
 
@@ -181,18 +193,8 @@
     & p {
       height: 84%;
     }
-  }  
+  }
 }
-
-/*@media screen and (max-width: 579px){
-    .instructions_recipe {
-        & p {
-          -webkit-line-clamp: 8;
-        }
-    }
-}*/
-
-
 
 @media screen and (max-width: 440px) {
   article {
@@ -203,33 +205,20 @@
       font-size: 0.9em;
     }
   }
-  #search-on{
-   & .searchBar {
-        > input {
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
+  #search-on {
+    & .searchBar {
+      > input {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
-  }
- 
-
-  /*.instructions_recipe {
-    & p {
-      -webkit-line-clamp: 8;
     }
-  }*/
+  }
 
   #yoursTags {
-    > .tag{
-        width: 30%;
+    > .tag {
+      width: 30%;
     }
   }
 }
-/*@media screen and (max-width: 300px) {
-    .instructions_recipe {
-        & p {
-          -webkit-line-clamp: 10;
-        }
-      }
-}*/
+

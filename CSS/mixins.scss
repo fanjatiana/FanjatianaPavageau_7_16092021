@@ -1,10 +1,8 @@
-@mixin bloc-shape($position, $direction){
-    //width: 15%;
+@mixin bloc-shape($direction){
     height: 100%;
     border-radius: 5px;
     margin-right: 1em;
     display: flex;
-    justify-content: $position;
     flex-direction: $direction;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -14,9 +12,6 @@
 }
 
 @mixin input($bg-image, $height){
-   // background-image: $bg-image;
-   // background-repeat: no-repeat;
-   // background-position: 97% 50%;
     background-color: transparent;
     padding: 0 10px;
     border:none;
@@ -32,9 +27,7 @@
     align-items: center;
     width: 10% ;
     height: 40px;
-    //border : 1px #000 solid;
     border-radius: 5px;
     color: #fff;
-   // background-color: $bg-color;
     margin-right: 0.3em;
 }
