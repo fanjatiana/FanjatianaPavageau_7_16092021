@@ -170,7 +170,7 @@ searchBar.addEventListener('keyup', () => {
   if (inputValue.length > 2) {
     // recherche dans le titre, description, ingrédient
     // const arrayMainSearch = searchInV2();
-    const arrayMainSearch = searchIn();
+    const arrayMainSearch = searchInV2();
     if (!arrayMainSearch.length) {
       toolNoFind();
       tagNoFind();
