@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* roboto-slab-regular - latin */
 @font-face {
   font-family: 'Roboto Slab';
@@ -45,6 +46,7 @@ body {
   width: 100%;
   height: auto;
   position: relative;
+  margin-left: 0;
 }
 
 /* header */
@@ -125,6 +127,12 @@ header {
   font-size: 1rem;
 }
 
+/* loupe de la barre de recherche principale */
+.magnifying-glass {
+  width: 30px;
+  margin-right: 30px;
+}
+
 /* form trier par: */
 #filter-by {
   margin-top: 30px;
@@ -179,15 +187,7 @@ header {
   border-radius: 5px;
 }
 
-.max-height-ingredientsList {
-  height: 800px;
-  width: 50%;
-}
-
-.active {
-  max-height: 800px;
-}
-
+/* bloc de recherche par ingrédients */
 #by_ingredients {
   height: 100%;
   border-radius: 5px;
@@ -195,9 +195,6 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -227,11 +224,9 @@ header {
   border-bottom-right-radius: 5px;
   display: none;
   width: 100%;
-  /* > .tags__list{
-      height: 800px;
-    }*/
 }
 
+/*bloc de recherche par appareils */
 #kitchen-appliance {
   height: 100%;
   border-radius: 5px;
@@ -239,9 +234,6 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -270,6 +262,7 @@ header {
   width: 100%;
 }
 
+/*bloc de recherche par ustensiles */
 #kitchen-tool {
   height: 100%;
   border-radius: 5px;
@@ -277,9 +270,6 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: none;
-      -ms-flex-pack: none;
-          justify-content: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -312,6 +302,28 @@ header {
   width: 100%;
 }
 
+/* dimensions des blocs de recherche (gestion avec JS) */
+.max-height-ingredientsList {
+  height: 800px;
+  width: 50%;
+}
+
+.active {
+  max-height: 800px;
+}
+
+/* div englobant l'input des blocs de recherche */
+.menu {
+  height: 69px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu > :hover {
+  opacity: 0.8;
+}
+
+/* chevron des blocs */
 .chevron {
   width: 30px;
   height: 30px;
@@ -325,6 +337,7 @@ header {
           transform: rotate(180deg);
 }
 
+/* liste des tags des blocs */
 .tags__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -352,9 +365,10 @@ header {
   line-height: 1.2;
 }
 
+/* div d'affichage des tags sélèctionnés */
 #yoursTags {
   margin-top: 1.5em;
-  height: 2.5em;
+  height: auto;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -377,6 +391,8 @@ header {
   border-radius: 5px;
   color: #fff;
   margin-right: 0.3em;
+  width: 15%;
+  margin-bottom: 5px;
 }
 
 #yoursTags > .tag > p {
@@ -396,17 +412,22 @@ header {
   margin-right: 2px;
 }
 
-.menu {
-  width: 170px;
-  height: 69px;
-  cursor: pointer;
-  position: relative;
+/* propriétés couleur des tags sélèctionnés */
+.blue {
+  background-color: #3282F7;
+  color: #fff;
 }
 
-.menu > :hover {
-  opacity: 0.8;
+.green {
+  background-color: #68D9A4;
+  color: #fff;
 }
 
+.red {
+  background-color: #ED6454;
+}
+
+/* main */
 #recipes-list {
   width: 90%;
   margin: 100px auto;
@@ -420,6 +441,7 @@ header {
       flex-wrap: wrap;
 }
 
+/* articles recette */
 article {
   width: 380px;
   height: 364px;
@@ -440,6 +462,7 @@ article > a {
   height: 100%;
 }
 
+/* container des articles */
 .content_article {
   height: 100%;
 }
@@ -458,6 +481,7 @@ article > a {
   border-bottom-right-radius: 5px;
 }
 
+/* titre et durée des recettes */
 .info_recipe {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -502,6 +526,7 @@ article > a {
   margin-top: 0;
 }
 
+/* ingrédient et description des recettes */
 .instructions_recipe {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -529,24 +554,5 @@ article > a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.magnifying-glass {
-  width: 30px;
-  margin-right: 30px;
-}
-
-.blue {
-  background-color: #3282F7;
-  color: #fff;
-}
-
-.green {
-  background-color: #68D9A4;
-  color: #fff;
-}
-
-.red {
-  background-color: #ED6454;
 }
 /*# sourceMappingURL=style.css.map */
