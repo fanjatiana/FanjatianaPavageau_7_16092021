@@ -33,7 +33,6 @@ import {
   toolNoFind,
 } from './function_messageError.js';
 import { wordNormalize } from './function_normalize.js';
-
 import { filterByIngredientsTags } from './ingredients_searchBar/function_filter.js';
 import { searchInIngredientsTags } from './ingredients_searchBar/function_search-in-ingredients-tags.js';
 import { searchIn } from './main_searchBar/function_search-in.js';
