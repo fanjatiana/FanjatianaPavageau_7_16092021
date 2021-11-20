@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/* couleur */
+/* dimensions */
 /* roboto-slab-regular - latin */
 @font-face {
   font-family: 'Roboto Slab';
@@ -109,27 +111,27 @@ header {
   width: 100%;
   height: 60px;
   font-size: 1rem;
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
 }
 
 #search-on > .searchBar > input::-webkit-input-placeholder {
   font-size: 1rem;
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
 }
 
 #search-on > .searchBar > input:-ms-input-placeholder {
   font-size: 1rem;
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
 }
 
 #search-on > .searchBar > input::-ms-input-placeholder {
   font-size: 1rem;
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
 }
 
 #search-on > .searchBar > input::placeholder {
   font-size: 1rem;
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
 }
 
 /* loupe de la barre de recherche principale */
@@ -165,7 +167,7 @@ header {
   font-weight: bold;
   font-size: 1.2rem;
   margin-right: 5px;
-  font-family: 'lato-700';
+  font-family: "lato-700";
 }
 
 .filter-by_input:-ms-input-placeholder {
@@ -173,7 +175,7 @@ header {
   font-weight: bold;
   font-size: 1.2rem;
   margin-right: 5px;
-  font-family: 'lato-700';
+  font-family: "lato-700";
 }
 
 .filter-by_input::-ms-input-placeholder {
@@ -181,7 +183,7 @@ header {
   font-weight: bold;
   font-size: 1.2rem;
   margin-right: 5px;
-  font-family: 'lato-700';
+  font-family: "lato-700";
 }
 
 .filter-by_input::placeholder {
@@ -189,7 +191,7 @@ header {
   font-weight: bold;
   font-size: 1.2rem;
   margin-right: 5px;
-  font-family: 'lato-700';
+  font-family: "lato-700";
 }
 
 .filter-by_input:focus {
@@ -233,6 +235,16 @@ header {
   border-bottom-right-radius: 5px;
   display: none;
   width: 100%;
+}
+
+#by_ingredients .sub_menu__ingredients > .tags__list {
+  max-height: 700px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+#by_ingredients .sub_menu__ingredients > .tags__list > li {
+  width: 15%;
 }
 
 /*bloc de recherche par appareils */
@@ -360,19 +372,15 @@ header {
   width: 95%;
   margin: auto;
   padding-left: 0;
-  max-height: 700px;
-  overflow: hidden;
-  overflow-x: auto;
 }
 
 .tags__list > li {
   margin: 0.3em;
   color: #fff;
-  width: 15%;
   margin-bottom: 2px;
   cursor: pointer;
   line-height: 1.2;
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
 }
 
 /* div d'affichage des tags sélèctionnés */
@@ -505,7 +513,7 @@ article > a {
 }
 
 .info_recipe > h3 {
-  font-family: 'lato-regular';
+  font-family: "lato-regular";
   font-style: normal;
   font-weight: 400;
   margin-bottom: 0;
@@ -516,7 +524,7 @@ article > a {
 
 .info_recipe p {
   font-weight: bold;
-  font-family: 'lato-700';
+  font-family: "lato-700";
   font-style: normal;
   font-weight: 700;
   display: -webkit-box;
@@ -558,14 +566,14 @@ article > a {
 }
 
 .instructions_recipe > ul > li {
-  font-family: 'lato-700';
+  font-family: "lato-700";
   font-weight: bold;
   font-size: 12px;
   line-height: 14.04px;
 }
 
 .instructions_recipe p {
-  font-family: 'roboto-slab-regular';
+  font-family: "roboto-slab-regular";
   font-size: 12px;
   padding: 2px;
   width: 45%;

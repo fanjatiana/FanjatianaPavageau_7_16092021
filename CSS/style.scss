@@ -58,18 +58,17 @@ header {
     border-radius: 5px;
     > input {
       @include input(url(/images/magnifying-glass.svg), 60px);
-      font-family: 'lato-regular';
+      font-family: "lato-regular";
       &::placeholder {
         font-size: 1rem;
-        font-family: 'lato-regular';
-       
+        font-family: "lato-regular";
       }
     }
   }
 }
 
 /* loupe de la barre de recherche principale */
-.magnifying-glass{
+.magnifying-glass {
   width: 30px;
   margin-right: 30px;
 }
@@ -93,16 +92,12 @@ header {
     font-weight: bold;
     font-size: 1.2rem;
     margin-right: 5px;
-    font-family: 'lato-700';
+    font-family: "lato-700";
   }
   &:focus {
     border-radius: 5px;
   }
 }
-
-
-
-
 
 /* bloc de recherche par ingrédients */
 #by_ingredients {
@@ -115,11 +110,11 @@ header {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
-    & input{
+    & input {
       color: #fff;
       font-weight: bold;
     }
-  } 
+  }
   & .sub_menu__ingredients {
     background-color: $ingredients-color;
     padding: 0.8em 0;
@@ -127,8 +122,15 @@ header {
     border-bottom-right-radius: 5px;
     display: none;
     width: 100%;
+    > .tags__list {
+      max-height: 700px;
+      overflow: hidden;
+      overflow-x: auto;
+      > li {
+        width: 15%;
+      }
+    }
   }
-
 }
 
 /*bloc de recherche par appareils */
@@ -138,7 +140,7 @@ header {
   & .appliances {
     background-color: $appliance-color;
     border-radius: 5px;
-    & input{
+    & input {
       color: #fff;
       font-weight: bold;
     }
@@ -160,7 +162,7 @@ header {
   & .tools {
     background-color: $tool-color;
     border-radius: 5px;
-    & input{
+    & input {
       color: #fff;
       font-weight: bold;
     }
@@ -173,7 +175,7 @@ header {
     display: none;
     width: 100%;
     & .max-width {
-      > li{
+      > li {
         width: 100%;
       }
     }
@@ -184,9 +186,8 @@ header {
 .max-height-ingredientsList {
   height: 800px;
   width: 50%;
-  
 }
-.active{
+.active {
   max-height: 800px;
 }
 
@@ -221,17 +222,15 @@ header {
   width: 95%;
   margin: auto;
   padding-left: 0;
-  max-height: 700px;
-  overflow:hidden;
-  overflow-x: auto;
+
   > li {
     margin: 0.3em;
     color: #fff;
-    width: 15%;
+    //width: 15%;
     margin-bottom: 2px;
     cursor: pointer;
     line-height: 1.2;
-    font-family: 'lato-regular';
+    font-family: "lato-regular";
   }
 }
 
@@ -250,7 +249,7 @@ header {
       display: flex;
       color: #fff;
       font-weight: bold;
-      padding-left:5px;
+      padding-left: 5px;
     }
     & img {
       border: #fff 1px solid;
@@ -276,8 +275,6 @@ header {
 .red {
   background-color: $tool-color;
 }
-
-
 
 /* main */
 #recipes-list {
@@ -327,7 +324,7 @@ article {
   height: 25%;
   margin: auto;
   > h3 {
-    font-family:'lato-regular';
+    font-family: "lato-regular";
     font-style: normal;
     font-weight: 400;
     margin-bottom: 0;
@@ -337,7 +334,7 @@ article {
   }
   & p {
     font-weight: bold;
-    font-family:'lato-700';
+    font-family: "lato-700";
     font-style: normal;
     font-weight: 700;
     display: flex;
@@ -362,18 +359,17 @@ article {
   margin: auto;
   height: 95%;
   > ul {
-    width:56%;
+    width: 56%;
     padding-left: 0;
-    > li{
-      font-family:'lato-700';
+    > li {
+      font-family: "lato-700";
       font-weight: bold;
       font-size: 12px;
       line-height: 14.04px;
-    
     }
   }
   & p {
-    font-family:'roboto-slab-regular';
+    font-family: "roboto-slab-regular";
     font-size: 12px;
     padding: 2px;
     width: 45%;
@@ -386,11 +382,3 @@ article {
     line-height: 12px;
   }
 }
-
-
-
-
-
-
-
-
