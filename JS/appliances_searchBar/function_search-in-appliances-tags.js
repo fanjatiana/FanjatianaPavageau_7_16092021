@@ -11,7 +11,6 @@ export const searchInAppliancesTags = () => {
   /* évènement clavier : déclanchement de la recherche
   lorsqu'on appuie sur n'importe quelle touche */
   searchBarByAppliances.addEventListener('keyup', () => {
-
     /* on récupère la valeur entrée dans l'input
     et on applique une fonction normalize pour supprimer les accents et majuscules */
     const inputValueAppliance = wordNormalize(searchBarByAppliances.value);

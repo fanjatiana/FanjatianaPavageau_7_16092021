@@ -40,7 +40,6 @@ export const filterByToolsTags = () => {
   // on applique un évènement au clic sur chaques tags
   toolsTagsListDisplayed.forEach((tags) => {
     tags.addEventListener('click', (e) => {
-
       // on récupère la valeur du tag selectionné
       const thisTag = e.currentTarget.innerHTML; // cibler le tag selectionné dit element courant
 

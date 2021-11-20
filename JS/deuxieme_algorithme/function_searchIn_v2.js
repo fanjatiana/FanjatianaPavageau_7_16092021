@@ -18,7 +18,7 @@ export const searchInV2 = () => {
 
     const description = wordNormalize(recipe.description).split(' ');
 
-    const { ingredients } = recipe;
+    const ingredients = recipe.ingredients;
 
     // on compare les lettres entrées dans l'input aux lettres des titres des recettes:
     // si "true" => on push dans le tableau : listOfRecipes

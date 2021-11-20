@@ -31,11 +31,7 @@ export const showRecipesFiltered = (allTags, dataFiltered) => {
       applianceNoFind();
     } else {
       buildArticle(arrayFilteredTag);
-      
-     
-      
     }
-  
   });
   return arrayFilteredTag;
 };
