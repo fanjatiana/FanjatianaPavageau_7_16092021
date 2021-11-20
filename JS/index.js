@@ -26,7 +26,6 @@ import {
   displayNoneSearchByIngredients,
   displayNoneSearchByTools,
 } from './function_displayBlockSearchBy.js';
-import { hiddenClick } from './function_hiddenClick.js';
 import {
   applianceNoFind,
   RecipesNoFind,
@@ -41,14 +40,12 @@ import { searchIn } from './main_searchBar/function_search-in.js';
 import { filterByToolsTags } from './tools_searchBar/function_filter-tools.js';
 import { searchInToolsTags } from './tools_searchBar/function_search-in-tools-tags.js';
 
-const blockIngredient = document.getElementById('by_ingredients');
-const blockAppliance = document.getElementById('kitchen-appliance');
-const blockTool = document.getElementById('kitchen-tool');
 // AU CHARGEMENT DE LA PAGE:
 
 // ajout des articles
 buildArticle(recipes);
 
+// ouverture/fermeture des blocs
 // évènement clavier : fermeture des blocs de recherche au clavier
 const onKeyUp = (e) => {
   if (e.key === 'Escape') {
@@ -59,14 +56,14 @@ const onKeyUp = (e) => {
 };
 document.addEventListener('keydown', onKeyUp);
 
-// evenement au clic du bloc ingredients
+// bloc de recherche par ingrédients :
+// évènement au clic du bloc ingredients : affichage du bloc sous menu ingredient
 searchBarByIngredients.addEventListener('click', () => {
   displayBlockSearchByIngredients();
   displayNoneSearchByAppliances();
   displayNoneSearchByTools();
 });
-// hiddenClick(blockSubMenuIngredients, chevronBlockIngredient);
-
+// ouverture du bloc sous menu ingrédient au clic du chevron (et rotation de celui-ci)
 chevronBlockIngredient.addEventListener('click', () => {
   if (chevronBlockIngredient.classList.contains('rotate')) {
     displayNoneSearchByIngredients();
@@ -76,26 +73,21 @@ chevronBlockIngredient.addEventListener('click', () => {
     displayNoneSearchByAppliances();
   }
 });
-
-// evenement au clavier du bloc ingredients
+// évènement clavier du bloc ingredients
 searchBarByIngredients.addEventListener('keydown', () => {
   displayBlockSearchByIngredients();
   displayNoneSearchByAppliances();
   displayNoneSearchByTools();
 });
 
-// ajout de la liste des ingredients
-const ingredientsList = allIngredients(recipes);
-addTagsList(blockSubMenuIngredients, ingredientsList);
-searchInIngredientsTags();
-filterByIngredientsTags();
-
-// evenement au clic du bloc appareil
+// bloc de recherche par appareils :
+// évènement au clic du bloc appareil
 searchBarByAppliances.addEventListener('click', () => {
   displayBlockSearchByAppliances();
   displayNoneSearchByIngredients();
   displayNoneSearchByTools();
 });
+// ouverture du bloc sous menu appareil au clic du chevron (et rotation de celui-ci)
 chevronBlockAppliance.addEventListener('click', () => {
   if (chevronBlockAppliance.classList.contains('rotate')) {
     displayNoneSearchByAppliances();
@@ -105,25 +97,21 @@ chevronBlockAppliance.addEventListener('click', () => {
     displayNoneSearchByTools();
   }
 });
-// evenement au clavier du bloc appareil
+// évènement au clavier du bloc appareil
 searchBarByAppliances.addEventListener('keydown', () => {
   displayBlockSearchByAppliances();
   displayNoneSearchByIngredients();
   displayNoneSearchByTools();
 });
 
-// ajout de la liste des appareils
-const appliancesList = allAppliances(recipes);
-addTagsList(blockSubMenuAppliances, appliancesList);
-searchInAppliancesTags();
-filterByAppliancesTags();
-
-// evenement au clic du bloc ustensiles
+// bloc de recherche par ustensiles :
+// évènement au clic du bloc ustensiles
 searchBarByTools.addEventListener('click', () => {
   displayBlockSearchByTools();
   displayNoneSearchByIngredients();
   displayNoneSearchByAppliances();
 });
+// ouverture du bloc sous menu ustensile au clic du chevron (et rotation de celui-ci)
 chevronBlockTool.addEventListener('click', () => {
   if (chevronBlockTool.classList.contains('rotate')) {
     displayNoneSearchByTools();
@@ -133,13 +121,25 @@ chevronBlockTool.addEventListener('click', () => {
     displayNoneSearchByAppliances();
   }
 });
-
-// evenement au clavier du bloc ustensiles
+// évènement au clavier du bloc ustensiles
 searchBarByTools.addEventListener('keydown', () => {
   displayBlockSearchByTools();
   displayNoneSearchByIngredients();
   displayNoneSearchByAppliances();
 });
+
+// ajout des tags dans les blocs
+// ajout de la liste des appareils
+const appliancesList = allAppliances(recipes);
+addTagsList(blockSubMenuAppliances, appliancesList);
+searchInAppliancesTags();
+filterByAppliancesTags();
+
+// ajout de la liste des ingredients
+const ingredientsList = allIngredients(recipes);
+addTagsList(blockSubMenuIngredients, ingredientsList);
+searchInIngredientsTags();
+filterByIngredientsTags();
 
 // ajout de la liste des ustensiles
 const toolsList = allTools(recipes);
@@ -160,8 +160,10 @@ searchBar.addEventListener('keyup', () => {
   const divYourTags = document.getElementById('yoursTags');
 
   // searchInV2();
-  // valeur de l'input
+  // on récupère la valeur de l'input
   const inputValue = wordNormalize(searchBar.value);
+  /* on supprimer les valeurs affichées dans les inputs des blocs de recherche si il y a
+  et on vide la div des tags sélèctionnés */
   divYourTags.innerHTML = '';
   searchBarByIngredients.value = '';
   searchBarByTools.value = '';
@@ -178,7 +180,7 @@ searchBar.addEventListener('keyup', () => {
       return RecipesNoFind();
     }
     buildArticle(arrayMainSearch);
-    // affichage de la liste des ingrédients en fonction de la liste des recettes
+    // affichage de la liste des ingrédients en fonction de la liste des recettes arrayMainSearch
     const allNewIngredients = allIngredients(arrayMainSearch);
     blockSubMenuIngredients.innerHTML = '';
     addTagsList(blockSubMenuIngredients, allNewIngredients);
@@ -188,7 +190,7 @@ searchBar.addEventListener('keyup', () => {
       tagNoFind();
     }
 
-    // affichage de la liste des appareils en fonction de la liste des recettes
+    // affichage de la liste des appareils en fonction de la liste des recettes arrayMainSearch
     const allNewAppliances = allAppliances(arrayMainSearch);
     blockSubMenuAppliances.innerHTML = '';
     addTagsList(blockSubMenuAppliances, allNewAppliances);
@@ -198,7 +200,7 @@ searchBar.addEventListener('keyup', () => {
       applianceNoFind();
     }
 
-    // affichage de la liste des ustensiles en fonction de la liste des recettes
+    // affichage de la liste des ustensiles en fonction de la liste des recettes arrayMainSearch
     const allNewTools = allTools(arrayMainSearch);
     blockSubMenuTools.innerHTML = '';
     addTagsList(blockSubMenuTools, allNewTools);
@@ -209,7 +211,7 @@ searchBar.addEventListener('keyup', () => {
     }
   } else {
     buildArticle(recipes);
-    // affichage de la liste des ingrédients en fonction de la liste des recettes
+    // affichage de la liste des ingrédients en fonction de la liste des recettes recipes
     const allNewIngredients = allIngredients(recipes);
     blockSubMenuIngredients.innerHTML = '';
     addTagsList(blockSubMenuIngredients, allNewIngredients);
@@ -219,7 +221,7 @@ searchBar.addEventListener('keyup', () => {
       tagNoFind();
     }
 
-    // affichage de la liste des appareils en fonction de la liste des recettes
+    // affichage de la liste des appareils en fonction de la liste des recettes recipes
     const allNewAppliances = allAppliances(recipes);
     blockSubMenuAppliances.innerHTML = '';
     addTagsList(blockSubMenuAppliances, allNewAppliances);
@@ -229,7 +231,7 @@ searchBar.addEventListener('keyup', () => {
       applianceNoFind();
     }
 
-    // affichage de la liste des ustensiles en fonction de la liste des recettes
+    // affichage de la liste des ustensiles en fonction de la liste des recettes recipes
     const allNewTools = allTools(recipes);
     blockSubMenuTools.innerHTML = '';
     addTagsList(blockSubMenuTools, allNewTools);
