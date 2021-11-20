@@ -30,7 +30,7 @@ export class Article {
                 <div id="recipe">
                     <div class ="info_recipe">
                         <h3>${this.name}</h3>
-                        <p><img src="/images/clock.svg" alt="icone horloge">${this.time} min</p>
+                        <p><img src="./images/clock.svg" alt="icone horloge">${this.time} min</p>
                     </div>
                     <div class="instructions_recipe">
                         <ul class="list_ingredient">
