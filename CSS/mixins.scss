@@ -6,9 +6,6 @@
     flex-direction: $direction;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-   
- 
-
 }
 
 @mixin input($bg-image, $height){
@@ -18,7 +15,6 @@
     width: 100%;
     height: $height;
     font-size: 1rem;
- 
 }
 
 @mixin tag-property(){
